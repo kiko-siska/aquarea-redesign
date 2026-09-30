@@ -45,7 +45,8 @@ Astro (static output) + Tailwind CSS + React islands only where a component need
 ## Working protocol (keeps sessions consistent)
 
 - **Start of session:** read `AGENTS.md` → `PROGRESS.md` → `DECISIONS.md` → the relevant section of `aquarea-redesign-prompt.md`. Continue from the first unchecked item in `PROGRESS.md`. Never redo finished work.
-- **Concurrency guard:** if `PROGRESS.md` → *Last updated* is less than 20 minutes old and the status is `RUNNING`, another session is active. Exit without changing anything.
+- **Concurrency guard:** if `PROGRESS.md` → *Last updated* is less than 45 minutes old and the status is `RUNNING`, another session is active. Exit without changing anything. So always update *Last updated* at least every 30 minutes while working, even in the middle of a long item.
+- **Usage limits:** this project has `autoContinueAtUsageLimit` on, so a session may pause at a usage limit and resume after the reset. After resuming, re-read `PROGRESS.md` before continuing.
 - **During work:** after each finished checklist item, tick it in `PROGRESS.md`, update *Last updated* (local time, `date "+%Y-%m-%d %H:%M"`), and `git commit` with a clear message. Small, frequent commits. They are the recovery points if usage runs out mid-task.
 - **End of session (or when running low):** set the status to `PAUSED` or `DONE`, write a short *Handoff* note in `PROGRESS.md` (what's next, any gotchas), and commit.
 - **Verification:** check every page in the built-in browser at 375px and desktop, and save screenshots into `screenshots/`. Build must pass (`npm run build`) before a phase counts as done.
