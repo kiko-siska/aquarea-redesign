@@ -16,13 +16,13 @@ Newest at the bottom. For each entry: date/time · decision · why · alternativ
 
 <!-- [auto] entries go below -->
 
-### 2026-10-01 07:40 · [auto] Design-system generator output, used as input only
+### 2026-10-01 07:05 · [auto] Design-system generator output, used as input only
 - Ran `ui-ux-pro-max --design-system` for "lake recreation area beach diving center camping" and "travel tourism resort outdoor summer" (dials variance 7, motion 6, density 3).
 - **Kept:** the *Scroll-Triggered Storytelling* pattern (chapters, a progress indicator, everything readable without the effect, a static final state under reduced motion); CTA in the hero, sticky on mobile, and at the bottom; an orange-red accent against water blues; editorial serif + clean sans; condensed display for a bold/sporty look; the checklist (contrast ≥ 4.5:1, 44 px targets, SVG icons instead of emoji, 375/768/1024/1440).
 - **Rejected:** trust-blue `#2563EB` SaaS palette, "Aurora UI" mesh gradients (a templated look the brief forbids), the Noto Sans Thai pairing (wrong market). Outfit/Work Sans are too generic.
 - Why: the generator has no lake/diving-specific profile. The real place (drone photos, red roofs and parasols, yellow loungers, wheat fields, the underwater attraction map) is the stronger source.
 
-### 2026-10-01 07:45 · [auto] Three homepage directions
+### 2026-10-01 07:07 · [auto] Three homepage directions
 All three use the same real content (src/content), the same IA (content-audit/SITEMAP.md §7) and the same sections: hero · zones as entry points · today's status + hours · prices teaser · FotoFilmFest · gallery teaser · how to get there · booking/contact CTA · sticky mobile bar (Zavolať / Rezervovať / Navigovať).
 
 **1 · Ponor: from the surface to −36 m** (`/variants/1/`)
@@ -36,11 +36,11 @@ Loud, sporty and colour-coded like on-site signage. Each zone gets a colour, and
 
 Checked against generic defaults: no cream + terracotta, no near-black + acid accent, no all-caps eyebrows above every heading, no mono labels, no "→" on buttons, no identical rounded-card grid, no centred text over a stock-style photo. The accents come from objects actually on site (loungers, parasols, roofs, fields).
 
-### 2026-10-01 07:50 · [auto] Image plan: real photos first, Gemini almost unused
+### 2026-10-01 07:07 · [auto] Image plan: real photos first, Gemini almost unused
 - 361 real photos exist (incl. underwater). Gemini is only for textures: planned **1–2 images** (an underwater caustics texture for variant 1; an optional abstract sun-glare-on-water divider). Budget max 8.
 - The OG image is composed from the real hero drone photo + logo (sharp), not generated.
 
-### 2026-10-01 08:20 · [auto] Component shortlist (Phase 2)
+### 2026-10-01 07:21 · [auto] Component shortlist (Phase 2)
 | Component | Source | Where | Decision |
 |---|---|---|---|
 | Light Rays | Magic UI `light-rays` (free) | v1 Dive Center chapter: sunlight falling into the water | use (React island, `client:visible`, static gradient under reduced motion) |
@@ -51,7 +51,7 @@ Checked against generic defaults: no cream + terracotta, no near-black + acid ac
 | Scroll Progress | Magic UI `scroll-progress` / 21st variants | v1 depth gauge | not needed: the depth gauge is custom (it shows real attraction depths) |
 | Aceternity UI | — | — | not used: everything needed is covered above with less JS |
 
-### 2026-10-01 08:22 · [auto] Image shot list (Gemini, max 8 total)
+### 2026-10-01 07:21 · [auto] Image shot list (Gemini, max 8 total)
 1. **v1 caustics texture**: seamless abstract sunlight caustics on pale sand seen through teal water. No objects, fish or people. 16:9, 2K, fast. Used as a low-opacity overlay at the surface → shallow transition. *(planned)*
 2. *(reserve)* abstract sun-glare-on-water divider for v2, only if the real photos don't cover it.
 Everything else uses real aquarea.sk photos. The OG image was composed from the real drone photo + logo (`scripts/make-og.mjs`), with 0 Gemini credits.
