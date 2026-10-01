@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:07
+- **Last updated:** 2026-10-01 07:09
 - **Current phase:** 2
 
 ## Checklist
@@ -17,7 +17,7 @@
 - [x] New information architecture proposal (end of SITEMAP.md) — 11 pages, 5 nav items + Rezervovať CTA, sticky mobile bar, old→new URL map
 
 ### Phase 2 — Three homepage directions
-- [ ] Run the ui-ux-pro-max design-system generator; write 3 directions into DECISIONS.md
+- [x] Run the ui-ux-pro-max design-system generator; write 3 directions into DECISIONS.md — 1 Ponor (dive), 2 Deň pri vode (editorial), 3 Náramok (wayfinding)
 - [ ] Scaffold Astro + Tailwind + React; content collections from the audit; `noindex`; git commit
 - [ ] Component shortlist (21st search / Magic UI / Aceternity) + image shot list
 - [ ] Variant 1 at `/variants/1/`
