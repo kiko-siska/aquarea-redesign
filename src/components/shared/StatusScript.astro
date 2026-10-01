@@ -1,0 +1,20 @@
+---
+/**
+ * Fills every [data-status] element with today's status at the lake.
+ * Runs in the browser so the static build never freezes "today" on the build date.
+ * Markup contract: [data-status] > [data-status-text] + [data-status-detail]; data-state = open | later | closed.
+ */
+---
+<script>
+  import { statusFor, type HoursData } from '../../lib/hours';
+  import data from '../../content/hours.json';
+
+  const s = statusFor(data as unknown as HoursData);
+  document.querySelectorAll<HTMLElement>('[data-status]').forEach((el) => {
+    el.dataset.state = s.state;
+    const t = el.querySelector('[data-status-text]');
+    const d = el.querySelector('[data-status-detail]');
+    if (t) t.textContent = s.text;
+    if (d) d.textContent = s.detail;
+  });
+</script>

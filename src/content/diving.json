@@ -1,0 +1,160 @@
+{
+  "id": "potapanie",
+  "name": "Dive Center",
+  "longName": "AQUAREA Čierna Voda Dive Center",
+  "href": "/potapanie/",
+  "lead": "Báza s plne vybaveným zázemím, so zanorenými atrakciami a množstvom rôznorodých rýb – pre začiatočníkov aj technických potápačov.",
+  "facts": [
+    { "value": "2017", "label": "vznik potápačského centra" },
+    { "value": "5★", "label": "TDI / SDI / ERDI potápačské centrum od roku 2020" },
+    { "value": "1000 m+", "label": "vodiacich lán k zanoreným atrakciám" },
+    { "value": "−35 m", "label": "zostupová bója v zóne DEEP" }
+  ],
+  "story": [
+    "Potápačské centrum vzniklo v roku 2017. V roku 2020 sa zaradilo medzi päťhviezdičkové TDI/SDI/ERDI potápačské centrá a od roku 2021 je ako jediné DC na Slovensku partnerom programu DAN HIRA (Hazard Identification and Risk Assessment Program).",
+    "Personál bázy je vyškolený na poskytnutie prvej pomoci aj podávanie kyslíka. Keďže je centrum súčasťou areálu, prídu si na svoje aj rodinní príslušníci – od najmenších až po nepotápajúce sa polovičky."
+  ],
+  "zones": [
+    { "name": "OWD", "text": "okruh v 5 m a 9 m s atrakciami ako auto, električka, autobus, vetroň, zvonica a ďalšie" },
+    { "name": "AOWD", "text": "zostupová bója – 30 m, simulácia zoskoku z člna" },
+    { "name": "DEEP", "text": "výcviková plošina v −30 m, zostupová bója v −35 m" },
+    { "name": "TECH", "text": "trasa autobus – plošina – električka" }
+  ],
+  "unique": [
+    "zanorené atrakcie vyviazané lanami s dĺžkou viac ako 1000 m, rozdelené do zón podľa kvalifikácie",
+    "detailná mapka zanorených atrakcií a okruhov (aj na zapožičanie počas ponoru)",
+    "kŕmenie a plávanie s kaprami v zátoke pri ponorených stromoch",
+    "požičovňa potápačského výstroja",
+    "plnenie fliaš kompresorom BAUER POSEIDON 550, 200/300 bar",
+    "automatický defibrilátor AED a odborné podanie kyslíka",
+    "spolupráca s DAN Europe"
+  ],
+  "safety": "Pred každým ponorom sa musí každý potápač aj freediver zaregistrovať s platnou najvyššie dosiahnutou potápačskou licenciou.",
+  "season": "Potápanie je možné počas letnej sezóny, keď je centrum v plnej prevádzke, alebo po individuálnej dohode mimo nej.",
+  "attractionsTitle": "Mapa potápačských atrakcií",
+  "attractionsSource": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html",
+  "attractionsNote": "Hĺbky podľa mapy Dive Centra „Objav svet pod hladinou“.",
+  "attractions": [
+    { "n": 1, "name": "Miesto pre bezpečnostnú zastávku", "depth": [5] },
+    { "n": 2, "name": "Figurína a zastávka", "depth": [6] },
+    { "n": 3, "name": "Rúra", "depth": [6.7] },
+    { "n": 4, "name": "Výcviková plošina + zrkadlo", "depth": [5] },
+    { "n": 5, "name": "Autobus", "depth": [8, 12] },
+    { "n": 6, "name": "Vaňa a bicykel", "depth": [10] },
+    { "n": 7, "name": "Kotlina", "depth": [9] },
+    { "n": 8, "name": "Bojler", "depth": [8] },
+    { "n": 9, "name": "Vorkoholik", "depth": [8] },
+    { "n": 10, "name": "Kesón", "depth": [8] },
+    { "n": 11, "name": "Rakety", "depth": [9] },
+    { "n": 12, "name": "Telefónna búdka", "depth": [9] },
+    { "n": 13, "name": "Zvonica", "depth": [8] },
+    { "n": 14, "name": "Šrotovník", "depth": [9] },
+    { "n": 15, "name": "Plachetnica Danka", "depth": [15] },
+    { "n": 16, "name": "Električka", "depth": [8, 13] },
+    { "n": 17, "name": "Lietadlo", "depth": [3, 6] },
+    { "n": 18, "name": "Plošina s rúrou", "depth": [8] },
+    { "n": 19, "name": "Loď", "depth": [7] },
+    { "n": 20, "name": "Auto a bicykel", "depth": [7] },
+    { "n": 21, "name": "Sud", "depth": [7] },
+    { "n": 22, "name": "Váha", "depth": [6] },
+    { "n": 23, "name": "Vaňa", "depth": [8] },
+    { "n": 24, "name": "Bojler", "depth": [8] },
+    { "n": 25, "name": "Koleso kosačky", "depth": [7] },
+    { "n": 26, "name": "Benzínová pumpa a bojler", "depth": [8] },
+    { "n": 27, "name": "Bojler", "depth": [8] },
+    { "n": 28, "name": "Raketa GRAD", "depth": [8] },
+    { "n": 29, "name": "Betón", "depth": [22] },
+    { "n": 30, "name": "Hlboká plošina (AOWD)", "depth": [30] },
+    { "n": 31, "name": "Ílovitá stena (AOWD)", "depth": [18, 26] },
+    { "n": 37, "name": "Motorka", "depth": [] }
+  ],
+  "gaugeStops": [
+    { "depth": 0, "label": "hladina" },
+    { "depth": 5, "label": "výcviková plošina" },
+    { "depth": 8, "label": "autobus" },
+    { "depth": 13, "label": "električka" },
+    { "depth": 15, "label": "plachetnica Danka" },
+    { "depth": 22, "label": "betón" },
+    { "depth": 30, "label": "hlboká plošina" },
+    { "depth": 36, "label": "FREE Diver" }
+  ],
+  "intro": {
+    "id": "skusobny-ponor",
+    "title": "Skúšobný zážitkový ponor",
+    "lead": "Vyskúšaj si ponor pod dohľadom skúseného inštruktora. Prevedie ťa základmi potápania, oboznámiš sa s výstrojom, naučíš sa základné zručnosti a signály pod vodou. Počas ponoru nahliadneš do zanorených atrakcií a s inštruktorom môžeš nakŕmiť kapre v zátoke.",
+    "price": 90,
+    "includes": [
+      "vstupné do Dive Centra a Plážovej zóny",
+      "predponorová príprava",
+      "požičanie výstroja",
+      "30-minútový ponor s inštruktorom potápania"
+    ],
+    "requirements": [
+      "minimálny vek 12 rokov",
+      "zdravotný stav umožňujúci potápať sa",
+      "plavecká spôsobilosť",
+      "plavky, uterák a niečo na pitie",
+      "pred ponorom nejesť ťažké jedlá",
+      "alkohol pred ponorom je zakázaný"
+    ],
+    "gift": "Dá sa kúpiť aj ako darček (darčeková poukážka poštou +4 €). Balíček BASIC obsahuje fotky z Dive Centra, diplom a potápačské nálepky.",
+    "giftSource": "https://www.aquarea.sk/cennik-1/premium-zona-cast-dive-center/"
+  },
+  "course": {
+    "id": "kurz-owd",
+    "title": "Základný kurz potápania OWD",
+    "subtitle": "Open Water Diver",
+    "price": 590,
+    "includes": [
+      "vstupné do Dive Centra a Plážovej zóny počas 3 dní kurzu",
+      "požičanie výstroja vrátane plnenia fliaš vzduchom",
+      "učebné materiály a pomôcky",
+      "darčekový predmet od Dive Centra po skončení kurzu",
+      "certifikačná kartička (licencia) SDI s celoživotnou platnosťou na potápanie na celom svete"
+    ],
+    "notIncluded": "tlačená verzia učebnice (dá sa kúpiť v potápačskom centre)",
+    "requirements": [
+      "vek min. 12 rokov (so súhlasom zákonného zástupcu) pre Junior OWD, min. 15 rokov pre OWD",
+      "vyhlásenie o zdravotnom stave (vypĺňa sa 1. deň kurzu)",
+      "plavecká spôsobilosť",
+      "plavky, uterák a niečo na pitie"
+    ],
+    "schedule": [
+      { "day": "Piatok", "text": "privítanie, administratíva, príprava a vyskúšanie výstroja, zanorenie v kontrolovanom vodnom prostredí, nácvik zručností, teória" },
+      { "day": "Sobota a nedeľa", "text": "4 – 6 ponorov na otvorenej vode (denne max. 3), teória, briefing a debriefing, opakovanie, záverečný test" }
+    ],
+    "scope": ["5 teoretických lekcií", "ponory v kontrolovanom vodnom prostredí – výcvikové plošiny", "4 – 6 ponorov na otvorenej vode"],
+    "aowd": "Pokročilý kurz AOWD (Advanced Open Water Diver) stojí tiež 590 €. Špecializácie a podrobnosti na +421 901 710 840.",
+    "aowdTodo": "Obsah a priebeh kurzu AOWD na aquarea.sk nie sú popísané."
+  },
+  "freediving": {
+    "id": "freediving",
+    "title": "Freediving",
+    "lead": "Nádychové potápanie (apnea) bez dýchacieho prístroja. Kurzy freedivingu level I a level II aj Apnea Discovery pre tých, čo si ho chcú len vyskúšať, zastrešuje v Dive Centre FREEDIVING ACADEMY pod záštitou Jaroslava Figuru.",
+    "platforms": [
+      { "name": "Výcviková platforma „Ostrov“", "text": "v strede jazera, max. hĺbka 35 m, možnosť napojiť vlastný sled aj pripnúť vlastnú bóju, pontóny na oddych medzi ponormi" },
+      { "name": "Plošina na tréning statiky", "text": "v hĺbke 1,5 m, konzola na pridržanie, kapacita 8 párov (buddy systém)" }
+    ],
+    "rules": [
+      "Každý freediver sa pred vstupom do Dive Centra zaregistruje na recepcii s platnou licenciou.",
+      "Bóju si treba priniesť vlastnú, areál zostupové bóje nepožičiava.",
+      "Inštruktor výlučne zodpovedá za svojich kurzistov.",
+      "Väčším skupinám odporúčame rezerváciu vopred cez Registráciu potápačských skupín."
+    ],
+    "link": { "label": "Freediving Academy", "href": "https://www.freedivingacademy.sk/" }
+  },
+  "rental": {
+    "title": "Požičovňa výstroja",
+    "items": "neoprény AQUALUNG 5 mm (XS – 4XL) s kuklou alebo bez, neoprény BARE 3 mm pre freediving, kukly AQUALUNG (S – 3XL), masky AQUALUNG, šnorchle, plutvy, olovo (1, 2, 3 kg), opasky, počítače, nožíky, baterky, fľaše 10, 12 a 15 l, plnenie vzduchom 200/300 bar",
+    "note": "Výstroj sa nerezervuje – veľkosti neoprénov sa líšia podľa postavy, treba si ho prísť vyskúšať pred kurzom alebo prísť ráno hneď po otvorení DC."
+  },
+  "services": [
+    "inštruktorský sprievod počas ponoru",
+    "skúšobný zážitkový ponor",
+    "potápačské kurzy",
+    "drobný servis",
+    "suveníry"
+  ],
+  "groups": "Väčšie potápačské a freediverské skupiny sa registrujú vopred cez formulár Registrácia potápačských skupín (s vyplneným potápačským reverzom).",
+  "source": "https://www.aquarea.sk/potapanie-2/"
+}

@@ -1,0 +1,153 @@
+{
+  "name": "Aquarea Čierna Voda",
+  "fullName": "Areál športu a relaxu AQUAREA",
+  "motto": "Miesto pre Váš aktívny oddych",
+  "mottoSource": "https://www.aquarea.sk/",
+  "intro": "Areál športu a relaxu pri jazere s tyrkysovou, krištáľovo čistou vodou v bývalom štrkovisku medzi obcami Veľké Úľany a Čierna Voda (okres Galanta). Má verejnú Plážovú zónu a Prémium zónu s apartmánmi, kempingom a potápačským centrom.",
+  "introSource": "https://www.aquarea.sk/o-nas/",
+  "since": 2011,
+  "sinceSource": "https://www.aquarea.sk/o-nas/",
+  "address": {
+    "lines": ["Areál športu a relaxu AQUAREA", "925 06 Čierna Voda", "Slovensko"],
+    "postalCode": "925 06",
+    "locality": "Čierna Voda",
+    "country": "SK",
+    "lat": 48.115096,
+    "lng": 17.613315,
+    "source": "https://www.aquarea.sk/kontakt/"
+  },
+  "maps": {
+    "directions": "https://www.google.com/maps/dir/?api=1&destination=48.115096,17.613315",
+    "place": "https://www.google.com/maps/search/?api=1&query=48.115096,17.613315",
+    "embed": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10654.808466816126!2d17.6130178!3d48.1159818!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3b0c2fc17785955b!2sAquarea%20%C4%8Cierna%20Voda!5e0!3m2!1scs!2scz!4v1675337849806!5m2!1scs!2scz",
+    "embedSource": "https://www.aquarea.sk/"
+  },
+  "contacts": {
+    "info": {
+      "label": "Info a rezervácie",
+      "phone": "+421 902 673 675",
+      "tel": "+421902673675",
+      "email": "rezervacie@aquarea.sk",
+      "hours": [
+        "mimo letnej sezóny: 09:00 – 16:00",
+        "počas letnej sezóny: v rámci otváracích hodín areálu"
+      ],
+      "callback": "Ak telefón nie je dostupný, ozveme sa späť.",
+      "source": "https://www.aquarea.sk/kontakt/"
+    },
+    "dive": {
+      "label": "Dive Center",
+      "phone": "+421 901 710 840",
+      "tel": "+421901710840",
+      "email": "divecenter@aquarea.sk",
+      "hours": [
+        "mimo letnej sezóny: 09:00 – 16:00",
+        "počas letnej sezóny: v rámci otváracích hodín areálu"
+      ],
+      "divers": "Vstup pre potápačov je možný celoročne. Mimo otváracích hodín areálu treba Dive Center kontaktovať vopred.",
+      "todo": "Koľko dní vopred? aquarea.sk uvádza „deň vopred“, „viac dní vopred“ aj „2–3 dni vopred“.",
+      "source": "https://www.aquarea.sk/kontakt/"
+    },
+    "manager": {
+      "label": "Konateľ",
+      "name": "Ing. Monika Kobzová",
+      "phone": "+421 905 296 271",
+      "tel": "+421905296271",
+      "email": "aquarea@aquarea.sk",
+      "source": "https://www.aquarea.sk/kontakt/"
+    }
+  },
+  "operator": {
+    "name": "AQUAREA s.r.o.",
+    "street": "Golfová 310/34",
+    "city": "900 50 Hrubá Borša",
+    "ico": "46 059 954",
+    "icdph": "SK2023222135",
+    "iban": "SK67 7500 0000 0040 1566 7308",
+    "source": "https://www.aquarea.sk/kontakt/"
+  },
+  "social": [
+    { "label": "Facebook", "href": "https://facebook.com/arealAQUAREA/" },
+    { "label": "Instagram", "href": "https://www.instagram.com/aquareaciernavoda/" }
+  ],
+  "socialSource": "https://www.aquarea.sk/",
+  "booking": {
+    "hub": "/rezervacie/",
+    "stayPrevio": {
+      "label": "Online rezervácia pobytu (Previo)",
+      "href": "https://booking.previo.app/?hotId=783841",
+      "note": "Apartmány č. 1–3 a kempingové miesta č. 3–7 s výberom termínu",
+      "source": "https://www.aquarea.sk/kontakt/rezervacia-previo/"
+    },
+    "stayForm": {
+      "label": "Rezervačný formulár – apartmány, kemping, stanovanie v Dive Centre",
+      "href": "https://www.aquarea.sk/kontakt/rezervacie/rezervacia-pobytu-apartmany-kemping-dive-center/",
+      "source": "https://www.aquarea.sk/kontakt/rezervacie/"
+    },
+    "introDive": {
+      "label": "Rezervácia skúšobného ponoru (aj ako darček)",
+      "href": "https://www.aquarea.sk/kontakt/rezervacie/rezervacia-skusobneho-zazitkoveho-ponoru-intro/",
+      "source": "https://www.aquarea.sk/kontakt/rezervacie/"
+    },
+    "course": {
+      "label": "Rezervácia potápačského kurzu OWD / AOWD",
+      "href": "https://www.aquarea.sk/kontakt/rezervacie/rezervacia-potapacskeho-kurzu/",
+      "source": "https://www.aquarea.sk/kontakt/rezervacie/"
+    },
+    "groups": {
+      "label": "Registrácia potápačských skupín",
+      "href": "https://www.aquarea.sk/kontakt/rezervacie/registracia-potapacskych-skupin/",
+      "source": "https://www.aquarea.sk/kontakt/rezervacie/"
+    },
+    "todo": "Ktorý spôsob rezervácie pobytu má byť hlavný – Previo (online) alebo formulár? Prevádzkový poriadok uvádza len formulár."
+  },
+  "documents": [
+    {
+      "label": "Prevádzkový poriadok 2026",
+      "file": "PDF, 495 kB",
+      "href": "https://www.aquarea.sk/modules/file_storage/download.php?file=fab514a7%7C4&inline=1",
+      "source": "https://www.aquarea.sk/kontakt/prevadzkovy-poriadok/"
+    },
+    {
+      "label": "Mapa areálu",
+      "file": "PDF, 219 kB",
+      "href": "https://www.aquarea.sk/e_download.php?file=data/editor/68sk_1.pdf&original=mapa_arealu_A5_navrh.pdf",
+      "source": "https://www.aquarea.sk/kontakt/mapa-arealu/"
+    },
+    {
+      "label": "Ochrana osobných údajov (GDPR)",
+      "file": "PDF, 163 kB",
+      "href": "https://www.aquarea.sk/modules/file_storage/download.php?file=0ac6ac6e%7C5&inline=1",
+      "source": "https://www.aquarea.sk/kontakt/gdpr/"
+    },
+    {
+      "label": "Potápačský reverz 2026",
+      "file": "PDF, 124 kB",
+      "href": "https://www.aquarea.sk/e_download.php?file=/data/editor/73sk_1.pdf&original=Potapacsky%20reverz%202026.pdf",
+      "source": "https://www.aquarea.sk/kontakt/rezervacie/registracia-potapacskych-skupin/"
+    }
+  ],
+  "rules": [
+    { "text": "Areál nie je prírodné kúpalisko. Kúpanie, vodné športy a potápanie sú len na vlastnú zodpovednosť.", "source": "https://www.aquarea.sk/o-nas/aktuality/sezona-2026-zacina-pri-vode-rezervujte-si-svoje-miesto-44sk.html" },
+    { "text": "Zákaz vodenia psov a akýchkoľvek iných zvierat do areálu a jeho okolia.", "source": "https://www.aquarea.sk/cennik-1/" },
+    { "text": "Kúpanie a vodné športy len na vyhradených miestach.", "source": "https://www.aquarea.sk/o-nas/aktuality/sezona-2026-zacina-pri-vode-rezervujte-si-svoje-miesto-44sk.html" },
+    { "text": "Zákaz používania plavidiel so spaľovacím motorom.", "source": "https://www.aquarea.sk/o-nas/aktuality/sezona-2026-zacina-pri-vode-rezervujte-si-svoje-miesto-44sk.html" },
+    { "text": "V celom areáli platí nočný kľud od 22:00 do 7:00.", "source": "https://www.aquarea.sk/kontakt/prevadzkovy-poriadok/" }
+  ],
+  "partners": [
+    { "label": "Technical Diving", "file": "technical-diving.png" },
+    { "label": "TDI", "file": "tdi.png" },
+    { "label": "SDI", "file": "sdi.png" },
+    { "label": "Scuba Diving", "file": "scuba-diving.png", "href": "https://www.scubadiving.com/" },
+    { "label": "ERDI", "file": "erdi.png" },
+    { "label": "Freediving Academy (Jaroslav Figura)", "file": "jaro-logo.png", "todo": "Logo nemá na aquarea.sk popis; predpokladáme Freediving Academy." }
+  ],
+  "partnersSource": "https://www.aquarea.sk/",
+  "gettingThere": {
+    "text": "Areál leží pri obci Čierna Voda v okrese Galanta. Do navigácie zadajte GPS súradnice 48.115096, 17.613315.",
+    "source": "https://www.aquarea.sk/kontakt/",
+    "parking": "Areál má parkovisko. V cenníku Plážovej zóny je dopravný prostriedok uvedený ako zdarma.",
+    "parkingSource": "https://www.aquarea.sk/cennik-1/plazova-zona/",
+    "todo": "Na aquarea.sk chýba popis cesty autom, autobusom či vlakom a informácie o parkovaní."
+  }
+}

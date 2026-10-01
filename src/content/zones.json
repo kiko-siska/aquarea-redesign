@@ -1,0 +1,126 @@
+{
+  "beach": {
+    "id": "plazova-zona",
+    "name": "Plážová zóna",
+    "short": "Pláž",
+    "href": "/plazova-zona/",
+    "lead": "Priezračná voda, čisté štrkové pláže a oddych pri vode bez dlhého cestovania.",
+    "body": "Verejná časť areálu pre rodiny s deťmi, páry, partie priateľov aj hostí Prémium zóny a potápačov. Vstup je po úhrade vstupného podľa aktuálneho cenníka, v rámci otváracích hodín areálu.",
+    "audience": ["rodiny s deťmi", "páry a jednotlivci", "partie priateľov", "hostia Prémium zóny a potápači"],
+    "features": [
+      "plážový volejbal",
+      "kajaky, kanoe, paddleboardy",
+      "detské ihriská",
+      "móla pri vode",
+      "oddychové zóny",
+      "sprchy a sanitárne zázemie",
+      "parkovisko",
+      "Event zóna – rodinné oslavy, firemné akcie, školské výlety, stanovanie"
+    ],
+    "featuresTodo": "Na aquarea.sk je „korigované parkovisko“ – ide o strážené/kontrolované parkovisko?",
+    "extras": [
+      { "text": "4 gastro prevádzky s rýchlym občerstvením", "source": "https://www.aquarea.sk/kontakt/prevadzkovy-poriadok/", "todo": "Názvy, ponuka a otváracie hodiny gastro prevádzok." },
+      { "text": "Požičovňa kajakov, kanoe a paddleboardov (Dida Sport – Kajak komando, stanovište na pláži)", "source": "https://www.aquarea.sk/kontakt/prevadzkovy-poriadok/", "todo": "Ceny a kontakt na požičovňu." },
+      { "text": "Sprchy sa zamykajú, kľúčik na recepcii za 3 € (záloha 20 €)", "source": "https://www.aquarea.sk/kontakt/prevadzkovy-poriadok/" }
+    ],
+    "reception": {
+      "title": "Recepcia a infocentrum",
+      "where": "pri vstupe do Prémium zóny",
+      "services": [
+        "informácie o areáli a aktivitách",
+        "predaj suvenírov, plážových potrieb, tričiek a máp",
+        "prenájom ihriska na plážový volejbal",
+        "registrácia pobytov do Prémium zóny a Potápačského centra",
+        "informácie o potápaní, kurzoch, zážitkových ponoroch a kempe",
+        "prvá pomoc"
+      ]
+    },
+    "entry": [
+      "Vstup do Plážovej zóny je možný po úhrade vstupného podľa aktuálneho cenníka, v rámci otváracích hodín areálu.",
+      "Hostia ubytovaní v Prémium zóne majú vstup do Plážovej zóny v cene pobytu.",
+      "Po zaplatení dostanete náramok, ktorý treba mať na ruke počas celej návštevy (okrem detí do 4 rokov).",
+      "Zákaz vodenia psov a akýchkoľvek iných zvierat do areálu a jeho okolia."
+    ],
+    "event": {
+      "title": "Event zóna",
+      "lead": "Pre rodinné oslavy, školské výlety, športové sústredenia aj firemné teambuildingy – príroda, súkromie a kompletné zázemie.",
+      "equipment": [
+        "altánky 12 × 6 m a 4 × 4 m",
+        "zapustené ohnisko a gril",
+        "priestor na stanovanie",
+        "studnička s pitnou vodou",
+        "elektrické zásuvky",
+        "výhľad na vodu a súkromie"
+      ],
+      "capacity": "do 100 osôb (možnosť prepojenia s ostatnými zónami areálu)",
+      "services": ["catering", "prenosné výčapy", "plátno + dataprojektor", "ozvučenie"]
+    },
+    "source": "https://www.aquarea.sk/plazova-zona-2/"
+  },
+  "premium": {
+    "id": "premium-zona",
+    "name": "Prémium zóna",
+    "short": "Pobyt",
+    "href": "/premium-zona/",
+    "lead": "Pokojná časť areálu priamo pri jazere pre hostí, ktorí majú radi komfort – so súkromím a privátnym prístupom k vode, bez ruchu hlavnej pláže.",
+    "body": "Pobyt je možný na základe rezervácie. V cene je vstup do Plážovej zóny počas otváracích hodín a privátny prístup k vode len pre hostí Prémium zóny.",
+    "apartments": {
+      "title": "Apartmány",
+      "lead": "Plne vybavené apartmány v potápačskom centre.",
+      "features": [
+        "vlastná kúpeľňa a plne vybavená kuchynka",
+        "terasa alebo vonkajšie sedenie pri vode",
+        "vstup do Plážovej zóny v cene pobytu počas otváracích hodín"
+      ],
+      "units": [
+        { "name": "Apartmán č. 1", "beds": "manželská posteľ (2 × 80 / 200 cm), možnosť rozkladacej prístelky (80 / 190 cm)" },
+        { "name": "Apartmán č. 2", "beds": "manželská posteľ (2 × 80 / 200 cm), možnosť rozkladacej prístelky (80 / 190 cm)" },
+        { "name": "Apartmán č. 3", "beds": "2 × jednolôžková posteľ (80 / 200 cm), bez prístelky" }
+      ],
+      "equipment": "Kuchynka s chladničkou, rýchlovarnou kanvicou, mikrovlnnou rúrou a sklokeramickou platňou, kuchynské príslušenstvo; sprchovací kút, umývadlo, toaleta; posteľná bielizeň a uteráky.",
+      "equipmentSource": "https://www.aquarea.sk/kontakt/prevadzkovy-poriadok/",
+      "checkin": "Check-in od 14:00, check-out do 10:00",
+      "checkinNote": "Po dohode a úhrade poplatku je možné zostať v areáli aj po odubytovaní.",
+      "rules": "V apartmánoch a na terasách platí prísny zákaz fajčenia a manipulácie s otvoreným ohňom."
+    },
+    "camping": {
+      "title": "Kemping",
+      "lead": "Kemping priamo pri jazere, ideálny pre milovníkov prírody.",
+      "features": [
+        "5 stanovacích miest s priamym prístupom k vode",
+        "altánky (miesta č. 4 a 6) a veľké slnečníky (miesta č. 3, 5, 7)",
+        "elektrické prípojky",
+        "studničky s vodou",
+        "ohniská, posedenia, stoly a lavice",
+        "sanitárne zariadenia (muži / ženy) len pre Prémium zónu"
+      ],
+      "divers": "Stanovanie v potápačskej časti je možné výhradne pre držiteľov potápačskej licencie.",
+      "security": "Bezpečnosť zabezpečuje strážna služba 24/7. Pri príchode sa uhrádza vratná záloha podľa aktuálneho cenníka.",
+      "checkin": "Check-in od 10:00, check-out do 9:00",
+      "todo": "Mapa areálu uvádza kemping na miestach č. 2 – 7, cenník na miestach č. 3 – 7."
+    },
+    "fishing": {
+      "title": "Rybolov",
+      "points": [
+        "len na vyhradených miestach pri jazere (miesta č. 3 až 7)",
+        "len s platným povolením SRZ Galanta",
+        "hosťovacie povolenky na recepcii počas hlavnej sezóny"
+      ],
+      "link": { "label": "MsO SRZ Galanta", "href": "https://www.msosrzgalanta.sk/" }
+    },
+    "howBooking": {
+      "title": "Ako funguje rezervácia",
+      "steps": [
+        "Pošlete rezerváciu cez online formulár (termín, apartmán alebo miesto, počet osôb, doplnkové služby).",
+        "Rezervačné oddelenie vám pošle cenovú ponuku.",
+        "Po odsúhlasení dostanete zálohovú faktúru: záloha 50 % z ceny, splatná do 3 kalendárnych dní.",
+        "Úhradou zálohy je rezervácia potvrdená. Zvyšok sa dopláca na recepcii pred nástupom na pobyt."
+      ],
+      "storno": "Pri zrušení alebo nenastúpení na pobyt sa uhradená záloha nevracia.",
+      "voucher": "Rekreačný poukaz treba nahlásiť už pri rezervácii.",
+      "checkin": "Pred ubytovaním treba vyplniť online check-in (ALFRED) s občianskym preukazom alebo pasom.",
+      "source": "https://www.aquarea.sk/kontakt/prevadzkovy-poriadok/"
+    },
+    "source": "https://www.aquarea.sk/premium-zona-3/"
+  }
+}

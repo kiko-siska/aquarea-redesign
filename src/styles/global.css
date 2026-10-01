@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens for the three homepage directions (DECISIONS.md, 2026-10-01).
+ * v1 Ponor · v2 Deň pri vode · v3 Náramok. Utilities are only generated when used.
+ */
+@theme {
+  /* v1 · Ponor: surface to depth */
+  --color-v1-hladina: #ddf3f1;
+  --color-v1-pena: #f4fbfa;
+  --color-v1-tyrkys: #1fa7a6;
+  --color-v1-tyrkys-ink: #0d6f6e;
+  --color-v1-jazero: #0f6e86;
+  --color-v1-hlbka: #0a3f52;
+  --color-v1-dno: #06232e;
+  --color-v1-slnko: #f4c542;
+  --color-v1-ink: #08303d;
+
+  /* v2 · Deň pri vode: sunlit magazine */
+  --color-v2-papier: #ffffff;
+  --color-v2-atrament: #123e5c;
+  --color-v2-atrament-soft: #3d5f77;
+  --color-v2-obloha: #dceef7;
+  --color-v2-psenica: #e2b547;
+  --color-v2-psenica-svetla: #f7ecd0;
+  --color-v2-slnecnik: #c8102e;
+  --color-v2-slnecnik-tmavy: #a00d25;
+  --color-v2-trava: #2f6b3a;
+
+  /* v3 · Náramok: bold wayfinding */
+  --color-v3-biela: #ffffff;
+  --color-v3-atrament: #10212b;
+  --color-v3-siva: #eef1f2;
+  --color-v3-plaz: #00a3a3;
+  --color-v3-plaz-ink: #006b6b;
+  --color-v3-premium: #2e7d32;
+  --color-v3-dive: #0b4f8a;
+  --color-v3-event: #d62828;
+  --color-v3-slnko: #ffc93c;
+
+  --font-v1: "Archivo Variable", "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-v2-serif: "Newsreader Variable", "Newsreader", Georgia, serif;
+  --font-v2-sans: "Instrument Sans Variable", "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-v3-display: "Big Shoulders Display Variable", "Big Shoulders Display", Impact, sans-serif;
+  --font-v3-sans: "Figtree Variable", "Figtree", ui-sans-serif, system-ui, sans-serif;
+
+  --breakpoint-xs: 26rem;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, picture, svg, video { display: block; max-width: 100%; }
+  picture img { width: 100%; height: 100%; }
+  :focus-visible {
+    outline: 3px solid var(--focus-color, #1d4ed8);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  [hidden] { display: none !important; }
+}
+
+@layer components {
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 100;
+    background: #fff;
+    color: #000;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+  }
+  .skip-link:focus { top: 1rem; }
+
+  /* Visible TODO marker (AGENTS.md rule 1). Same look in every direction on purpose. */
+  .todo-note {
+    display: inline-flex;
+    gap: 0.4em;
+    align-items: baseline;
+    max-width: 100%;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.8125rem;
+    line-height: 1.35;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #4a3200;
+    background: #fff1c2;
+    border: 1px dashed #a86b00;
+    border-radius: 0.375rem;
+    padding: 0.3rem 0.55rem;
+    text-align: left;
+  }
+  .todo-note strong { font-weight: 800; color: #6b4300; }
+
+  .status-dot {
+    display: inline-block;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 999px;
+    background: #9aa5ab;
+    flex: none;
+  }
+  [data-state="open"] .status-dot { background: #1f9d55; box-shadow: 0 0 0 4px rgb(31 157 85 / 0.2); }
+  [data-state="later"] .status-dot { background: #d59a00; }
+  [data-state="closed"] .status-dot { background: #c2410c; }
+
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:09
+- **Last updated:** 2026-10-01 07:20
 - **Current phase:** 2
 
 ## Checklist
@@ -18,7 +18,7 @@
 
 ### Phase 2 — Three homepage directions
 - [x] Run the ui-ux-pro-max design-system generator; write 3 directions into DECISIONS.md — 1 Ponor (dive), 2 Deň pri vode (editorial), 3 Náramok (wayfinding)
-- [ ] Scaffold Astro + Tailwind + React; content collections from the audit; `noindex`; git commit
+- [x] Scaffold Astro + Tailwind + React; content collections from the audit; `noindex`; git commit — Astro 7.3 static, Tailwind 4, React 19; data in `src/content/*.json` validated by zod (source URL required); base-path helper; OG image from real photo
 - [ ] Component shortlist (21st search / Magic UI / Aceternity) + image shot list
 - [ ] Variant 1 at `/variants/1/`
 - [ ] Variant 2 at `/variants/2/`

@@ -1,0 +1,36 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { photos } from '../../lib/content';
+
+interface Props {
+  id: string;
+  class?: string;
+  sizes?: string;
+  widths?: number[];
+  priority?: boolean;
+  alt?: string;
+  decorative?: boolean;
+}
+
+const files = import.meta.glob<{ default: ImageMetadata }>('/src/assets/photos/*.{jpg,png}', { eager: true });
+const { id, class: cls, sizes = '100vw', widths = [480, 800, 1200, 1600], priority = false, alt, decorative = false } = Astro.props;
+const entry = photos.photos.find((p) => p.id === id);
+const file = files[`/src/assets/photos/${id}.jpg`] ?? files[`/src/assets/photos/${id}.png`];
+if (!entry || !file) throw new Error(`Photo "${id}" is not in src/content/photos.json or src/assets/photos/`);
+const img = file.default;
+let w = widths.filter((x) => x <= img.width);
+if (w.length === 0 || w[w.length - 1] < img.width && widths.some((x) => x > img.width)) w = [...w, img.width];
+---
+<Picture
+  src={img}
+  alt={decorative ? '' : (alt ?? entry.alt)}
+  widths={w}
+  sizes={sizes}
+  formats={['avif', 'webp']}
+  fallbackFormat="jpg"
+  loading={priority ? 'eager' : 'lazy'}
+  decoding={priority ? 'sync' : 'async'}
+  fetchpriority={priority ? 'high' : 'auto'}
+  class={cls}
+/>

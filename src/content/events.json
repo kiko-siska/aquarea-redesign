@@ -1,0 +1,106 @@
+{
+  "fotofilmfest": {
+    "id": "fotofilmfest",
+    "name": "FotoFilmFest",
+    "fullName": "Potápačský festival fotografie a filmu AQUAREA Čierna Voda",
+    "href": "/fotofilmfest/",
+    "source": "https://www.aquarea.sk/fotofilmfest-2027/",
+    "lead": "Medzinárodná tematická súťaž fotografie a filmu spod vodnej hladiny sladkých aj slaných vôd – pre profesionálnych aj amatérskych fotografov a filmárov. Súčasťou je Medzinárodná súťaž vo fotografovaní pod vodou priamo v Dive Centre.",
+    "idea": "Okrem samotnej tvorby ide o stretnutie potápačskej, fotografickej a filmárskej komunity, výmenu skúseností a nové kontakty. Počas festivalu prebiehajú prezentácie fotografickej a filmárskej techniky, workshopy a prednášky.",
+    "next": {
+      "title": "FotoFilmFest 2027",
+      "date": "2027-05-15",
+      "dateText": "15. mája 2027 (sobota)",
+      "evening": "Spoločenský večer s vyhodnotením a odovzdávaním cien od 19:00 do 22:00",
+      "place": "Areál športu a relaxu AQUAREA Čierna Voda",
+      "todo": "Termín potvrdiť: aquarea.sk uvádza „15. mája 2026 (Sobota)“ v tabuľke a súťažný deň „15. 5. 2027“ v texte. Podstránky (propozície, prihlášky) sú zatiaľ pre ročník 2026."
+    },
+    "team": [
+      { "role": "Organizátor", "who": "AQUAREA Čierna Voda Dive Center v spolupráci s Areálom športu a relaxu AQUAREA Čierna Voda" },
+      { "role": "Spoluorganizátori", "who": "Freediving Academy – Jaroslav Figura; Latso Photography – Ladislav Chovan" },
+      { "role": "Partneri", "who": "AQUAREA s.r.o., Pro-Dive s.r.o." },
+      { "role": "Garant pre fotografiu", "who": "RNDr. Peter Áč, PhD." },
+      { "role": "Garant pre film", "who": "Pavol Kráľ" }
+    ],
+    "last": {
+      "title": "FotoFilmFest 2026",
+      "dateText": "26. – 27. 9. 2026",
+      "source": "https://www.aquarea.sk/fotofilmfest-2027/program-fotofilmfest-26-2792026/",
+      "program": [
+        {
+          "day": "Sobota 26. 9. 2026",
+          "items": [
+            { "time": "08:00 – 09:00", "text": "registrácia súťažiacich Medzinárodnej súťaže vo fotografovaní pod vodou" },
+            { "time": "09:00 – 09:15", "text": "slávnostné otvorenie festivalu" },
+            { "time": "09:15 – 12:00", "text": "súťažné fotenie (do vody len fotografi)" },
+            { "time": "09:00 – 18:00", "text": "prezentácie fotografickej a filmárskej techniky, noviniek v potápačskom výstroji, premietanie súťažných filmov a fotografií" },
+            { "time": "12:00 – 14:00", "text": "hodnotenie odbornej poroty" },
+            { "time": "12:00 – 17:00", "text": "štandardná prevádzka DC (potápanie aj pre nefotografov)" },
+            { "time": "19:00 – 21:00", "text": "slávnostné vyhlásenie víťazov a odovzdávanie cien" },
+            { "time": "21:00 – 24:00", "text": "poďakovanie účastníkom a ukončenie sezóny, neformálne posedenie v Event zóne" }
+          ]
+        },
+        {
+          "day": "Nedeľa 27. 9. 2026",
+          "items": [
+            { "time": "09:00 – 16:00", "text": "záverečný potápačský deň sezóny s premietaním víťazných aj súťažných fotografií a filmov" }
+          ]
+        }
+      ]
+    },
+    "competitions": [
+      {
+        "id": "fotografia",
+        "title": "Súťaž fotografie",
+        "source": "https://www.aquarea.sk/fotofilmfest-2027/propozicie-fotofilmfest-2026-fotografia/",
+        "categories": ["A – sladká voda", "B – slaná voda", "C – kreatívna fotografia"],
+        "points": [
+          "max. 3 fotografie v jednej kategórii od jedného autora",
+          "aspoň 50 % obrazu spod vodnej hladiny, fotografie z prírodných vôd (okrem kreatívnej fotografie)",
+          "JPG, 300 dpi, max. 5 MB, pomer strán 2:3 alebo 3:2, na divecenter@aquarea.sk cez úschovňu (Uschovna.cz, Dropbox, Google Drive, WeTransfer)",
+          "účastnícky poplatok 15 € (zahŕňa vstup na slávnostné vyhodnotenie)",
+          "ceny: 1. – 3. miesto v každej kategórii, najlepšia slovenská fotografia, zvláštne ceny a čestné uznania"
+        ],
+        "deadline2026": "uzávierka ročníka 2026: 31. 8. 2026"
+      },
+      {
+        "id": "film",
+        "title": "Súťaž filmu",
+        "source": "https://www.aquarea.sk/fotofilmfest-2027/propozicie-fotofilmfest-2026-film/",
+        "categories": ["A – filmy spod vodnej hladiny (max. 30 min.)", "B – krátke videá spod vodnej hladiny (max. 3 min.)"],
+        "points": [
+          "amatérski aj profesionálni filmári, film vyrobený po roku 2015",
+          "zábery spod hladiny tvoria aspoň 30 % dĺžky filmu",
+          "max. 3 filmy v každej kategórii",
+          "odporúčaný formát MP4, 1920 × 1080, H264, zvuk 2.0; heslo FFF2026 v poznámke",
+          "účastnícky poplatok 15 € (zahŕňa vstup na slávnostné vyhodnotenie)",
+          "ceny: 1. – 3. miesto v kategóriách A a B, najlepší slovenský potápačský film, zvláštne ceny a čestné uznania"
+        ],
+        "deadline2026": "uzávierka ročníka 2026: 31. 8. 2026"
+      },
+      {
+        "id": "sutaz-pod-vodou",
+        "title": "Medzinárodná súťaž vo fotografovaní pod vodou",
+        "source": "https://www.aquarea.sk/fotofilmfest-2027/propozicie-medzinarodna-sutaz-vo-fotografovani-pod-vodou-2026/",
+        "categories": ["A – živočích", "B – makro", "C – širokouhlá fotografia"],
+        "points": [
+          "len certifikovaní potápači a freediveri s platnou licenciou, s vlastným výstrojom a technikou (vlastná SD karta)",
+          "súťažné fotenie počas jedného dňa v Dive Centre, od 9:00 do 12:00",
+          "štartovné 30 € (zahŕňa vstup do areálu a DC počas súťažného dňa aj vyhodnotenia)",
+          "max. 30 súťažiacich",
+          "ceny: 1. – 3. cena v každej kategórii, TOP fotograf (ak autor obsadí všetky tri kategórie), zvláštne ceny a čestné uznania"
+        ],
+        "deadline2026": "ročník 2026: prihlasovanie 15. 4. – 20. 9. 2026"
+      }
+    ],
+    "applications": [
+      { "label": "Prihláška – FotoFilmFest (fotografia a film)", "href": "https://www.aquarea.sk/fotofilmfest-2027/prihlaska-fotofilmfest-2026/" },
+      { "label": "Prihláška – Medzinárodná súťaž vo fotografovaní pod vodou", "href": "https://www.aquarea.sk/fotofilmfest-2027/prihlaska-medzinarodna-sutaz-vo-fotografovani-pod-vodou/" }
+    ],
+    "applicationsTodo": "Prihlášky na aquarea.sk sú zatiaľ označené ako ročník 2026.",
+    "partners": [
+      { "label": "Freediving Academy", "href": "https://www.freedivingacademy.sk/" },
+      { "label": "Pro-Dive", "href": "https://www.pro-dive.sk/" }
+    ]
+  }
+}

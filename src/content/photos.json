@@ -1,0 +1,345 @@
+{
+ "note": "Real photos from aquarea.sk (© AQUAREA s.r.o.). File in src/assets/photos/<id>.jpg (mapa-arealu is .png). Full source list: source-images/SOURCES.md",
+ "albums": {
+  "plaz": "Plážová zóna",
+  "dive": "Potápanie",
+  "apartmany": "Apartmány",
+  "kemping": "Kemping",
+  "gastro": "Gastro",
+  "event": "Event zóna",
+  "freediving": "Freediving",
+  "mapa": "Mapa"
+ },
+ "photos": [
+  {
+   "id": "dron-areal",
+   "album": "plaz",
+   "alt": "Letecký pohľad na jazero Aquarea s tyrkysovými brehmi, plážou, ihriskami a areálom medzi poliami",
+   "source": "https://www.aquarea.sk/"
+  },
+  {
+   "id": "dron-kemping-pole",
+   "album": "kemping",
+   "alt": "Letecký pohľad na tyrkysový breh jazera, rad kempingových miest pod stromami a pšeničné pole",
+   "source": "https://www.aquarea.sk/galeria/kemping-56sk.html"
+  },
+  {
+   "id": "dron-plytcina",
+   "album": "plaz",
+   "alt": "Pohľad zhora na tyrkysovú plytčinu a piesočnatý výbežok s mólom",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "dron-molo-plytcina",
+   "album": "plaz",
+   "alt": "Pohľad zhora na priezračnú vodu, drevené mólo a kamenistý breh",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "dron-zatoka",
+   "album": "plaz",
+   "alt": "Letecký pohľad na tyrkysovú zátoku jazera so stromami na brehu",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "dron-zatoka-stromy",
+   "album": "plaz",
+   "alt": "Zátoka so stromami a plážou z výšky, v pozadí polia",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "plaz-molo-lehatka",
+   "album": "plaz",
+   "alt": "Drevené mólo s lehátkami na brehu tyrkysového jazera",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "plaz-zapad-slnka",
+   "album": "plaz",
+   "alt": "Západ slnka nad hladinou jazera",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "plaz-kapre-pri-mole",
+   "album": "plaz",
+   "alt": "Kŕdeľ kaprov v priezračnej vode pri móle",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "plaz-detske-ihrisko",
+   "album": "plaz",
+   "alt": "Detské ihrisko s lezeckou stenou a tieniacimi plachtami",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "plaz-molo-zabradlie",
+   "album": "plaz",
+   "alt": "Mólo so zábradlím nad priezračnou vodou",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "plaz-priezracna-voda",
+   "album": "plaz",
+   "alt": "Krištáľovo čistá plytká voda pri kamenistom brehu",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "plaz-leto-travnik",
+   "album": "plaz",
+   "alt": "Letný deň na trávnatej pláži s ľuďmi a slnečníkmi",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "plaz-hojdacka-molo",
+   "album": "plaz",
+   "alt": "Drevená terasa s hojdačkou a stolom pri vode",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "plaz-lavicky-rano",
+   "album": "plaz",
+   "alt": "Lavičky na štrkovom brehu jazera v rannom svetle",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "plaz-zrkadlenie",
+   "album": "plaz",
+   "alt": "Stromy na brehu sa zrkadlia na pokojnej hladine",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "plaz-srdce-molo",
+   "album": "plaz",
+   "alt": "Mólo s lavičkou a kovovým srdcom s nápisom AQUArea",
+   "source": "https://www.aquarea.sk/galeria/plazova-zona-63sk.html"
+  },
+  {
+   "id": "pod-vodou-scuka",
+   "album": "dive",
+   "alt": "Šťuka nad piesočnatým dnom jazera",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "pod-vodou-rura",
+   "album": "dive",
+   "alt": "Ryba pláva v ústí zanorenej rúry",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "pod-vodou-plosina",
+   "album": "dive",
+   "alt": "Potápač s dvoma fľašami nad výcvikovou plošinou",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "pod-vodou-motorka",
+   "album": "dive",
+   "alt": "Zanorená motorka na dne jazera",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "pod-vodou-kapre-potapac",
+   "album": "dive",
+   "alt": "Potápač medzi kaprami a ponorenými konármi",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "pod-vodou-kapor-konare",
+   "album": "dive",
+   "alt": "Kapor medzi ponorenými konármi",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "pod-vodou-atrakcia-luce",
+   "album": "dive",
+   "alt": "Potápači pri zanorenej atrakcii, cez vodu prenikajú slnečné lúče",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "pod-vodou-potapac-atrakcia",
+   "album": "dive",
+   "alt": "Potápač pri zanorenej konštrukcii",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "dron-potapac",
+   "album": "dive",
+   "alt": "Pohľad zhora na tyrkysovú vodu s potápačom pod hladinou",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "dron-ponorove-miesto",
+   "album": "dive",
+   "alt": "Ponorové miesto zhora: bubliny potápačov a vodiace laná",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "dive-vstup-do-vody",
+   "album": "dive",
+   "alt": "Dvaja potápači vstupujú z plošiny do priezračnej vody",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "dive-zapad-molo",
+   "album": "dive",
+   "alt": "Drevené mólo pri západe slnka",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "dive-zapad-ponton",
+   "album": "dive",
+   "alt": "Západ slnka nad jazerom s potápačským pontónom",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "dive-kompresor",
+   "album": "dive",
+   "alt": "Kompresorovňa s potápačskými fľašami",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "dive-pozicovna",
+   "album": "dive",
+   "alt": "Požičovňa potápačského výstroja – neoprény a vesty na stene",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "dive-lynx-dock",
+   "album": "dive",
+   "alt": "Krytý prístrešok Lynx Dive Dock",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "dive-lehatka",
+   "album": "dive",
+   "alt": "Žlté lehátka na trávniku pri jazere",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "dive-skupina-voda",
+   "album": "dive",
+   "alt": "Skupina potápačov na hladine jazera",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "dive-mapa-atrakcii",
+   "album": "dive",
+   "alt": "Mapa potápačských atrakcií Dive Centra s číslami a hĺbkami",
+   "source": "https://www.aquarea.sk/galeria/potapacske-centrum-60sk.html"
+  },
+  {
+   "id": "apartmany-budova",
+   "album": "apartmany",
+   "alt": "Drevená budova apartmánov s kvetmi v sudoch a trávnikom",
+   "source": "https://www.aquarea.sk/galeria/apartmany-57sk.html"
+  },
+  {
+   "id": "apartmany-terasa",
+   "album": "apartmany",
+   "alt": "Krytá terasa pred apartmánmi s posedením",
+   "source": "https://www.aquarea.sk/galeria/apartmany-57sk.html"
+  },
+  {
+   "id": "apartmany-izba",
+   "album": "apartmany",
+   "alt": "Izba apartmánu s dvoma posteľami",
+   "source": "https://www.aquarea.sk/galeria/apartmany-57sk.html"
+  },
+  {
+   "id": "apartmany-kuchynka",
+   "album": "apartmany",
+   "alt": "Kuchynka apartmánu s mikrovlnnou rúrou",
+   "source": "https://www.aquarea.sk/galeria/apartmany-57sk.html"
+  },
+  {
+   "id": "apartmany-terasa-lehatka",
+   "album": "apartmany",
+   "alt": "Terasa apartmánu s dvoma ležadlami",
+   "source": "https://www.aquarea.sk/galeria/apartmany-57sk.html"
+  },
+  {
+   "id": "kemping-altanok",
+   "album": "kemping",
+   "alt": "Altánok so stolom na kempingovom mieste pri jazere",
+   "source": "https://www.aquarea.sk/galeria/kemping-56sk.html"
+  },
+  {
+   "id": "kemping-vlastne-molo",
+   "album": "kemping",
+   "alt": "Kempingové miesto s vlastným mólom do vody",
+   "source": "https://www.aquarea.sk/galeria/kemping-56sk.html"
+  },
+  {
+   "id": "kemping-z-vody",
+   "album": "kemping",
+   "alt": "Kempingové miesta s altánkami a vstupmi do vody, pohľad z jazera",
+   "source": "https://www.aquarea.sk/galeria/kemping-56sk.html"
+  },
+  {
+   "id": "kemping-vecer",
+   "album": "kemping",
+   "alt": "Večerné svetlo nad jazerom a stromami pri kempingu",
+   "source": "https://www.aquarea.sk/galeria/kemping-56sk.html"
+  },
+  {
+   "id": "gastro-dron",
+   "album": "gastro",
+   "alt": "Letecký pohľad na gastro prevádzky pri jazere",
+   "source": "https://www.aquarea.sk/galeria/gastro-prevadzky-62sk.html"
+  },
+  {
+   "id": "gastro-slnecniky",
+   "album": "gastro",
+   "alt": "Terasa s červenými stoličkami a slnečníkmi",
+   "source": "https://www.aquarea.sk/galeria/gastro-prevadzky-62sk.html"
+  },
+  {
+   "id": "gastro-bufet",
+   "album": "gastro",
+   "alt": "Bufet s pultom a posedením pod dreveným prístreškom",
+   "source": "https://www.aquarea.sk/galeria/gastro-prevadzky-62sk.html"
+  },
+  {
+   "id": "event-altanok",
+   "album": "event",
+   "alt": "Veľký altánok v Event zóne s červenými stoličkami",
+   "source": "https://www.aquarea.sk/galeria/event-zona-61sk.html"
+  },
+  {
+   "id": "event-oslava",
+   "album": "event",
+   "alt": "Altánok pripravený na oslavu s dlhým stolom a balónmi",
+   "source": "https://www.aquarea.sk/galeria/event-zona-61sk.html"
+  },
+  {
+   "id": "event-ohnisko",
+   "album": "event",
+   "alt": "Zapustené ohnisko na trávniku v Event zóne",
+   "source": "https://www.aquarea.sk/galeria/event-zona-61sk.html"
+  },
+  {
+   "id": "freediving-ostrov",
+   "album": "freediving",
+   "alt": "Výcvikové plošiny pre freediving uprostred jazera",
+   "source": "https://www.aquarea.sk/galeria/freediving-apnea-academy-59sk.html"
+  },
+  {
+   "id": "freediving-skupina",
+   "album": "freediving",
+   "alt": "Skupina freediverov v priezračnej vode pri brehu",
+   "source": "https://www.aquarea.sk/galeria/freediving-apnea-academy-59sk.html"
+  },
+  {
+   "id": "freediving-rozcvicka",
+   "album": "freediving",
+   "alt": "Spoločná rozcvička freediverov na trávniku",
+   "source": "https://www.aquarea.sk/galeria/freediving-apnea-academy-59sk.html"
+  },
+  {
+   "id": "mapa-arealu",
+   "album": "mapa",
+   "alt": "Ilustrovaná mapa areálu Aquarea s plážovou a prémiovou zónou, vstupmi a miestami",
+   "source": "https://www.aquarea.sk/kontakt/mapa-arealu/"
+  }
+ ]
+}

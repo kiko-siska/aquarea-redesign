@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+import { url } from '../lib/url';
+import { site } from '../lib/content';
+
+interface Props {
+  title: string;
+  description: string;
+  /** body classes: palette + font of the direction */
+  bodyClass?: string;
+  themeColor?: string;
+  ogImage?: string;
+  jsonLd?: object | object[];
+}
+
+const { title, description, bodyClass, themeColor = '#0f6e86', ogImage = '/og.jpg', jsonLd } = Astro.props;
+const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const og = new URL(url(ogImage), Astro.site).toString();
+---
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <!-- Unapproved redesign concept: keep it out of search engines (AGENTS.md rule 4). -->
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content={themeColor} />
+    <link rel="icon" type="image/png" href={url('/favicon-32.png')} sizes="32x32" />
+    <link rel="apple-touch-icon" href={url('/apple-touch-icon.png')} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sk_SK" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    <slot name="head" />
+  </head>
+  <body class={bodyClass}>
+    <a class="skip-link" href="#obsah">Preskočiť na obsah</a>
+    <slot />
+  </body>
+</html>

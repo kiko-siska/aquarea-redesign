@@ -1,0 +1,101 @@
+{
+  "source": "https://www.aquarea.sk/kontakt/otvaracie-hodiny/",
+  "season": "Letná sezóna 2026",
+  "lastEntry": "Posledný vstup do areálu je vždy možný najneskôr 1 hodinu pred zatvorením areálu.",
+  "overview": [
+    { "label": "Máj", "text": "otvorené len pre potápačov" },
+    { "label": "Jún", "text": "postupné otvorenie pre verejnosť" },
+    { "label": "Jún – August", "text": "hlavná sezóna, otvorené denne" },
+    { "label": "September", "text": "obmedzená prevádzka" },
+    { "label": "Október", "text": "zatvorené (výnimky pre vopred nahlásené skupiny)" }
+  ],
+  "periods": [
+    {
+      "id": "maj",
+      "title": "Máj 2026",
+      "subtitle": "otvorené len pre potápačov",
+      "rows": [
+        { "from": "2026-05-01", "to": "2026-05-03", "days": "pi – ne", "open": "09:00", "close": "16:00", "audience": "divers", "note": "1× gastro" },
+        { "from": "2026-05-08", "to": "2026-05-10", "days": "pi – ne", "open": "09:00", "close": "16:00", "audience": "divers", "note": "1× gastro" },
+        { "from": "2026-05-16", "to": "2026-05-17", "days": "so – ne", "open": "09:00", "close": "16:00", "audience": "divers", "note": "1× gastro" },
+        { "from": "2026-05-23", "to": "2026-05-24", "days": "so – ne", "open": "09:00", "close": "16:00", "audience": "divers", "note": "1× gastro" },
+        { "from": "2026-05-29", "to": "2026-05-29", "days": "pi", "open": "12:00", "close": "18:00", "audience": "divers", "note": "1× gastro" },
+        { "from": "2026-05-30", "to": "2026-05-31", "days": "so – ne", "open": "09:00", "close": "18:00", "audience": "divers", "note": "1× gastro" }
+      ]
+    },
+    {
+      "id": "jun",
+      "title": "Jún 2026",
+      "subtitle": "postupné otvorenie",
+      "rows": [
+        { "from": "2026-06-05", "to": "2026-06-05", "days": "pi", "open": "12:00", "close": "18:00", "audience": "all" },
+        { "from": "2026-06-06", "to": "2026-06-07", "days": "so – ne", "open": "09:00", "close": "18:00", "audience": "all" },
+        { "from": "2026-06-12", "to": "2026-06-12", "days": "pi", "open": "12:00", "close": "18:00", "audience": "all" },
+        { "from": "2026-06-13", "to": "2026-06-14", "days": "so – ne", "open": "09:00", "close": "18:00", "audience": "all" },
+        { "from": "2026-06-19", "to": "2026-06-19", "days": "pi", "open": "10:00", "close": "18:00", "audience": "all" },
+        { "from": "2026-06-20", "to": "2026-06-21", "days": "so – ne", "open": "09:00", "close": "18:30", "audience": "all" },
+        { "from": "2026-06-22", "to": "2026-06-25", "days": "po – št", "open": "12:00", "close": "18:00", "audience": "all" },
+        { "from": "2026-06-26", "to": "2026-06-26", "days": "pi", "open": "10:00", "close": "19:00", "audience": "all" },
+        { "from": "2026-06-27", "to": "2026-06-28", "days": "so – ne", "open": "09:00", "close": "19:00", "audience": "all" }
+      ]
+    },
+    {
+      "id": "hlavna",
+      "title": "Hlavná sezóna",
+      "subtitle": "29. 6. – 16. 8. 2026",
+      "range": { "from": "2026-06-29", "to": "2026-08-16" },
+      "weekly": [
+        { "label": "Pondelok – Piatok", "weekdays": [1, 2, 3, 4, 5], "open": "10:00", "close": "20:00", "audience": "all" },
+        { "label": "Sobota – Nedeľa", "weekdays": [6, 0], "open": "09:00", "close": "20:00", "audience": "all" }
+      ]
+    },
+    {
+      "id": "hlavna-skratene",
+      "title": "Hlavná sezóna – skrátené hodiny",
+      "subtitle": "17. 8. – 31. 8. 2026",
+      "range": { "from": "2026-08-17", "to": "2026-08-31" },
+      "weekly": [
+        { "label": "Pondelok – Piatok", "weekdays": [1, 2, 3, 4, 5], "open": "10:00", "close": "19:00", "audience": "all" },
+        { "label": "Sobota – Nedeľa", "weekdays": [6, 0], "open": "09:00", "close": "19:00", "audience": "all" }
+      ]
+    },
+    {
+      "id": "september",
+      "title": "September 2026",
+      "subtitle": "obmedzená prevádzka",
+      "rows": [
+        { "from": "2026-09-04", "to": "2026-09-04", "days": "pi", "open": "12:00", "close": "18:00", "audience": "all" },
+        { "from": "2026-09-05", "to": "2026-09-06", "days": "so – ne", "open": "09:00", "close": "18:00", "audience": "all" },
+        { "from": "2026-09-11", "to": "2026-09-11", "days": "pi", "open": "12:00", "close": "17:00", "audience": "all" },
+        { "from": "2026-09-12", "to": "2026-09-13", "days": "so – ne", "open": "09:00", "close": "17:00", "audience": "all" },
+        { "from": "2026-09-19", "to": "2026-09-20", "days": "so – ne", "open": "09:00", "close": "16:00", "audience": "divers" },
+        { "from": "2026-09-26", "to": "2026-09-27", "days": "so – ne", "open": "09:00", "close": "16:00", "audience": "divers" }
+      ]
+    },
+    {
+      "id": "oktober",
+      "title": "Október 2026",
+      "subtitle": "zatvorené",
+      "range": { "from": "2026-10-01", "to": "2026-10-31" },
+      "closed": true,
+      "text": "Zatvorené. Vstup je možný po dohode pre väčšie potápačské skupiny (min. 15 osôb)."
+    }
+  ],
+  "seasonEnd": {
+    "text": "Sezóna 2026 je uzavretá od 28. 9. 2026. Vouchery a vstupy sa neprenášajú do roka 2027.",
+    "source": "https://www.aquarea.sk/o-nas/aktuality/vyuzitie-darcekovych-poukazov-2026-86sk.html"
+  },
+  "nextSeason": {
+    "text": "Otváracie hodiny na sezónu 2027 zatiaľ nie sú zverejnené.",
+    "todo": "Doplniť otváracie hodiny na sezónu 2027."
+  },
+  "bookingWindows": {
+    "text": "Rezervácie v Dive Centre sú možné od mája, iba cez víkendy. Rezervácie v kempe od júna (iba pi – ne). V júli a auguste je otvorené každý deň.",
+    "source": "https://www.aquarea.sk/o-nas/aktuality/sezona-2026-zacina-pri-vode-rezervujte-si-svoje-miesto-44sk.html"
+  },
+  "audiences": {
+    "all": "verejnosť + potápači",
+    "divers": "len potápači"
+  },
+  "conflictTodo": "Prevádzkový poriadok (PDF) uvádza pre sezónu 2026 iné „predbežné“ hodiny ako stránka Otváracie hodiny. Používame stránku Otváracie hodiny."
+}

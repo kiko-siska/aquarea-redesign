@@ -1,0 +1,10 @@
+---
+/**
+ * Visible marker for information aquarea.sk doesn't provide (AGENTS.md rule 1).
+ * Every instance carries data-todo, so the full list can be collected with:
+ *   grep -rho 'data-todo="[^"]*"' dist | sort -u
+ */
+interface Props { text: string; class?: string }
+const { text, class: cls } = Astro.props;
+---
+<span class:list={['todo-note', cls]} data-todo={text}><strong>TODO</strong> {text}</span>

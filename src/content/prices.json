@@ -1,0 +1,265 @@
+{
+  "validFrom": "2026-07-24",
+  "validFromText": "Platný od 24. 7. 2026",
+  "source": "https://www.aquarea.sk/cennik-1/",
+  "notice": "Zákaz vodenia psov a akýchkoľvek iných zvierat do areálu a jeho okolia.",
+  "sections": [
+    {
+      "id": "plazova-zona",
+      "title": "Plážová zóna",
+      "source": "https://www.aquarea.sk/cennik-1/plazova-zona/",
+      "intro": [
+        "Vstup platí do Plážovej zóny v rámci otváracích hodín areálu.",
+        "Vstup neplatí do Prémium zóny (potápačské centrum, kemping).",
+        "Zľava pre dieťa (4 – 14 r. vrátane) platí len po preukázaní platným preukazom ZP.",
+        "Zľava pre ZŤP a sprievodnú osobu platí len po preukázaní platným preukazom ZŤP.",
+        "Zľava pre obyvateľov obcí Čierny Brod, Čierna Voda, Nové Osady (časť obce Veľké Úľany) a Hrubá Borša platí len po preukázaní platným OP."
+      ],
+      "groups": [
+        {
+          "title": "Vstupné",
+          "rows": [
+            { "label": "Dospelý / deň", "amount": 9 },
+            { "label": "Dieťa do 3 rokov", "free": true },
+            { "label": "Dieťa od 4 do 14 rokov / deň", "amount": 7 },
+            { "label": "Senior (60+), ZŤP / sprievodná osoba ZŤP", "amount": 7 },
+            { "label": "Dopravný prostriedok", "free": true }
+          ]
+        },
+        {
+          "title": "Zvýhodnené vstupy a lokálne zľavy",
+          "rows": [
+            { "label": "Rodinný vstup (2× dospelý + 1 dieťa)", "amount": 23 },
+            { "label": "Obyvateľ obcí Čierny Brod, Čierna Voda, Nové Osady a Hrubá Borša – dospelý / dieťa / senior (60+) / ZŤP / sprievod ZŤP", "detail": "zľava platí len po preukázaní platným OP", "amount": 6 }
+          ]
+        },
+        {
+          "title": "Zľavnené vstupné od 16:00",
+          "todo": "Prevádzkový poriadok uvádza po 16:00 zľavu 1 €, cenník 1,50 € (dospelý). Ktoré platí?",
+          "rows": [
+            { "label": "Dospelý", "amount": 7.5 },
+            { "label": "Dieťa", "amount": 5.5 },
+            { "label": "Senior (60+) / ZŤP / sprievod ZŤP", "amount": 5.5 }
+          ]
+        },
+        {
+          "title": "Permanentky – sezóna jún až september",
+          "note": "Vstup v rámci otváracích hodín. Skupinové permanentky na mieru po dohode s prevádzkovateľom.",
+          "rows": [
+            { "label": "Permanentka 2M (júl – august)", "pair": [135, 95] },
+            { "label": "Permanentka 3M (jún – august alebo júl – september)", "pair": [170, 130] },
+            { "label": "Permanentka 4M (jún – september)", "pair": [180, 135] },
+            { "label": "5-vstupová, dospelý (6. vstup zdarma)", "detail": "na meno, neprenosná", "amount": 45 },
+            { "label": "5-vstupová, detská (6. vstup zdarma)", "detail": "na meno, neprenosná", "amount": 35 }
+          ],
+          "pairLabels": ["Dospelý", "Dieťa"]
+        },
+        {
+          "title": "Permanentky – mimosezóna (január až december)",
+          "note": "Detaily používania permanentiek poskytne prevádzkovateľ pri osobnom stretnutí.",
+          "rows": [
+            { "label": "Permanentka 5M „Otužilci“", "pair": [195, 145] },
+            { "label": "Permanentka 6M „Plavci“", "pair": [200, 150] },
+            { "label": "Permanentka 9M", "pair": [255, 185] },
+            { "label": "Permanentka 12M „Ľadové medvede“", "pair": [275, 205] }
+          ],
+          "pairLabels": ["Dospelý", "Dieťa"]
+        },
+        {
+          "title": "Prenájom ihriska (recepcia)",
+          "rows": [
+            { "label": "Volejbalové ihrisko 1 hod.", "detail": "záloha za loptu 10,00 €", "amount": 8 },
+            { "label": "Volejbalové ihrisko 30 min.", "detail": "záloha za loptu 10,00 €", "amount": 6 }
+          ]
+        },
+        {
+          "title": "Fúkanie kompresorom",
+          "rows": [
+            { "label": "Malá nafukovačka", "amount": 1.5 },
+            { "label": "Veľká nafukovačka", "amount": 2.5 },
+            { "label": "Posteľ pre 1 osobu", "amount": 3.5 },
+            { "label": "Posteľ pre 2 osoby", "amount": 4.5 },
+            { "label": "Čln malý – kanoe", "amount": 4.5 },
+            { "label": "Čln veľký – raft / paddleboard (SUP)", "amount": 6 },
+            { "label": "Nadrozmerný predmet", "range": [6, 10] }
+          ]
+        }
+      ],
+      "footnote": "Predaj plážového tovaru: informácie o aktuálnej ponuke priamo na recepcii."
+    },
+    {
+      "id": "kemping-apartmany",
+      "title": "Kemping a apartmány",
+      "subtitle": "Prémium zóna",
+      "source": "https://www.aquarea.sk/cennik-1/premium-zona-cast-kemping-apartmany/",
+      "groups": [
+        {
+          "title": "Kemping – miesta č. 3 až 7",
+          "intro": [
+            "Vstup platí na konkrétne miesto s vlastným vstupom k jazeru a do Plážovej zóny v rámci otváracích hodín areálu. Neplatí do potápačského centra.",
+            "Poplatok za noc je zahrnutý v cene.",
+            "Check-in od 10:00, check-out do 9:00.",
+            "Pri check-ine sa odovzdáva vratná záloha 50 € v hotovosti za každé miesto."
+          ],
+          "rows": [
+            { "label": "Dospelý / deň", "detail": "poplatok za noc je zahrnutý", "amount": 18 },
+            { "label": "Dieťa (4 – 14 r.), ZŤP, senior (60+) / deň", "detail": "po preukázaní platným preukazom; poplatok za noc je zahrnutý", "amount": 15 },
+            { "label": "Minimálna cena miesta / deň – miesta č. 3, 5, 7", "detail": "platí každý deň, zahŕňa 1 – 5 osôb, elektrinu a mólo; každá ďalšia osoba dopláca denný vstup", "amount": 102 },
+            { "label": "Minimálna cena miesta / deň – miesta č. 4, 6", "detail": "platí každý deň, zahŕňa 1 – 5 osôb, elektrinu, mólo a altánok; každá ďalšia osoba dopláca denný vstup", "amount": 110 },
+            { "label": "Karavan / noc", "amount": 5 },
+            { "label": "Neskorý príchod / skorý odchod / osoba", "detail": "mimo otváracích hodín, nutné hlásiť vopred", "amount": 10 },
+            { "label": "Neskorý check-out do 10:00 / miesto", "detail": "nutné hlásiť vopred", "amount": 20 }
+          ]
+        },
+        {
+          "title": "Kemping – doplnkové služby",
+          "rows": [
+            { "label": "Elektrina – veľký odber", "amount": 10 },
+            { "label": "Elektrina – malý odber", "amount": 5 },
+            { "label": "Altánok Bažant / deň", "amount": 50 },
+            { "label": "Projektor + plátno / TV (k altánku Bažant)", "amount": 20 },
+            { "label": "Drevo na oheň / fúra", "amount": 10 },
+            { "label": "Uhlie na grilovanie / balík", "amount": 10 },
+            { "label": "Zapožičanie plynového horáka / deň", "amount": 20 },
+            { "label": "Zapožičanie ohniska, kotlíka / deň", "amount": 10 },
+            { "label": "Zapožičanie veľkého grilu / deň", "amount": 20 },
+            { "label": "Zapožičanie pivného setu / set / deň", "amount": 5 },
+            { "label": "Zapožičanie palíc na opekanie / kus / deň", "amount": 2 },
+            { "label": "Vyliatie chemického odpadu / výlev", "amount": 10 }
+          ]
+        },
+        {
+          "title": "Apartmány",
+          "intro": [
+            "Check-in od 14:00, check-out do 10:00.",
+            "V cene je vstup do Plážovej zóny počas celého pobytu a vstup do potápačskej zóny do check-outu.",
+            "Apartmány sú v potápačskej zóne; k jazeru sa tu dá ísť len na mieste určenom prevádzkovateľom (kvôli bezpečnosti potápačov).",
+            "Pri check-ine sa odovzdáva vratná záloha 50 € v hotovosti za každý apartmán."
+          ],
+          "rows": [
+            { "label": "Apartmán č. 1 / noc – 1 osoba", "amount": 79 },
+            { "label": "Apartmán č. 1 / noc – 2 osoby", "amount": 93 },
+            { "label": "Apartmán č. 1 / noc – 2 osoby + 1 prístelka", "amount": 112 },
+            { "label": "Apartmán č. 2 / noc – 1 osoba", "amount": 79 },
+            { "label": "Apartmán č. 2 / noc – 2 osoby", "amount": 93 },
+            { "label": "Apartmán č. 2 / noc – 2 osoby + 1 prístelka", "amount": 112 },
+            { "label": "Apartmán č. 3 / noc – 1 osoba", "amount": 79 },
+            { "label": "Apartmán č. 3 / noc – 2 osoby", "amount": 93 },
+            { "label": "Neskorý check-out do 12:00 / apartmán", "detail": "nutné hlásiť vopred", "amount": 20 }
+          ]
+        },
+        {
+          "id": "event-zona",
+          "title": "Event zóna",
+          "rows": [
+            { "label": "Malý altánok", "amount": 10 },
+            { "label": "Veľký altánok Bažant", "amount": 50 },
+            { "label": "Ohnisko", "amount": 10 },
+            { "label": "TV (k altánku Bažant)", "amount": 20 },
+            { "label": "Komplet zóna", "amount": 100 },
+            { "label": "Dospelý / deň", "detail": "vstup na konkrétne miesto a do Plážovej zóny v rámci otváracích hodín, neplatí do potápačského centra; poplatok za noc je zahrnutý", "amount": 18 },
+            { "label": "Dieťa (4 – 14 r.), ZŤP / deň", "detail": "po preukázaní platným preukazom; poplatok za noc je zahrnutý", "amount": 15 }
+          ]
+        }
+      ],
+      "footnote": "Zvyšok sumy faktúry sa dopláca pri príchode. Rozdelenie faktúry (napr. kvôli rekreačnému poukazu) treba nahlásiť pred jej vystavením, poplatok 5 € za osobu (faktúru)."
+    },
+    {
+      "id": "dive-center",
+      "title": "Dive Center",
+      "subtitle": "Prémium zóna",
+      "source": "https://www.aquarea.sk/cennik-1/premium-zona-cast-dive-center/",
+      "intro": [
+        "Vstup platí do potápačského centra a do Plážovej zóny v rámci otváracích hodín areálu. Neplatí do kempingu.",
+        "Rybolov a kúpanie sú v tejto časti areálu zakázané.",
+        "Mimo hlavnej sezóny (september – máj) sa treba vopred telefonicky dohodnúť s prevádzkovateľom.",
+        "Ak potápač prespí v potápačskej zóne a nezostáva na ďalší deň: check-out do 9:00, check-in od 10:00.",
+        "Podmienky pre inštruktorov potápačských škôl si každá škola dohodne individuálne s prevádzkovateľom."
+      ],
+      "groups": [
+        {
+          "title": "Vstup do Dive Centra",
+          "rows": [
+            { "label": "Pobyt dospelý / deň", "amount": 14 },
+            { "label": "Pobyt dospelý ZŤP / deň", "detail": "po preukázaní platným preukazom ZŤP", "amount": 11 },
+            { "label": "Pobyt senior (60+), dieťa (4 – 14 r.) / deň", "amount": 11 },
+            { "label": "Pobyt osoba / noc (dospelý, dieťa 4 – 14 r., ZŤP)", "amount": 5 },
+            { "label": "Neskorý check-out do 10:00", "detail": "nutné hlásiť vopred", "amount": 20 }
+          ]
+        },
+        {
+          "title": "Permanentky",
+          "note": "Pri väčších skupinách alebo potápačských školách je možná individuálna zľava.",
+          "rows": [
+            { "label": "Júl – august (počas otváracích hodín), 2M", "amount": 140 },
+            { "label": "5× denný pobyt dospelý v DC + 1 pobyt zadarmo", "amount": 70 }
+          ]
+        },
+        {
+          "title": "Ponory a doplnkové služby",
+          "rows": [
+            { "label": "Skúšobný zážitkový ponor BASIC", "detail": "nutné vopred vyplniť rezervačný formulár; balíček obsahuje fotky z Dive Centra, diplom a potápačské nálepky; darčeková poukážka poštou +4 €", "amount": 90 },
+            { "label": "Potápačský sprievod / 1 osoba", "detail": "nutné vopred vyplniť rezervačný formulár", "amount": 70 },
+            { "label": "Refresh pre certifikovaného potápača po dlhšej pauze", "detail": "nutné vopred vyplniť rezervačný formulár", "amount": 70 },
+            { "label": "Altánok Bažant (6 × 12 m) / deň", "amount": 50 },
+            { "label": "½ altánku Bažant (6 × 12 m) / deň", "amount": 30 },
+            { "label": "Altánok veľký (6 × 4 m) / malý (4 × 4 m) / deň", "amount": 10 },
+            { "label": "Lynx Dive Dock / deň", "amount": 35 },
+            { "label": "½ Lynx Dive Dock / deň", "amount": 20 },
+            { "label": "1 osoba / Lynx Dive Dock / deň", "amount": 5 },
+            { "label": "Manipulačný poplatok za jednorazovú rezerváciu (miesta A – J)", "amount": 5 },
+            { "label": "Sušiareň / deň", "amount": 10 }
+          ]
+        },
+        {
+          "title": "Potápačské kurzy",
+          "note": "Špecializácie a ďalšie informácie na čísle +421 901 710 840.",
+          "rows": [
+            { "label": "Základný kurz OWSD (Open Water Scuba Diver)", "amount": 590 },
+            { "label": "Pokročilý kurz AOWD (Advanced Open Water Diver)", "amount": 590 }
+          ]
+        },
+        {
+          "title": "Plnenie fliaš",
+          "rows": [
+            { "label": "Vzduch / 1 liter, 200 barov", "amount": 1 },
+            { "label": "Vzduch / 1 liter, 300 barov", "amount": 1.5 }
+          ]
+        },
+        {
+          "title": "Požičovňa výstroja",
+          "rows": [
+            { "label": "Fľaša 10 l", "amount": 11 },
+            { "label": "Fľaša 12 l", "amount": 13 },
+            { "label": "Fľaša 15 l", "amount": 16 },
+            { "label": "Neoprén", "amount": 11 },
+            { "label": "Botičky", "amount": 4.5 },
+            { "label": "Kukla", "amount": 3.5 },
+            { "label": "BCD", "amount": 11 },
+            { "label": "Plutvy", "amount": 3.5 },
+            { "label": "Computer", "amount": 11 },
+            { "label": "Baterka", "amount": 8.5 },
+            { "label": "Záťažový opasok", "amount": 3 },
+            { "label": "Olovo / kg", "amount": 0.5 },
+            { "label": "Maska", "amount": 5 },
+            { "label": "Šnorchel", "amount": 3 },
+            { "label": "Automatika komplet", "amount": 15 },
+            { "label": "Komplet výstroj bez fľaše", "amount": 55 }
+          ]
+        }
+      ],
+      "footnote": "Zvyšok sumy faktúry sa dopláca pri príchode. Rozdelenie faktúry treba nahlásiť pred jej vystavením, poplatok 5 € za osobu (faktúru)."
+    }
+  ],
+  "highlights": [
+    { "id": "beach-adult", "label": "Plážová zóna, dospelý / deň", "amount": 9, "section": "plazova-zona" },
+    { "id": "beach-child", "label": "Dieťa 4 – 14 r. / deň", "amount": 7, "section": "plazova-zona" },
+    { "id": "beach-family", "label": "Rodinný vstup (2 + 1)", "amount": 23, "section": "plazova-zona" },
+    { "id": "beach-afternoon", "label": "Dospelý od 16:00", "amount": 7.5, "section": "plazova-zona" },
+    { "id": "apartment", "label": "Apartmán / noc", "amount": 79, "from": true, "section": "kemping-apartmany" },
+    { "id": "camp-adult", "label": "Kemping, dospelý / deň", "amount": 18, "section": "kemping-apartmany" },
+    { "id": "dive-day", "label": "Dive Center, dospelý / deň", "amount": 14, "section": "dive-center" },
+    { "id": "intro-dive", "label": "Skúšobný ponor", "amount": 90, "section": "dive-center" },
+    { "id": "owd", "label": "Kurz OWD", "amount": 590, "section": "dive-center" }
+  ]
+}
