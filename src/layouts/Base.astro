@@ -28,6 +28,7 @@ const og = new URL(url(ogImage), Astro.site).toString();
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href={url('/sitemap-index.xml')} />
     <meta name="theme-color" content={themeColor} />
     <link rel="icon" type="image/png" href={url('/favicon-32.png')} sizes="32x32" />
     <link rel="apple-touch-icon" href={url('/apple-touch-icon.png')} />

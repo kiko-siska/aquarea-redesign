@@ -3,6 +3,8 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
+import sitemap from '@astrojs/sitemap';
+
 // GitHub Pages: the workflow sets SITE_URL and BASE_PATH (e.g. /aquarea-redesign).
 // Locally the site runs at the root.
 const site = process.env.SITE_URL ?? 'https://kiko-siska.github.io';
@@ -14,7 +16,11 @@ export default defineConfig({
   base,
   output: 'static',
   trailingSlash: 'always',
-  integrations: [react()],
+  integrations: [
+    react(),
+    // The design variants and the picker are review tools, not part of the site.
+    sitemap({ filter: (page) => !page.includes('/variants/') }),
+  ],
   // Slovak first; /en/ and /hu/ get the same page tree later.
   i18n: {
     defaultLocale: 'sk',

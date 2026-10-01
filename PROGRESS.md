@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:59
+- **Last updated:** 2026-10-01 08:00
 - **Current phase:** 3
 
 ## Checklist
@@ -39,7 +39,7 @@
 - [x] Galéria — `/galeria/`: 54 real photos, album filter chips (JS-enhanced, all visible without JS), native `<dialog>` lightbox with arrows/keyboard
 - [x] O nás — `/o-nas/`: story, aktuality (5 posts), documents (PDF links), rules in short
 - [x] 404 — zone-coloured shortcuts back into the site
-- [ ] SEO: titles, descriptions, OG, JSON-LD (real data only), sitemap
+- [x] SEO: titles, descriptions, OG, JSON-LD (real data only), sitemap — unique titles ≤ 60 + suffix, descriptions ≤ ~165, one H1 per page, OG image from the real drone photo, JSON-LD TouristAttraction/LocalBusiness, Beach, Campground/LodgingBusiness, SportsActivityLocation, BreadcrumbList (no ratings; Event held back until date confirmed), `@astrojs/sitemap` (variants excluded), robots.txt disallow + noindex until approval
 - [ ] Final QA: `npm run build`, all pages at 375px + desktop, a11y + reduced-motion, Lighthouse
 - [ ] Morning report (below)
 
