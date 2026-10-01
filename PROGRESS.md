@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 06:58
+- **Last updated:** 2026-10-01 07:02
 - **Current phase:** 1
 
 ## Checklist
@@ -12,7 +12,7 @@
 ### Phase 1 — Content audit
 - [x] Crawl every SK page of aquarea.sk → `content-audit/*.md` (source URL on top of each file) — 53 SK pages + 2 PDFs (prevádzkový poriadok, mapa areálu) as text
 - [x] Note which pages exist in EN / HU — `content-audit/LANGUAGES.md` (EN 14 pages, HU 12, both partial, empty homepages)
-- [ ] Download photos → `source-images/` + `source-images/SOURCES.md`
+- [x] Download photos → `source-images/` + `source-images/SOURCES.md` — 361 gallery photos (max 1280 px) + hero 2000 px, logo, partner logos, site map; best picks listed at the top of SOURCES.md
 - [ ] `content-audit/SITEMAP.md`: page tree, forms & booking flows, external links, content problems
 - [ ] New information architecture proposal (end of SITEMAP.md)
 
