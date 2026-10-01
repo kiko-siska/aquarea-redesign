@@ -1,8 +1,8 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:02
-- **Current phase:** 1
+- **Last updated:** 2026-10-01 07:04
+- **Current phase:** 2
 
 ## Checklist
 
@@ -13,8 +13,8 @@
 - [x] Crawl every SK page of aquarea.sk → `content-audit/*.md` (source URL on top of each file) — 53 SK pages + 2 PDFs (prevádzkový poriadok, mapa areálu) as text
 - [x] Note which pages exist in EN / HU — `content-audit/LANGUAGES.md` (EN 14 pages, HU 12, both partial, empty homepages)
 - [x] Download photos → `source-images/` + `source-images/SOURCES.md` — 361 gallery photos (max 1280 px) + hero 2000 px, logo, partner logos, site map; best picks listed at the top of SOURCES.md
-- [ ] `content-audit/SITEMAP.md`: page tree, forms & booking flows, external links, content problems
-- [ ] New information architecture proposal (end of SITEMAP.md)
+- [x] `content-audit/SITEMAP.md`: page tree, forms & booking flows, external links, content problems — 7 flows (6 forms + Previo), 14 external links (1 dead), 20 content problems
+- [x] New information architecture proposal (end of SITEMAP.md) — 11 pages, 5 nav items + Rezervovať CTA, sticky mobile bar, old→new URL map
 
 ### Phase 2 — Three homepage directions
 - [ ] Run the ui-ux-pro-max design-system generator; write 3 directions into DECISIONS.md
@@ -50,6 +50,19 @@
 ## Blockers
 
 ## TODOs for the owner
+_(source: content-audit/SITEMAP.md §5; each one is also shown as a visible TODO on the page where it matters)_
+1. **FotoFilmFest 2027 date.** aquarea.sk says both "15. mája 2026 (Sobota)" and "15. 5. 2027"; subpages are for the 2026 edition (26.–27. 9. 2026). Confirm the next date.
+2. **Opening hours 2027.** Season 2026 is over; no 2027 hours published yet. Also the web page and the Prevádzkový poriadok PDF disagree for 2026.
+3. **Afternoon discount.** Cenník says reduced entry from 16:00 (adult 7,50 €); poriadok says 1 € off after 16:00. Which is right?
+4. **Divers outside opening hours:** call "deň vopred" / "viac dní vopred" / "2–3 dni vopred"? (three versions)
+5. **Stay booking:** should the main CTA be Previo (online, instant) or the e-mail form? Poriadok says form only. Previo has no storno terms set.
+6. **Gastro:** names, offer and hours of the 4 gastro operations (only photos exist).
+7. **Kayak/SUP rental** (Dida Sport – Kajak komando): prices, contact, hours.
+8. **Logo:** only a 338×127 PNG exists; need SVG/vector.
+9. **Camping pitches:** "Miesta č. 2–7" (map) vs "3–7" (cenník, poriadok).
+10. **"korigované parkovisko"** on the beach page: is it "strážené"/"kontrolované"? Parking prices?
+11. **Getting there:** no public-transport or driving directions on the site; only GPS + map.
+12. **Recent water-quality protocol** (only the 2025 one is published, as a scan).
 
 ## Handoff
 _Notes for the next session: what's next, gotchas._
