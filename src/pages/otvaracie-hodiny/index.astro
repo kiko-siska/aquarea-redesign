@@ -58,7 +58,7 @@ const aud = (a: 'all' | 'divers') => (a === 'divers' ? 'len potápači' : 'verej
               <p class="px-5 py-4 font-semibold">{p.text}</p>
             ) : (
               <div class="overflow-x-auto px-5 pb-3">
-                <table class="v3-table min-w-[22rem]">
+                <table class="v3-table">
                   <thead>
                     <tr class="text-left text-sm">
                       <th scope="col" class="!font-bold">{(p as { rows?: Row[] }).rows ? 'Dátum' : 'Dni'}</th>

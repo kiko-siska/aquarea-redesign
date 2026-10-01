@@ -29,7 +29,7 @@ const zoneOf: Record<string, string> = { plaz: 'plaz', dive: 'dive', freediving:
   <PageHero title="Galéria" lead={`${items.length} fotografií z areálu, nad aj pod hladinou. Všetky fotografie: aquarea.sk.`} zone="dive" crumb="Galéria" />
 
   <div class="mx-auto max-w-[90rem] px-4 py-10 md:px-8 md:py-14">
-    <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrovať podľa albumu" data-filters hidden>
+    <div class="invisible flex flex-wrap gap-2" role="group" aria-label="Filtrovať podľa albumu" data-filters>
       <button type="button" class="min-h-11 rounded-lg border-2 border-v3-atrament px-4 font-extrabold aria-pressed:bg-v3-atrament aria-pressed:text-white" aria-pressed="true" data-filter="all">Všetko</button>
       {albums.map(([k, label]) => (
         <button type="button" class="min-h-11 rounded-lg border-2 border-v3-atrament px-4 font-extrabold aria-pressed:bg-v3-atrament aria-pressed:text-white" aria-pressed="false" data-filter={k}>{label}</button>
@@ -69,7 +69,7 @@ const zoneOf: Record<string, string> = { plaz: 'plaz', dive: 'dive', freediving:
   const filters = document.querySelector<HTMLElement>('[data-filters]')!;
   const count = document.querySelector<HTMLElement>('[data-count]')!;
   const items = Array.from(grid.querySelectorAll<HTMLLIElement>('li'));
-  filters.hidden = false;
+  filters.classList.remove('invisible');
 
   const apply = (album: string) => {
     let n = 0;

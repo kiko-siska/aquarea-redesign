@@ -72,3 +72,14 @@ Also: V3's zone colours give every inner page an obvious theme (Pláž teal, Pob
 **Alternatives:** V1 Ponor is the most atmospheric. It's the runner-up, and its best asset (the real 37-attraction depth chart) moves into V3's `/potapanie/` page in dive blue. V2 is the most elegant for long text, but it's heavy (LCP 7,5 s) and less scannable.
 **Carried into Phase 3:** show the price on closed wristbands on mobile; `.v3-display` leading ≥ 0,92 (Slovak carons on capitals); dark ink on pláž teal (white fails contrast); colour the cenník sections by zone.
 All three variants stay at `/variants/1–3/` so the owner can switch.
+
+### 2026-10-01 08:08 · [auto] Phase 3 build decisions
+- **URLs follow the new IA** (`/plazova-zona/`, `/premium-zona/`, `/potapanie/`, `/cennik/`, `/otvaracie-hodiny/`, `/rezervacie/`, `/kontakt/`, `/fotofilmfest/`, `/galeria/`, `/o-nas/`). The old aquarea.sk URLs need redirects at launch (map in content-audit/SITEMAP.md §7). *Alternative:* keep the old slugs (`/plazova-zona-2/`…). Rejected, because they're CMS artefacts.
+- **Booking stays on aquarea.sk.** Every "Rezervovať" goes to the live Previo engine or the live CMS forms (no fake forms, AGENTS.md rule 2). The `/rezervacie/` hub explains each option. Previo is shown first for stays because it's the only instant online flow; the owner decides (TODO).
+- **Event zóna is booked by phone or e-mail.** aquarea.sk has no form for it (TODO).
+- **Google map loads only on click** (`/kontakt/`). No third-party request or cookies before consent, and it keeps Lighthouse high. The illustrated area map is shown as a real image.
+- **The gallery is native** (`<dialog>` + filter chips, ~60 lines of JS), not a 21st component. The daily 21st quota was used up, and native code is lighter.
+- **No Event JSON-LD for FotoFilmFest** until the date is confirmed. The visible TODO stays.
+- **Kept V1's real depth chart** (32 attractions with depths from the Dive Center map) on `/potapanie/`, in dive blue.
+- **Season 2026 is over.** The site shows today's status computed in the browser ("Areál je zatvorený…" in October), plus the 2026 tables and a TODO for 2027.
+- **robots.txt disallow + `noindex, nofollow`.** Lighthouse SEO is therefore 69 (only "page is blocked from indexing" fails). This is intentional until Aquarea approves.

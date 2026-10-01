@@ -1,7 +1,7 @@
 # Progress
 
-- **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 08:00
+- **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
+- **Last updated:** 2026-10-01 08:08
 - **Current phase:** 3
 
 ## Checklist
@@ -40,8 +40,8 @@
 - [x] O nás — `/o-nas/`: story, aktuality (5 posts), documents (PDF links), rules in short
 - [x] 404 — zone-coloured shortcuts back into the site
 - [x] SEO: titles, descriptions, OG, JSON-LD (real data only), sitemap — unique titles ≤ 60 + suffix, descriptions ≤ ~165, one H1 per page, OG image from the real drone photo, JSON-LD TouristAttraction/LocalBusiness, Beach, Campground/LodgingBusiness, SportsActivityLocation, BreadcrumbList (no ratings; Event held back until date confirmed), `@astrojs/sitemap` (variants excluded), robots.txt disallow + noindex until approval
-- [ ] Final QA: `npm run build`, all pages at 375px + desktop, a11y + reduced-motion, Lighthouse
-- [ ] Morning report (below)
+- [x] Final QA: `npm run build`, all pages at 375px + desktop, a11y + reduced-motion, Lighthouse — build OK (16 pages); `screenshots/phase3/` (12 pages × 375 + 1440); no horizontal overflow; 0 broken internal links/anchors, all 22 external links 200; axe-core 0 violations on all pages; reduced-motion pass OK; Lighthouse mobile perf 96–100, a11y 100, best practices 100 (SEO 69 = intentional noindex)
+- [x] Morning report (below)
 
 ## Budget log
 - 21st `get_component`: (date · component · used for)
@@ -55,24 +55,54 @@
 - 2026-10-01 (VS Code session): the built-in browser MCP (`mcp__Claude_Browser__*`) and `.claude/launch.json` preview are not available here. **Workaround:** screenshots and checks via Playwright (`playwright-core`) driving the installed Google Chrome (`scripts/screenshot.mjs`). The 21st, magicui and nano-banana MCPs are available.
 
 ## TODOs for the owner
-_(source: content-audit/SITEMAP.md §5; each one is also shown as a visible TODO on the page where it matters)_
-1. **FotoFilmFest 2027 date.** aquarea.sk says both "15. mája 2026 (Sobota)" and "15. 5. 2027"; subpages are for the 2026 edition (26.–27. 9. 2026). Confirm the next date.
-2. **Opening hours 2027.** Season 2026 is over; no 2027 hours published yet. Also the web page and the Prevádzkový poriadok PDF disagree for 2026.
-3. **Afternoon discount.** Cenník says reduced entry from 16:00 (adult 7,50 €); poriadok says 1 € off after 16:00. Which is right?
-4. **Divers outside opening hours:** call "deň vopred" / "viac dní vopred" / "2–3 dni vopred"? (three versions)
-5. **Stay booking:** should the main CTA be Previo (online, instant) or the e-mail form? Poriadok says form only. Previo has no storno terms set.
-6. **Gastro:** names, offer and hours of the 4 gastro operations (only photos exist).
-7. **Kayak/SUP rental** (Dida Sport – Kajak komando): prices, contact, hours.
-8. **Logo:** only a 338×127 PNG exists; need SVG/vector.
-9. **Camping pitches:** "Miesta č. 2–7" (map) vs "3–7" (cenník, poriadok).
-10. **"korigované parkovisko"** on the beach page: is it "strážené"/"kontrolované"? Parking prices?
-11. **Getting there:** no public-transport or driving directions on the site; only GPS + map.
-12. **Recent water-quality protocol** (only the 2025 one is published, as a scan).
+_Each one is also a visible yellow TODO on the page where it matters. Full list: `npm run build && npm run todos`._
+1. **FotoFilmFest 2027 date.** aquarea.sk says both "15. mája 2026 (Sobota)" and "15. 5. 2027"; the propozície and applications are still for 2026. *(home, /fotofilmfest/)*
+2. **Opening hours 2027.** Not published yet. For 2026 the web page and the Prevádzkový poriadok PDF also disagree; the site uses the web page. *(home, /otvaracie-hodiny/)*
+3. **Afternoon discount.** Cenník: adult 7,50 € from 16:00 (= 1,50 € off). Poriadok: 1 € off after 16:00. *(/cennik/)*
+4. **Divers outside opening hours:** "deň vopred", "viac dní vopred" or "2–3 dni vopred"? *(/potapanie/, /otvaracie-hodiny/)*
+5. **Main way to book a stay:** Previo (online, instant; no storno terms set in Previo) or the e-mail form (the only one the poriadok names)? *(/premium-zona/, /rezervacie/)*
+6. **Event zóna booking:** no form on aquarea.sk; the site says phone/e-mail. *(/plazova-zona/)*
+7. **Gastro:** names, offer and hours of the 4 gastro operations. *(/plazova-zona/)*
+8. **Kayak / SUP rental** (Dida Sport – Kajak komando): prices and contact. *(/plazova-zona/)*
+9. **"Korigované parkovisko":** guarded/controlled? Any parking fee? *(/plazova-zona/)*
+10. **Getting there:** directions by car, bus or train; parking info. *(/kontakt/)*
+11. **Camping pitches:** map says 2–7, cenník and poriadok say 3–7. *(/premium-zona/)*
+12. **Kurz AOWD:** content and schedule aren't described on aquarea.sk. *(/potapanie/)*
+13. **Water-quality protocol:** only a 2025 scan exists; publish the current one as a PDF. *(/o-nas/)*
+14. **Logo:** only a 338×127 PNG exists; a vector (SVG) logo would look sharper.
+15. **Before launch:** confirm the new URLs, set up redirects from the old ones (SITEMAP.md §7), remove `noindex` and the robots.txt block, and decide on EN/HU translation and hosting.
 
 ## Handoff
 _Notes for the next session: what's next, gotchas._
 
 - 2026-10-01 06:50 — Owner stopped the 06:03 backup session and confirmed a manual takeover from VS Code (concurrency guard overridden by owner). Phase 1 restarted from scratch (`content-audit/`, `source-images/` were empty).
+- 2026-10-01 08:08 — **All phases done.** Nothing is pending in the checklist. Next steps need the owner: answer the TODOs above, choose a direction (V3 is built out; V1/V2 stay at `/variants/1–2/`), then EN/HU and deployment.
+- Gotchas: content lives in `src/content/*.json` (zod-validated, every block needs an aquarea.sk `source`). `Photo` moves `col-span`/`row-span` classes onto `<picture>` automatically. Big Shoulders caps need leading ≥ 0,92 and no `truncate` (it clips Č/Š/Ž). Use `price()`/`priceShort()` for euros (non-breaking spaces). Screenshots: `npm run preview` then `npm run shots -- http://localhost:4321 screenshots/x /path/`; a11y: `node scripts/a11y.mjs http://localhost:4321 /path/`.
 
 ## Morning report
-_Filled in at the end: what was built, how to run it (`npm install && npm run dev`), which variant was picked and why, real vs. generated images, budget used, TODOs._
+_2026-10-01, written for the owner._
+
+**What was built**
+- **Content audit** of the current aquarea.sk (`content-audit/`): 53 Slovak pages + the operating rules and site map PDFs, one Markdown file per page with its source URL; EN/HU coverage (`LANGUAGES.md`); `SITEMAP.md` with the page tree, all 7 booking flows (6 CMS forms + Previo), external links (1 dead), 20 content problems and a simpler new IA (11 pages, 5 menu items + Rezervovať).
+- **361 real photos** downloaded with sources (`source-images/SOURCES.md`); 54 of them used on the site.
+- **Three homepage directions** at `/variants/1/` (Ponor), `/variants/2/` (Deň pri vode), `/variants/3/` (Náramok), with a picker at `/variants/`.
+- **The full site in direction 3 · Náramok:** `/`, `/plazova-zona/`, `/premium-zona/`, `/potapanie/`, `/cennik/`, `/otvaracie-hodiny/`, `/rezervacie/`, `/kontakt/`, `/fotofilmfest/`, `/galeria/`, `/o-nas/`, 404. Slovak only, `noindex`, mobile-first, with a sticky Zavolať / Rezervovať / Navigovať bar on phones and today's open/closed status computed in the browser.
+
+**How to run it**
+```sh
+npm install
+npm run dev        # http://localhost:4321  (the picker is at /variants/)
+npm run build && npm run preview   # production build
+```
+
+**Which direction was picked, and why:** 3 · Náramok. The zones are colour-coded wristbands (the area really uses zone wristbands), with the price visible on each band, a season board and big signage prices. On a 375 px phone it shows the first price soonest (1 170 px vs 1 768 / 2 022) and is the shortest page. Lighthouse mobile scored 98 vs 89 (V1) and 66 (V2). The zone colours also carry the inner pages (pláž teal, pobyt green, potápanie blue, FotoFilmFest/Event red). V1's real depth chart of the underwater attractions moved to `/potapanie/`. Details and numbers are in DECISIONS.md.
+
+**Quality:** build passes; Lighthouse mobile across all 11 pages: performance 96–100, accessibility 100, best practices 100 (SEO 69 only because of the deliberate `noindex`). axe-core: 0 violations. No broken links. Every effect has a reduced-motion fallback.
+
+**Images:** all photos are real, from aquarea.sk (© AQUAREA s.r.o.). The only generated image is one abstract caustics texture, used only in variant 1. The OG image is the real drone photo + logo.
+
+**Budget used:** 21st `get_component` 2 / 2 on 2026-10-01 (adapted, not copied); Gemini 1 / 8 images; Magic UI (free) for the marquee and light rays, ported to zero-JS components.
+
+**Open TODOs:** 15. See "TODOs for the owner" above; the most important are the FotoFilmFest 2027 date, the 2027 opening hours and which way of booking a stay should be the main one.
+
+**Not done, on purpose:** no push, no remote, no deployment (the GitHub Pages workflow exists but is manual-only), no EN/HU translation, no new booking backend.
