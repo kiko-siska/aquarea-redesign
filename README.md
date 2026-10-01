@@ -17,7 +17,7 @@ npm run build      # static site in dist/
 npm run preview    # serve dist/ locally
 ```
 
-The three homepage directions are at `/variants/1/`, `/variants/2/`, `/variants/3/` and the picker at `/variants/`.
+The site is built in direction 3 · Náramok: `/`, `/plazova-zona/`, `/premium-zona/`, `/potapanie/`, `/cennik/`, `/otvaracie-hodiny/`, `/rezervacie/`, `/kontakt/`, `/fotofilmfest/`, `/galeria/`, `/o-nas/`. The three homepage directions stay at `/variants/1/`, `/variants/2/`, `/variants/3/`, with a picker at `/variants/`.
 
 ## Where things live
 
@@ -32,6 +32,8 @@ The three homepage directions are at `/variants/1/`, `/variants/2/`, `/variants/
 
 - `npm run og`: rebuild `public/og.jpg` from the real hero photo + logo.
 - `npm run shots -- http://localhost:4321 screenshots/x /variants/1/`: full-page screenshots at 375 px and 1440 px using the installed Google Chrome (`playwright-core`).
+- `node scripts/a11y.mjs http://localhost:4321 / /cennik/`: axe-core accessibility check (WCAG 2.1 A/AA).
+- `npm run build && npm run todos`: every visible TODO on the site.
 
 ## Deployment
 
