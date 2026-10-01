@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:04
+- **Last updated:** 2026-10-01 07:07
 - **Current phase:** 2
 
 ## Checklist
@@ -48,6 +48,7 @@
 - Gemini images: 0 / 8 (file · prompt summary)
 
 ## Blockers
+- 2026-10-01 (VS Code session): the built-in browser MCP (`mcp__Claude_Browser__*`) and `.claude/launch.json` preview are not available here. **Workaround:** screenshots and checks via Playwright (`playwright-core`) driving the installed Google Chrome (`scripts/screenshot.mjs`). The 21st, magicui and nano-banana MCPs are available.
 
 ## TODOs for the owner
 _(source: content-audit/SITEMAP.md §5; each one is also shown as a visible TODO on the page where it matters)_
