@@ -1,0 +1,174 @@
+---
+import Site from '../../layouts/Site.astro';
+import PageHero from '../../components/site/PageHero.astro';
+import Photo from '../../components/shared/Photo.astro';
+import Icon from '../../components/shared/Icon.astro';
+import Todo from '../../components/shared/Todo.astro';
+import { site, zones, priceSection } from '../../lib/content';
+import { price, priceShort, rowPrice } from '../../lib/format';
+import { url } from '../../lib/url';
+import { placeJsonLd, breadcrumbJsonLd } from '../../lib/seo';
+
+const b = zones.beach;
+const beachPrices = priceSection('plazova-zona');
+const entry = beachPrices.groups[0].rows;
+const family = beachPrices.groups[1].rows[0];
+const afternoon = beachPrices.groups[2];
+const eventPrices = priceSection('kemping-apartmany').groups.find((g) => g.id === 'event-zona')!;
+const featureIcons: Record<string, Parameters<typeof Icon>[0]['name']> = {
+  'plážový volejbal': 'sun', 'kajaky, kanoe, paddleboardy': 'waves', 'detské ihriská': 'users', 'móla pri vode': 'waves',
+  'oddychové zóny': 'sun', 'sprchy a sanitárne zázemie': 'info', 'parkovisko': 'pin',
+};
+const site_url = 'https://www.aquarea.sk/';
+---
+<Site
+  title="Plážová zóna – vstupné, aktivity, Event zóna"
+  description="Verejná pláž v Aquarea Čierna Voda: štrkové pláže a móla, plážový volejbal, kajaky a paddleboardy, detské ihriská, Event zóna pre oslavy do 100 osôb. Vstup od 9 € za deň."
+  current="plaz"
+  jsonLd={[
+    placeJsonLd('Beach', b.name, b.lead, { publicAccess: true, isAccessibleForFree: false }),
+    breadcrumbJsonLd([{ name: 'Úvod', url: site_url }, { name: b.name, url: site_url }]),
+  ]}
+>
+  <PageHero title={b.name} lead={b.lead} zone="plaz" photo="dron-plytcina" crumb={b.name}>
+    <ul class="mt-6 flex flex-wrap gap-2" role="list">
+      <li class="rounded-lg bg-white/90 px-3 py-2 font-extrabold">Dospelý {priceShort(entry[0].amount!)} / deň</li>
+      <li class="rounded-lg bg-white/90 px-3 py-2 font-extrabold">Dieťa 4 – 14 r. {priceShort(entry[2].amount!)}</li>
+      <li class="rounded-lg bg-white/90 px-3 py-2 font-extrabold">Rodina 2 + 1 {priceShort(family.amount!)}</li>
+      <li class="rounded-lg bg-white/90 px-3 py-2 font-extrabold">Deti do 3 r. zdarma</li>
+    </ul>
+  </PageHero>
+
+  <div class="zone-plaz">
+    <!-- What's here -->
+    <section aria-labelledby="co" class="mx-auto max-w-[90rem] px-4 pt-14 md:px-8 md:pt-20">
+      <div class="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
+        <div>
+          <h2 id="co" class="v3-display text-[2.4rem] leading-[0.95] md:text-[3.6rem]">Čo tu nájdete</h2>
+          <p class="mt-3 max-w-2xl text-lg text-v3-atrament/85">{b.body}</p>
+          <ul class="mt-6 grid gap-3 sm:grid-cols-2" role="list">
+            {b.features.map((f) => (
+              <li class="flex items-start gap-3 rounded-lg bg-v3-siva p-4 font-semibold">
+                <span class="zone-fill grid h-9 w-9 shrink-0 place-items-center rounded-full"><Icon name={featureIcons[f] ?? 'flame'} size={18} /></span>
+                <span class="pt-1.5">{f}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-3"><Todo text={b.featuresTodo} /></p>
+          <h3 class="mt-10 text-xl font-extrabold">Ďalšie služby na pláži</h3>
+          <ul class="mt-3 space-y-3" role="list">
+            {b.extras.map((e) => (
+              <li class="rounded-lg border-2 border-v3-atrament/10 p-4">
+                <p class="font-semibold">{e.text}</p>
+                {e.todo && <p class="mt-2"><Todo text={e.todo} /></p>}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="space-y-4">
+          <Photo id="plaz-molo-lehatka" sizes="(min-width: 1024px) 40vw, 100vw" widths={[480, 800, 1100]} class="aspect-[4/3] w-full rounded-lg object-cover" />
+          <div class="grid grid-cols-2 gap-4">
+            <Photo id="plaz-detske-ihrisko" sizes="(min-width: 1024px) 20vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" />
+            <Photo id="plaz-kapre-pri-mole" sizes="(min-width: 1024px) 20vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who + reception -->
+    <section aria-labelledby="recepcia" class="mx-auto mt-16 max-w-[90rem] px-4 md:mt-24 md:px-8">
+      <div class="grid gap-6 lg:grid-cols-2">
+        <div class="zone-tint rounded-lg p-6 md:p-8">
+          <h2 class="v3-display text-[2rem] leading-[0.95] md:text-[2.6rem]">Pre koho je pláž</h2>
+          <ul class="v3-prose mt-4" role="list">{b.audience.map((a) => <li>{a}</li>)}</ul>
+        </div>
+        <div class="rounded-lg bg-v3-atrament p-6 text-white md:p-8">
+          <h2 id="recepcia" class="v3-display text-[2rem] leading-[0.95] md:text-[2.6rem]">{b.reception.title}</h2>
+          <p class="mt-2 text-white/80">{b.reception.where}</p>
+          <ul class="v3-prose mt-4" role="list" style="--c:#ffc93c">{b.reception.services.map((s) => <li>{s}</li>)}</ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Entry & rules -->
+    <section aria-labelledby="vstup" class="mx-auto mt-16 max-w-[90rem] px-4 md:mt-24 md:px-8">
+      <div class="grid gap-10 lg:grid-cols-2">
+        <div>
+          <h2 id="vstup" class="v3-display text-[2.4rem] leading-[0.95] md:text-[3.6rem]">Vstup a podmienky</h2>
+          <ul class="v3-prose mt-5" role="list">{b.entry.map((e) => <li>{e}</li>)}</ul>
+          <ul class="v3-prose mt-4" role="list">{site.rules.slice(0, 4).map((r) => <li>{r.text}</li>)}</ul>
+        </div>
+        <div class="rounded-lg border-t-8 border-v3-plaz bg-v3-siva p-5 md:p-7">
+          <table class="v3-table">
+            <caption class="pb-2 text-lg font-extrabold">Vstupné do Plážovej zóny</caption>
+            <tbody>
+              {entry.map((r) => <tr><th scope="row">{r.label}</th><td class="v3-price">{rowPrice(r)}</td></tr>)}
+              <tr><th scope="row">{family.label}</th><td class="v3-price">{rowPrice(family)}</td></tr>
+              {afternoon.rows.map((r) => <tr><th scope="row">{afternoon.title}: {r.label.toLowerCase()}</th><td class="v3-price">{price(r.amount!)}</td></tr>)}
+            </tbody>
+          </table>
+          <a href={url('/cennik/#plazova-zona')} class="mt-5 inline-flex min-h-11 items-center gap-1.5 font-extrabold underline decoration-v3-plaz decoration-4 underline-offset-4">Permanentky, zľavy a doplnkové služby<Icon name="chevron-right" size={18} /></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event zone -->
+    <section id="event-zona" aria-labelledby="event" class="zone-event mt-20 scroll-mt-20 md:mt-28">
+      <div class="zone-fill v3-weave">
+        <div class="mx-auto grid max-w-[90rem] gap-8 px-4 py-14 md:px-8 md:py-20 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+          <div>
+            <h2 id="event" class="v3-display text-[2.8rem] leading-[0.95] md:text-[4.4rem]">{b.event.title}</h2>
+            <p class="mt-3 max-w-2xl text-lg">{b.event.lead}</p>
+            <div class="mt-6 grid gap-6 sm:grid-cols-2">
+              <div><h3 class="font-extrabold">Vybavenie</h3><ul class="v3-prose mt-2 text-[0.9375rem]" role="list" style="--c:#fff">{b.event.equipment.map((e) => <li>{e}</li>)}</ul></div>
+              <div><h3 class="font-extrabold">Doplnkové služby</h3><ul class="v3-prose mt-2 text-[0.9375rem]" role="list" style="--c:#fff">{b.event.services.map((e) => <li>{e}</li>)}</ul><p class="mt-4 font-extrabold">Kapacita: {b.event.capacity}</p></div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <Photo id="event-oslava" sizes="(min-width: 1024px) 20vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" />
+            <Photo id="event-ohnisko" sizes="(min-width: 1024px) 20vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" />
+            <Photo id="event-altanok" sizes="(min-width: 1024px) 40vw, 100vw" widths={[480, 800]} class="col-span-2 aspect-[2/1] w-full rounded-lg object-cover" />
+          </div>
+        </div>
+      </div>
+      <div class="mx-auto grid max-w-[90rem] gap-8 px-4 py-12 md:px-8 lg:grid-cols-2">
+        <div class="rounded-lg bg-white">
+          <table class="v3-table">
+            <caption class="pb-2 text-lg font-extrabold">Cenník Event zóny</caption>
+            <tbody>{eventPrices.rows.map((r) => <tr><th scope="row">{r.label}{r.detail && <span class="v3-detail">{r.detail}</span>}</th><td class="v3-price">{rowPrice(r)}</td></tr>)}</tbody>
+          </table>
+        </div>
+        <div>
+          <h3 class="text-xl font-extrabold">Rezervácia oslavy alebo akcie</h3>
+          <p class="mt-2">Event zónu si dohodnete telefonicky alebo e-mailom s rezervačným oddelením.</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a href={`tel:${site.contacts.info.tel}`} class="zone-fill inline-flex min-h-12 items-center gap-2 rounded-lg px-5 font-extrabold"><Icon name="phone" size={20} />{site.contacts.info.phone}</a>
+            <a href={`mailto:${site.contacts.info.email}`} class="inline-flex min-h-12 items-center gap-2 rounded-lg border-2 border-v3-atrament px-5 font-extrabold hover:bg-v3-siva"><Icon name="mail" size={20} />{site.contacts.info.email}</a>
+          </div>
+          <p class="mt-4"><Todo text="Ako si rezervovať Event zónu? Na aquarea.sk na to nie je formulár; predpokladáme telefón alebo e-mail." /></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gastro -->
+    <section aria-labelledby="gastro" class="mx-auto mt-6 max-w-[90rem] px-4 md:px-8">
+      <h2 id="gastro" class="v3-display text-[2.4rem] leading-[0.95] md:text-[3.6rem]">Občerstvenie</h2>
+      <p class="mt-3 max-w-2xl text-lg">V Plážovej zóne sú 4 gastro prevádzky s rýchlym občerstvením.</p>
+      <p class="mt-3"><Todo text="Názvy, ponuka a otváracie hodiny gastro prevádzok." /></p>
+      <ul class="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3" role="list">
+        <li class="col-span-2 md:col-span-1"><Photo id="gastro-dron" sizes="(min-width: 768px) 33vw, 100vw" widths={[480, 800]} class="aspect-[4/3] w-full rounded-lg object-cover" /></li>
+        <li><Photo id="gastro-slnecniky" sizes="(min-width: 768px) 33vw, 50vw" widths={[320, 480, 640]} class="aspect-[4/3] w-full rounded-lg object-cover" /></li>
+        <li><Photo id="gastro-bufet" sizes="(min-width: 768px) 33vw, 50vw" widths={[320, 480, 640]} class="aspect-[4/3] w-full rounded-lg object-cover" /></li>
+      </ul>
+    </section>
+
+    <!-- Next steps -->
+    <section aria-label="Ďalšie kroky" class="mx-auto max-w-[90rem] px-4 py-16 md:px-8 md:py-24">
+      <div class="grid gap-3 md:grid-cols-3">
+        <a href={url('/otvaracie-hodiny/')} class="flex min-h-20 items-center gap-4 rounded-lg bg-v3-slnko p-5 font-extrabold" data-status data-state="unknown"><Icon name="clock" size={28} class="shrink-0" /><span><span class="block" data-status-text>Otváracie hodiny</span><span class="block text-sm font-semibold" data-status-detail></span></span></a>
+        <a href={url('/cennik/#plazova-zona')} class="zone-fill flex min-h-20 items-center gap-4 rounded-lg p-5 font-extrabold"><Icon name="ticket" size={28} class="shrink-0" />Celý cenník pláže</a>
+        <a href={site.maps.directions} target="_blank" rel="noopener" class="flex min-h-20 items-center gap-4 rounded-lg bg-v3-atrament p-5 font-extrabold text-white"><Icon name="navigation" size={28} class="shrink-0" />Navigovať do areálu<span class="sr-only"> (Google Mapy)</span></a>
+      </div>
+    </section>
+  </div>
+</Site>

@@ -1,0 +1,149 @@
+---
+import Site from '../../layouts/Site.astro';
+import PageHero from '../../components/site/PageHero.astro';
+import Photo from '../../components/shared/Photo.astro';
+import Icon from '../../components/shared/Icon.astro';
+import Todo from '../../components/shared/Todo.astro';
+import { site, zones, priceSection } from '../../lib/content';
+import { priceShort, rowPrice } from '../../lib/format';
+import { url } from '../../lib/url';
+import { placeJsonLd, breadcrumbJsonLd } from '../../lib/seo';
+
+const p = zones.premium;
+const sec = priceSection('kemping-apartmany');
+const camp = sec.groups[0];
+const aptRows = sec.groups[2].rows;
+const site_url = 'https://www.aquarea.sk/';
+const aptPrice = (n: number) => aptRows.filter((r) => r.label.startsWith(`Apartmán č. ${n}`));
+---
+<Site
+  title="Prémium zóna – apartmány a kemping pri jazere"
+  description="Pobyt priamo pri jazere v Aquarea Čierna Voda: 3 apartmány v potápačskom centre od 79 € za noc, 5 kempingových miest s vlastným vstupom do vody, rybolov, privátny prístup k vode."
+  current="pobyt"
+  jsonLd={[
+    placeJsonLd(['Campground', 'LodgingBusiness'], 'Prémium zóna – apartmány a kemping', p.lead, {
+      checkinTime: '14:00', checkoutTime: '10:00', telephone: site.contacts.info.phone, email: site.contacts.info.email,
+      amenityFeature: ['elektrické prípojky', 'studničky s vodou', 'ohniská', 'sanitárne zariadenia', 'strážna služba 24/7'].map((n) => ({ '@type': 'LocationFeatureSpecification', name: n, value: true })),
+    }),
+    breadcrumbJsonLd([{ name: 'Úvod', url: site_url }, { name: 'Prémium zóna', url: site_url }]),
+  ]}
+>
+  <PageHero title="Prémium zóna" lead={p.lead} zone="premium" photo="kemping-vlastne-molo" crumb="Prémium zóna">
+    <p class="mt-5 max-w-2xl">{p.body}</p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href={site.booking.stayPrevio.href} target="_blank" rel="noopener" class="inline-flex min-h-12 items-center gap-2 rounded-lg bg-v3-slnko px-5 font-extrabold text-v3-atrament hover:bg-white">Rezervovať online<Icon name="external" size={18} /><span class="sr-only"> (Previo, aquarea.sk)</span></a>
+      <a href="#ako-rezervovat" class="inline-flex min-h-12 items-center gap-2 rounded-lg border-2 border-white/80 px-5 font-extrabold hover:bg-white/10">Ako funguje rezervácia</a>
+    </div>
+  </PageHero>
+
+  <div class="zone-premium">
+    <!-- Apartments -->
+    <section id="apartmany" aria-labelledby="apt" class="mx-auto max-w-[90rem] scroll-mt-20 px-4 pt-14 md:px-8 md:pt-20">
+      <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+        <div>
+          <h2 id="apt" class="v3-display text-[2.4rem] leading-[0.95] md:text-[3.6rem]">{p.apartments.title}</h2>
+          <p class="mt-3 text-lg">{p.apartments.lead}</p>
+          <ul class="v3-prose mt-4" role="list">{p.apartments.features.map((f) => <li>{f}</li>)}</ul>
+          <p class="mt-4 text-[0.9375rem]">{p.apartments.equipment}</p>
+          <div class="mt-6 grid gap-3 sm:grid-cols-3">
+            {p.apartments.units.map((u, i) => (
+              <div class="zone-tint rounded-lg p-4">
+                <h3 class="v3-display text-[1.7rem] leading-[0.95]">{u.name}</h3>
+                <p class="mt-2 text-[0.9375rem]">{u.beds}</p>
+                <ul class="mt-3 space-y-1 text-[0.9375rem] font-semibold tabular-nums" role="list">
+                  {aptPrice(i + 1).map((r) => <li class="flex justify-between gap-2"><span>{r.label.replace(/^Apartmán č\. \d \/ noc – /, '')}</span><span>{rowPrice(r)}</span></li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <p class="mt-5 rounded-lg border-2 border-v3-atrament p-4 font-semibold">{p.apartments.checkin}. {p.apartments.checkinNote}</p>
+          <p class="mt-3 text-[0.9375rem]">{p.apartments.rules} Záloha 50 € v hotovosti pri check-ine, vráti sa pri odchode.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-3 self-start">
+          <Photo id="apartmany-budova" sizes="(min-width: 1024px) 40vw, 100vw" widths={[480, 800, 1100]} class="col-span-2 aspect-[4/3] w-full rounded-lg object-cover" />
+          <Photo id="apartmany-izba" sizes="(min-width: 1024px) 20vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" />
+          <Photo id="apartmany-kuchynka" sizes="(min-width: 1024px) 20vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" />
+          <Photo id="apartmany-terasa-lehatka" sizes="(min-width: 1024px) 40vw, 100vw" widths={[480, 800]} class="col-span-2 aspect-[2/1] w-full rounded-lg object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Camping -->
+    <section id="kemping" aria-labelledby="kemp" class="mt-16 scroll-mt-20 md:mt-24">
+      <div class="zone-fill v3-weave">
+        <div class="mx-auto grid max-w-[90rem] gap-10 px-4 py-14 md:px-8 md:py-20 lg:grid-cols-[1fr_1.1fr]">
+          <div class="grid grid-cols-2 gap-3 self-start">
+            <Photo id="kemping-z-vody" sizes="(min-width: 1024px) 40vw, 100vw" widths={[480, 800, 1100]} class="col-span-2 aspect-[4/3] w-full rounded-lg object-cover" />
+            <Photo id="kemping-altanok" sizes="(min-width: 1024px) 20vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" />
+            <Photo id="kemping-vecer" sizes="(min-width: 1024px) 20vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" />
+          </div>
+          <div>
+            <h2 id="kemp" class="v3-display text-[2.4rem] leading-[0.95] md:text-[3.6rem]">{p.camping.title}</h2>
+            <p class="mt-3 text-lg">{p.camping.lead}</p>
+            <ul class="v3-prose mt-4" role="list" style="--c:#ffc93c">{p.camping.features.map((f) => <li>{f}</li>)}</ul>
+            <p class="mt-4">{p.camping.divers}</p>
+            <p class="mt-2">{p.camping.security}</p>
+            <p class="mt-4 rounded-lg bg-white/15 p-4 font-semibold">{p.camping.checkin}. Vratná záloha 50 € v hotovosti za každé miesto.</p>
+            <div class="mt-5 rounded-lg bg-white p-4 text-v3-atrament md:p-5">
+              <table class="v3-table">
+                <caption class="pb-2 text-lg font-extrabold">Kemping – ceny</caption>
+                <tbody>{camp.rows.slice(0, 5).map((r) => <tr><th scope="row">{r.label}{r.detail && <span class="v3-detail">{r.detail}</span>}</th><td class="v3-price">{rowPrice(r)}</td></tr>)}</tbody>
+              </table>
+              <a href={url('/cennik/#kemping-apartmany')} class="mt-4 inline-flex min-h-11 items-center gap-1.5 font-extrabold underline decoration-v3-premium decoration-4 underline-offset-4">Doplnkové služby kempingu<Icon name="chevron-right" size={18} /></a>
+            </div>
+            <p class="mt-3"><Todo text={p.camping.todo} /></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fishing -->
+    <section id="rybolov" aria-labelledby="ryb" class="mx-auto max-w-[90rem] scroll-mt-20 px-4 pt-14 md:px-8 md:pt-20">
+      <div class="zone-tint grid gap-6 rounded-lg p-6 md:grid-cols-[auto_1fr] md:items-start md:p-8">
+        <span class="zone-fill grid h-14 w-14 place-items-center rounded-full"><Icon name="fish" size={28} /></span>
+        <div>
+          <h2 id="ryb" class="v3-display text-[2.2rem] leading-[0.95] md:text-[3rem]">{p.fishing.title}</h2>
+          <ul class="v3-prose mt-3" role="list">{p.fishing.points.map((f) => <li>{f}</li>)}</ul>
+          <p class="mt-3 text-[0.9375rem]">Celoslovenský rybársky lístok sa na tento revír nevzťahuje. Platný rybársky lístok je podmienkou aj pri love „Chyť a pusť“. Viac informácií: <a class="font-semibold underline underline-offset-4" href={p.fishing.link.href} target="_blank" rel="noopener">{p.fishing.link.label}</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How booking works -->
+    <section id="ako-rezervovat" aria-labelledby="rez" class="mx-auto max-w-[90rem] scroll-mt-20 px-4 py-16 md:px-8 md:py-24">
+      <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+        <div>
+          <h2 id="rez" class="v3-display text-[2.4rem] leading-[0.95] md:text-[3.6rem]">{p.howBooking.title}</h2>
+          <ol class="mt-6 space-y-3" role="list">
+            {p.howBooking.steps.map((s, i) => (
+              <li class="flex gap-4 rounded-lg bg-v3-siva p-4">
+                <span class="zone-fill v3-display grid h-10 w-10 shrink-0 place-items-center rounded-full text-[1.4rem] leading-none">{i + 1}</span>
+                <span class="pt-1.5">{s}</span>
+              </li>
+            ))}
+          </ol>
+          <ul class="v3-prose mt-6 text-[0.9375rem]" role="list">
+            <li>{p.howBooking.storno}</li>
+            <li>{p.howBooking.voucher}</li>
+            <li>{p.howBooking.checkin}</li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <a href={site.booking.stayPrevio.href} target="_blank" rel="noopener" class="zone-fill flex min-h-20 items-center gap-4 rounded-lg p-5">
+            <Icon name="calendar" size={28} class="shrink-0" />
+            <span class="flex-1"><span class="v3-display block text-[1.8rem] leading-[0.95]">Online rezervácia</span><span class="text-[0.9375rem] font-semibold">{site.booking.stayPrevio.note}</span></span>
+            <Icon name="external" size={20} /><span class="sr-only"> (Previo)</span>
+          </a>
+          <a href={site.booking.stayForm.href} target="_blank" rel="noopener" class="flex min-h-20 items-center gap-4 rounded-lg border-2 border-v3-atrament p-5 hover:bg-v3-siva">
+            <Icon name="file" size={28} class="shrink-0" />
+            <span class="flex-1"><span class="v3-display block text-[1.8rem] leading-[0.95]">Rezervačný formulár</span><span class="text-[0.9375rem] font-semibold">apartmán, kemping alebo stanovanie v Dive Centre</span></span>
+            <Icon name="external" size={20} /><span class="sr-only"> (aquarea.sk)</span>
+          </a>
+          <p><Todo text={site.booking.todo} /></p>
+          <p class="pt-2 font-semibold">Otázky k pobytu: <a class="underline underline-offset-4" href={`tel:${site.contacts.info.tel}`}>{site.contacts.info.phone}</a>, <a class="underline underline-offset-4" href={`mailto:${site.contacts.info.email}`}>{site.contacts.info.email}</a></p>
+          <a href={site.documents[0].href} target="_blank" rel="noopener" class="inline-flex min-h-11 items-center gap-2 font-semibold underline underline-offset-4"><Icon name="file" size={18} />{site.documents[0].label} ({site.documents[0].file})</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Site>

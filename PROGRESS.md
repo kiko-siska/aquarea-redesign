@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:48
+- **Last updated:** 2026-10-01 07:50
 - **Current phase:** 3
 
 ## Checklist
@@ -29,8 +29,8 @@
 
 ### Phase 3 — Full site in the chosen direction
 - [x] Home (`/`) — direction 3 refined: prices visible on closed wristbands on mobile, links into the new IA, JSON-LD (TouristAttraction + LocalBusiness, real data), shared `Site` layout + `v3.css`
-- [ ] Plážová zóna
-- [ ] Prémium zóna (kemping & apartmány)
+- [x] Plážová zóna — `/plazova-zona/`: features, reception, entry & prices, Event zóna (#event-zona) with prices, gastro (TODO), JSON-LD Beach
+- [x] Prémium zóna (kemping & apartmány) — `/premium-zona/`: 3 apartments with prices, camping, fishing, how booking works (offer → 50 % deposit), Previo + form, JSON-LD Campground/LodgingBusiness
 - [ ] Potápanie / Dive Center (courses, intro dives)
 - [ ] Cenník
 - [ ] Otváracie hodiny
