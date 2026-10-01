@@ -1,0 +1,319 @@
+---
+/**
+ * Direction 3 · Náramok: bold resort wayfinding.
+ * Zones are colour-coded wristbands (the area really works with zone wristbands, Prevádzkový poriadok §4–5).
+ * Each band is a <details> in one exclusive group (name="naramok"): no JS, keyboard-native.
+ */
+import '@fontsource-variable/big-shoulders-display';
+import '@fontsource-variable/figtree/wght.css';
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/v3/Header.astro';
+import Footer from '../../../components/v3/Footer.astro';
+import Photo from '../../../components/shared/Photo.astro';
+import Icon from '../../../components/shared/Icon.astro';
+import Todo from '../../../components/shared/Todo.astro';
+import StickyCta from '../../../components/shared/StickyCta.astro';
+import StatusScript from '../../../components/shared/StatusScript.astro';
+import Marquee from '../../../components/ui/Marquee.astro';
+import { site, hours, prices, zones, diving, fff, highlight, priceSection } from '../../../lib/content';
+import { priceShort, time, dateLong } from '../../../lib/format';
+import { url } from '../../../lib/url';
+
+const book = '#rezervacie';
+const partnerFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/partners/*.png', { eager: true });
+const main = hours.periods.find((p) => p.id === 'hlavna')!;
+const eventZone = priceSection('kemping-apartmany').groups.find((g) => g.id === 'event-zona')!;
+const komplet = eventZone.rows.find((r) => r.label === 'Komplet zóna')!;
+
+const bands = [
+  {
+    id: 'plaz', color: 'plaz', name: 'Plážová zóna', chip: `od ${priceShort(highlight('beach-adult').amount)} / deň`, tilt: '-1.2deg',
+    lead: zones.beach.lead,
+    points: zones.beach.features.slice(0, 7),
+    note: 'Vstup po úhrade vstupného, v rámci otváracích hodín. Deti do 3 rokov zdarma. Psy a iné zvieratá sú zakázané.',
+    links: [{ href: url(zones.beach.href), label: 'Všetko o pláži' }, { href: url('/cennik/#plazova-zona'), label: 'Cenník pláže' }],
+    photo: 'plaz-molo-zabradlie',
+  },
+  {
+    id: 'pobyt', color: 'premium', name: 'Prémium zóna', chip: `apartmán od ${priceShort(highlight('apartment').amount)} / noc`, tilt: '0.8deg',
+    lead: zones.premium.lead,
+    points: ['3 apartmány s kuchynkou a terasou (check-in 14:00, check-out 10:00)', '5 kempingových miest s priamym prístupom k vode', 'altánky, elektrina, ohniská, studničky', 'rybolov na miestach č. 3 – 7 (povolenie SRZ Galanta)', 'vstup na pláž v cene pobytu', 'strážna služba 24/7'],
+    note: 'Pobyt len na základe rezervácie. Záloha 50 % do 3 dní potvrdzuje rezerváciu.',
+    links: [{ href: site.booking.stayPrevio.href, label: 'Rezervovať pobyt online', external: true }, { href: url(zones.premium.href), label: 'Všetko o pobyte' }],
+    photo: 'apartmany-terasa',
+  },
+  {
+    id: 'dive', color: 'dive', name: 'Dive Center', chip: `skúšobný ponor ${priceShort(diving.intro.price)}`, tilt: '-0.6deg',
+    lead: diving.lead,
+    points: [`skúšobný ponor s inštruktorom, 30 min, od 12 rokov: ${priceShort(diving.intro.price)}`, `kurz OWD (piatok – nedeľa), licencia SDI: ${priceShort(diving.course.price)}`, 'freediving: platforma „Ostrov“ do hĺbky 35 m', 'zanorené atrakcie na viac ako 1000 m lán', 'požičovňa výstroja, plnenie fliaš 200/300 bar', `vstup do Dive Centra ${priceShort(highlight('dive-day').amount)} / deň`],
+    note: diving.safety,
+    links: [{ href: site.booking.introDive.href, label: 'Rezervovať ponor', external: true }, { href: url(diving.href), label: 'Všetko o potápaní' }],
+    photo: 'pod-vodou-motorka',
+  },
+  {
+    id: 'event', color: 'event', name: 'Event zóna', chip: 'do 100 osôb', tilt: '1.1deg',
+    lead: zones.beach.event.lead,
+    points: zones.beach.event.equipment.concat(zones.beach.event.services.map((s) => `${s} (doplnková služba)`)),
+    note: `Kapacita ${zones.beach.event.capacity}. Komplet zóna ${priceShort(komplet.amount!)}.`,
+    links: [{ href: `tel:${site.contacts.info.tel}`, label: `Zavolať ${site.contacts.info.phone}` }, { href: url('/cennik/#event-zona'), label: 'Cenník Event zóny' }],
+    photo: 'event-oslava',
+  },
+];
+
+const months = [
+  { m: 'Máj', s: 'len potápači', kind: 'dive' },
+  { m: 'Jún', s: 'postupné otvorenie, vybrané dni', kind: 'part' },
+  { m: 'Júl', s: `denne do ${time(main.weekly![0].close)}`, kind: 'open' },
+  { m: 'August', s: 'denne, od 17. 8. do 19:00', kind: 'open' },
+  { m: 'September', s: 'piatky a víkendy, od 19. 9. len potápači', kind: 'part' },
+  { m: 'Október', s: 'zatvorené, skupiny od 15 osôb po dohode', kind: 'closed' },
+];
+
+const flows = [
+  { ...site.booking.stayPrevio, title: 'Pobyt online', note: 'apartmány a kemping, výber termínu', color: 'bg-v3-premium text-white' },
+  { ...site.booking.stayForm, title: 'Pobyt cez formulár', note: 'apartmány, kemping, stan v Dive Centre', color: 'bg-v3-premium/15 text-v3-atrament' },
+  { ...site.booking.introDive, title: 'Skúšobný ponor', note: `${priceShort(diving.intro.price)}, aj ako darček`, color: 'bg-v3-dive text-white' },
+  { ...site.booking.course, title: 'Kurz OWD / AOWD', note: priceShort(diving.course.price), color: 'bg-v3-dive/15 text-v3-atrament' },
+  { ...site.booking.groups, title: 'Potápačská skupina', note: 'registrácia s reverzom', color: 'bg-v3-dive/15 text-v3-atrament' },
+];
+---
+<Base
+  title="Smer 3 · Náramok"
+  description="Aquarea Čierna Voda: Plážová zóna, Prémium zóna s apartmánmi a kempingom, Dive Center a Event zóna. Ceny, otváracie hodiny, rezervácie."
+  bodyClass="v3 bg-white font-v3-sans text-v3-atrament"
+  themeColor="#ffffff"
+>
+  <Header bookHref={book} />
+  <main id="obsah">
+    <!-- Hero -->
+    <section aria-labelledby="v3-title" class="relative">
+      <div class="relative h-[52svh] min-h-[20rem] md:h-[68svh]">
+        <Photo id="dron-kemping-pole" priority sizes="100vw" widths={[640, 960, 1280]} pictureClass="block h-full" class="h-full w-full object-cover" />
+      </div>
+      <div class="relative mx-auto -mt-20 max-w-[90rem] px-4 md:-mt-36 md:px-8">
+        <div class="v3-panel bg-v3-atrament px-5 pb-6 pt-5 text-white md:px-10 md:pb-10 md:pt-8">
+          <h1 id="v3-title" class="v3-display text-[3.4rem] leading-[0.92] xs:text-[4rem] md:text-[7.5rem] lg:text-[9rem]">Aquarea <span class="mt-[0.06em] block text-v3-slnko">Čierna Voda</span></h1>
+          <div class="mt-5 grid gap-5 md:mt-8 md:grid-cols-[1.4fr_1fr] md:items-end">
+            <p class="max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">Areál športu a relaxu pri jazere s tyrkysovou vodou. Vyberte si zónu: pláž pre každého, pobyt priamo pri vode, potápanie alebo oslavu.</p>
+            <a href={url('/otvaracie-hodiny/')} class="flex items-start gap-3 rounded-lg bg-white/10 p-4 hover:bg-white/15" data-status data-state="unknown">
+              <span class="status-dot mt-1.5"></span>
+              <span><span class="block font-extrabold" data-status-text>Otváracie hodiny</span><span class="block text-[0.9375rem] text-white/80" data-status-detail>{hours.season}</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wristbands -->
+    <section aria-labelledby="v3-zones" class="mx-auto max-w-[90rem] px-4 pt-14 md:px-8 md:pt-20">
+      <h2 id="v3-zones" class="v3-display text-[2.6rem] leading-none md:text-[4.2rem]">Vyberte si náramok</h2>
+      <p class="mt-3 max-w-2xl text-lg text-v3-atrament/80">Po zaplatení vstupu dostanete v areáli náramok pre svoju zónu. Ťuknite na zónu a uvidíte, čo v nej nájdete a koľko stojí.</p>
+      <div class="mt-8 space-y-4 md:space-y-5">
+        {bands.map((b, i) => (
+          <details name="naramok" class:list={['v3-band group', `v3-band-${b.color}`]} style={`--tilt:${b.tilt}`} open={i === 0}>
+            <summary class="v3-band-strap">
+              <span class="v3-clasp" aria-hidden="true"></span>
+              <span class="v3-display min-w-0 flex-1 truncate text-[2rem] leading-none md:text-[3.4rem]">{b.name}</span>
+              <span class="v3-chip hidden sm:inline-flex">{b.chip}</span>
+              <Icon name="chevron-down" size={28} stroke={2.5} class="shrink-0 transition-transform group-open:rotate-180" />
+            </summary>
+            <div class="v3-band-body grid gap-6 md:grid-cols-[1.3fr_1fr] md:gap-10">
+              <div>
+                <p class="v3-chip inline-flex sm:hidden">{b.chip}</p>
+                <p class="mt-3 text-lg font-semibold leading-snug sm:mt-0">{b.lead}</p>
+                <ul class="mt-4 grid gap-x-6 gap-y-2 sm:grid-cols-2" role="list">
+                  {b.points.map((p) => <li class="flex gap-2.5"><span class="v3-dot mt-2 h-2 w-2 shrink-0 rounded-full" aria-hidden="true"></span>{p}</li>)}
+                </ul>
+                <p class="mt-4 text-[0.9375rem] text-v3-atrament/75">{b.note}</p>
+                <div class="mt-5 flex flex-wrap gap-3">
+                  {b.links.map((l, j) => (
+                    <a href={l.href} target={'external' in l && l.external ? '_blank' : undefined} rel={'external' in l && l.external ? 'noopener' : undefined}
+                       class:list={['inline-flex min-h-12 items-center gap-2 rounded-lg px-5 font-extrabold', j === 0 ? 'v3-btn-main' : 'border-2 border-v3-atrament hover:bg-v3-siva']}>
+                      {l.label}{'external' in l && l.external && <><Icon name="external" size={18} /><span class="sr-only"> (aquarea.sk)</span></>}
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <Photo id={b.photo} sizes="(min-width: 768px) 38vw, 100vw" widths={[480, 720, 960]} class="aspect-[4/3] w-full rounded-lg object-cover" />
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- Season board -->
+    <section aria-labelledby="v3-hours" class="mx-auto max-w-[90rem] px-4 pt-20 md:px-8 md:pt-28">
+      <div class="grid gap-8 lg:grid-cols-[1fr_2fr]">
+        <div>
+          <h2 id="v3-hours" class="v3-display text-[2.6rem] leading-none md:text-[4.2rem]">Kedy</h2>
+          <div class="mt-5 rounded-lg bg-v3-slnko p-5" data-status data-state="unknown">
+            <p class="v3-display flex items-center gap-3 text-[2rem] leading-none"><span class="status-dot"></span><span data-status-text>Otváracie hodiny</span></p>
+            <p class="mt-2 font-semibold" data-status-detail>{hours.season}</p>
+          </div>
+          <p class="mt-4 text-v3-atrament/80">{hours.seasonEnd.text}</p>
+          <p class="mt-3"><Todo text={hours.nextSeason.todo} /></p>
+        </div>
+        <div>
+          <p class="font-bold">{hours.season}</p>
+          <ol class="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6" role="list">
+            {months.map((m) => (
+              <li class:list={['v3-month rounded-lg p-3', `v3-month-${m.kind}`]}>
+                <span class="v3-display block text-[1.6rem] leading-none">{m.m}</span>
+                <span class="mt-2 block text-sm font-semibold leading-snug">{m.s}</span>
+              </li>
+            ))}
+          </ol>
+          <ul class="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm" role="list" aria-label="Legenda">
+            <li class="flex items-center gap-2"><span class="h-3 w-3 rounded-sm bg-v3-plaz"></span>verejnosť denne</li>
+            <li class="flex items-center gap-2"><span class="h-3 w-3 rounded-sm bg-v3-plaz/35"></span>vybrané dni</li>
+            <li class="flex items-center gap-2"><span class="h-3 w-3 rounded-sm bg-v3-dive"></span>len potápači</li>
+            <li class="flex items-center gap-2"><span class="h-3 w-3 rounded-sm bg-v3-siva ring-1 ring-v3-atrament/20"></span>zatvorené</li>
+          </ul>
+          <p class="mt-5 rounded-lg border-2 border-v3-atrament p-4 font-semibold">{hours.lastEntry}</p>
+          <a href={url('/otvaracie-hodiny/')} class="mt-4 inline-flex min-h-11 items-center gap-1.5 font-extrabold underline decoration-v3-slnko decoration-4 underline-offset-4">Hodiny po dňoch<Icon name="chevron-right" size={18} /></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Price board -->
+    <section aria-labelledby="v3-prices" class="mt-20 bg-v3-siva py-16 md:mt-28 md:py-24">
+      <div class="mx-auto max-w-[90rem] px-4 md:px-8">
+        <div class="flex flex-wrap items-end justify-between gap-3">
+          <h2 id="v3-prices" class="v3-display text-[2.6rem] leading-none md:text-[4.2rem]">Cenník</h2>
+          <p class="font-bold">{prices.validFromText}</p>
+        </div>
+        <ul class="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5" role="list">
+          {prices.highlights.map((h) => (
+            <li class:list={['flex flex-col justify-between rounded-lg bg-white p-4 md:p-5 border-t-8', h.section === 'plazova-zona' ? 'border-v3-plaz' : h.section === 'dive-center' ? 'border-v3-dive' : 'border-v3-premium']}>
+              <span class="text-[0.9375rem] font-semibold leading-snug">{h.label}</span>
+              <span class="v3-display mt-3 text-[2.9rem] leading-none tabular-nums md:text-[3.6rem]">{h.from && <span class="text-[0.5em]">od </span>}{priceShort(h.amount)}</span>
+            </li>
+          ))}
+        </ul>
+        <a href={url('/cennik/')} class="mt-6 inline-flex min-h-11 items-center gap-1.5 font-extrabold underline decoration-v3-slnko decoration-4 underline-offset-4">Celý cenník všetkých zón<Icon name="chevron-right" size={18} /></a>
+      </div>
+    </section>
+
+    <!-- FotoFilmFest -->
+    <section aria-labelledby="v3-fff" class="bg-v3-event text-white">
+      <div class="mx-auto grid max-w-[90rem] gap-8 px-4 py-16 md:px-8 md:py-20 lg:grid-cols-[1.3fr_1fr] lg:items-center">
+        <div>
+          <p class="font-extrabold text-v3-slnko">Najbližšie podujatie</p>
+          <h2 id="v3-fff" class="v3-display mt-2 text-[3rem] leading-[0.95] md:text-[5.5rem]">{fff.next.title}</h2>
+          <p class="v3-display mt-3 text-[1.9rem] leading-none md:text-[2.6rem]">{dateLong(fff.next.date)}</p>
+          <p class="mt-3"><Todo text={fff.next.todo} /></p>
+          <p class="mt-5 max-w-2xl text-lg leading-relaxed">{fff.lead}</p>
+          <a href={url(fff.href)} class="mt-6 inline-flex min-h-12 items-center gap-2 rounded-lg bg-white px-5 font-extrabold text-v3-atrament hover:bg-v3-slnko">Propozície a prihlášky<Icon name="chevron-right" size={18} /></a>
+        </div>
+        <Photo id="pod-vodou-rura" sizes="(min-width: 1024px) 40vw, 100vw" widths={[480, 800, 1100]} class="aspect-[4/3] w-full rounded-lg object-cover" />
+      </div>
+    </section>
+
+    <!-- Partners marquee (Magic UI port) -->
+    <section aria-labelledby="v3-partners" class="border-b border-v3-atrament/10 py-10">
+      <h2 id="v3-partners" class="mx-auto max-w-[90rem] px-4 text-lg font-extrabold md:px-8">Certifikácie a partneri Dive Centra</h2>
+      <Marquee class="mt-6" duration="45s" gap="3.5rem" label="Logá partnerov">
+        {site.partners.map((p) => {
+          const img = partnerFiles[`/src/assets/partners/${p.file}`].default;
+          return <Image src={img} alt={p.label} height={64} width={Math.round((img.width / img.height) * 64)} class="h-14 w-auto md:h-16" loading="lazy" />;
+        })}
+      </Marquee>
+    </section>
+
+    <!-- Gallery teaser -->
+    <section aria-labelledby="v3-gal" class="mx-auto max-w-[90rem] px-4 pt-20 md:px-8 md:pt-28">
+      <div class="flex flex-wrap items-end justify-between gap-3">
+        <h2 id="v3-gal" class="v3-display text-[2.6rem] leading-none md:text-[4.2rem]">Galéria</h2>
+        <a href={url('/galeria/')} class="inline-flex min-h-11 items-center gap-1.5 font-extrabold underline decoration-v3-slnko decoration-4 underline-offset-4">Všetky albumy<Icon name="chevron-right" size={18} /></a>
+      </div>
+      <ul class="mt-8 grid grid-cols-2 gap-3 md:grid-cols-6" role="list">
+        <li class="col-span-2 md:col-span-3 md:row-span-2"><Photo id="dron-zatoka" sizes="(min-width: 768px) 50vw, 100vw" widths={[480, 800, 1200]} pictureClass="block h-full" class="aspect-[4/3] h-full w-full rounded-lg object-cover md:aspect-auto" /></li>
+        <li class="md:col-span-3"><Photo id="plaz-detske-ihrisko" sizes="(min-width: 768px) 50vw, 50vw" widths={[320, 640, 960]} class="aspect-[4/3] w-full rounded-lg object-cover md:aspect-[2/1]" /></li>
+        <li class="md:col-span-1"><Photo id="kemping-altanok" sizes="(min-width: 768px) 17vw, 50vw" widths={[320, 480]} class="aspect-square w-full rounded-lg object-cover" /></li>
+        <li class="md:col-span-1"><Photo id="gastro-slnecniky" sizes="(min-width: 768px) 17vw, 50vw" widths={[320, 480]} class="aspect-square w-full rounded-lg object-cover" /></li>
+        <li class="md:col-span-1"><Photo id="freediving-ostrov" sizes="(min-width: 768px) 17vw, 50vw" widths={[320, 480]} class="aspect-square w-full rounded-lg object-cover" /></li>
+      </ul>
+    </section>
+
+    <!-- Booking + getting there -->
+    <section id="rezervacie" aria-labelledby="v3-book" class="mx-auto max-w-[90rem] px-4 py-20 md:px-8 md:py-28">
+      <div class="grid gap-14 lg:grid-cols-2">
+        <div>
+          <h2 id="v3-book" class="v3-display text-[2.6rem] leading-none md:text-[4.2rem]">Rezervácie</h2>
+          <p class="mt-3 text-lg text-v3-atrament/80">Rezervácie zatiaľ beží na súčasnom webe aquarea.sk.</p>
+          <ul class="mt-6 grid gap-3" role="list">
+            {flows.map((f) => (
+              <li>
+                <a href={f.href} target="_blank" rel="noopener" class:list={['flex min-h-16 items-center gap-4 rounded-lg px-5 py-4 hover:brightness-95', f.color]}>
+                  <span class="min-w-0 flex-1"><span class="v3-display block text-[1.7rem] leading-none">{f.title}</span><span class="mt-1 block text-[0.9375rem] font-semibold opacity-85">{f.note}</span></span>
+                  <Icon name="external" size={22} class="shrink-0" /><span class="sr-only"> (otvorí aquarea.sk)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-3"><Todo text={site.booking.todo} /></p>
+          <p class="mt-6 font-semibold">Telefonicky: <a class="underline underline-offset-4" href={`tel:${site.contacts.info.tel}`}>{site.contacts.info.phone}</a>, Dive Center <a class="underline underline-offset-4" href={`tel:${site.contacts.dive.tel}`}>{site.contacts.dive.phone}</a></p>
+        </div>
+        <div>
+          <h2 class="v3-display text-[2.6rem] leading-none md:text-[4.2rem]">Cesta</h2>
+          <p class="mt-3 text-lg">{site.address.lines.slice(0, 2).join(', ')}</p>
+          <p class="mt-1 text-v3-atrament/80">{site.gettingThere.text}</p>
+          <div class="mt-5 rounded-lg border-4 border-v3-atrament p-1.5">
+            <Photo id="mapa-arealu" sizes="(min-width: 1024px) 45vw, 100vw" widths={[480, 800, 1200]} class="w-full rounded" />
+          </div>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a href={site.maps.directions} target="_blank" rel="noopener" class="inline-flex min-h-12 items-center gap-2 rounded-lg bg-v3-slnko px-5 font-extrabold text-v3-atrament hover:bg-v3-atrament hover:text-v3-slnko"><Icon name="navigation" size={20} />Navigovať<span class="sr-only"> (Google Mapy)</span></a>
+            <a href={site.documents[1].href} target="_blank" rel="noopener" class="inline-flex min-h-12 items-center gap-2 rounded-lg border-2 border-v3-atrament px-5 font-extrabold hover:bg-v3-siva"><Icon name="file" size={20} />Mapa areálu (PDF)</a>
+          </div>
+          <p class="mt-4 text-[0.9375rem] text-v3-atrament/80">{site.gettingThere.parking}</p>
+          <p class="mt-3"><Todo text={site.gettingThere.todo} /></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <StickyCta bookHref={book} class="bg-v3-atrament" itemClass="text-white" primaryClass="bg-v3-slnko text-v3-atrament" />
+  <StatusScript />
+</Base>
+
+<style is:global>
+  .v3 { --focus-color: #0b4f8a; }
+  .v3 .v3-display { font-family: var(--font-v3-display); font-weight: 850; text-transform: uppercase; letter-spacing: 0.005em; }
+  .v3 main :is(p, li) { text-wrap: pretty; }
+  .v3-panel { border-radius: 0.75rem; box-shadow: 0 24px 60px -30px rgb(16 33 43 / 0.6); }
+  .v3-panel :focus-visible, .v3-band-dive :focus-visible, .bg-v3-event :focus-visible { --focus-color: #ffc93c; }
+
+  /* wristbands */
+  .v3-band { --c: #00a3a3; --on: #10212b; border-radius: 1.25rem; transform: rotate(var(--tilt)); transition: transform .25s ease; }
+  .v3-band[open] { transform: rotate(0deg); }
+  .v3-band-plaz { --c: #00a3a3; --on: #10212b; }
+  .v3-band-premium { --c: #2e7d32; --on: #ffffff; }
+  .v3-band-dive { --c: #0b4f8a; --on: #ffffff; }
+  .v3-band-event { --c: #d62828; --on: #ffffff; }
+  .v3-band-strap {
+    display: flex; align-items: center; gap: 1rem; min-height: 4.75rem; padding: 0.75rem 1.25rem 0.75rem 1rem;
+    border-radius: 999px; cursor: pointer; list-style: none; color: var(--on);
+    background:
+      repeating-linear-gradient(115deg, rgb(255 255 255 / 0.07) 0 6px, transparent 6px 14px),
+      var(--c);
+    box-shadow: inset 0 -4px 0 rgb(0 0 0 / 0.12);
+  }
+  .v3-band-strap::-webkit-details-marker { display: none; }
+  .v3-clasp { position: relative; width: 2.6rem; height: 2.6rem; border-radius: 999px; background: rgb(255 255 255 / 0.92); flex: none; box-shadow: inset 0 0 0 6px color-mix(in srgb, var(--c) 35%, white); }
+  .v3-clasp::after { content: ''; position: absolute; inset: 50% auto auto 50%; width: 0.7rem; height: 0.7rem; border-radius: 999px; translate: -50% -50%; background: var(--c); }
+  .v3-chip { align-items: center; border-radius: 999px; padding: 0.35rem 0.85rem; font-weight: 800; font-size: 0.9375rem; background: rgb(255 255 255 / 0.92); color: #10212b; white-space: nowrap; }
+  .v3-band-body { margin: 0.75rem 0.25rem 0; padding: 1.25rem; border-radius: 1rem; background: color-mix(in srgb, var(--c) 9%, white); border: 2px solid color-mix(in srgb, var(--c) 45%, white); }
+  .v3-band-body .v3-chip { background: var(--c); color: var(--on); }
+  .v3-dot { background: var(--c); }
+  .v3-btn-main { background: var(--c); color: var(--on); }
+  .v3-btn-main:hover { filter: brightness(0.92); }
+  @media (min-width: 768px) { .v3-band-strap { min-height: 6rem; padding-inline: 1.25rem 2rem; } .v3-clasp { width: 3.2rem; height: 3.2rem; } .v3-band-body { padding: 2rem; } }
+  @media (prefers-reduced-motion: reduce) { .v3-band { transition: none; } }
+
+  /* season board */
+  .v3-month-open { background: #00a3a3; color: #10212b; }
+  .v3-month-part { background: color-mix(in srgb, #00a3a3 35%, white); color: #10212b; }
+  .v3-month-dive { background: #0b4f8a; color: #fff; }
+  .v3-month-closed { background: #eef1f2; color: #10212b; box-shadow: inset 0 0 0 1px rgb(16 33 43 / 0.2); }
+</style>
