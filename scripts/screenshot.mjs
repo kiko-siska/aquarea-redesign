@@ -44,8 +44,8 @@ for (const w of widths) {
     });
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     if (overflow > 1) errors.push(`${p} @${w}: horizontal overflow ${overflow}px`);
-    const name = (p.replace(/^\/|\/$/g, '').replace(/\//g, '-') || 'home') + `-${w}.png`;
-    await page.screenshot({ path: `${outDir}/${name}`, fullPage: true });
+    const name = (p.replace(/^\/|\/$/g, '').replace(/\//g, '-') || 'home') + `-${w}.jpg`;
+    await page.screenshot({ path: `${outDir}/${name}`, fullPage: true, type: 'jpeg', quality: 78 });
     console.log('saved', `${outDir}/${name}`);
     await page.close();
   }

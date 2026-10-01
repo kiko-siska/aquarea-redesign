@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:39
+- **Last updated:** 2026-10-01 07:41
 - **Current phase:** 2
 
 ## Checklist
@@ -24,7 +24,7 @@
 - [x] Variant 2 at `/variants/2/` — Deň pri vode: serif magazine on white, alternating spreads, day strip (adapted 21st filmstrip, React island), price box with leaders
 - [x] Variant 3 at `/variants/3/` — Náramok: colour-coded wristband zones (exclusive <details>), season board, signage price board, partner marquee
 - [x] Picker page `/variants/` — summaries, palettes, type, signature effect, desktop + mobile thumbnails (`scripts/picker-thumbs.mjs`)
-- [ ] Browser check 375px + desktop, screenshots, fixes
+- [x] Browser check 375px + desktop, screenshots, fixes — `screenshots/phase2/*.jpg` (375 + 1440, full page); no overflow/console errors; axe-core 0 violations on all 4 pages (fixed 2 contrast issues in v3); reduced-motion pass checked; fixes: depth-bar overflow, misleading depth ruler on photo removed, Č caron leading, chip display, gallery tile height
 - [ ] [auto] Pick the recommended variant, log why in DECISIONS.md
 
 ### Phase 3 — Full site in the chosen direction

@@ -199,7 +199,7 @@ const flows = [
     <section aria-labelledby="v3-fff" class="bg-v3-event text-white">
       <div class="mx-auto grid max-w-[90rem] gap-8 px-4 py-16 md:px-8 md:py-20 lg:grid-cols-[1.3fr_1fr] lg:items-center">
         <div>
-          <p class="font-extrabold text-v3-slnko">Najbližšie podujatie</p>
+          <p class="font-extrabold text-white">Najbližšie podujatie</p>
           <h2 id="v3-fff" class="v3-display mt-2 text-[3rem] leading-[0.95] md:text-[5.5rem]">{fff.next.title}</h2>
           <p class="v3-display mt-3 text-[1.9rem] leading-none md:text-[2.6rem]">{dateLong(fff.next.date)}</p>
           <p class="mt-3"><Todo text={fff.next.todo} /></p>
@@ -246,7 +246,7 @@ const flows = [
             {flows.map((f) => (
               <li>
                 <a href={f.href} target="_blank" rel="noopener" class:list={['flex min-h-16 items-center gap-4 rounded-lg px-5 py-4 hover:brightness-95', f.color]}>
-                  <span class="min-w-0 flex-1"><span class="v3-display block text-[1.7rem] leading-none">{f.title}</span><span class="mt-1 block text-[0.9375rem] font-semibold opacity-85">{f.note}</span></span>
+                  <span class="min-w-0 flex-1"><span class="v3-display block text-[1.7rem] leading-none">{f.title}</span><span class="mt-1 block text-[0.9375rem] font-semibold">{f.note}</span></span>
                   <Icon name="external" size={22} class="shrink-0" /><span class="sr-only"> (otvorí aquarea.sk)</span>
                 </a>
               </li>
@@ -282,7 +282,7 @@ const flows = [
   .v3 .v3-display { font-family: var(--font-v3-display); font-weight: 850; text-transform: uppercase; letter-spacing: 0.005em; }
   .v3 main :is(p, li) { text-wrap: pretty; }
   .v3-panel { border-radius: 0.75rem; box-shadow: 0 24px 60px -30px rgb(16 33 43 / 0.6); }
-  .v3-panel :focus-visible, .v3-band-dive :focus-visible, .bg-v3-event :focus-visible { --focus-color: #ffc93c; }
+  .v3-panel :focus-visible, .v3-band-dive :focus-visible, .bg-v3-event :focus-visible { --focus-color: #ffffff; }
 
   /* wristbands */
   .v3-band { --c: #00a3a3; --on: #10212b; border-radius: 1.25rem; transform: rotate(var(--tilt)); transition: transform .25s ease; }
