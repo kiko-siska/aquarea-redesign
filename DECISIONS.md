@@ -55,3 +55,20 @@ Checked against generic defaults: no cream + terracotta, no near-black + acid ac
 1. **v1 caustics texture**: seamless abstract sunlight caustics on pale sand seen through teal water. No objects, fish or people. 16:9, 2K, fast. Used as a low-opacity overlay at the surface → shallow transition. *(planned)*
 2. *(reserve)* abstract sun-glare-on-water divider for v2, only if the real photos don't cover it.
 Everything else uses real aquarea.sk photos. The OG image was composed from the real drone photo + logo (`scripts/make-og.mjs`), with 0 Gemini credits.
+
+### 2026-10-01 07:44 · [auto] Recommended direction: **3 · Náramok**
+**Why:** the deciding criterion is the mission in AGENTS.md: on a phone, understand in seconds what Aquarea is, what it costs, when it's open and how to book. Measured at 375 px and with Lighthouse mobile against the preview build:
+
+| | 1 Ponor | 2 Deň pri vode | 3 Náramok |
+|---|---|---|---|
+| Page height (375 px) | 14 457 px | 11 953 px | **9 354 px** |
+| First price on the page | 1 768 px | 2 022 px | **1 170 px** |
+| Today's status | 484 px | 470 px | 687 px |
+| Lighthouse performance (mobile) | 89 (LCP 3,5 s) | 66 (LCP 7,5 s) | **98 (LCP 2,3 s)** |
+| Accessibility / best practices | 100 / 100 | 100 / 100 | 100 / 100 |
+| JS on the page | gauge + strip engine | React island | status + menu only (zones are native `<details>`) |
+
+Also: V3's zone colours give every inner page an obvious theme (Pláž teal, Pobyt green, Potápanie blue, FotoFilmFest/Event red), so the system carries the 11-page IA. V1's signature mostly lives on the homepage and Potápanie.
+**Alternatives:** V1 Ponor is the most atmospheric. It's the runner-up, and its best asset (the real 37-attraction depth chart) moves into V3's `/potapanie/` page in dive blue. V2 is the most elegant for long text, but it's heavy (LCP 7,5 s) and less scannable.
+**Carried into Phase 3:** show the price on closed wristbands on mobile; `.v3-display` leading ≥ 0,92 (Slovak carons on capitals); dark ink on pláž teal (white fails contrast); colour the cenník sections by zone.
+All three variants stay at `/variants/1–3/` so the owner can switch.

@@ -1,8 +1,8 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:41
-- **Current phase:** 2
+- **Last updated:** 2026-10-01 07:44
+- **Current phase:** 3
 
 ## Checklist
 
@@ -25,7 +25,7 @@
 - [x] Variant 3 at `/variants/3/` — Náramok: colour-coded wristband zones (exclusive <details>), season board, signage price board, partner marquee
 - [x] Picker page `/variants/` — summaries, palettes, type, signature effect, desktop + mobile thumbnails (`scripts/picker-thumbs.mjs`)
 - [x] Browser check 375px + desktop, screenshots, fixes — `screenshots/phase2/*.jpg` (375 + 1440, full page); no overflow/console errors; axe-core 0 violations on all 4 pages (fixed 2 contrast issues in v3); reduced-motion pass checked; fixes: depth-bar overflow, misleading depth ruler on photo removed, Č caron leading, chip display, gallery tile height
-- [ ] [auto] Pick the recommended variant, log why in DECISIONS.md
+- [x] [auto] Pick the recommended variant, log why in DECISIONS.md — **3 Náramok** (Lighthouse mobile 98/100/100, shortest page, first price earliest); V1 runner-up
 
 ### Phase 3 — Full site in the chosen direction
 - [ ] Home (`/`)
