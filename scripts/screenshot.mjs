@@ -17,23 +17,29 @@ const errors = [];
 for (const w of widths) {
   const ctx = await browser.newContext({
     viewport: { width: w, height: w < 768 ? 812 : 900 },
-    deviceScaleFactor: w < 768 ? 2 : 1,
+    deviceScaleFactor: 1, // 2× would exceed Chrome's 16 384 px capture limit on long mobile pages
     reducedMotion: process.env.REDUCED ? 'reduce' : 'no-preference',
     locale: 'sk-SK',
     timezoneId: 'Europe/Bratislava',
   });
   for (const p of paths) {
     const page = await ctx.newPage();
+    // full-page capture: no smooth scrolling, no pinned (100svh) sections
+    await page.addInitScript(() => {
+      const mark = () => document.documentElement?.setAttribute('data-shot', '');
+      if (document.documentElement) mark();
+      else new MutationObserver((_, o) => { if (document.documentElement) { mark(); o.disconnect(); } }).observe(document, { childList: true });
+    });
     page.on('pageerror', (e) => errors.push(`${p} @${w}: ${e.message}`));
     page.on('console', (m) => { if (m.type() === 'error') errors.push(`${p} @${w}: console ${m.text()}`); });
     await page.goto(base + p, { waitUntil: 'networkidle' });
     // scroll through so lazy images load and scroll-driven states settle
     await page.evaluate(async () => {
       for (let y = 0; y < document.body.scrollHeight; y += window.innerHeight * 0.8) {
-        window.scrollTo(0, y);
+        window.scrollTo({ top: y, behavior: 'instant' });
         await new Promise((r) => setTimeout(r, 120));
       }
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: 'instant' });
       await new Promise((r) => setTimeout(r, 300));
     });
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);

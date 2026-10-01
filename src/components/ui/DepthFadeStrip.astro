@@ -85,7 +85,7 @@ const { items, label, length = 300, class: cls } = Astro.props;
     };
     const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(apply); } };
     const enable = () => {
-      if (reduce.matches) {
+      if (reduce.matches || document.documentElement.hasAttribute('data-shot')) {
         section.classList.remove('is-live');
         track.style.transform = '';
         cards.forEach((c) => { c.style.filter = ''; c.style.transform = ''; });

@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../../assets/brand/logo.png';
+import Icon from '../shared/Icon.astro';
+import { url } from '../../lib/url';
+
+interface Props { current?: string; bookHref?: string }
+const { current, bookHref = url('/rezervacie/') } = Astro.props;
+const nav = [
+  { href: url('/plazova-zona/'), label: 'Pláž', id: 'plaz' },
+  { href: url('/premium-zona/'), label: 'Pobyt', id: 'pobyt' },
+  { href: url('/potapanie/'), label: 'Potápanie', id: 'potapanie' },
+  { href: url('/cennik/'), label: 'Cenník', id: 'cennik' },
+  { href: url('/kontakt/'), label: 'Kontakt', id: 'kontakt' },
+];
+---
+<header class="v1-header sticky top-0 z-50 border-b border-v1-ink/10 bg-v1-pena/92 backdrop-blur-md">
+  <div class="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 md:h-20 md:px-8">
+    <a href={url('/')} class="mr-auto flex shrink-0 items-center rounded-md" aria-label="Aquarea Čierna Voda – úvod">
+      <Image src={logo} alt="" width={150} height={56} class="h-10 w-auto md:h-12" loading="eager" />
+    </a>
+    <nav aria-label="Hlavná navigácia" class="hidden lg:block">
+      <ul class="flex items-center gap-1" role="list">
+        {nav.map((n) => (
+          <li>
+            <a href={n.href} aria-current={current === n.id ? 'page' : undefined}
+               class="rounded-full px-4 py-2.5 text-[0.9375rem] font-semibold text-v1-ink hover:bg-v1-hladina aria-[current=page]:bg-v1-hladina">{n.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <a href={bookHref} class="hidden rounded-full bg-v1-hlbka px-5 py-2.5 text-[0.9375rem] font-bold text-white hover:bg-v1-jazero md:inline-flex">Rezervovať</a>
+    <button type="button" class="v1-menu-btn inline-flex h-11 w-11 items-center justify-center rounded-full text-v1-ink hover:bg-v1-hladina lg:hidden" aria-expanded="false" aria-controls="v1-menu">
+      <Icon name="menu" size={24} class="v1-menu-open" />
+      <Icon name="x" size={24} class="v1-menu-close hidden" />
+      <span class="sr-only">Menu</span>
+    </button>
+  </div>
+  <div id="v1-menu" class="v1-menu hidden border-t border-v1-ink/10 bg-v1-pena lg:hidden">
+    <nav aria-label="Hlavná navigácia (mobil)">
+      <ul class="mx-auto max-w-7xl px-4 py-3" role="list">
+        {nav.map((n) => (
+          <li><a href={n.href} class="block border-b border-v1-ink/10 py-4 text-xl font-bold text-v1-ink" style="font-stretch:112%">{n.label}</a></li>
+        ))}
+        <li><a href={url('/otvaracie-hodiny/')} class="block border-b border-v1-ink/10 py-4 text-lg font-semibold text-v1-ink">Otváracie hodiny</a></li>
+        <li><a href={url('/fotofilmfest/')} class="block border-b border-v1-ink/10 py-4 text-lg font-semibold text-v1-ink">FotoFilmFest</a></li>
+        <li><a href={url('/galeria/')} class="block py-4 text-lg font-semibold text-v1-ink">Galéria</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.v1-menu-btn');
+  const menu = document.getElementById('v1-menu');
+  btn?.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    menu?.classList.toggle('hidden', open);
+    btn.querySelector('.v1-menu-open')?.classList.toggle('hidden', !open);
+    btn.querySelector('.v1-menu-close')?.classList.toggle('hidden', open);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && btn?.getAttribute('aria-expanded') === 'true') { btn.click(); btn.focus(); }
+  });
+</script>

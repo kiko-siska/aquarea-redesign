@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:23
+- **Last updated:** 2026-10-01 07:30
 - **Current phase:** 2
 
 ## Checklist
@@ -20,7 +20,7 @@
 - [x] Run the ui-ux-pro-max design-system generator; write 3 directions into DECISIONS.md — 1 Ponor (dive), 2 Deň pri vode (editorial), 3 Náramok (wayfinding)
 - [x] Scaffold Astro + Tailwind + React; content collections from the audit; `noindex`; git commit — Astro 7.3 static, Tailwind 4, React 19; data in `src/content/*.json` validated by zod (source URL required); base-path helper; OG image from real photo
 - [x] Component shortlist (21st search / Magic UI / Aceternity) + image shot list — DECISIONS.md 07:21; 2× 21st retrieved & adapted, Magic UI marquee + light rays ported to zero-JS Astro
-- [ ] Variant 1 at `/variants/1/`
+- [x] Variant 1 at `/variants/1/` — Ponor: depth gauge with real attraction depths, surface→deep section gradients, light rays, depth-fade photo strip, depth chart of 10 attractions
 - [ ] Variant 2 at `/variants/2/`
 - [ ] Variant 3 at `/variants/3/`
 - [ ] Picker page `/variants/`
@@ -48,7 +48,8 @@
   - 2026-10-01 · Horizontal Depth Fade (@unlumen, id 18439) · v1 underwater photo strip (ported to vanilla JS)
   - 2026-10-01 · Filmstrip Gallery (@n1m4mz, id 27093) · v2 day strip + lightbox (adapted)
   - **2026-10-01: 2/2 used.** Next retrieval possible 2026-10-02.
-- Gemini images: 0 / 8 (file · prompt summary)
+- Gemini images: 1 / 8 (file · prompt summary)
+  - 2026-10-01 · `images/generated/v1-caustics.jpg` (2K, fast) · abstract sunlight caustics on sand through teal water; no objects/place/people · v1 texture overlay (`src/assets/generated/caustics.jpg`, resized)
 
 ## Blockers
 - 2026-10-01 (VS Code session): the built-in browser MCP (`mcp__Claude_Browser__*`) and `.claude/launch.json` preview are not available here. **Workaround:** screenshots and checks via Playwright (`playwright-core`) driving the installed Google Chrome (`scripts/screenshot.mjs`). The 21st, magicui and nano-banana MCPs are available.

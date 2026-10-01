@@ -1,0 +1,33 @@
+---
+/** Bottom action bar on phones: call, book, navigate. Styled per direction through class props. */
+import Icon from './Icon.astro';
+import { site } from '../../lib/content';
+import { url } from '../../lib/url';
+
+interface Props {
+  bookHref?: string;
+  class?: string;
+  itemClass?: string;
+  primaryClass?: string;
+}
+const { bookHref = url('/rezervacie/'), class: cls, itemClass, primaryClass } = Astro.props;
+---
+<nav aria-label="Rýchle akcie" class:list={['fixed inset-x-0 bottom-0 z-40 md:hidden pb-[env(safe-area-inset-bottom)]', cls]}>
+  <ul class="grid grid-cols-3" role="list">
+    <li>
+      <a href={`tel:${site.contacts.info.tel}`} class:list={['flex min-h-14 flex-col items-center justify-center gap-0.5 text-[0.8125rem] font-semibold', itemClass]}>
+        <Icon name="phone" size={20} />Zavolať
+      </a>
+    </li>
+    <li>
+      <a href={bookHref} class:list={['flex min-h-14 flex-col items-center justify-center gap-0.5 text-[0.8125rem] font-semibold', primaryClass ?? itemClass]}>
+        <Icon name="calendar" size={20} />Rezervovať
+      </a>
+    </li>
+    <li>
+      <a href={site.maps.directions} rel="noopener" target="_blank" class:list={['flex min-h-14 flex-col items-center justify-center gap-0.5 text-[0.8125rem] font-semibold', itemClass]}>
+        <Icon name="navigation" size={20} />Navigovať<span class="sr-only"> (otvorí Google Mapy)</span>
+      </a>
+    </li>
+  </ul>
+</nav>

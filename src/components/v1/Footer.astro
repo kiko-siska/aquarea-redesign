@@ -1,0 +1,74 @@
+---
+import Icon from '../shared/Icon.astro';
+import { site } from '../../lib/content';
+import { url } from '../../lib/url';
+
+const links = [
+  { href: url('/otvaracie-hodiny/'), label: 'Otváracie hodiny' },
+  { href: url('/cennik/'), label: 'Cenník' },
+  { href: url('/rezervacie/'), label: 'Rezervácie' },
+  { href: url('/fotofilmfest/'), label: 'FotoFilmFest' },
+  { href: url('/galeria/'), label: 'Galéria' },
+  { href: url('/o-nas/'), label: 'O nás' },
+];
+const { info, dive } = site.contacts;
+---
+<footer class="bg-v1-dno pb-24 text-v1-hladina md:pb-10">
+  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-2 md:px-8 lg:grid-cols-4">
+    <div>
+      <h2 class="text-lg font-bold text-white" style="font-stretch:112%">Kontakt</h2>
+      <p class="mt-3 text-sm text-v1-hladina/80">{info.label}</p>
+      <p class="mt-1"><a class="font-semibold text-white underline-offset-4 hover:underline" href={`tel:${info.tel}`}>{info.phone}</a></p>
+      <p><a class="text-white underline-offset-4 hover:underline" href={`mailto:${info.email}`}>{info.email}</a></p>
+      <p class="mt-4 text-sm text-v1-hladina/80">{dive.label}</p>
+      <p class="mt-1"><a class="font-semibold text-white underline-offset-4 hover:underline" href={`tel:${dive.tel}`}>{dive.phone}</a></p>
+      <p><a class="text-white underline-offset-4 hover:underline" href={`mailto:${dive.email}`}>{dive.email}</a></p>
+    </div>
+    <div>
+      <h2 class="text-lg font-bold text-white" style="font-stretch:112%">Adresa</h2>
+      <address class="mt-3 not-italic leading-relaxed">
+        {site.address.lines.map((l) => <span class="block">{l}</span>)}
+      </address>
+      <p class="mt-2 text-sm text-v1-hladina/80">GPS {site.address.lat}, {site.address.lng}</p>
+      <a href={site.maps.directions} target="_blank" rel="noopener" class="mt-4 inline-flex min-h-11 items-center gap-2 rounded-full border border-v1-hladina/40 px-4 font-semibold text-white hover:bg-white/10">
+        <Icon name="navigation" size={18} />Navigovať<span class="sr-only"> (otvorí Google Mapy)</span>
+      </a>
+    </div>
+    <div>
+      <h2 class="text-lg font-bold text-white" style="font-stretch:112%">Rýchle odkazy</h2>
+      <ul class="mt-3 space-y-1.5" role="list">
+        {links.map((l) => <li><a class="text-white underline-offset-4 hover:underline" href={l.href}>{l.label}</a></li>)}
+      </ul>
+      <h2 class="mt-8 text-lg font-bold text-white" style="font-stretch:112%">Sledujte nás</h2>
+      <ul class="mt-3 flex gap-2" role="list">
+        {site.social.map((s) => (
+          <li>
+            <a href={s.href} target="_blank" rel="noopener" class="inline-flex min-h-11 items-center gap-2 rounded-full border border-v1-hladina/40 px-4 text-white hover:bg-white/10">
+              <Icon name={s.label === 'Facebook' ? 'facebook' : 'instagram'} size={18} />{s.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-lg font-bold text-white" style="font-stretch:112%">Dokumenty</h2>
+      <ul class="mt-3 space-y-2" role="list">
+        {site.documents.slice(0, 3).map((d) => (
+          <li>
+            <a href={d.href} target="_blank" rel="noopener" class="inline-flex items-start gap-2 text-white underline-offset-4 hover:underline">
+              <Icon name="file" size={18} class="mt-0.5 shrink-0" /><span>{d.label} <span class="text-sm text-v1-hladina/70">({d.file})</span></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <h2 class="mt-8 text-lg font-bold text-white" style="font-stretch:112%">Prevádzkovateľ</h2>
+      <p class="mt-3 text-sm leading-relaxed text-v1-hladina/85">
+        {site.operator.name}, {site.operator.street}, {site.operator.city}<br />IČO {site.operator.ico}
+      </p>
+    </div>
+  </div>
+  <div class="mx-auto max-w-7xl border-t border-v1-hladina/15 px-4 pt-6 text-sm text-v1-hladina/75 md:px-8">
+    <p>Koncept redizajnu, neoficiálna verzia. Obsah, fotografie a logo © {site.operator.name}. Aktuálne informácie nájdete na <a class="underline underline-offset-4" href="https://www.aquarea.sk/">aquarea.sk</a>.</p>
+    <p class="mt-2">Slovenská verzia. Anglická a maďarská verzia sa doplnia v ďalšej fáze redizajnu.</p>
+  </div>
+</footer>

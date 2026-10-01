@@ -129,3 +129,6 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Screenshot mode (scripts/screenshot.mjs): full-page captures without smooth scroll. */
+html[data-shot] { scroll-behavior: auto !important; }
