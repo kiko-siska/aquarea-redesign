@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:56
+- **Last updated:** 2026-10-01 07:57
 - **Current phase:** 3
 
 ## Checklist
@@ -34,7 +34,7 @@
 - [x] Potápanie / Dive Center (courses, intro dives) — `/potapanie/`: facts, story, OWD/AOWD/DEEP/TECH zones, full depth chart of 32 attractions + the real map, intro dive, OWD course, freediving, rental & prices, groups + reverz, DC contact
 - [x] Cenník — `/cennik/`: all 3 price lists as accessible tables, zone-coloured sticky section tabs, anchors #plazova-zona #kemping-apartmany #event-zona #dive-center
 - [x] Otváracie hodiny — `/otvaracie-hodiny/`: live status, every 2026 period as a table, last-entry rule, divers outside hours, TODOs (2027, PDF conflict)
-- [ ] Rezervácie / Kontakt (+ how to get there)
+- [x] Rezervácie / Kontakt (+ how to get there) — `/rezervacie/` hub (6 options → live aquarea.sk flows, tel/mail, how stay booking works) + `/kontakt/` (3 contact cards, GPS, navigation, click-to-load Google map, area map, operator data, documents)
 - [ ] FotoFilmFest
 - [ ] Galéria
 - [ ] O nás

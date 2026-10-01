@@ -1,0 +1,110 @@
+---
+import Site from '../../layouts/Site.astro';
+import PageHero from '../../components/site/PageHero.astro';
+import Photo from '../../components/shared/Photo.astro';
+import Icon from '../../components/shared/Icon.astro';
+import Todo from '../../components/shared/Todo.astro';
+import { site } from '../../lib/content';
+import { url } from '../../lib/url';
+import { orgJsonLd, breadcrumbJsonLd } from '../../lib/seo';
+
+const c = site.contacts;
+---
+<Site
+  title="Kontakt a ako sa k nám dostať"
+  description="Kontakt na Aquarea Čierna Voda: info a rezervácie +421 902 673 675, Dive Center +421 901 710 840. Adresa, GPS súradnice, navigácia, mapa areálu a údaje o prevádzkovateľovi."
+  current="kontakt"
+  jsonLd={[orgJsonLd(), breadcrumbJsonLd([{ name: 'Úvod', url: 'https://www.aquarea.sk/' }, { name: 'Kontakt', url: 'https://www.aquarea.sk/kontakt/' }])]}
+>
+  <PageHero title="Kontakt" lead="Telefón, e-mail, adresa a cesta do areálu." zone="event" crumb="Kontakt" />
+
+  <div class="mx-auto max-w-[90rem] px-4 py-12 md:px-8 md:py-16">
+    <ul class="grid gap-4 md:grid-cols-3" role="list">
+      {[{ k: c.info, zone: 'premium', icon: 'info' as const }, { k: c.dive, zone: 'dive', icon: 'fish' as const }, { k: c.manager, zone: 'atrament', icon: 'users' as const }].map(({ k, zone, icon }) => (
+        <li class:list={['rounded-lg border-t-8 bg-v3-siva p-5 md:p-6', `zone-${zone} zone-border`]}>
+          <h2 class="flex items-center gap-2 text-lg font-extrabold"><Icon name={icon} size={20} />{k.label}</h2>
+          {'name' in k && <p class="mt-2 font-semibold">{k.name}</p>}
+          <p class="mt-3 text-2xl font-extrabold"><a class="underline-offset-4 hover:underline" href={`tel:${k.tel}`}>{k.phone}</a></p>
+          <p class="mt-1"><a class="font-semibold underline underline-offset-4" href={`mailto:${k.email}`}>{k.email}</a></p>
+          {'hours' in k && <ul class="mt-3 space-y-0.5 text-[0.9375rem]" role="list">{k.hours.map((h) => <li>{h}</li>)}</ul>}
+          {'callback' in k && <p class="mt-2 text-[0.9375rem]">{k.callback}</p>}
+          {'divers' in k && <p class="mt-2 text-[0.9375rem]">{k.divers}</p>}
+        </li>
+      ))}
+    </ul>
+    <p class="mt-4 rounded-lg bg-v3-slnko p-4 font-extrabold">{site.rules[1].text}</p>
+
+    <section id="cesta" aria-labelledby="h-cesta" class="mt-14 grid scroll-mt-24 gap-8 lg:grid-cols-[1fr_1.2fr]">
+      <div>
+        <h2 id="h-cesta" class="v3-display text-[2.4rem] leading-[0.95] md:text-[3.4rem]">Ako sa k nám dostať</h2>
+        <address class="mt-4 text-lg not-italic">{site.address.lines.map((l) => <span class="block">{l}</span>)}</address>
+        <p class="mt-3 text-lg font-extrabold">GPS {site.address.lat}, {site.address.lng}</p>
+        <p class="mt-2">{site.gettingThere.text}</p>
+        <p class="mt-2 text-[0.9375rem]">{site.gettingThere.parking}</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href={site.maps.directions} target="_blank" rel="noopener" class="inline-flex min-h-12 items-center gap-2 rounded-lg bg-v3-slnko px-5 font-extrabold hover:bg-v3-atrament hover:text-v3-slnko"><Icon name="navigation" size={20} />Navigovať (Google Mapy)</a>
+          <a href={site.maps.place} target="_blank" rel="noopener" class="inline-flex min-h-12 items-center gap-2 rounded-lg border-2 border-v3-atrament px-5 font-extrabold hover:bg-v3-siva"><Icon name="pin" size={20} />Zobraziť na mape</a>
+        </div>
+        <p class="mt-4"><Todo text={site.gettingThere.todo} /></p>
+      </div>
+      <div class="overflow-hidden rounded-lg border-4 border-v3-atrament bg-v3-siva" data-map>
+        <div class="grid aspect-[4/3] place-items-center p-6 text-center" data-map-placeholder>
+          <div>
+            <p class="font-extrabold">Mapa Google sa načíta až po kliknutí</p>
+            <p class="mt-1 text-[0.9375rem] text-v3-atrament/75">Google môže pri zobrazení mapy ukladať cookies.</p>
+            <button type="button" class="mt-4 inline-flex min-h-12 items-center gap-2 rounded-lg bg-v3-atrament px-5 font-extrabold text-white" data-map-load><Icon name="pin" size={20} />Zobraziť mapu</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mapa" aria-labelledby="h-mapa" class="mt-14 scroll-mt-24">
+      <h2 id="h-mapa" class="v3-display text-[2.4rem] leading-[0.95] md:text-[3.4rem]">Mapa areálu</h2>
+      <p class="mt-3 max-w-2xl">Vstup do Plážovej zóny, vstup do Prémium zóny, pokladňa, parkovisko, kemping, Event zóna, vstupy pre potápačov a freediverská platforma „Ostrov“.</p>
+      <figure class="mt-5 rounded-lg border-4 border-v3-atrament p-1.5">
+        <Photo id="mapa-arealu" sizes="(min-width: 1440px) 1360px, 100vw" widths={[480, 800, 1200, 1600, 2400]} class="w-full rounded" />
+      </figure>
+      <a href={site.documents[1].href} target="_blank" rel="noopener" class="mt-4 inline-flex min-h-11 items-center gap-2 font-extrabold underline decoration-v3-slnko decoration-4 underline-offset-4"><Icon name="file" size={18} />Stiahnuť mapu areálu ({site.documents[1].file})</a>
+    </section>
+
+    <section aria-labelledby="h-prev" class="mt-14 grid gap-6 md:grid-cols-2">
+      <div class="rounded-lg bg-v3-siva p-6">
+        <h2 id="h-prev" class="text-xl font-extrabold">Prevádzkovateľ</h2>
+        <dl class="mt-3 grid grid-cols-[6rem_1fr] gap-x-4 gap-y-1.5">
+          <dt class="font-semibold">Firma</dt><dd>{site.operator.name}</dd>
+          <dt class="font-semibold">Sídlo</dt><dd>{site.operator.street}, {site.operator.city}</dd>
+          <dt class="font-semibold">IČO</dt><dd>{site.operator.ico}</dd>
+          <dt class="font-semibold">IČ DPH</dt><dd>{site.operator.icdph}</dd>
+          <dt class="font-semibold">IBAN</dt><dd class="break-words">{site.operator.iban}</dd>
+        </dl>
+      </div>
+      <div class="rounded-lg bg-v3-siva p-6">
+        <h2 class="text-xl font-extrabold">Dokumenty a sociálne siete</h2>
+        <ul class="mt-3 space-y-2" role="list">
+          {site.documents.map((d) => <li><a class="inline-flex items-start gap-2 font-semibold underline underline-offset-4" href={d.href} target="_blank" rel="noopener"><Icon name="file" size={18} class="mt-0.5 shrink-0" />{d.label} ({d.file})</a></li>)}
+        </ul>
+        <ul class="mt-4 flex flex-wrap gap-3" role="list">
+          {site.social.map((s) => <li><a href={s.href} target="_blank" rel="noopener" class="inline-flex min-h-11 items-center gap-2 rounded-lg border-2 border-v3-atrament px-4 font-extrabold hover:bg-white"><Icon name={s.label === 'Facebook' ? 'facebook' : 'instagram'} size={18} />{s.label}</a></li>)}
+        </ul>
+        <a href={url('/rezervacie/')} class="mt-5 inline-flex min-h-11 items-center gap-1.5 font-extrabold underline decoration-v3-slnko decoration-4 underline-offset-4">Rezervácie<Icon name="chevron-right" size={18} /></a>
+      </div>
+    </section>
+  </div>
+</Site>
+
+<script define:vars={{ src: site.maps.embed }}>
+  document.querySelector('[data-map-load]')?.addEventListener('click', () => {
+    const box = document.querySelector('[data-map]');
+    if (!box) return;
+    box.innerHTML = '';
+    const f = document.createElement('iframe');
+    f.src = src;
+    f.title = 'Mapa Google: Aquarea Čierna Voda';
+    f.loading = 'lazy';
+    f.referrerPolicy = 'no-referrer-when-downgrade';
+    f.className = 'block aspect-[4/3] w-full border-0';
+    f.allowFullscreen = true;
+    box.appendChild(f);
+    f.focus();
+  });
+</script>
