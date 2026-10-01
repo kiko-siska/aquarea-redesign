@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 06:04
+- **Last updated:** 2026-10-01 06:49
 - **Current phase:** 1
 
 ## Checklist
@@ -53,6 +53,8 @@
 
 ## Handoff
 _Notes for the next session: what's next, gotchas._
+
+- 2026-10-01 06:50 — Owner stopped the 06:03 backup session and confirmed a manual takeover from VS Code (concurrency guard overridden by owner). Phase 1 restarted from scratch (`content-audit/`, `source-images/` were empty).
 
 ## Morning report
 _Filled in at the end: what was built, how to run it (`npm install && npm run dev`), which variant was picked and why, real vs. generated images, budget used, TODOs._
