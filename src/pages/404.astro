@@ -1,0 +1,23 @@
+---
+import Site from '../layouts/Site.astro';
+import Icon from '../components/shared/Icon.astro';
+import { url } from '../lib/url';
+const links = [
+  { href: url('/plazova-zona/'), label: 'Pláž', zone: 'plaz' },
+  { href: url('/premium-zona/'), label: 'Pobyt', zone: 'premium' },
+  { href: url('/potapanie/'), label: 'Potápanie', zone: 'dive' },
+  { href: url('/cennik/'), label: 'Cenník', zone: 'slnko' },
+  { href: url('/kontakt/'), label: 'Kontakt', zone: 'event' },
+];
+---
+<Site title="Stránka sa nenašla" description="Táto stránka neexistuje. Pokračujte na úvod, cenník alebo kontakt.">
+  <section class="mx-auto max-w-[90rem] px-4 py-16 md:px-8 md:py-24" aria-labelledby="h404">
+    <p class="v3-display text-[6rem] leading-[0.9] text-v3-plaz md:text-[10rem]">404</p>
+    <h1 id="h404" class="v3-display mt-2 text-[2.6rem] leading-[0.95] md:text-[4.2rem]">Táto stránka sa nenašla</h1>
+    <p class="mt-4 max-w-2xl text-lg">Adresa je možno stará alebo preklep. Stránky súčasného webu aquarea.sk majú v redizajne nové adresy. Vyberte, kam chcete ísť:</p>
+    <ul class="mt-8 flex flex-wrap gap-3" role="list">
+      {links.map((l) => <li><a href={l.href} class:list={['zone-fill v3-display inline-flex min-h-14 items-center rounded-lg px-6 text-[1.7rem] leading-none', `zone-${l.zone}`]}>{l.label}</a></li>)}
+    </ul>
+    <a href={url('/')} class="mt-8 inline-flex min-h-12 items-center gap-2 font-extrabold underline decoration-v3-slnko decoration-4 underline-offset-4"><Icon name="chevron-left" size={18} />Späť na úvod</a>
+  </section>
+</Site>

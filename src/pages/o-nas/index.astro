@@ -1,0 +1,67 @@
+---
+import Site from '../../layouts/Site.astro';
+import PageHero from '../../components/site/PageHero.astro';
+import Photo from '../../components/shared/Photo.astro';
+import Icon from '../../components/shared/Icon.astro';
+import Todo from '../../components/shared/Todo.astro';
+import { site, news } from '../../lib/content';
+import { dateShort } from '../../lib/format';
+import { url } from '../../lib/url';
+import { orgJsonLd, breadcrumbJsonLd } from '../../lib/seo';
+
+const a = news.about;
+---
+<Site
+  title="O nás – príbeh areálu, aktuality, dokumenty"
+  description="Aquarea Čierna Voda: areál športu a relaxu v bývalom štrkovisku medzi Veľkými Úľanmi a Čiernou Vodou, budovaný od roku 2011. Aktuality, prevádzkový poriadok a dokumenty."
+  current="o-nas"
+  jsonLd={[orgJsonLd(), breadcrumbJsonLd([{ name: 'Úvod', url: 'https://www.aquarea.sk/' }, { name: 'O nás', url: 'https://www.aquarea.sk/o-nas/' }])]}
+>
+  <PageHero title="O nás" lead={a.lead} zone="plaz" photo="dron-areal" crumb="O nás" />
+
+  <div class="mx-auto max-w-[90rem] px-4 py-12 md:px-8 md:py-16">
+    <section aria-labelledby="pribeh" class="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
+      <div>
+        <h2 id="pribeh" class="v3-display text-[2.4rem] leading-[0.95] md:text-[3.4rem]">{a.title}</h2>
+        <div class="v3-prose mt-4">{a.paragraphs.map((p) => <p>{p}</p>)}</div>
+        <p class="mt-6 rounded-lg bg-v3-slnko p-5 text-lg font-extrabold">{a.closing}</p>
+      </div>
+      <div class="grid grid-cols-2 gap-3 self-start">
+        <Photo id="plaz-zrkadlenie" sizes="(min-width: 1024px) 40vw, 100vw" widths={[480, 800, 1100]} class="col-span-2 aspect-[16/10] w-full rounded-lg object-cover" />
+        <Photo id="plaz-srdce-molo" sizes="(min-width: 1024px) 20vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" />
+        <Photo id="dive-lehatka" sizes="(min-width: 1024px) 20vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" />
+      </div>
+    </section>
+
+    <section id="aktuality" aria-labelledby="h-akt" class="mt-16 scroll-mt-24">
+      <h2 id="h-akt" class="v3-display text-[2.4rem] leading-[0.95] md:text-[3.4rem]">Aktuality</h2>
+      <ol class="mt-6 grid gap-4 md:grid-cols-2" role="list">
+        {news.items.map((n) => (
+          <li class="rounded-lg border-l-8 border-v3-plaz bg-v3-siva p-5">
+            <p class="text-sm font-bold"><time datetime={n.date}>{dateShort(n.date)}</time></p>
+            <h3 class="mt-1 text-lg font-extrabold">{n.title}</h3>
+            <p class="mt-2 text-[0.9375rem]">{n.text}</p>
+            {n.todo && <p class="mt-3"><Todo text={n.todo} /></p>}
+          </li>
+        ))}
+      </ol>
+      <p class="mt-4 text-[0.9375rem] text-v3-atrament/80">Kalendár akcií na aquarea.sk je momentálne prázdny. Najbližšie podujatie: <a class="font-bold underline underline-offset-4" href={url('/fotofilmfest/')}>FotoFilmFest</a>.</p>
+    </section>
+
+    <section id="dokumenty" aria-labelledby="h-dok" class="mt-16 grid scroll-mt-24 gap-6 lg:grid-cols-2">
+      <div>
+        <h2 id="h-dok" class="v3-display text-[2.4rem] leading-[0.95] md:text-[3.4rem]">Dokumenty</h2>
+        <ul class="mt-5 space-y-3" role="list">
+          {site.documents.map((d) => (
+            <li><a href={d.href} target="_blank" rel="noopener" class="flex min-h-14 items-center gap-3 rounded-lg bg-v3-siva px-4 py-3 font-extrabold hover:bg-v3-slnko"><Icon name="file" size={22} class="shrink-0" /><span class="flex-1">{d.label}</span><span class="text-sm font-semibold">{d.file}</span></a></li>
+          ))}
+        </ul>
+      </div>
+      <div class="rounded-lg bg-v3-atrament p-6 text-white md:p-8">
+        <h2 class="v3-display text-[2rem] leading-[0.95]">Pravidlá v skratke</h2>
+        <ul class="v3-prose mt-4" role="list" style="--c:#ffc93c">{site.rules.map((r) => <li>{r.text}</li>)}</ul>
+        <p class="mt-4 text-[0.9375rem] text-white/80">Celé znenie je v prevádzkovom poriadku (PDF).</p>
+      </div>
+    </section>
+  </div>
+</Site>

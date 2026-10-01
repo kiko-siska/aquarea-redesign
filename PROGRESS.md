@@ -37,8 +37,8 @@
 - [x] Rezervácie / Kontakt (+ how to get there) — `/rezervacie/` hub (6 options → live aquarea.sk flows, tel/mail, how stay booking works) + `/kontakt/` (3 contact cards, GPS, navigation, click-to-load Google map, area map, operator data, documents)
 - [x] FotoFilmFest — `/fotofilmfest/`: next edition with date TODO, team, 3 competitions (accordion), applications → live forms, 2026 programme; Event JSON-LD held back until the date is confirmed
 - [x] Galéria — `/galeria/`: 54 real photos, album filter chips (JS-enhanced, all visible without JS), native `<dialog>` lightbox with arrows/keyboard
-- [ ] O nás
-- [ ] 404
+- [x] O nás — `/o-nas/`: story, aktuality (5 posts), documents (PDF links), rules in short
+- [x] 404 — zone-coloured shortcuts back into the site
 - [ ] SEO: titles, descriptions, OG, JSON-LD (real data only), sitemap
 - [ ] Final QA: `npm run build`, all pages at 375px + desktop, a11y + reduced-motion, Lighthouse
 - [ ] Morning report (below)
