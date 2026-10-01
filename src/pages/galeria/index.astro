@@ -1,0 +1,106 @@
+---
+import { getImage } from 'astro:assets';
+import Site from '../../layouts/Site.astro';
+import PageHero from '../../components/site/PageHero.astro';
+import Photo from '../../components/shared/Photo.astro';
+import Icon from '../../components/shared/Icon.astro';
+import { photos } from '../../lib/content';
+import { getPhoto } from '../../lib/photos';
+import { breadcrumbJsonLd } from '../../lib/seo';
+
+const albums = Object.entries(photos.albums).filter(([k]) => k !== 'mapa');
+const items = await Promise.all(
+  photos.photos
+    .filter((p) => p.album !== 'mapa')
+    .map(async (p) => {
+      const { img } = getPhoto(p.id);
+      const large = await getImage({ src: img, width: Math.min(1600, img.width), format: 'webp' });
+      return { ...p, large: large.src, w: large.attributes.width ?? img.width, h: large.attributes.height ?? img.height };
+    }),
+);
+const zoneOf: Record<string, string> = { plaz: 'plaz', dive: 'dive', freediving: 'dive', apartmany: 'premium', kemping: 'premium', gastro: 'plaz', event: 'event' };
+---
+<Site
+  title="Galéria – pláž, potápanie, kemping, apartmány"
+  description="Fotografie z areálu Aquarea Čierna Voda: tyrkysová voda a pláže, Dive Center nad aj pod hladinou, apartmány, kemping, gastro, Event zóna a freediving."
+  current="galeria"
+  jsonLd={breadcrumbJsonLd([{ name: 'Úvod', url: 'https://www.aquarea.sk/' }, { name: 'Galéria', url: 'https://www.aquarea.sk/galeria/' }])}
+>
+  <PageHero title="Galéria" lead={`${items.length} fotografií z areálu, nad aj pod hladinou. Všetky fotografie: aquarea.sk.`} zone="dive" crumb="Galéria" />
+
+  <div class="mx-auto max-w-[90rem] px-4 py-10 md:px-8 md:py-14">
+    <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrovať podľa albumu" data-filters hidden>
+      <button type="button" class="min-h-11 rounded-lg border-2 border-v3-atrament px-4 font-extrabold aria-pressed:bg-v3-atrament aria-pressed:text-white" aria-pressed="true" data-filter="all">Všetko</button>
+      {albums.map(([k, label]) => (
+        <button type="button" class="min-h-11 rounded-lg border-2 border-v3-atrament px-4 font-extrabold aria-pressed:bg-v3-atrament aria-pressed:text-white" aria-pressed="false" data-filter={k}>{label}</button>
+      ))}
+    </div>
+    <p class="sr-only" aria-live="polite" data-count></p>
+
+    <ul class="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4 md:gap-3" role="list" data-grid>
+      {items.map((p, i) => (
+        <li data-album={p.album}>
+          <button type="button" class:list={['group relative block w-full overflow-hidden rounded-lg', `zone-${zoneOf[p.album]}`]} data-index={i} data-large={p.large} data-alt={p.alt} data-w={p.w} data-h={p.h} aria-label={`Zväčšiť: ${p.alt}`}>
+            <Photo id={p.id} sizes="(min-width: 1024px) 23vw, (min-width: 640px) 32vw, 50vw" widths={[240, 360, 480, 640]} class="aspect-square w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+            <span class="zone-fill absolute bottom-2 left-2 rounded-md px-2 py-0.5 text-xs font-extrabold">{photos.albums[p.album as keyof typeof photos.albums]}</span>
+          </button>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <dialog class="m-auto max-h-[100dvh] max-w-[min(96vw,80rem)] bg-transparent p-3 backdrop:bg-v3-atrament/92" aria-label="Fotografia" data-lightbox>
+    <div class="flex flex-col items-center gap-3">
+      <img src="" alt="" class="max-h-[78dvh] w-auto max-w-full rounded-lg bg-v3-siva" data-lb-img />
+      <div class="flex w-full max-w-4xl items-center justify-between gap-3 text-white">
+        <p class="min-w-0 text-[0.9375rem]"><span data-lb-cap></span> <span class="ml-2 text-white/70 tabular-nums" data-lb-count></span></p>
+        <div class="flex shrink-0 gap-2">
+          <button type="button" class="grid h-11 w-11 place-items-center rounded-lg bg-white/15 hover:bg-white/25" aria-label="Predchádzajúca fotografia" data-lb-prev><Icon name="chevron-left" size={22} /></button>
+          <button type="button" class="grid h-11 w-11 place-items-center rounded-lg bg-white/15 hover:bg-white/25" aria-label="Ďalšia fotografia" data-lb-next><Icon name="chevron-right" size={22} /></button>
+          <button type="button" class="grid h-11 w-11 place-items-center rounded-lg bg-v3-slnko text-v3-atrament" aria-label="Zavrieť" data-lb-close><Icon name="x" size={22} /></button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+</Site>
+
+<script>
+  const grid = document.querySelector<HTMLElement>('[data-grid]')!;
+  const filters = document.querySelector<HTMLElement>('[data-filters]')!;
+  const count = document.querySelector<HTMLElement>('[data-count]')!;
+  const items = Array.from(grid.querySelectorAll<HTMLLIElement>('li'));
+  filters.hidden = false;
+
+  const apply = (album: string) => {
+    let n = 0;
+    items.forEach((li) => { const show = album === 'all' || li.dataset.album === album; li.hidden = !show; if (show) n++; });
+    filters.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filter === album)));
+    count.textContent = `Zobrazených fotografií: ${n}`;
+  };
+  filters.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest('button'); if (b?.dataset.filter) apply(b.dataset.filter); });
+
+  const dlg = document.querySelector<HTMLDialogElement>('[data-lightbox]')!;
+  const img = dlg.querySelector<HTMLImageElement>('[data-lb-img]')!;
+  const cap = dlg.querySelector<HTMLElement>('[data-lb-cap]')!;
+  const cnt = dlg.querySelector<HTMLElement>('[data-lb-count]')!;
+  let current: HTMLButtonElement | null = null;
+  const visible = () => items.filter((li) => !li.hidden).map((li) => li.querySelector('button')!);
+  const show = (btn: HTMLButtonElement) => {
+    current = btn;
+    img.src = btn.dataset.large!;
+    img.alt = btn.dataset.alt!;
+    img.width = Number(btn.dataset.w); img.height = Number(btn.dataset.h);
+    cap.textContent = btn.dataset.alt!;
+    const v = visible();
+    cnt.textContent = `${v.indexOf(btn) + 1} / ${v.length}`;
+    dlg.setAttribute('aria-label', btn.dataset.alt!);
+  };
+  const step = (d: number) => { const v = visible(); if (!current) return; const i = v.indexOf(current); const n = v[(i + d + v.length) % v.length]; if (n) show(n); };
+  grid.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-large]'); if (!b) return; show(b); dlg.showModal(); });
+  dlg.querySelector('[data-lb-prev]')!.addEventListener('click', () => step(-1));
+  dlg.querySelector('[data-lb-next]')!.addEventListener('click', () => step(1));
+  dlg.querySelector('[data-lb-close]')!.addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
+  dlg.addEventListener('close', () => current?.focus());
+</script>
