@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:20
+- **Last updated:** 2026-10-01 07:23
 - **Current phase:** 2
 
 ## Checklist
@@ -19,7 +19,7 @@
 ### Phase 2 — Three homepage directions
 - [x] Run the ui-ux-pro-max design-system generator; write 3 directions into DECISIONS.md — 1 Ponor (dive), 2 Deň pri vode (editorial), 3 Náramok (wayfinding)
 - [x] Scaffold Astro + Tailwind + React; content collections from the audit; `noindex`; git commit — Astro 7.3 static, Tailwind 4, React 19; data in `src/content/*.json` validated by zod (source URL required); base-path helper; OG image from real photo
-- [ ] Component shortlist (21st search / Magic UI / Aceternity) + image shot list
+- [x] Component shortlist (21st search / Magic UI / Aceternity) + image shot list — DECISIONS.md 08:20/08:22; 2× 21st retrieved & adapted, Magic UI marquee + light rays ported to zero-JS Astro
 - [ ] Variant 1 at `/variants/1/`
 - [ ] Variant 2 at `/variants/2/`
 - [ ] Variant 3 at `/variants/3/`
@@ -45,6 +45,9 @@
 
 ## Budget log
 - 21st `get_component`: (date · component · used for)
+  - 2026-10-01 · Horizontal Depth Fade (@unlumen, id 18439) · v1 underwater photo strip (ported to vanilla JS)
+  - 2026-10-01 · Filmstrip Gallery (@n1m4mz, id 27093) · v2 day strip + lightbox (adapted)
+  - **2026-10-01: 2/2 used.** Next retrieval possible 2026-10-02.
 - Gemini images: 0 / 8 (file · prompt summary)
 
 ## Blockers

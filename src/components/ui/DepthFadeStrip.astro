@@ -1,0 +1,105 @@
+---
+/**
+ * Horizontal strip where the centred photo is sharp and the others fade into blur and dimness,
+ * like visibility under water. Adapted from 21st.dev "Horizontal Depth Fade" by @unlumen
+ * (https://21st.dev/@unlumen/components/horizontal-depth-fade): the GSAP/ScrollTrigger engine
+ * is replaced by a small rAF loop and CSS background images by real <picture> elements.
+ *
+ * Progressive enhancement: without JS, or with prefers-reduced-motion, it's a plain
+ * swipeable row (scroll-snap) with no filters and no pinning.
+ */
+import Photo from '../shared/Photo.astro';
+
+interface Item { id: string; caption?: string }
+interface Props {
+  items: Item[];
+  label: string;
+  /** scroll length of the pinned section, in svh */
+  length?: number;
+  class?: string;
+}
+const { items, label, length = 300, class: cls } = Astro.props;
+---
+<section class:list={['dfs', cls]} aria-label={label} style={`--dfs-length:${length}svh`} data-dfs>
+  <div class="dfs-viewport">
+    <ul class="dfs-track" role="list">
+      {items.map((it) => (
+        <li class="dfs-item">
+          <figure>
+            <div class="dfs-frame">
+              <Photo id={it.id} sizes="(min-width: 768px) 420px, 74vw" widths={[400, 640, 840]} class="dfs-img" />
+            </div>
+            {it.caption && <figcaption>{it.caption}</figcaption>}
+          </figure>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .dfs { position: relative; }
+  .dfs-viewport { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .dfs-viewport::-webkit-scrollbar { display: none; }
+  .dfs-track { display: flex; gap: 1rem; width: max-content; padding: 0 8vw; margin: 0; list-style: none; }
+  .dfs-item { width: min(74vw, 420px); flex: none; scroll-snap-align: center; }
+  .dfs-item figure { margin: 0; }
+  .dfs-frame { aspect-ratio: 4 / 5; overflow: hidden; border-radius: 0.75rem; }
+  .dfs-frame :global(picture), .dfs-frame :global(img) { width: 100%; height: 100%; }
+  .dfs-frame :global(img) { object-fit: cover; }
+  figcaption { margin-top: 0.75rem; font-size: 0.9375rem; line-height: 1.4; }
+
+  /* Enhanced (JS on, motion allowed): pin the strip and drive it with vertical scroll. */
+  .dfs.is-live { height: var(--dfs-length); }
+  .dfs.is-live .dfs-viewport { position: sticky; top: 0; height: 100svh; overflow: hidden; display: flex; align-items: center; scroll-snap-type: none; }
+  .dfs.is-live .dfs-track { will-change: transform; }
+  .dfs.is-live .dfs-item { will-change: filter, transform; }
+</style>
+
+<script>
+  const clamp = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function setup(section: HTMLElement) {
+    const viewport = section.querySelector<HTMLElement>('.dfs-viewport')!;
+    const track = section.querySelector<HTMLElement>('.dfs-track')!;
+    const cards = Array.from(section.querySelectorAll<HTMLElement>('.dfs-item'));
+    let shift = 0;
+    let ticking = false;
+
+    const measure = () => { shift = Math.max(0, track.scrollWidth - viewport.clientWidth); };
+    const apply = () => {
+      ticking = false;
+      if (!section.classList.contains('is-live')) return;
+      const r = section.getBoundingClientRect();
+      const total = r.height - window.innerHeight;
+      const p = clamp(total > 0 ? -r.top / total : 0, 0, 1);
+      track.style.transform = `translate3d(${-shift * p}px,0,0)`;
+      const n = cards.length;
+      cards.forEach((card, i) => {
+        const centre = n > 1 ? i / (n - 1) : 0;
+        const k = clamp((Math.abs(p - centre) / 0.16) * 1.35, 0, 1); // focus spread / darkness strength from the original
+        card.style.filter = `blur(${(k * 8).toFixed(2)}px) brightness(${(30 + (1 - k) * 85).toFixed(1)}%) saturate(${((1 - k) * 100).toFixed(0)}%)`;
+        card.style.transform = `scale(${(1 - k * 0.08).toFixed(3)})`;
+      });
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(apply); } };
+    const enable = () => {
+      if (reduce.matches) {
+        section.classList.remove('is-live');
+        track.style.transform = '';
+        cards.forEach((c) => { c.style.filter = ''; c.style.transform = ''; });
+        return;
+      }
+      section.classList.add('is-live');
+      measure();
+      apply();
+    };
+    new ResizeObserver(() => { measure(); onScroll(); }).observe(viewport);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    reduce.addEventListener('change', enable);
+    enable();
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-dfs]').forEach(setup);
+</script>

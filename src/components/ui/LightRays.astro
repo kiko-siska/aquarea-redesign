@@ -1,0 +1,51 @@
+---
+/**
+ * Sunlight rays falling through water. Port of Magic UI `light-rays` (MIT,
+ * https://magicui.design/docs/components/light-rays) from React + motion to CSS keyframes,
+ * so it ships no JS. Rays are seeded at build time; reduced motion shows them still and faint.
+ */
+interface Props { count?: number; color?: string; blur?: number; speed?: number; length?: string; class?: string; seed?: number }
+const { count = 7, color = 'rgba(160, 230, 220, 0.22)', blur = 36, speed = 14, length = '70vh', class: cls, seed = 7 } = Astro.props;
+let s = seed;
+const rnd = () => ((s = (s * 16807) % 2147483647) - 1) / 2147483646;
+const rays = Array.from({ length: count }, () => ({
+  left: 8 + rnd() * 84,
+  rotate: -28 + rnd() * 56,
+  width: 160 + rnd() * 160,
+  swing: 0.8 + rnd() * 1.8,
+  delay: rnd() * speed,
+  duration: speed * (0.75 + rnd() * 0.5),
+  intensity: 0.6 + rnd() * 0.5,
+}));
+---
+<div class:list={['lr', cls]} aria-hidden="true" style={`--lr-color:${color};--lr-blur:${blur}px;--lr-length:${length}`}>
+  <div class="lr-glow lr-glow-a"></div>
+  <div class="lr-glow lr-glow-b"></div>
+  {rays.map((r) => (
+    <div
+      class="lr-ray"
+      style={`--l:${r.left}%;--w:${r.width}px;--r:${r.rotate}deg;--sw:${r.swing}deg;--i:${r.intensity};--d:${r.duration}s;--dl:${-r.delay}s`}
+    />
+  ))}
+</div>
+<style>
+  .lr { position: absolute; inset: 0; overflow: hidden; pointer-events: none; isolation: isolate; }
+  .lr-glow { position: absolute; inset: 0; opacity: 0.6; }
+  .lr-glow-a { background: radial-gradient(circle at 20% 15%, color-mix(in srgb, var(--lr-color) 45%, transparent), transparent 70%); }
+  .lr-glow-b { background: radial-gradient(circle at 80% 10%, color-mix(in srgb, var(--lr-color) 35%, transparent), transparent 75%); }
+  .lr-ray {
+    position: absolute; top: -12%; left: var(--l); width: var(--w); height: var(--lr-length);
+    transform-origin: top center; translate: -50% 0; border-radius: 999px;
+    background: linear-gradient(to bottom, color-mix(in srgb, var(--lr-color) 70%, transparent), transparent);
+    mix-blend-mode: screen; filter: blur(var(--lr-blur)); opacity: 0;
+    animation: lr-sway var(--d) ease-in-out var(--dl) infinite;
+  }
+  @keyframes lr-sway {
+    0% { opacity: 0; rotate: calc(var(--r) - var(--sw)); }
+    50% { opacity: var(--i); rotate: calc(var(--r) + var(--sw)); }
+    100% { opacity: 0; rotate: calc(var(--r) - var(--sw)); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lr-ray { animation: none; opacity: calc(var(--i) * 0.45); rotate: var(--r); }
+  }
+</style>

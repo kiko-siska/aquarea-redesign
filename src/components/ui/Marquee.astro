@@ -1,0 +1,26 @@
+---
+/**
+ * Infinite marquee. Ported from Magic UI `marquee` (MIT, https://magicui.design/docs/components/marquee)
+ * to a zero-JS Astro component. Clones are aria-hidden; with reduced motion it's a static wrapped row.
+ */
+interface Props { class?: string; repeat?: number; duration?: string; gap?: string; label?: string }
+const { class: cls, repeat = 3, duration = '40s', gap = '2.5rem', label } = Astro.props;
+---
+<div class:list={['mq', cls]} style={`--mq-duration:${duration};--mq-gap:${gap}`} role={label ? 'group' : undefined} aria-label={label}>
+  {Array.from({ length: repeat }).map((_, i) => (
+    <div class="mq-track" aria-hidden={i > 0 ? 'true' : undefined}>
+      <slot />
+    </div>
+  ))}
+</div>
+<style>
+  .mq { display: flex; gap: var(--mq-gap); overflow: hidden; }
+  .mq-track { display: flex; flex-shrink: 0; align-items: center; justify-content: space-around; gap: var(--mq-gap); animation: mq-scroll var(--mq-duration) linear infinite; }
+  .mq:hover .mq-track { animation-play-state: paused; }
+  @keyframes mq-scroll { from { transform: translateX(0); } to { transform: translateX(calc(-100% - var(--mq-gap))); } }
+  @media (prefers-reduced-motion: reduce) {
+    .mq { flex-wrap: wrap; justify-content: center; }
+    .mq-track { animation: none; flex-wrap: wrap; justify-content: center; }
+    .mq-track[aria-hidden='true'] { display: none; }
+  }
+</style>

@@ -39,3 +39,19 @@ Checked against generic defaults: no cream + terracotta, no near-black + acid ac
 ### 2026-10-01 07:50 · [auto] Image plan: real photos first, Gemini almost unused
 - 361 real photos exist (incl. underwater). Gemini is only for textures: planned **1–2 images** (an underwater caustics texture for variant 1; an optional abstract sun-glare-on-water divider). Budget max 8.
 - The OG image is composed from the real hero drone photo + logo (sharp), not generated.
+
+### 2026-10-01 08:20 · [auto] Component shortlist (Phase 2)
+| Component | Source | Where | Decision |
+|---|---|---|---|
+| Light Rays | Magic UI `light-rays` (free) | v1 Dive Center chapter: sunlight falling into the water | use (React island, `client:visible`, static gradient under reduced motion) |
+| Marquee | Magic UI `marquee` (free) | v3 partner/certification logos (TDI, SDI, ERDI…) | use; under reduced motion it's a static wrapped row |
+| Horizontal Depth Fade | 21st.dev @unlumen, id 18439 · https://21st.dev/@unlumen/components/horizontal-depth-fade | v1 underwater photo strip: centred photo sharp, the rest blurred/dim like underwater visibility | **retrieved** (1/2 today). The original needs GSAP + CSS background images; ported to ~60 lines of vanilla JS with real `<picture>` images. Under reduced motion it's a plain snap-scroll row. |
+| Filmstrip Gallery | 21st.dev @n1m4mz, id 27093 · https://21st.dev/@n1m4mz/components/filmstrip-gallery | v2 "Od rána do západu slnka" day strip + native `<dialog>` lightbox | **retrieved** (2/2 today). Kept the mechanics (scroll-snap gate, arrow keys, live announcement, dialog lightbox, reduced-motion). Dropped the film-negative look, mono edge printing and sprockets; Slovak labels; responsive sources. |
+| Masonry Lightbox | 21st.dev @ayushmxxn, id 26223 | Phase 3 Galéria page | candidate for a later day's budget; may build it natively with `<dialog>` instead |
+| Scroll Progress | Magic UI `scroll-progress` / 21st variants | v1 depth gauge | not needed: the depth gauge is custom (it shows real attraction depths) |
+| Aceternity UI | — | — | not used: everything needed is covered above with less JS |
+
+### 2026-10-01 08:22 · [auto] Image shot list (Gemini, max 8 total)
+1. **v1 caustics texture**: seamless abstract sunlight caustics on pale sand seen through teal water. No objects, fish or people. 16:9, 2K, fast. Used as a low-opacity overlay at the surface → shallow transition. *(planned)*
+2. *(reserve)* abstract sun-glare-on-water divider for v2, only if the real photos don't cover it.
+Everything else uses real aquarea.sk photos. The OG image was composed from the real drone photo + logo (`scripts/make-og.mjs`), with 0 Gemini credits.
