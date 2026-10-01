@@ -1,0 +1,52 @@
+---
+/** One price list section (Plážová zóna / Kemping a apartmány / Dive Center) as accessible tables. */
+import Todo from '../shared/Todo.astro';
+import type { PriceSection } from '../../lib/content';
+import { rowPrice, type PriceRow } from '../../lib/format';
+
+interface Props { section: PriceSection; zone: 'plaz' | 'premium' | 'dive'; validFrom: string }
+const { section, zone, validFrom } = Astro.props;
+type Group = { id?: string; title: string; intro?: string[]; note?: string; todo?: string; rows: PriceRow[]; pairLabels?: [string, string] };
+const groups = section.groups as unknown as Group[];
+const intro = (section as { intro?: string[] }).intro;
+const footnote = (section as { footnote?: string }).footnote;
+---
+<section id={section.id} class:list={['scroll-mt-24', `zone-${zone}`]} aria-labelledby={`h-${section.id}`}>
+  <div class="zone-fill v3-weave flex flex-wrap items-end justify-between gap-3 rounded-t-lg px-5 py-5 md:px-8">
+    <h2 id={`h-${section.id}`} class="v3-display text-[2.4rem] leading-[0.92] md:text-[3.4rem]">{section.title}{(section as { subtitle?: string }).subtitle && <span class="block text-[0.5em] opacity-90">{(section as { subtitle?: string }).subtitle}</span>}</h2>
+    <p class="text-sm font-bold">{validFrom}</p>
+  </div>
+  <div class="zone-tint rounded-b-lg px-5 py-6 md:px-8 md:py-8">
+    {intro && (
+      <ul class="v3-prose mb-6 max-w-4xl text-[0.9375rem]" role="list">{intro.map((t) => <li>{t}</li>)}</ul>
+    )}
+    <div class="grid gap-x-12 gap-y-8 lg:grid-cols-2">
+      {groups.map((g) => (
+        <div id={g.id} class="scroll-mt-24 rounded-lg bg-white p-4 md:p-6">
+          <table class="v3-table">
+            <caption class="pb-2">
+              <span class="block text-lg font-extrabold">{g.title}</span>
+              {g.note && <span class="mt-1 block text-[0.875rem] font-normal text-v3-atrament/75">{g.note}</span>}
+              {g.todo && <span class="mt-2 block"><Todo text={g.todo} /></span>}
+            </caption>
+            {g.intro && (
+              <tbody>
+                <tr><td colspan="2" class="!border-0 !pt-0"><ul class="v3-prose text-[0.875rem]" role="list">{g.intro.map((t) => <li>{t}</li>)}</ul></td></tr>
+              </tbody>
+            )}
+            <tbody>
+              {g.rows.map((r) => (
+                <tr>
+                  <th scope="row">{r.label}{r.detail && <span class="v3-detail">{r.detail}</span>}</th>
+                  <td class="v3-price">{rowPrice(r, g.pairLabels)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+    </div>
+    {footnote && <p class="mt-6 max-w-4xl text-[0.875rem] text-v3-atrament/80">{footnote}</p>}
+
+  </div>
+</section>

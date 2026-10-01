@@ -1,0 +1,56 @@
+---
+/**
+ * Zones as colour-coded wristbands: one exclusive <details> group (name="naramok"), no JS.
+ * The price chip stays visible on closed bands, on phones on a second line.
+ */
+import Photo from '../shared/Photo.astro';
+import Icon from '../shared/Icon.astro';
+
+export interface Band {
+  id: string;
+  color: 'plaz' | 'premium' | 'dive' | 'event';
+  name: string;
+  chip: string;
+  tilt: string;
+  lead: string;
+  points: string[];
+  note: string;
+  links: { href: string; label: string; external?: boolean }[];
+  photo: string;
+}
+interface Props { bands: Band[]; openFirst?: boolean }
+const { bands, openFirst = true } = Astro.props;
+---
+<div class="space-y-4 md:space-y-5">
+  {bands.map((b, i) => (
+    <details name="naramok" class:list={['v3-band group', `v3-band-${b.color}`]} style={`--tilt:${b.tilt}`} open={openFirst && i === 0}>
+      <summary class="v3-band-strap">
+        <span class="v3-clasp" aria-hidden="true"></span>
+        <span class="min-w-0 flex-1">
+          <span class="v3-display block pt-[0.08em] text-[2rem] leading-[1.02] md:text-[3.4rem]">{b.name}</span>
+          <span class="mt-1 block text-[0.9375rem] font-bold sm:hidden">{b.chip}</span>
+        </span>
+        <span class="v3-chip hidden sm:inline-flex">{b.chip}</span>
+        <Icon name="chevron-down" size={28} stroke={2.5} class="shrink-0 transition-transform group-open:rotate-180" />
+      </summary>
+      <div class="v3-band-body grid gap-6 md:grid-cols-[1.3fr_1fr] md:gap-10">
+        <div>
+          <p class="text-lg font-semibold leading-snug">{b.lead}</p>
+          <ul class="mt-4 grid gap-x-6 gap-y-2 sm:grid-cols-2" role="list">
+            {b.points.map((p) => <li class="flex gap-2.5"><span class="v3-dot mt-2 h-2 w-2 shrink-0 rounded-full" aria-hidden="true"></span>{p}</li>)}
+          </ul>
+          <p class="mt-4 text-[0.9375rem] text-v3-atrament/75">{b.note}</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            {b.links.map((l, j) => (
+              <a href={l.href} target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined}
+                 class:list={['inline-flex min-h-12 items-center gap-2 rounded-lg px-5 font-extrabold', j === 0 ? 'v3-btn-main' : 'border-2 border-v3-atrament hover:bg-v3-siva']}>
+                {l.label}{l.external && <><Icon name="external" size={18} /><span class="sr-only"> (aquarea.sk)</span></>}
+              </a>
+            ))}
+          </div>
+        </div>
+        <Photo id={b.photo} sizes="(min-width: 768px) 38vw, 100vw" widths={[480, 720, 960]} class="aspect-[4/3] w-full rounded-lg object-cover" />
+      </div>
+    </details>
+  ))}
+</div>

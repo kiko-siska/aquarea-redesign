@@ -1,0 +1,77 @@
+/*
+ * Direction 3 · Náramok: the chosen design system for the full site (DECISIONS.md).
+ * Shared by /variants/3/ and every page under src/layouts/Site.astro.
+ */
+.v3 { --focus-color: #0b4f8a; }
+  .v3 .v3-display { font-family: var(--font-v3-display); font-weight: 850; text-transform: uppercase; letter-spacing: 0.005em; }
+  .v3 main :is(p, li) { text-wrap: pretty; }
+  .v3-panel { border-radius: 0.75rem; box-shadow: 0 24px 60px -30px rgb(16 33 43 / 0.6); }
+  .v3-panel :focus-visible, .v3-band-dive :focus-visible, .bg-v3-event :focus-visible { --focus-color: #ffffff; }
+
+  /* wristbands */
+  .v3-band { --c: #00a3a3; --on: #10212b; border-radius: 1.25rem; transform: rotate(var(--tilt)); transition: transform .25s ease; }
+  .v3-band[open] { transform: rotate(0deg); }
+  .v3-band-plaz { --c: #00a3a3; --on: #10212b; }
+  .v3-band-premium { --c: #2e7d32; --on: #ffffff; }
+  .v3-band-dive { --c: #0b4f8a; --on: #ffffff; }
+  .v3-band-event { --c: #d62828; --on: #ffffff; }
+  .v3-band-strap {
+    display: flex; align-items: center; gap: 1rem; min-height: 4.75rem; padding: 0.75rem 1.25rem 0.75rem 1rem;
+    border-radius: 999px; cursor: pointer; list-style: none; color: var(--on);
+    background:
+      repeating-linear-gradient(115deg, rgb(255 255 255 / 0.07) 0 6px, transparent 6px 14px),
+      var(--c);
+    box-shadow: inset 0 -4px 0 rgb(0 0 0 / 0.12);
+  }
+  .v3-band-strap::-webkit-details-marker { display: none; }
+  .v3-clasp { position: relative; width: 2.6rem; height: 2.6rem; border-radius: 999px; background: rgb(255 255 255 / 0.92); flex: none; box-shadow: inset 0 0 0 6px color-mix(in srgb, var(--c) 35%, white); }
+  .v3-clasp::after { content: ''; position: absolute; inset: 50% auto auto 50%; width: 0.7rem; height: 0.7rem; border-radius: 999px; translate: -50% -50%; background: var(--c); }
+  .v3-chip { align-items: center; border-radius: 999px; padding: 0.35rem 0.85rem; font-weight: 800; font-size: 0.9375rem; background: rgb(255 255 255 / 0.92); color: #10212b; white-space: nowrap; }
+  .v3-band-body { margin: 0.75rem 0.25rem 0; padding: 1.25rem; border-radius: 1rem; background: color-mix(in srgb, var(--c) 9%, white); border: 2px solid color-mix(in srgb, var(--c) 45%, white); }
+  .v3-band-body .v3-chip { background: var(--c); color: var(--on); }
+  .v3-dot { background: var(--c); }
+  .v3-btn-main { background: var(--c); color: var(--on); }
+  .v3-btn-main:hover { filter: brightness(0.92); }
+  @media (min-width: 768px) { .v3-band-strap { min-height: 6rem; padding-inline: 1.25rem 2rem; } .v3-clasp { width: 3.2rem; height: 3.2rem; } .v3-band-body { padding: 2rem; } }
+  @media (prefers-reduced-motion: reduce) { .v3-band { transition: none; } }
+
+  /* season board */
+  .v3-month-open { background: #00a3a3; color: #10212b; }
+  .v3-month-part { background: color-mix(in srgb, #00a3a3 35%, white); color: #10212b; }
+  .v3-month-dive { background: #0b4f8a; color: #fff; }
+  .v3-month-closed { background: #eef1f2; color: #10212b; box-shadow: inset 0 0 0 1px rgb(16 33 43 / 0.2); }
+
+/* zone colour tokens: --c (fill) and --on (text on fill). Dark ink on pláž teal and slnko. */
+.zone-plaz { --c: #00a3a3; --on: #10212b; --tint: #e5f6f6; }
+.zone-premium { --c: #2e7d32; --on: #ffffff; --tint: #eaf3ea; }
+.zone-dive { --c: #0b4f8a; --on: #ffffff; --tint: #e7eef5; }
+.zone-event { --c: #d62828; --on: #ffffff; --tint: #fbeaea; }
+.zone-slnko { --c: #ffc93c; --on: #10212b; --tint: #fff6dc; }
+.zone-atrament { --c: #10212b; --on: #ffffff; --tint: #eef1f2; }
+.zone-fill { background: var(--c); color: var(--on); }
+.zone-tint { background: var(--tint); }
+.zone-text { color: var(--c); }
+.zone-border { border-color: var(--c); }
+.zone-fill :focus-visible { --focus-color: var(--on); }
+.zone-plaz.zone-fill :focus-visible, .zone-slnko.zone-fill :focus-visible { --focus-color: #10212b; }
+
+/* hero stripes like the wristband weave */
+.v3-weave { background-image: repeating-linear-gradient(115deg, rgb(255 255 255 / 0.08) 0 6px, transparent 6px 14px); }
+
+/* long-form text */
+.v3-prose { font-size: 1.0625rem; line-height: 1.65; }
+.v3-prose > * + * { margin-top: 1em; }
+.v3-prose ul { padding-left: 0; list-style: none; }
+.v3-prose ul > li { position: relative; padding-left: 1.35rem; }
+.v3-prose ul > li + li { margin-top: 0.4rem; }
+.v3-prose ul > li::before { content: ''; position: absolute; left: 0.1rem; top: 0.62em; width: 0.5rem; height: 0.5rem; border-radius: 999px; background: var(--c, #10212b); }
+.v3-prose h3 { font-weight: 800; font-size: 1.25rem; margin-top: 1.6em; }
+
+/* price tables */
+.v3-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.v3-table caption { text-align: left; }
+.v3-table th, .v3-table td { padding: 0.7rem 0; border-bottom: 1px solid rgb(16 33 43 / 0.12); vertical-align: top; text-align: left; }
+.v3-table td.v3-price { text-align: right; white-space: nowrap; font-weight: 800; padding-left: 1rem; }
+.v3-table th[scope='row'] { font-weight: 600; }
+.v3-table .v3-detail { display: block; font-weight: 400; font-size: 0.875rem; color: rgb(16 33 43 / 0.7); margin-top: 0.15rem; }
+

@@ -1,11 +1,223 @@
 ---
-// Temporary until Phase 3: the homepage directions live at /variants/.
-import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Site from '../layouts/Site.astro';
+import Photo from '../components/shared/Photo.astro';
+import Icon from '../components/shared/Icon.astro';
+import Todo from '../components/shared/Todo.astro';
+import Marquee from '../components/ui/Marquee.astro';
+import Wristbands, { type Band } from '../components/site/Wristbands.astro';
+import { site, hours, prices, zones, diving, fff, highlight, priceSection } from '../lib/content';
+import { priceShort, time, dateLong } from '../lib/format';
 import { url } from '../lib/url';
+import { orgJsonLd } from '../lib/seo';
+
+const partnerFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/partners/*.png', { eager: true });
+const main = hours.periods.find((p) => p.id === 'hlavna')!;
+const eventZone = priceSection('kemping-apartmany').groups.find((g) => g.id === 'event-zona')!;
+const komplet = eventZone.rows.find((r) => r.label === 'Komplet zóna')!;
+
+const bands: Band[] = [
+  {
+    id: 'plaz', color: 'plaz', name: 'Plážová zóna', chip: `vstup od ${priceShort(highlight('beach-adult').amount)} / deň`, tilt: '-1.2deg',
+    lead: zones.beach.lead,
+    points: zones.beach.features.slice(0, 7),
+    note: 'Vstup po úhrade vstupného, v rámci otváracích hodín. Deti do 3 rokov zdarma. Psy a iné zvieratá sú zakázané.',
+    links: [{ href: url('/plazova-zona/'), label: 'Všetko o pláži' }, { href: url('/cennik/#plazova-zona'), label: 'Cenník pláže' }],
+    photo: 'plaz-molo-zabradlie',
+  },
+  {
+    id: 'pobyt', color: 'premium', name: 'Prémium zóna', chip: `apartmán od ${priceShort(highlight('apartment').amount)} / noc`, tilt: '0.8deg',
+    lead: zones.premium.lead,
+    points: ['3 apartmány s kuchynkou a terasou', '5 kempingových miest s priamym prístupom k vode', 'altánky, elektrina, ohniská, studničky', 'rybolov na miestach č. 3 – 7 (povolenie SRZ Galanta)', 'vstup na pláž v cene pobytu', 'strážna služba 24/7'],
+    note: 'Pobyt len na základe rezervácie. Záloha 50 % do 3 dní potvrdzuje rezerváciu.',
+    links: [{ href: url('/premium-zona/'), label: 'Všetko o pobyte' }, { href: site.booking.stayPrevio.href, label: 'Rezervovať online', external: true }],
+    photo: 'apartmany-terasa',
+  },
+  {
+    id: 'dive', color: 'dive', name: 'Dive Center', chip: `skúšobný ponor ${priceShort(diving.intro.price)}`, tilt: '-0.6deg',
+    lead: diving.lead,
+    points: [`skúšobný ponor s inštruktorom, 30 min, od 12 rokov`, `kurz OWD (piatok – nedeľa), licencia SDI: ${priceShort(diving.course.price)}`, 'freediving: platforma „Ostrov“ do hĺbky 35 m', 'zanorené atrakcie na viac ako 1000 m lán', 'požičovňa výstroja, plnenie fliaš 200/300 bar', `vstup do Dive Centra ${priceShort(highlight('dive-day').amount)} / deň`],
+    note: diving.safety,
+    links: [{ href: url('/potapanie/'), label: 'Všetko o potápaní' }, { href: site.booking.introDive.href, label: 'Rezervovať ponor', external: true }],
+    photo: 'pod-vodou-motorka',
+  },
+  {
+    id: 'event', color: 'event', name: 'Event zóna', chip: 'oslavy a akcie do 100 osôb', tilt: '1.1deg',
+    lead: zones.beach.event.lead,
+    points: zones.beach.event.equipment.concat(['catering, výčapy, dataprojektor a ozvučenie na objednávku']),
+    note: `Kapacita ${zones.beach.event.capacity}. Komplet zóna ${priceShort(komplet.amount!)}.`,
+    links: [{ href: `tel:${site.contacts.info.tel}`, label: `Zavolať ${site.contacts.info.phone}` }, { href: url('/plazova-zona/#event-zona'), label: 'Viac o Event zóne' }],
+    photo: 'event-oslava',
+  },
+];
+
+const months = [
+  { m: 'Máj', s: 'len potápači', kind: 'dive' },
+  { m: 'Jún', s: 'postupné otvorenie, vybrané dni', kind: 'part' },
+  { m: 'Júl', s: `denne do ${time(main.weekly![0].close)}`, kind: 'open' },
+  { m: 'August', s: 'denne, od 17. 8. do 19:00', kind: 'open' },
+  { m: 'September', s: 'piatky a víkendy, od 19. 9. len potápači', kind: 'part' },
+  { m: 'Október', s: 'zatvorené, skupiny od 15 osôb po dohode', kind: 'closed' },
+];
 ---
-<Base title="Koncept redizajnu" description="Koncept redizajnu webu Aquarea Čierna Voda.">
-  <main id="obsah" style="font-family: system-ui; padding: 2rem; max-width: 40rem;">
-    <h1>Aquarea Čierna Voda – koncept redizajnu</h1>
-    <p><a href={url('/variants/')}>Pozrieť tri smery domovskej stránky</a></p>
-  </main>
-</Base>
+<Site
+  title="Aquarea Čierna Voda – pláž, pobyt pri jazere a potápanie"
+  description="Areál športu a relaxu pri jazere s tyrkysovou vodou v Čiernej Vode: verejná pláž, apartmány a kemping v Prémium zóne, Dive Center so zanorenými atrakciami. Ceny, otváracie hodiny, rezervácie."
+  jsonLd={orgJsonLd()}
+>
+  <!-- Hero -->
+  <section aria-labelledby="home-title" class="relative">
+    <div class="relative h-[52svh] min-h-[20rem] md:h-[68svh]">
+      <Photo id="dron-kemping-pole" priority sizes="100vw" widths={[640, 960, 1280]} pictureClass="block h-full" class="h-full w-full object-cover" />
+    </div>
+    <div class="relative mx-auto -mt-20 max-w-[90rem] px-4 md:-mt-36 md:px-8">
+      <div class="v3-panel bg-v3-atrament px-5 pb-6 pt-5 text-white md:px-10 md:pb-10 md:pt-8">
+        <h1 id="home-title" class="v3-display text-[3.4rem] leading-[0.92] xs:text-[4rem] md:text-[7.5rem] lg:text-[9rem]">Aquarea <span class="mt-[0.06em] block text-v3-slnko">Čierna Voda</span></h1>
+        <div class="mt-5 grid gap-5 md:mt-8 md:grid-cols-[1.4fr_1fr] md:items-end">
+          <p class="max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">Areál športu a relaxu pri jazere s tyrkysovou, krištáľovo čistou vodou. Verejná pláž, pobyt v apartmánoch a v kempe priamo pri vode a potápačské centrum so zanorenými atrakciami.</p>
+          <a href={url('/otvaracie-hodiny/')} class="flex items-start gap-3 rounded-lg bg-white/10 p-4 hover:bg-white/15" data-status data-state="unknown">
+            <span class="status-dot mt-1.5"></span>
+            <span><span class="block font-extrabold" data-status-text>Otváracie hodiny</span><span class="block text-[0.9375rem] text-white/80" data-status-detail>{hours.season}</span></span>
+          </a>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href={url('/rezervacie/')} class="inline-flex min-h-12 items-center gap-2 rounded-lg bg-v3-slnko px-5 font-extrabold text-v3-atrament hover:bg-white"><Icon name="calendar" size={20} />Rezervovať</a>
+          <a href={url('/cennik/')} class="inline-flex min-h-12 items-center gap-2 rounded-lg border-2 border-white/70 px-5 font-extrabold text-white hover:bg-white/10"><Icon name="ticket" size={20} />Cenník</a>
+          <a href={site.maps.directions} target="_blank" rel="noopener" class="inline-flex min-h-12 items-center gap-2 rounded-lg border-2 border-white/70 px-5 font-extrabold text-white hover:bg-white/10"><Icon name="navigation" size={20} />Navigovať<span class="sr-only"> (Google Mapy)</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Zones -->
+  <section aria-labelledby="home-zones" class="mx-auto max-w-[90rem] px-4 pt-14 md:px-8 md:pt-20">
+    <h2 id="home-zones" class="v3-display text-[2.6rem] leading-[0.95] md:text-[4.2rem]">Vyberte si zónu</h2>
+    <p class="mt-3 max-w-2xl text-lg text-v3-atrament/80">Po zaplatení vstupu dostanete v areáli náramok pre svoju zónu. Ťuknite na zónu a uvidíte, čo v nej nájdete a koľko stojí.</p>
+    <div class="mt-8"><Wristbands bands={bands} /></div>
+  </section>
+
+  <!-- Season board -->
+  <section aria-labelledby="home-hours" class="mx-auto max-w-[90rem] px-4 pt-20 md:px-8 md:pt-28">
+    <div class="grid gap-8 lg:grid-cols-[1fr_2fr]">
+      <div>
+        <h2 id="home-hours" class="v3-display text-[2.6rem] leading-[0.95] md:text-[4.2rem]">Kedy je otvorené</h2>
+        <div class="mt-5 rounded-lg bg-v3-slnko p-5" data-status data-state="unknown">
+          <p class="v3-display flex items-center gap-3 text-[2rem] leading-[0.95]"><span class="status-dot"></span><span data-status-text>Otváracie hodiny</span></p>
+          <p class="mt-2 font-semibold" data-status-detail>{hours.season}</p>
+        </div>
+        <p class="mt-4 text-v3-atrament/80">{hours.seasonEnd.text}</p>
+        <p class="mt-3"><Todo text={hours.nextSeason.todo} /></p>
+      </div>
+      <div>
+        <p class="font-bold">{hours.season}</p>
+        <ol class="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6" role="list">
+          {months.map((m) => (
+            <li class:list={['v3-month rounded-lg p-3', `v3-month-${m.kind}`]}>
+              <span class="v3-display block text-[1.6rem] leading-[0.95]">{m.m}</span>
+              <span class="mt-2 block text-sm font-semibold leading-snug">{m.s}</span>
+            </li>
+          ))}
+        </ol>
+        <ul class="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm" role="list" aria-label="Legenda">
+          <li class="flex items-center gap-2"><span class="h-3 w-3 rounded-sm bg-v3-plaz"></span>verejnosť denne</li>
+          <li class="flex items-center gap-2"><span class="h-3 w-3 rounded-sm bg-v3-plaz/35"></span>vybrané dni</li>
+          <li class="flex items-center gap-2"><span class="h-3 w-3 rounded-sm bg-v3-dive"></span>len potápači</li>
+          <li class="flex items-center gap-2"><span class="h-3 w-3 rounded-sm bg-v3-siva ring-1 ring-v3-atrament/20"></span>zatvorené</li>
+        </ul>
+        <p class="mt-5 rounded-lg border-2 border-v3-atrament p-4 font-semibold">{hours.lastEntry}</p>
+        <a href={url('/otvaracie-hodiny/')} class="mt-4 inline-flex min-h-11 items-center gap-1.5 font-extrabold underline decoration-v3-slnko decoration-4 underline-offset-4">Otváracie hodiny po dňoch<Icon name="chevron-right" size={18} /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Price board -->
+  <section aria-labelledby="home-prices" class="mt-20 bg-v3-siva py-16 md:mt-28 md:py-24">
+    <div class="mx-auto max-w-[90rem] px-4 md:px-8">
+      <div class="flex flex-wrap items-end justify-between gap-3">
+        <h2 id="home-prices" class="v3-display text-[2.6rem] leading-[0.95] md:text-[4.2rem]">Koľko to stojí</h2>
+        <p class="font-bold">{prices.validFromText}</p>
+      </div>
+      <ul class="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5" role="list">
+        {prices.highlights.map((h) => (
+          <li>
+            <a href={url(`/cennik/#${h.section}`)} class:list={['flex h-full flex-col justify-between rounded-lg border-t-8 bg-white p-4 hover:shadow-md md:p-5', h.section === 'plazova-zona' ? 'border-v3-plaz' : h.section === 'dive-center' ? 'border-v3-dive' : 'border-v3-premium']}>
+              <span class="text-[0.9375rem] font-semibold leading-snug">{h.label}</span>
+              <span class="v3-display mt-3 text-[2.9rem] leading-[0.95] tabular-nums md:text-[3.6rem]">{h.from && <span class="text-[0.5em]">od </span>}{priceShort(h.amount)}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-5 max-w-3xl text-[0.9375rem] text-v3-atrament/80">Deti do 3 rokov majú vstup na pláž zdarma. Hostia Prémium zóny majú vstup do Plážovej zóny v cene pobytu.</p>
+      <a href={url('/cennik/')} class="mt-4 inline-flex min-h-11 items-center gap-1.5 font-extrabold underline decoration-v3-slnko decoration-4 underline-offset-4">Celý cenník všetkých zón<Icon name="chevron-right" size={18} /></a>
+    </div>
+  </section>
+
+  <!-- FotoFilmFest -->
+  <section aria-labelledby="home-fff" class="bg-v3-event text-white">
+    <div class="mx-auto grid max-w-[90rem] gap-8 px-4 py-16 md:px-8 md:py-20 lg:grid-cols-[1.3fr_1fr] lg:items-center">
+      <div>
+        <p class="font-extrabold">Najbližšie podujatie</p>
+        <h2 id="home-fff" class="v3-display mt-2 text-[3rem] leading-[0.95] md:text-[5.5rem]">{fff.next.title}</h2>
+        <p class="v3-display mt-3 text-[1.9rem] leading-[0.95] md:text-[2.6rem]">{dateLong(fff.next.date)}</p>
+        <p class="mt-3"><Todo text={fff.next.todo} /></p>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed">{fff.lead}</p>
+        <a href={url('/fotofilmfest/')} class="mt-6 inline-flex min-h-12 items-center gap-2 rounded-lg bg-white px-5 font-extrabold text-v3-atrament hover:bg-v3-slnko">Propozície a prihlášky<Icon name="chevron-right" size={18} /></a>
+      </div>
+      <Photo id="pod-vodou-rura" sizes="(min-width: 1024px) 40vw, 100vw" widths={[480, 800, 1100]} class="aspect-[4/3] w-full rounded-lg object-cover" />
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section aria-labelledby="home-partners" class="border-b border-v3-atrament/10 py-10">
+    <h2 id="home-partners" class="mx-auto max-w-[90rem] px-4 text-lg font-extrabold md:px-8">Certifikácie a partneri Dive Centra</h2>
+    <Marquee class="mt-6" duration="45s" gap="3.5rem" label="Logá partnerov">
+      {site.partners.map((p) => {
+        const img = partnerFiles[`/src/assets/partners/${p.file}`].default;
+        return <Image src={img} alt={p.label} height={64} width={Math.round((img.width / img.height) * 64)} class="h-14 w-auto md:h-16" loading="lazy" />;
+      })}
+    </Marquee>
+  </section>
+
+  <!-- Gallery teaser -->
+  <section aria-labelledby="home-gal" class="mx-auto max-w-[90rem] px-4 pt-20 md:px-8 md:pt-28">
+    <div class="flex flex-wrap items-end justify-between gap-3">
+      <h2 id="home-gal" class="v3-display text-[2.6rem] leading-[0.95] md:text-[4.2rem]">Galéria</h2>
+      <a href={url('/galeria/')} class="inline-flex min-h-11 items-center gap-1.5 font-extrabold underline decoration-v3-slnko decoration-4 underline-offset-4">Všetky fotografie<Icon name="chevron-right" size={18} /></a>
+    </div>
+    <ul class="mt-8 grid grid-cols-2 gap-3 md:grid-cols-6" role="list">
+      <li class="col-span-2 md:col-span-3 md:row-span-2"><Photo id="dron-zatoka" sizes="(min-width: 768px) 50vw, 100vw" widths={[480, 800, 1200]} pictureClass="block h-full" class="aspect-[4/3] h-full w-full rounded-lg object-cover md:aspect-auto" /></li>
+      <li class="md:col-span-3"><Photo id="plaz-detske-ihrisko" sizes="(min-width: 768px) 50vw, 50vw" widths={[320, 640, 960]} class="aspect-[4/3] w-full rounded-lg object-cover md:aspect-[2/1]" /></li>
+      <li class="md:col-span-1"><Photo id="kemping-altanok" sizes="(min-width: 768px) 17vw, 50vw" widths={[320, 480]} class="aspect-square w-full rounded-lg object-cover" /></li>
+      <li class="md:col-span-1"><Photo id="gastro-slnecniky" sizes="(min-width: 768px) 17vw, 50vw" widths={[320, 480]} class="aspect-square w-full rounded-lg object-cover" /></li>
+      <li class="md:col-span-1"><Photo id="freediving-ostrov" sizes="(min-width: 768px) 17vw, 50vw" widths={[320, 480]} class="aspect-square w-full rounded-lg object-cover" /></li>
+    </ul>
+  </section>
+
+  <!-- Booking + getting there -->
+  <section aria-labelledby="home-book" class="mx-auto max-w-[90rem] px-4 py-20 md:px-8 md:py-28">
+    <div class="grid gap-14 lg:grid-cols-2">
+      <div>
+        <h2 id="home-book" class="v3-display text-[2.6rem] leading-[0.95] md:text-[4.2rem]">Rezervácie</h2>
+        <ul class="mt-6 grid gap-3" role="list">
+          <li><a href={site.booking.stayPrevio.href} target="_blank" rel="noopener" class="flex min-h-16 items-center gap-4 rounded-lg bg-v3-premium px-5 py-4 text-white hover:brightness-95"><Icon name="bed" size={26} class="shrink-0" /><span class="min-w-0 flex-1"><span class="v3-display block text-[1.7rem] leading-[0.95]">Pobyt pri vode</span><span class="mt-1 block text-[0.9375rem] font-semibold">apartmány a kemping, online s výberom termínu</span></span><Icon name="external" size={22} class="shrink-0" /><span class="sr-only"> (otvorí aquarea.sk)</span></a></li>
+          <li><a href={site.booking.introDive.href} target="_blank" rel="noopener" class="flex min-h-16 items-center gap-4 rounded-lg bg-v3-dive px-5 py-4 text-white hover:brightness-95"><Icon name="fish" size={26} class="shrink-0" /><span class="min-w-0 flex-1"><span class="v3-display block text-[1.7rem] leading-[0.95]">Skúšobný ponor</span><span class="mt-1 block text-[0.9375rem] font-semibold">{priceShort(diving.intro.price)}, aj ako darček</span></span><Icon name="external" size={22} class="shrink-0" /><span class="sr-only"> (otvorí aquarea.sk)</span></a></li>
+        </ul>
+        <a href={url('/rezervacie/')} class="mt-5 inline-flex min-h-11 items-center gap-1.5 font-extrabold underline decoration-v3-slnko decoration-4 underline-offset-4">Všetky možnosti rezervácie: kurzy, skupiny, formuláre<Icon name="chevron-right" size={18} /></a>
+        <p class="mt-6 font-semibold">Telefonicky: <a class="underline underline-offset-4" href={`tel:${site.contacts.info.tel}`}>{site.contacts.info.phone}</a>, Dive Center <a class="underline underline-offset-4" href={`tel:${site.contacts.dive.tel}`}>{site.contacts.dive.phone}</a></p>
+      </div>
+      <div>
+        <h2 class="v3-display text-[2.6rem] leading-[0.95] md:text-[4.2rem]">Ako sa k nám dostať</h2>
+        <p class="mt-3 text-lg">{site.address.lines.slice(0, 2).join(', ')}</p>
+        <p class="mt-1 text-v3-atrament/80">{site.gettingThere.text}</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href={site.maps.directions} target="_blank" rel="noopener" class="inline-flex min-h-12 items-center gap-2 rounded-lg bg-v3-slnko px-5 font-extrabold text-v3-atrament hover:bg-v3-atrament hover:text-v3-slnko"><Icon name="navigation" size={20} />Navigovať<span class="sr-only"> (Google Mapy)</span></a>
+          <a href={url('/kontakt/')} class="inline-flex min-h-12 items-center gap-2 rounded-lg border-2 border-v3-atrament px-5 font-extrabold hover:bg-v3-siva"><Icon name="pin" size={20} />Kontakt a mapa areálu</a>
+        </div>
+        <a href={url('/kontakt/#mapa')} class="mt-6 block rounded-lg border-4 border-v3-atrament p-1.5" aria-label="Mapa areálu – zobraziť na stránke Kontakt">
+          <Photo id="mapa-arealu" sizes="(min-width: 1024px) 45vw, 100vw" widths={[480, 800, 1200]} class="w-full rounded" />
+        </a>
+      </div>
+    </div>
+  </section>
+</Site>

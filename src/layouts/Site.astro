@@ -1,0 +1,30 @@
+---
+/** Layout for the full site in the chosen direction (3 · Náramok). */
+import '@fontsource-variable/big-shoulders-display';
+import '@fontsource-variable/figtree/wght.css';
+import '../styles/v3.css';
+import Base from './Base.astro';
+import Header from '../components/v3/Header.astro';
+import Footer from '../components/v3/Footer.astro';
+import StickyCta from '../components/shared/StickyCta.astro';
+import StatusScript from '../components/shared/StatusScript.astro';
+import { url } from '../lib/url';
+
+interface Props {
+  title: string;
+  description: string;
+  current?: string;
+  jsonLd?: object | object[];
+  ogImage?: string;
+}
+const { title, description, current, jsonLd, ogImage } = Astro.props;
+---
+<Base title={title} description={description} bodyClass="v3 bg-white font-v3-sans text-v3-atrament" themeColor="#ffffff" jsonLd={jsonLd} ogImage={ogImage}>
+  <Header current={current} bookHref={url('/rezervacie/')} />
+  <main id="obsah">
+    <slot />
+  </main>
+  <Footer />
+  <StickyCta bookHref={url('/rezervacie/')} class="bg-v3-atrament" itemClass="text-white" primaryClass="bg-v3-slnko text-v3-atrament" />
+  <StatusScript />
+</Base>

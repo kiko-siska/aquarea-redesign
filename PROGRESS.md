@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:44
+- **Last updated:** 2026-10-01 07:48
 - **Current phase:** 3
 
 ## Checklist
@@ -28,7 +28,7 @@
 - [x] [auto] Pick the recommended variant, log why in DECISIONS.md — **3 Náramok** (Lighthouse mobile 98/100/100, shortest page, first price earliest); V1 runner-up
 
 ### Phase 3 — Full site in the chosen direction
-- [ ] Home (`/`)
+- [x] Home (`/`) — direction 3 refined: prices visible on closed wristbands on mobile, links into the new IA, JSON-LD (TouristAttraction + LocalBusiness, real data), shared `Site` layout + `v3.css`
 - [ ] Plážová zóna
 - [ ] Prémium zóna (kemping & apartmány)
 - [ ] Potápanie / Dive Center (courses, intro dives)
