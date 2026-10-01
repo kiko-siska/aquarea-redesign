@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:38
+- **Last updated:** 2026-10-01 07:39
 - **Current phase:** 2
 
 ## Checklist
@@ -23,7 +23,7 @@
 - [x] Variant 1 at `/variants/1/` — Ponor: depth gauge with real attraction depths, surface→deep section gradients, light rays, depth-fade photo strip, depth chart of 10 attractions
 - [x] Variant 2 at `/variants/2/` — Deň pri vode: serif magazine on white, alternating spreads, day strip (adapted 21st filmstrip, React island), price box with leaders
 - [x] Variant 3 at `/variants/3/` — Náramok: colour-coded wristband zones (exclusive <details>), season board, signage price board, partner marquee
-- [ ] Picker page `/variants/`
+- [x] Picker page `/variants/` — summaries, palettes, type, signature effect, desktop + mobile thumbnails (`scripts/picker-thumbs.mjs`)
 - [ ] Browser check 375px + desktop, screenshots, fixes
 - [ ] [auto] Pick the recommended variant, log why in DECISIONS.md
 

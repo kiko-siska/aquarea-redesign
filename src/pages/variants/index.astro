@@ -1,0 +1,78 @@
+---
+/** Picker for the three homepage directions (Phase 2). Neutral styling on purpose: the directions should speak. */
+import Base from '../../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import { url } from '../../lib/url';
+import v1d from '../../assets/picker/v1-desktop.png';
+import v1m from '../../assets/picker/v1-mobile.png';
+import v2d from '../../assets/picker/v2-desktop.png';
+import v2m from '../../assets/picker/v2-mobile.png';
+import v3d from '../../assets/picker/v3-desktop.png';
+import v3m from '../../assets/picker/v3-mobile.png';
+
+const RECOMMENDED = 0; // set by the [auto] pick in DECISIONS.md
+
+const directions = [
+  {
+    n: 1, name: 'Ponor', desktop: v1d, mobile: v1m,
+    mood: 'Stránka je ponor. Začína na hladine a každá časť je o kus hlbšie. Hĺbkomer vľavo (na mobile hore) ukazuje skutočné atrakcie z mapy Dive Centra: −8 m autobus, −13 m električka, −30 m hlboká plošina. Pozadie postupne tmavne do zelenomodrej hĺbky, v časti o Dive Centre dopadajú slnečné lúče.',
+    palette: [['hladina', '#ddf3f1'], ['tyrkys', '#1fa7a6'], ['jazero', '#0f6e86'], ['hĺbka', '#0a3f52'], ['dno', '#06232e'], ['slnko', '#f4c542']],
+    type: 'Archivo (jedna rodina, rozšírené rezy na nadpisy a hĺbky)',
+    signature: 'hĺbkomer so skutočnými hĺbkami, graf „čo leží v akej hĺbke“, pás fotografií spod hladiny so zaostrením na strednú',
+  },
+  {
+    n: 2, name: 'Deň pri vode', desktop: v2d, mobile: v2m,
+    mood: 'Letný časopis na bielom papieri s modrým „atramentom“ namiesto čiernej. Veľké pätkové nadpisy, fotografie s kurzívnymi popiskami, asymetrické dvojstrany pre pláž, pobyt a potápanie. Cenník je vysádzaný ako rámček v časopise.',
+    palette: [['papier', '#ffffff'], ['atrament', '#123e5c'], ['obloha', '#dceef7'], ['pšenica', '#e2b547'], ['slnečník', '#c8102e'], ['tráva', '#2f6b3a']],
+    type: 'Newsreader (nadpisy, popisky) + Instrument Sans (texty, ovládanie)',
+    signature: 'pás „Od rána do západu slnka“: skutočné fotografie dňa pri jazere naviazané na otváracie hodiny hlavnej sezóny, s lightboxom',
+  },
+  {
+    n: 3, name: 'Náramok', desktop: v3d, mobile: v3m,
+    mood: 'Výrazný, športový, farebne kódovaný ako značenie v areáli. Každá zóna má farbu a vystupuje ako náramok (areál naozaj pracuje s náramkami pre zóny). Ťuknutím sa náramok otvorí: čo tam je, koľko to stojí, tlačidlo na rezerváciu. Ceny sú veľké číslice ako na tabuli pri pokladni.',
+    palette: [['biela', '#ffffff'], ['atrament', '#10212b'], ['pláž', '#00a3a3'], ['prémium', '#2e7d32'], ['dive', '#0b4f8a'], ['event', '#d62828'], ['slnko', '#ffc93c']],
+    type: 'Big Shoulders Display (úzke kapitálky) + Figtree',
+    signature: 'zóny ako farebné náramky, sezónna tabuľa po mesiacoch, cenová tabuľa, bežiace logá partnerov',
+  },
+];
+---
+<Base title="Tri smery domovskej stránky" description="Výber vizuálneho smeru pre redizajn webu Aquarea Čierna Voda." bodyClass="bg-[#f5f6f7] text-[#16202a]" themeColor="#f5f6f7">
+  <main id="obsah" class="mx-auto max-w-6xl px-4 py-10 font-sans md:px-8 md:py-16">
+    <p class="text-sm font-semibold text-[#4b5866]">Aquarea Čierna Voda, koncept redizajnu</p>
+    <h1 class="mt-2 text-3xl font-bold tracking-tight md:text-5xl">Tri smery domovskej stránky</h1>
+    <p class="mt-4 max-w-3xl text-lg leading-relaxed text-[#35424f]">
+      Všetky tri používajú rovnaký skutočný obsah z aquarea.sk (ceny, hodiny, kontakty, fotografie) a rovnakú novú štruktúru webu. Líšia sa náladou, typografiou a hlavným efektom. Na mobile majú všetky spodnú lištu Zavolať / Rezervovať / Navigovať.
+    </p>
+    <ol class="mt-12 space-y-16" role="list">
+      {directions.map((d) => (
+        <li class="grid gap-6 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 md:p-8 lg:grid-cols-[1fr_1.15fr] lg:gap-10">
+          <div>
+            <div class="flex flex-wrap items-center gap-3">
+              <h2 class="text-2xl font-bold md:text-3xl">Smer {d.n}: {d.name}</h2>
+              {RECOMMENDED === d.n && <span class="rounded-full bg-[#16202a] px-3 py-1 text-sm font-semibold text-white">Odporúčaný smer</span>}
+            </div>
+            <p class="mt-4 leading-relaxed text-[#35424f]">{d.mood}</p>
+            <dl class="mt-5 space-y-3 text-[0.9375rem]">
+              <div><dt class="font-semibold">Písmo</dt><dd class="text-[#35424f]">{d.type}</dd></div>
+              <div><dt class="font-semibold">Hlavný efekt</dt><dd class="text-[#35424f]">{d.signature}</dd></div>
+              <div>
+                <dt class="font-semibold">Farby</dt>
+                <dd class="mt-2 flex flex-wrap gap-2">
+                  {d.palette.map(([name, hex]) => (
+                    <span class="inline-flex items-center gap-2 rounded-full bg-[#f5f6f7] py-1 pl-1 pr-3 text-sm"><span class="h-5 w-5 rounded-full ring-1 ring-black/15" style={`background:${hex}`}></span>{name}</span>
+                  ))}
+                </dd>
+              </div>
+            </dl>
+            <a href={url(`/variants/${d.n}/`)} class="mt-6 inline-flex min-h-12 items-center rounded-full bg-[#16202a] px-6 font-semibold text-white hover:bg-[#2c3a48]">Otvoriť smer {d.n}: {d.name}</a>
+          </div>
+          <a href={url(`/variants/${d.n}/`)} class="grid grid-cols-[1fr_auto] items-end gap-3 rounded-xl" aria-label={`Náhľad smeru ${d.n}: ${d.name}`}>
+            <Image src={d.desktop} alt="" widths={[480, 720, 960]} sizes="(min-width: 1024px) 34vw, 70vw" class="w-full rounded-lg ring-1 ring-black/10" />
+            <Image src={d.mobile} alt="" widths={[160, 240, 320]} sizes="(min-width: 1024px) 9vw, 24vw" class="w-[24vw] max-w-[9.5rem] rounded-lg ring-1 ring-black/10" />
+          </a>
+        </li>
+      ))}
+    </ol>
+    <p class="mt-14 text-sm text-[#4b5866]">Koncept, neoficiálna verzia, neindexuje sa. Obsah, fotografie a logo © AQUAREA s.r.o.</p>
+  </main>
+</Base>
