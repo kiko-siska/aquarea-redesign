@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 06:49
+- **Last updated:** 2026-10-01 06:58
 - **Current phase:** 1
 
 ## Checklist
@@ -10,8 +10,8 @@
 - [x] Tool check: `21st`, `magicui`, `nano-banana` MCPs + skills available (log anything missing under Blockers) — all 3 MCPs connected (21st free tier: 2 retrievals/day, AI generation off), skills `ui-ux-pro-max`, `frontend-design`, `ui-styling` listed
 
 ### Phase 1 — Content audit
-- [ ] Crawl every SK page of aquarea.sk → `content-audit/*.md` (source URL on top of each file)
-- [ ] Note which pages exist in EN / HU
+- [x] Crawl every SK page of aquarea.sk → `content-audit/*.md` (source URL on top of each file) — 53 SK pages + 2 PDFs (prevádzkový poriadok, mapa areálu) as text
+- [x] Note which pages exist in EN / HU — `content-audit/LANGUAGES.md` (EN 14 pages, HU 12, both partial, empty homepages)
 - [ ] Download photos → `source-images/` + `source-images/SOURCES.md`
 - [ ] `content-audit/SITEMAP.md`: page tree, forms & booking flows, external links, content problems
 - [ ] New information architecture proposal (end of SITEMAP.md)
