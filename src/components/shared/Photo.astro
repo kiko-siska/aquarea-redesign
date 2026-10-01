@@ -11,10 +11,12 @@ interface Props {
   priority?: boolean;
   alt?: string;
   decorative?: boolean;
+  /** class on the <picture> wrapper (e.g. h-full inside grid cells) */
+  pictureClass?: string;
 }
 
 const files = import.meta.glob<{ default: ImageMetadata }>('/src/assets/photos/*.{jpg,png}', { eager: true });
-const { id, class: cls, sizes = '100vw', widths = [480, 800, 1200, 1600], priority = false, alt, decorative = false } = Astro.props;
+const { id, class: cls, sizes = '100vw', widths = [480, 800, 1200, 1600], priority = false, alt, decorative = false, pictureClass } = Astro.props;
 const entry = photos.photos.find((p) => p.id === id);
 const file = files[`/src/assets/photos/${id}.jpg`] ?? files[`/src/assets/photos/${id}.png`];
 if (!entry || !file) throw new Error(`Photo "${id}" is not in src/content/photos.json or src/assets/photos/`);
@@ -33,4 +35,5 @@ if (w.length === 0 || w[w.length - 1] < img.width && widths.some((x) => x > img.
   decoding={priority ? 'sync' : 'async'}
   fetchpriority={priority ? 'high' : 'auto'}
   class={cls}
+  pictureAttributes={pictureClass ? { class: pictureClass } : undefined}
 />

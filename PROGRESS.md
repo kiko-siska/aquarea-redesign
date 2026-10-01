@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:30
+- **Last updated:** 2026-10-01 07:34
 - **Current phase:** 2
 
 ## Checklist
@@ -21,7 +21,7 @@
 - [x] Scaffold Astro + Tailwind + React; content collections from the audit; `noindex`; git commit — Astro 7.3 static, Tailwind 4, React 19; data in `src/content/*.json` validated by zod (source URL required); base-path helper; OG image from real photo
 - [x] Component shortlist (21st search / Magic UI / Aceternity) + image shot list — DECISIONS.md 07:21; 2× 21st retrieved & adapted, Magic UI marquee + light rays ported to zero-JS Astro
 - [x] Variant 1 at `/variants/1/` — Ponor: depth gauge with real attraction depths, surface→deep section gradients, light rays, depth-fade photo strip, depth chart of 10 attractions
-- [ ] Variant 2 at `/variants/2/`
+- [x] Variant 2 at `/variants/2/` — Deň pri vode: serif magazine on white, alternating spreads, day strip (adapted 21st filmstrip, React island), price box with leaders
 - [ ] Variant 3 at `/variants/3/`
 - [ ] Picker page `/variants/`
 - [ ] Browser check 375px + desktop, screenshots, fixes

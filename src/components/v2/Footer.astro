@@ -1,0 +1,49 @@
+---
+import Icon from '../shared/Icon.astro';
+import { site } from '../../lib/content';
+import { url } from '../../lib/url';
+const links = [
+  { href: url('/otvaracie-hodiny/'), label: 'Otváracie hodiny' },
+  { href: url('/cennik/'), label: 'Cenník' },
+  { href: url('/rezervacie/'), label: 'Rezervácie' },
+  { href: url('/fotofilmfest/'), label: 'FotoFilmFest' },
+  { href: url('/galeria/'), label: 'Galéria' },
+  { href: url('/o-nas/'), label: 'O nás' },
+];
+const { info, dive } = site.contacts;
+---
+<footer class="bg-v2-atrament pb-24 font-v2-sans text-white md:pb-10">
+  <div class="mx-auto max-w-[84rem] px-4 pt-14 md:px-8">
+    <p class="max-w-3xl font-v2-serif text-[1.9rem] leading-tight md:text-[2.6rem]">{site.motto}.</p>
+    <div class="mt-12 grid gap-10 border-t border-white/20 pt-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <h2 class="font-v2-serif text-xl">Kontakt</h2>
+        <p class="mt-3 text-sm text-white/75">{info.label}</p>
+        <p><a class="font-semibold hover:underline" href={`tel:${info.tel}`}>{info.phone}</a><br /><a class="hover:underline" href={`mailto:${info.email}`}>{info.email}</a></p>
+        <p class="mt-3 text-sm text-white/75">{dive.label}</p>
+        <p><a class="font-semibold hover:underline" href={`tel:${dive.tel}`}>{dive.phone}</a><br /><a class="hover:underline" href={`mailto:${dive.email}`}>{dive.email}</a></p>
+      </div>
+      <div>
+        <h2 class="font-v2-serif text-xl">Adresa</h2>
+        <address class="mt-3 not-italic">{site.address.lines.map((l) => <span class="block">{l}</span>)}</address>
+        <p class="mt-1 text-sm text-white/75">GPS {site.address.lat}, {site.address.lng}</p>
+        <a href={site.maps.directions} target="_blank" rel="noopener" class="mt-3 inline-flex min-h-11 items-center gap-2 font-semibold underline underline-offset-4"><Icon name="navigation" size={18} />Navigovať<span class="sr-only"> (Google Mapy)</span></a>
+      </div>
+      <div>
+        <h2 class="font-v2-serif text-xl">Rýchle odkazy</h2>
+        <ul class="mt-3 space-y-1.5" role="list">{links.map((l) => <li><a class="hover:underline" href={l.href}>{l.label}</a></li>)}</ul>
+        <ul class="mt-5 flex gap-4" role="list">
+          {site.social.map((s) => <li><a href={s.href} target="_blank" rel="noopener" class="inline-flex min-h-11 items-center gap-2 hover:underline"><Icon name={s.label === 'Facebook' ? 'facebook' : 'instagram'} size={18} />{s.label}</a></li>)}
+        </ul>
+      </div>
+      <div>
+        <h2 class="font-v2-serif text-xl">Dokumenty</h2>
+        <ul class="mt-3 space-y-1.5" role="list">
+          {site.documents.slice(0, 3).map((d) => <li><a class="hover:underline" href={d.href} target="_blank" rel="noopener">{d.label} <span class="text-sm text-white/70">({d.file})</span></a></li>)}
+        </ul>
+        <p class="mt-5 text-sm leading-relaxed text-white/75">{site.operator.name}, {site.operator.street}, {site.operator.city}, IČO {site.operator.ico}</p>
+      </div>
+    </div>
+    <p class="mt-10 border-t border-white/20 py-6 text-sm text-white/70">Koncept redizajnu, neoficiálna verzia. Obsah, fotografie a logo © {site.operator.name}. Aktuálne informácie na <a class="underline" href="https://www.aquarea.sk/">aquarea.sk</a>. Slovenská verzia, anglická a maďarská sa doplnia v ďalšej fáze.</p>
+  </div>
+</footer>
