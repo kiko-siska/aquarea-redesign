@@ -1,0 +1,97 @@
+---
+import Site from '../../layouts/Site.astro';
+import PageHero from '../../components/site/PageHero.astro';
+import Icon from '../../components/shared/Icon.astro';
+import Todo from '../../components/shared/Todo.astro';
+import { site, hours } from '../../lib/content';
+import { dateRange, time } from '../../lib/format';
+import { url } from '../../lib/url';
+import { breadcrumbJsonLd } from '../../lib/seo';
+
+type Row = { from: string; to: string; days?: string; open: string; close: string; audience: 'all' | 'divers'; note?: string };
+type Weekly = { label: string; open: string; close: string; audience: 'all' | 'divers' };
+const aud = (a: 'all' | 'divers') => (a === 'divers' ? 'len potápači' : 'verejnosť + potápači');
+---
+<Site
+  title="Otváracie hodiny – sezóna 2026"
+  description="Otváracie hodiny areálu Aquarea Čierna Voda v sezóne 2026: máj len pre potápačov, jún postupné otvorenie, hlavná sezóna denne, september obmedzená prevádzka, október zatvorené."
+  current="hodiny"
+  jsonLd={breadcrumbJsonLd([{ name: 'Úvod', url: 'https://www.aquarea.sk/' }, { name: 'Otváracie hodiny', url: 'https://www.aquarea.sk/kontakt/otvaracie-hodiny/' }])}
+>
+  <PageHero title="Otváracie hodiny" lead={hours.season} zone="slnko" crumb="Otváracie hodiny">
+    <div class="mt-6 inline-flex max-w-full items-start gap-3 rounded-lg bg-v3-atrament p-4 text-white" data-status data-state="unknown">
+      <span class="status-dot mt-1.5"></span>
+      <span><span class="block text-lg font-extrabold" data-status-text>Otváracie hodiny</span><span class="block text-[0.9375rem] text-white/85" data-status-detail>{hours.season}</span></span>
+    </div>
+  </PageHero>
+
+  <div class="mx-auto max-w-[90rem] px-4 py-12 md:px-8 md:py-16">
+    <div class="grid gap-6 lg:grid-cols-[1fr_1.4fr]">
+      <div class="space-y-4">
+        <p class="rounded-lg border-4 border-v3-atrament p-5 text-lg font-extrabold">{hours.lastEntry}</p>
+        <div class="rounded-lg bg-v3-siva p-5">
+          <p class="font-extrabold">{hours.seasonEnd.text}</p>
+          <p class="mt-3"><Todo text={hours.nextSeason.todo} /></p>
+        </div>
+        <div class="rounded-lg bg-v3-siva p-5">
+          <h2 class="font-extrabold">Prehľad sezóny</h2>
+          <dl class="mt-3 divide-y divide-v3-atrament/10">
+            {hours.overview.map((o) => <div class="grid grid-cols-[7.5rem_1fr] gap-3 py-2"><dt class="font-bold">{o.label}</dt><dd>{o.text}</dd></div>)}
+          </dl>
+        </div>
+        <div class="rounded-lg bg-v3-siva p-5 text-[0.9375rem]">
+          <h2 class="font-extrabold">Potápači mimo otváracích hodín</h2>
+          <p class="mt-2">{site.contacts.dive.divers} Telefón Dive Centra: <a class="font-bold underline underline-offset-4" href={`tel:${site.contacts.dive.tel}`}>{site.contacts.dive.phone}</a>.</p>
+          <p class="mt-2"><Todo text={site.contacts.dive.todo} /></p>
+        </div>
+        <p class="text-[0.9375rem]">{hours.bookingWindows.text}</p>
+        <p><Todo text={hours.conflictTodo} /></p>
+      </div>
+
+      <div class="space-y-6">
+        {hours.periods.map((p) => (
+          <section aria-labelledby={`p-${p.id}`} class:list={['overflow-hidden rounded-lg ring-1 ring-v3-atrament/10', p.closed ? 'bg-v3-siva' : 'bg-white']}>
+            <h2 id={`p-${p.id}`} class:list={['v3-display px-5 py-4 text-[2rem] leading-[0.95]', p.closed ? 'bg-v3-atrament text-white' : p.id === 'maj' ? 'zone-dive zone-fill' : 'zone-plaz zone-fill']}>
+              {p.title}<span class="block font-v3-sans text-base font-bold normal-case">{p.subtitle}</span>
+            </h2>
+            {p.closed ? (
+              <p class="px-5 py-4 font-semibold">{p.text}</p>
+            ) : (
+              <div class="overflow-x-auto px-5 pb-3">
+                <table class="v3-table min-w-[22rem]">
+                  <thead>
+                    <tr class="text-left text-sm">
+                      <th scope="col" class="!font-bold">{(p as { rows?: Row[] }).rows ? 'Dátum' : 'Dni'}</th>
+                      <th scope="col" class="!font-bold">Čas</th>
+                      <th scope="col" class="!font-bold">Pre koho</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {((p as { rows?: Row[] }).rows ?? []).map((r) => (
+                      <tr>
+                        <th scope="row">{dateRange(r.from, r.to)} <span class="v3-detail">{r.days}</span></th>
+                        <td class="whitespace-nowrap font-extrabold tabular-nums">{time(r.open)} – {time(r.close)}</td>
+                        <td>{aud(r.audience)}{r.note && <span class="v3-detail">{r.note}</span>}</td>
+                      </tr>
+                    ))}
+                    {((p as { weekly?: Weekly[] }).weekly ?? []).map((w) => (
+                      <tr>
+                        <th scope="row">{w.label}</th>
+                        <td class="whitespace-nowrap font-extrabold tabular-nums">{time(w.open)} – {time(w.close)}</td>
+                        <td>{aud(w.audience)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </section>
+        ))}
+        <div class="flex flex-wrap gap-3">
+          <a href={url('/cennik/')} class="inline-flex min-h-12 items-center gap-2 rounded-lg bg-v3-slnko px-5 font-extrabold"><Icon name="ticket" size={20} />Cenník</a>
+          <a href={site.maps.directions} target="_blank" rel="noopener" class="inline-flex min-h-12 items-center gap-2 rounded-lg border-2 border-v3-atrament px-5 font-extrabold hover:bg-v3-siva"><Icon name="navigation" size={20} />Navigovať<span class="sr-only"> (Google Mapy)</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Site>

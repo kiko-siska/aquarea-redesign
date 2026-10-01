@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 07:50
+- **Last updated:** 2026-10-01 07:56
 - **Current phase:** 3
 
 ## Checklist
@@ -31,9 +31,9 @@
 - [x] Home (`/`) — direction 3 refined: prices visible on closed wristbands on mobile, links into the new IA, JSON-LD (TouristAttraction + LocalBusiness, real data), shared `Site` layout + `v3.css`
 - [x] Plážová zóna — `/plazova-zona/`: features, reception, entry & prices, Event zóna (#event-zona) with prices, gastro (TODO), JSON-LD Beach
 - [x] Prémium zóna (kemping & apartmány) — `/premium-zona/`: 3 apartments with prices, camping, fishing, how booking works (offer → 50 % deposit), Previo + form, JSON-LD Campground/LodgingBusiness
-- [ ] Potápanie / Dive Center (courses, intro dives)
-- [ ] Cenník
-- [ ] Otváracie hodiny
+- [x] Potápanie / Dive Center (courses, intro dives) — `/potapanie/`: facts, story, OWD/AOWD/DEEP/TECH zones, full depth chart of 32 attractions + the real map, intro dive, OWD course, freediving, rental & prices, groups + reverz, DC contact
+- [x] Cenník — `/cennik/`: all 3 price lists as accessible tables, zone-coloured sticky section tabs, anchors #plazova-zona #kemping-apartmany #event-zona #dive-center
+- [x] Otváracie hodiny — `/otvaracie-hodiny/`: live status, every 2026 period as a table, last-entry rule, divers outside hours, TODOs (2027, PDF conflict)
 - [ ] Rezervácie / Kontakt (+ how to get there)
 - [ ] FotoFilmFest
 - [ ] Galéria

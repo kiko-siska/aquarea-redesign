@@ -1,0 +1,45 @@
+---
+import Site from '../../layouts/Site.astro';
+import PageHero from '../../components/site/PageHero.astro';
+import PriceSection from '../../components/site/PriceSection.astro';
+import Icon from '../../components/shared/Icon.astro';
+import { prices, priceSection } from '../../lib/content';
+import { url } from '../../lib/url';
+import { breadcrumbJsonLd } from '../../lib/seo';
+
+const tabs = [
+  { id: 'plazova-zona', label: 'Plážová zóna', zone: 'plaz' as const },
+  { id: 'kemping-apartmany', label: 'Kemping a apartmány', zone: 'premium' as const },
+  { id: 'event-zona', label: 'Event zóna', zone: 'premium' as const },
+  { id: 'dive-center', label: 'Dive Center', zone: 'dive' as const },
+];
+---
+<Site
+  title="Cenník – vstupné, apartmány, kemping, Dive Center"
+  description="Cenník Aquarea Čierna Voda platný od 24. 7. 2026: vstupné do Plážovej zóny od 9 €, permanentky, kemping a apartmány, Event zóna, Dive Center, skúšobný ponor, kurzy a požičovňa výstroja."
+  current="cennik"
+  jsonLd={breadcrumbJsonLd([{ name: 'Úvod', url: 'https://www.aquarea.sk/' }, { name: 'Cenník', url: 'https://www.aquarea.sk/cennik-1/' }])}
+>
+  <PageHero title="Cenník" lead={`${prices.validFromText}. Všetky ceny sú v eurách.`} zone="slnko" crumb="Cenník">
+    <p class="mt-4 inline-flex items-center gap-2 rounded-lg bg-v3-atrament px-4 py-2 font-bold text-white"><Icon name="info" size={18} />{prices.notice}</p>
+  </PageHero>
+
+  <nav aria-label="Časti cenníka" class="sticky top-16 z-30 border-b border-v3-atrament/10 bg-white/95 backdrop-blur md:top-20">
+    <ul class="mx-auto flex max-w-[90rem] gap-2 overflow-x-auto px-4 py-3 md:px-8" role="list">
+      {tabs.map((t) => (
+        <li class="shrink-0"><a href={`#${t.id}`} class:list={['zone-fill inline-flex min-h-11 items-center rounded-lg px-4 font-extrabold', `zone-${t.zone}`]}>{t.label}</a></li>
+      ))}
+    </ul>
+  </nav>
+
+  <div class="mx-auto max-w-[90rem] space-y-12 px-4 py-12 md:space-y-16 md:px-8 md:py-16">
+    <PriceSection section={priceSection('plazova-zona')} zone="plaz" validFrom={prices.validFromText} />
+    <PriceSection section={priceSection('kemping-apartmany')} zone="premium" validFrom={prices.validFromText} />
+    <PriceSection section={priceSection('dive-center')} zone="dive" validFrom={prices.validFromText} />
+    <section aria-label="Rezervácie" class="rounded-lg bg-v3-atrament p-6 text-white md:p-10">
+      <h2 class="v3-display text-[2.2rem] leading-[0.95] md:text-[3rem]">Chcete rezervovať?</h2>
+      <p class="mt-3 max-w-2xl">Pobyty v Prémium zóne, skúšobné ponory a kurzy sa rezervujú vopred. Vstup na pláž sa platí pri vstupe do areálu.</p>
+      <a href={url('/rezervacie/')} class="mt-5 inline-flex min-h-12 items-center gap-2 rounded-lg bg-v3-slnko px-5 font-extrabold text-v3-atrament hover:bg-white"><Icon name="calendar" size={20} />Všetky možnosti rezervácie</a>
+    </section>
+  </div>
+</Site>

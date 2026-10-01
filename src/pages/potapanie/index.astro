@@ -1,0 +1,217 @@
+---
+import Site from '../../layouts/Site.astro';
+import PageHero from '../../components/site/PageHero.astro';
+import Photo from '../../components/shared/Photo.astro';
+import Icon from '../../components/shared/Icon.astro';
+import Todo from '../../components/shared/Todo.astro';
+import { site, diving, priceSection } from '../../lib/content';
+import { priceShort, rowPrice } from '../../lib/format';
+import { url } from '../../lib/url';
+import { placeJsonLd, breadcrumbJsonLd } from '../../lib/seo';
+
+const d = diving;
+const dc = priceSection('dive-center');
+const entry = dc.groups[0];
+const rental = dc.groups.find((g) => g.title === 'Požičovňa výstroja')!;
+const fills = dc.groups.find((g) => g.title === 'Plnenie fliaš')!;
+const MAX = 36;
+const withDepth = [...d.attractions].filter((a) => a.depth.length).sort((a, b) => Math.max(...a.depth) - Math.max(...b.depth) || a.n - b.n);
+const noDepth = d.attractions.filter((a) => !a.depth.length);
+const fmt = (dep: number[]) => dep.map((x) => `−${String(x).replace('.', ',')}`).join(' / ') + ' m';
+const site_url = 'https://www.aquarea.sk/';
+---
+<Site
+  title="Potápanie – Dive Center, skúšobný ponor, kurzy, freediving"
+  description="AQUAREA Čierna Voda Dive Center: zanorené atrakcie (autobus, električka, lietadlo, plachetnica) na viac ako 1000 m lán, skúšobný ponor za 90 €, kurz OWD za 590 €, freediving, požičovňa výstroja."
+  current="potapanie"
+  jsonLd={[
+    placeJsonLd('SportsActivityLocation', d.longName, d.lead, { telephone: site.contacts.dive.phone, email: site.contacts.dive.email, foundingDate: '2017' }),
+    breadcrumbJsonLd([{ name: 'Úvod', url: site_url }, { name: 'Potápanie', url: site_url }]),
+  ]}
+>
+  <PageHero title="Potápanie" lead={d.lead} zone="dive" photo="pod-vodou-plosina" crumb="Potápanie">
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href="#skusobny-ponor" class="inline-flex min-h-12 items-center gap-2 rounded-lg bg-v3-slnko px-5 font-extrabold text-v3-atrament hover:bg-white">Skúšobný ponor {priceShort(d.intro.price)}</a>
+      <a href="#kurz-owd" class="inline-flex min-h-12 items-center gap-2 rounded-lg border-2 border-white/80 px-5 font-extrabold hover:bg-white/10">Kurz OWD {priceShort(d.course.price)}</a>
+      <a href="#atrakcie" class="inline-flex min-h-12 items-center gap-2 rounded-lg border-2 border-white/80 px-5 font-extrabold hover:bg-white/10">Čo je pod hladinou</a>
+    </div>
+  </PageHero>
+
+  <div class="zone-dive">
+    <!-- Facts + story -->
+    <section aria-labelledby="dc" class="mx-auto max-w-[90rem] px-4 pt-14 md:px-8 md:pt-20">
+      <dl class="grid grid-cols-2 gap-3 md:grid-cols-4">
+        {d.facts.map((f) => (
+          <div class="flex flex-col rounded-lg bg-v3-siva p-4 md:p-5">
+            <dt class="order-2 mt-2 text-[0.9375rem] font-semibold">{f.label}</dt>
+            <dd class="v3-display zone-text order-1 text-[2.6rem] leading-[0.95] md:text-[3.4rem]">{f.value}</dd>
+          </div>
+        ))}
+      </dl>
+      <div class="mt-12 grid gap-10 lg:grid-cols-[1.2fr_1fr]">
+        <div>
+          <h2 id="dc" class="v3-display text-[2.4rem] leading-[0.95] md:text-[3.6rem]">{d.longName}</h2>
+          <div class="v3-prose mt-4">{d.story.map((t) => <p>{t}</p>)}</div>
+          <h3 class="mt-8 text-xl font-extrabold">V čom je Dive Center výnimočné</h3>
+          <ul class="v3-prose mt-3" role="list">{d.unique.map((u) => <li>{u}</li>)}</ul>
+          <p class="mt-6 rounded-lg border-2 border-v3-dive p-4 font-semibold">{d.safety}</p>
+          <p class="mt-4">{d.season}</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-extrabold">Okruhy podľa kvalifikácie</h3>
+          <ul class="mt-4 space-y-3" role="list">
+            {d.zones.map((z) => (
+              <li class="flex gap-4 rounded-lg bg-v3-siva p-4">
+                <span class="zone-fill v3-display grid h-12 min-w-16 shrink-0 place-items-center rounded-lg px-2 text-[1.4rem] leading-none">{z.name}</span>
+                <span class="pt-1">{z.text}</span>
+              </li>
+            ))}
+          </ul>
+          <Photo id="dron-ponorove-miesto" sizes="(min-width: 1024px) 40vw, 100vw" widths={[480, 800, 1100]} class="mt-6 aspect-[4/3] w-full rounded-lg object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Attractions depth chart (real data from the Dive Center map) -->
+    <section id="atrakcie" aria-labelledby="atr" class="mt-16 scroll-mt-20 bg-v3-dive text-white md:mt-24">
+      <div class="mx-auto grid max-w-[90rem] gap-10 px-4 py-14 md:px-8 md:py-20 lg:grid-cols-[1.25fr_1fr]">
+        <div>
+          <h2 id="atr" class="v3-display text-[2.6rem] leading-[0.95] md:text-[4rem]">{d.attractionsTitle}</h2>
+          <p class="mt-3 max-w-2xl text-lg">Zanorené atrakcie a ich hĺbky, zoradené od hladiny po dno. {d.attractionsNote}</p>
+          <ol class="mt-6 space-y-1.5" role="list">
+            {withDepth.map((a) => {
+              const m = Math.max(...a.depth);
+              return (
+                <li class="grid grid-cols-[2rem_8.5rem_1fr] items-center gap-2 sm:grid-cols-[2.25rem_13rem_1fr]">
+                  <span class="text-right text-sm font-bold tabular-nums text-white/70" aria-label={`číslo ${a.n}`}>{a.n}.</span>
+                  <span class="text-[0.9375rem] leading-tight">{a.name}</span>
+                  <span class="flex min-h-6 items-center gap-2">
+                    <span class="h-3.5 shrink-0 rounded-r-full bg-v3-slnko" style={`width:calc((100% - 6rem) * ${(m / MAX).toFixed(3)})`}></span>
+                    <span class="shrink-0 text-sm font-extrabold tabular-nums">{fmt(a.depth)}</span>
+                  </span>
+                </li>
+              );
+            })}
+          </ol>
+          <p class="mt-4 text-[0.9375rem] text-white/85">Bez uvedenej hĺbky: {noDepth.map((a) => `${a.n}. ${a.name}`).join(', ')}. Na mape sú aj križovatky lán (32 – 34), plošiny s kotviacimi lanami (35, 36) a body „FREE Diver“ v −20 m a −36 m.</p>
+        </div>
+        <figure>
+          <Photo id="dive-mapa-atrakcii" sizes="(min-width: 1024px) 40vw, 100vw" widths={[480, 800, 1280]} class="w-full rounded-lg bg-white" />
+          <figcaption class="mt-2 text-[0.9375rem] text-white/85">Mapa potápačských atrakcií Dive Centra. Mapku si môžete zapožičať aj počas ponoru.</figcaption>
+        </figure>
+      </div>
+      <ul class="mx-auto grid max-w-[90rem] grid-cols-2 gap-3 px-4 pb-14 md:grid-cols-4 md:px-8 md:pb-20" role="list">
+        <li><Photo id="pod-vodou-motorka" sizes="(min-width: 768px) 25vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" /></li>
+        <li><Photo id="pod-vodou-scuka" sizes="(min-width: 768px) 25vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" /></li>
+        <li><Photo id="pod-vodou-kapre-potapac" sizes="(min-width: 768px) 25vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" /></li>
+        <li><Photo id="pod-vodou-atrakcia-luce" sizes="(min-width: 768px) 25vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" /></li>
+      </ul>
+    </section>
+
+    <!-- Intro dive + OWD -->
+    <section aria-label="Skúšobný ponor a kurz" class="mx-auto max-w-[90rem] px-4 pt-16 md:px-8 md:pt-24">
+      <div class="grid gap-6 lg:grid-cols-2">
+        <article id="skusobny-ponor" aria-labelledby="h-intro" class="scroll-mt-20 rounded-lg border-t-8 border-v3-dive bg-v3-siva p-6 md:p-8">
+          <h2 id="h-intro" class="v3-display text-[2.2rem] leading-[0.95] md:text-[3rem]">{d.intro.title}</h2>
+          <p class="v3-display zone-text mt-3 text-[3.4rem] leading-[0.95]">{priceShort(d.intro.price)}</p>
+          <p class="mt-4">{d.intro.lead}</p>
+          <h3 class="mt-6 font-extrabold">V cene</h3>
+          <ul class="v3-prose mt-2" role="list">{d.intro.includes.map((x) => <li>{x}</li>)}</ul>
+          <h3 class="mt-6 font-extrabold">Požiadavky</h3>
+          <ul class="v3-prose mt-2" role="list">{d.intro.requirements.map((x) => <li>{x}</li>)}</ul>
+          <p class="mt-5 rounded-lg bg-white p-4 text-[0.9375rem] font-semibold"><Icon name="ticket" size={18} class="mb-1 inline" /> {d.intro.gift}</p>
+          <a href={site.booking.introDive.href} target="_blank" rel="noopener" class="zone-fill mt-6 inline-flex min-h-12 items-center gap-2 rounded-lg px-5 font-extrabold">Rezervovať skúšobný ponor<Icon name="external" size={18} /><span class="sr-only"> (formulár na aquarea.sk)</span></a>
+        </article>
+        <article id="kurz-owd" aria-labelledby="h-owd" class="scroll-mt-20 rounded-lg border-t-8 border-v3-dive bg-v3-siva p-6 md:p-8">
+          <h2 id="h-owd" class="v3-display text-[2.2rem] leading-[0.95] md:text-[3rem]">{d.course.title}</h2>
+          <p class="mt-1 font-semibold">{d.course.subtitle}</p>
+          <p class="v3-display zone-text mt-3 text-[3.4rem] leading-[0.95]">{priceShort(d.course.price)}</p>
+          <h3 class="mt-5 font-extrabold">Priebeh kurzu</h3>
+          <dl class="mt-2 space-y-2">
+            {d.course.schedule.map((s) => <div class="rounded-lg bg-white p-3"><dt class="font-extrabold">{s.day}</dt><dd class="text-[0.9375rem]">{s.text}</dd></div>)}
+          </dl>
+          <h3 class="mt-5 font-extrabold">V cene</h3>
+          <ul class="v3-prose mt-2" role="list">{d.course.includes.map((x) => <li>{x}</li>)}</ul>
+          <p class="mt-2 text-[0.9375rem]">Nie je v cene: {d.course.notIncluded}.</p>
+          <h3 class="mt-5 font-extrabold">Požiadavky</h3>
+          <ul class="v3-prose mt-2" role="list">{d.course.requirements.map((x) => <li>{x}</li>)}</ul>
+          <p class="mt-5">{d.course.aowd}</p>
+          <p class="mt-2"><Todo text={d.course.aowdTodo} /></p>
+          <a href={site.booking.course.href} target="_blank" rel="noopener" class="zone-fill mt-6 inline-flex min-h-12 items-center gap-2 rounded-lg px-5 font-extrabold">Prihlásiť sa na kurz<Icon name="external" size={18} /><span class="sr-only"> (formulár na aquarea.sk)</span></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Freediving -->
+    <section id="freediving" aria-labelledby="h-free" class="mx-auto max-w-[90rem] scroll-mt-20 px-4 pt-16 md:px-8 md:pt-24">
+      <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+        <div>
+          <h2 id="h-free" class="v3-display text-[2.4rem] leading-[0.95] md:text-[3.6rem]">{d.freediving.title}</h2>
+          <p class="mt-3 text-lg">{d.freediving.lead}</p>
+          <ul class="mt-6 space-y-3" role="list">
+            {d.freediving.platforms.map((pl) => <li class="rounded-lg bg-v3-siva p-4"><span class="block font-extrabold">{pl.name}</span><span class="text-[0.9375rem]">{pl.text}</span></li>)}
+          </ul>
+          <h3 class="mt-6 font-extrabold">Pravidlá pre freediverov</h3>
+          <ul class="v3-prose mt-2" role="list">{d.freediving.rules.map((x) => <li>{x}</li>)}</ul>
+          <a href={d.freediving.link.href} target="_blank" rel="noopener" class="mt-5 inline-flex min-h-11 items-center gap-1.5 font-extrabold underline decoration-v3-dive decoration-4 underline-offset-4">{d.freediving.link.label}<Icon name="external" size={16} /></a>
+        </div>
+        <div class="grid grid-cols-2 gap-3 self-start">
+          <Photo id="freediving-ostrov" sizes="(min-width: 1024px) 40vw, 100vw" widths={[480, 800, 1100]} class="col-span-2 aspect-[16/9] w-full rounded-lg object-cover" />
+          <Photo id="freediving-skupina" sizes="(min-width: 1024px) 20vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" />
+          <Photo id="freediving-rozcvicka" sizes="(min-width: 1024px) 20vw, 50vw" widths={[320, 480, 640]} class="aspect-square w-full rounded-lg object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Rental + entry prices -->
+    <section id="pozicovna" aria-labelledby="h-rent" class="mx-auto max-w-[90rem] scroll-mt-20 px-4 pt-16 md:px-8 md:pt-24">
+      <div class="grid gap-8 lg:grid-cols-2">
+        <div>
+          <h2 id="h-rent" class="v3-display text-[2.4rem] leading-[0.95] md:text-[3.6rem]">{d.rental.title}</h2>
+          <p class="mt-3">{d.rental.items}.</p>
+          <p class="mt-4 rounded-lg border-2 border-v3-dive p-4 font-semibold">{d.rental.note}</p>
+          <div class="mt-5 rounded-lg bg-v3-siva p-4 md:p-5">
+            <table class="v3-table">
+              <caption class="pb-2 text-lg font-extrabold">Vstup do Dive Centra</caption>
+              <tbody>{entry.rows.map((r) => <tr><th scope="row">{r.label}{r.detail && <span class="v3-detail">{r.detail}</span>}</th><td class="v3-price">{rowPrice(r)}</td></tr>)}</tbody>
+            </table>
+          </div>
+        </div>
+        <div class="rounded-lg bg-v3-siva p-4 md:p-5">
+          <table class="v3-table">
+            <caption class="pb-2 text-lg font-extrabold">{rental.title}</caption>
+            <tbody>{rental.rows.map((r) => <tr><th scope="row">{r.label}</th><td class="v3-price">{rowPrice(r)}</td></tr>)}</tbody>
+          </table>
+          <table class="v3-table mt-6">
+            <caption class="pb-2 text-lg font-extrabold">{fills.title}</caption>
+            <tbody>{fills.rows.map((r) => <tr><th scope="row">{r.label}</th><td class="v3-price">{rowPrice(r)}</td></tr>)}</tbody>
+          </table>
+          <a href={url('/cennik/#dive-center')} class="mt-4 inline-flex min-h-11 items-center gap-1.5 font-extrabold underline decoration-v3-dive decoration-4 underline-offset-4">Celý cenník Dive Centra<Icon name="chevron-right" size={18} /></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Groups + contact -->
+    <section id="skupiny" aria-labelledby="h-grp" class="mx-auto max-w-[90rem] scroll-mt-20 px-4 py-16 md:px-8 md:py-24">
+      <div class="zone-fill v3-weave grid gap-8 rounded-lg p-6 md:grid-cols-2 md:p-10">
+        <div>
+          <h2 id="h-grp" class="v3-display text-[2.2rem] leading-[0.95] md:text-[3rem]">Potápačské skupiny a školy</h2>
+          <p class="mt-3">{d.groups}</p>
+          <p class="mt-2">Podmienky pre inštruktorov si každá potápačská škola dohodne individuálne s prevádzkovateľom.</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a href={site.booking.groups.href} target="_blank" rel="noopener" class="inline-flex min-h-12 items-center gap-2 rounded-lg bg-v3-slnko px-5 font-extrabold text-v3-atrament hover:bg-white">Registrácia skupiny<Icon name="external" size={18} /><span class="sr-only"> (aquarea.sk)</span></a>
+            <a href={site.documents[3].href} target="_blank" rel="noopener" class="inline-flex min-h-12 items-center gap-2 rounded-lg border-2 border-white/80 px-5 font-extrabold hover:bg-white/10"><Icon name="file" size={18} />{site.documents[3].label} (PDF)</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="v3-display text-[2.2rem] leading-[0.95] md:text-[3rem]">Kontakt na Dive Center</h2>
+          <p class="mt-3 text-2xl font-extrabold"><a class="underline underline-offset-4" href={`tel:${site.contacts.dive.tel}`}>{site.contacts.dive.phone}</a></p>
+          <p class="mt-1"><a class="underline underline-offset-4" href={`mailto:${site.contacts.dive.email}`}>{site.contacts.dive.email}</a></p>
+          <ul class="mt-3 space-y-1 text-[0.9375rem]" role="list">{site.contacts.dive.hours.map((h) => <li>{h}</li>)}</ul>
+          <p class="mt-3">{site.contacts.dive.divers}</p>
+          <p class="mt-2"><Todo text={site.contacts.dive.todo} /></p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Site>

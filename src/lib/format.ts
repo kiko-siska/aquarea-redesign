@@ -2,9 +2,9 @@ const eur = new Intl.NumberFormat('sk-SK', { style: 'currency', currency: 'EUR',
 const eurShort = new Intl.NumberFormat('sk-SK', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0, maximumFractionDigits: 2 });
 
 /** 9 → "9,00 €" (price tables) */
-export const price = (n: number) => eur.format(n).replace(/ /g, ' ');
+export const price = (n: number) => eur.format(n).replace(/\s/g, '\u00a0');
 /** 9 → "9 €", 7.5 → "7,5 €" (teasers, big numerals) */
-export const priceShort = (n: number) => eurShort.format(n).replace(/ /g, ' ');
+export const priceShort = (n: number) => eurShort.format(n).replace(/\s/g, '\u00a0');
 
 export type PriceRow = {
   label: string;
@@ -19,7 +19,7 @@ export function rowPrice(row: PriceRow, pairLabels: [string, string] = ['Dospel�
   if (row.free) return 'zdarma';
   if (row.amount !== undefined) return price(row.amount);
   if (row.range) return `${price(row.range[0])} – ${price(row.range[1])}`;
-  if (row.pair) return `${pairLabels[0]} ${price(row.pair[0])} / ${pairLabels[1].toLowerCase()} ${price(row.pair[1])}`;
+  if (row.pair) return `${pairLabels[0]} ${price(row.pair[0])}\n${pairLabels[1]} ${price(row.pair[1])}`;
   return '';
 }
 

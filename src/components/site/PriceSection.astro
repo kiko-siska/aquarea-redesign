@@ -11,7 +11,7 @@ const groups = section.groups as unknown as Group[];
 const intro = (section as { intro?: string[] }).intro;
 const footnote = (section as { footnote?: string }).footnote;
 ---
-<section id={section.id} class:list={['scroll-mt-24', `zone-${zone}`]} aria-labelledby={`h-${section.id}`}>
+<section id={section.id} class:list={['scroll-mt-36 md:scroll-mt-40', `zone-${zone}`]} aria-labelledby={`h-${section.id}`}>
   <div class="zone-fill v3-weave flex flex-wrap items-end justify-between gap-3 rounded-t-lg px-5 py-5 md:px-8">
     <h2 id={`h-${section.id}`} class="v3-display text-[2.4rem] leading-[0.92] md:text-[3.4rem]">{section.title}{(section as { subtitle?: string }).subtitle && <span class="block text-[0.5em] opacity-90">{(section as { subtitle?: string }).subtitle}</span>}</h2>
     <p class="text-sm font-bold">{validFrom}</p>
@@ -22,7 +22,7 @@ const footnote = (section as { footnote?: string }).footnote;
     )}
     <div class="grid gap-x-12 gap-y-8 lg:grid-cols-2">
       {groups.map((g) => (
-        <div id={g.id} class="scroll-mt-24 rounded-lg bg-white p-4 md:p-6">
+        <div id={g.id} class="scroll-mt-36 rounded-lg bg-white p-4 md:scroll-mt-40 md:p-6">
           <table class="v3-table">
             <caption class="pb-2">
               <span class="block text-lg font-extrabold">{g.title}</span>

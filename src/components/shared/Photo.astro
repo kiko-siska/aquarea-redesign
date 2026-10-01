@@ -21,6 +21,11 @@ const entry = photos.photos.find((p) => p.id === id);
 const file = files[`/src/assets/photos/${id}.jpg`] ?? files[`/src/assets/photos/${id}.png`];
 if (!entry || !file) throw new Error(`Photo "${id}" is not in src/content/photos.json or src/assets/photos/`);
 const img = file.default;
+// grid placement belongs on the <picture> (Astro puts `class` on the inner <img>)
+const tokens = (cls ?? '').split(/\s+/).filter(Boolean);
+const isPlacement = (t: string) => /(^|:)(col|row)-(span|start|end)-/.test(t);
+const imgClass = tokens.filter((t) => !isPlacement(t)).join(' ');
+const pictureCls = [pictureClass, ...tokens.filter(isPlacement)].filter(Boolean).join(' ');
 let w = widths.filter((x) => x <= img.width);
 if (w.length === 0 || w[w.length - 1] < img.width && widths.some((x) => x > img.width)) w = [...w, img.width];
 ---
@@ -34,6 +39,6 @@ if (w.length === 0 || w[w.length - 1] < img.width && widths.some((x) => x > img.
   loading={priority ? 'eager' : 'lazy'}
   decoding={priority ? 'sync' : 'async'}
   fetchpriority={priority ? 'high' : 'auto'}
-  class={cls}
-  pictureAttributes={pictureClass ? { class: pictureClass } : undefined}
+  class={imgClass}
+  pictureAttributes={pictureCls ? { class: pictureCls } : undefined}
 />
