@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 08:08
+- **Last updated:** 2026-10-01 08:12
 - **Current phase:** 3
 
 ## Checklist
@@ -40,7 +40,7 @@
 - [x] O nás — `/o-nas/`: story, aktuality (5 posts), documents (PDF links), rules in short
 - [x] 404 — zone-coloured shortcuts back into the site
 - [x] SEO: titles, descriptions, OG, JSON-LD (real data only), sitemap — unique titles ≤ 60 + suffix, descriptions ≤ ~165, one H1 per page, OG image from the real drone photo, JSON-LD TouristAttraction/LocalBusiness, Beach, Campground/LodgingBusiness, SportsActivityLocation, BreadcrumbList (no ratings; Event held back until date confirmed), `@astrojs/sitemap` (variants excluded), robots.txt disallow + noindex until approval
-- [x] Final QA: `npm run build`, all pages at 375px + desktop, a11y + reduced-motion, Lighthouse — build OK (16 pages); `screenshots/phase3/` (12 pages × 375 + 1440); no horizontal overflow; 0 broken internal links/anchors, all 22 external links 200; axe-core 0 violations on all pages; reduced-motion pass OK; Lighthouse mobile perf 96–100, a11y 100, best practices 100 (SEO 69 = intentional noindex)
+- [x] Final QA: `npm run build`, all pages at 375px + desktop, a11y + reduced-motion, Lighthouse — build OK (16 pages); `screenshots/phase3/` (12 pages × 375 + 1440); no horizontal overflow; 0 broken internal links/anchors, all 22 external links return 200; GitHub Pages sub-path build (`BASE_PATH=/aquarea-redesign`) verified: every internal URL, image, font, sitemap and OG URL carries the base; variants re-checked after the shared refactors (no overflow, axe 0); axe-core 0 violations on all pages; reduced-motion pass OK; Lighthouse mobile perf 96–100, a11y 100, best practices 100 (SEO 69 = intentional noindex)
 - [x] Morning report (below)
 
 ## Budget log

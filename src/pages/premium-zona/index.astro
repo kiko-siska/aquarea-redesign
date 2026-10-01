@@ -22,7 +22,7 @@ const aptPrice = (n: number) => aptRows.filter((r) => r.label.startsWith(`Apartm
   current="pobyt"
   jsonLd={[
     placeJsonLd(['Campground', 'LodgingBusiness'], 'Prémium zóna – apartmány a kemping', p.lead, {
-      checkinTime: '14:00', checkoutTime: '10:00', telephone: site.contacts.info.phone, email: site.contacts.info.email,
+      telephone: site.contacts.info.phone, email: site.contacts.info.email, // check-in differs: apartments 14:00/10:00, camping 10:00/9:00, so no single checkinTime
       amenityFeature: ['elektrické prípojky', 'studničky s vodou', 'ohniská', 'sanitárne zariadenia', 'strážna služba 24/7'].map((n) => ({ '@type': 'LocationFeatureSpecification', name: n, value: true })),
     }),
     breadcrumbJsonLd([{ name: 'Úvod', url: site_url }, { name: 'Prémium zóna', url: site_url }]),
