@@ -83,3 +83,12 @@ All three variants stay at `/variants/1–3/` so the owner can switch.
 - **Kept V1's real depth chart** (32 attractions with depths from the Dive Center map) on `/potapanie/`, in dive blue.
 - **Season 2026 is over.** The site shows today's status computed in the browser ("Areál je zatvorený…" in October), plus the 2026 tables and a TODO for 2027.
 - **robots.txt disallow + `noindex, nofollow`.** Lighthouse SEO is therefore 69 (only "page is blocked from indexing" fails). This is intentional until Aquarea approves.
+
+## Phase 4 (owner brief 2026-10-02): two bold motion directions
+
+### 2026-10-02 21:16 · Owner waivers for V4 and V5 (owner decision, logged by agent)
+- **Accessibility waived** for `/variants/4/` and `/variants/5/` only: no WCAG, contrast, axe or Lighthouse-a11y work, and no a11y skill or checklist is run on them. The design isn't softened to pass them. Recorded in AGENTS.md rule 7 as a scoped exception (commit 33effb8).
+- **Lighthouse targets waived** for the same two pages. Replacement bar set by the owner: `npm run build` passes, zero console errors, no horizontal overflow at 375 px, devicePixelRatio capped at 1.5–2, render loops pause when off-screen, and a static poster fallback if WebGL fails.
+- **Scope:** V1–V3, the picker's existing entries and the full site are untouched. Heavy libraries (gsap, three, lenis) load only on these two pages, via dynamic import inside page scripts, never from `Base.astro`, `Site.astro` or `global.css`.
+- **Still binding:** facts only (all content from `src/content`), Slovak copy, no fake booking, no push/deploy, `noindex`, no fake photos of the real place, no secrets, local commits.
+- **Consequence:** a hardening pass (a11y + performance) is required before either direction can ship. Added to the owner TODOs in PROGRESS.md.

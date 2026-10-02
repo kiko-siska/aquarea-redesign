@@ -1,8 +1,8 @@
 # Progress
 
-- **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-01 08:12
-- **Current phase:** 3
+- **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
+- **Last updated:** 2026-10-02 21:16
+- **Current phase:** 4
 
 ## Checklist
 
@@ -43,6 +43,19 @@
 - [x] Final QA: `npm run build`, all pages at 375px + desktop, a11y + reduced-motion, Lighthouse — build OK (16 pages); `screenshots/phase3/` (12 pages × 375 + 1440); no horizontal overflow; 0 broken internal links/anchors, all 22 external links return 200; GitHub Pages sub-path build (`BASE_PATH=/aquarea-redesign`) verified: every internal URL, image, font, sitemap and OG URL carries the base; variants re-checked after the shared refactors (no overflow, axe 0); axe-core 0 violations on all pages; reduced-motion pass OK; Lighthouse mobile perf 96–100, a11y 100, best practices 100 (SEO 69 = intentional noindex)
 - [x] Morning report (below)
 
+### Phase 4 — Two bold motion directions (V4 Čierna voda, V5 Titulky)
+_Owner brief 2026-10-02. V4/V5 are exempt from a11y + Lighthouse (AGENTS.md rule 7 exception); replacement bar: build passes, 0 console errors, no overflow at 375 px, DPR ≤ 2, render loops pause off-screen, static poster if WebGL fails. V1–V3 and the site stay untouched._
+- [x] Step 1: AGENTS.md rule 7 exception, committed on its own (33effb8)
+- [x] Log both waivers in DECISIONS.md + owner TODO "hardening pass needed before V4/V5 can ship"
+- [ ] Design system for V4 + V5: fonts (Slovak glyph check), palettes, motion plan → DECISIONS.md
+- [ ] Page-scoped dependencies (gsap, three, lenis, fonts); nothing in shared layouts
+- [ ] Textures: ≤ 3 Gemini images (abstract only), logged below
+- [ ] V4 · Čierna voda at `/variants/4/` (WebGL water + torch, ripples, marine snow, SplitText H1, all sections)
+- [ ] V5 · Titulky at `/variants/5/` (leader countdown, scenes, kinetic type, timecode, Flip reel, credits, film clock, clapperboard, route)
+- [ ] Picker `/variants/`: V4 + V5 with summary, palette, type, signature effect, desktop + mobile thumbnails
+- [ ] Verify 375 + 1440: scroll 0/25/50/75/100 % + hover/touch states → `screenshots/phase4/`; console, overflow, build
+- [ ] DECISIONS.md: entry per variant + "best wow / best for the mission / what V4–V5 need to ship"; PROGRESS handoff
+
 ## Budget log
 - 21st `get_component`: (date · component · used for)
   - 2026-10-01 · Horizontal Depth Fade (@unlumen, id 18439) · v1 underwater photo strip (ported to vanilla JS)
@@ -71,6 +84,7 @@ _Each one is also a visible yellow TODO on the page where it matters. Full list:
 13. **Water-quality protocol:** only a 2025 scan exists; publish the current one as a PDF. *(/o-nas/)*
 14. **Logo:** only a 338×127 PNG exists; a vector (SVG) logo would look sharper.
 15. **Before launch:** confirm the new URLs, set up redirects from the old ones (SITEMAP.md §7), remove `noindex` and the robots.txt block, and decide on EN/HU translation and hosting.
+16. **Hardening pass needed before V4/V5 can ship.** `/variants/4/` and `/variants/5/` were built with accessibility and Lighthouse targets waived (owner, 2026-10-02). Before either direction is used for the real site: WCAG AA contrast, keyboard/focus, reduced-motion fallbacks, screen-reader text for the WebGL/scroll scenes, and Lighthouse mobile ≥ 90.
 
 ## Handoff
 _Notes for the next session: what's next, gotchas._
