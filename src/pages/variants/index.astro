@@ -1,5 +1,5 @@
 ---
-/** Picker for the three homepage directions (Phase 2). Neutral styling on purpose: the directions should speak. */
+/** Picker for the homepage directions (Phase 2: 1–3, Phase 4: 4–5). Neutral styling on purpose: the directions should speak. */
 import Base from '../../layouts/Base.astro';
 import { Image } from 'astro:assets';
 import { url } from '../../lib/url';
@@ -9,6 +9,10 @@ import v2d from '../../assets/picker/v2-desktop.png';
 import v2m from '../../assets/picker/v2-mobile.png';
 import v3d from '../../assets/picker/v3-desktop.png';
 import v3m from '../../assets/picker/v3-mobile.png';
+import v4d from '../../assets/picker/v4-desktop.png';
+import v4m from '../../assets/picker/v4-mobile.png';
+import v5d from '../../assets/picker/v5-desktop.png';
+import v5m from '../../assets/picker/v5-mobile.png';
 
 const RECOMMENDED = 3; // [auto] pick, see DECISIONS.md
 
@@ -34,14 +38,30 @@ const directions = [
     type: 'Big Shoulders Display (úzke kapitálky) + Figtree',
     signature: 'zóny ako farebné náramky, sezónna tabuľa po mesiacoch, cenová tabuľa, bežiace logá partnerov',
   },
+  {
+    n: 4, name: 'Čierna voda', desktop: v4d, mobile: v4m,
+    mood: 'Jazero v noci a vy držíte potápačskú baterku. Celú stránku podkladá čierna hladina vo WebGL s vlnkami, kaustikami a zábleskami. Kužeľ svetla ukazuje skutočné fotografie spod vody a ožívajú len v ňom. Kliknutím alebo ťuknutím pustíte do vody kruhy. Na mobile svetlo putuje samo, kým ho nepotiahnete prstom. Ceny, hodiny a tlačidlá sú čitateľné aj potme, svetlo ich len zohreje.',
+    palette: [['atrament', '#05070b'], ['hĺbka', '#0a1018'], ['studená', '#8796aa'], ['hmla', '#d6dee8'], ['baterka', '#fff1d6'], ['bója', '#ff5a1f']],
+    type: 'Syne (nadpisy, písmená sa vynárajú z vody) + Geist (texty a čísla)',
+    signature: 'WebGL hladina s baterkou, skutočné fotografie v kuželi svetla, morský sneh, vlnky z dotyku, svetlo zhasne a zažne pri každej časti',
+    note: 'Smelý koncept s výnimkou z prístupnosti a Lighthouse (rozhodnutie vlastníka). Pred použitím na ostrom webe treba úpravy.',
+  },
+  {
+    n: 5, name: 'Titulky', desktop: v5d, mobile: v5m,
+    mood: 'Domovská stránka ako úvodné titulky filmu. Krátke odpočítavanie 3-2-1, potom titulná karta. Každá časť je scéna s vlastnou sýtou farbou a strihom (clona, žalúzie, tvrdý strih). Obrovské písmo sa pri rolovaní zužuje, rozťahuje a naráža do seba. Cenník beží ako záverečné titulky, otváracie hodiny sú filmové hodiny, FotoFilmFest je klapka a galéria filmový pás.',
+    palette: [['ultramarín', '#2a2af5'], ['citrón', '#f4e234'], ['signál', '#ff5f1f'], ['ružová', '#ff3e8a'], ['film', '#121010'], ['papier', '#f5f2ec']],
+    type: 'Anybody (variabilná šírka 50–150 %) + Hanken Grotesk',
+    signature: 'strihy medzi scénami, kinetické písmo na osi šírky, časový kód podľa rolovania, filmový pás s premietaním vo farbe, duotón a raster na fotografiách',
+    note: 'Smelý koncept s výnimkou z prístupnosti a Lighthouse (rozhodnutie vlastníka). Pred použitím na ostrom webe treba úpravy.',
+  },
 ];
 ---
-<Base title="Tri smery domovskej stránky" description="Výber vizuálneho smeru pre redizajn webu Aquarea Čierna Voda." bodyClass="bg-[#f5f6f7] text-[#16202a]" themeColor="#f5f6f7">
+<Base title="Smery domovskej stránky" description="Výber vizuálneho smeru pre redizajn webu Aquarea Čierna Voda." bodyClass="bg-[#f5f6f7] text-[#16202a]" themeColor="#f5f6f7">
   <main id="obsah" class="mx-auto max-w-6xl px-4 py-10 font-sans md:px-8 md:py-16">
     <p class="text-sm font-semibold text-[#4b5866]">Aquarea Čierna Voda, koncept redizajnu</p>
-    <h1 class="mt-2 text-3xl font-bold tracking-tight md:text-5xl">Tri smery domovskej stránky</h1>
+    <h1 class="mt-2 text-3xl font-bold tracking-tight md:text-5xl">Päť smerov domovskej stránky</h1>
     <p class="mt-4 max-w-3xl text-lg leading-relaxed text-[#35424f]">
-      Všetky tri používajú rovnaký skutočný obsah z aquarea.sk (ceny, hodiny, kontakty, fotografie) a rovnakú novú štruktúru webu. Líšia sa náladou, typografiou a hlavným efektom. Na mobile majú všetky spodnú lištu Zavolať / Rezervovať / Navigovať.
+      Všetkých päť používa rovnaký skutočný obsah z aquarea.sk (ceny, hodiny, kontakty, fotografie) a rovnakú novú štruktúru webu. Líšia sa náladou, typografiou a hlavným efektom. Na mobile majú všetky spodnú lištu Zavolať / Rezervovať / Navigovať. Smery 4 a 5 sú najodvážnejšie, postavené na pohybe.
     </p>
     <ol class="mt-12 space-y-16" role="list">
       {directions.map((d) => (
@@ -52,6 +72,7 @@ const directions = [
               {RECOMMENDED === d.n && <span class="rounded-full bg-[#16202a] px-3 py-1 text-sm font-semibold text-white">Odporúčaný smer</span>}
             </div>
             <p class="mt-4 leading-relaxed text-[#35424f]">{d.mood}</p>
+            {'note' in d && <p class="mt-3 rounded-lg bg-[#fff1c2] px-3 py-2 text-sm text-[#4a3200]">{d.note}</p>}
             <dl class="mt-5 space-y-3 text-[0.9375rem]">
               <div><dt class="font-semibold">Písmo</dt><dd class="text-[#35424f]">{d.type}</dd></div>
               <div><dt class="font-semibold">Hlavný efekt</dt><dd class="text-[#35424f]">{d.signature}</dd></div>
