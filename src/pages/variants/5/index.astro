@@ -1,0 +1,361 @@
+---
+/**
+ * Direction 5 · Titulky: the homepage as a film title sequence (Phase 4, DECISIONS.md).
+ * Scroll is the film: a 3-2-1 leader, then eight scenes with hard cuts / iris / venetian-blind wipes,
+ * kinetic type on Anybody's width axis, a scroll-bound timecode, credits, a clapperboard, a reel.
+ * All content comes from src/content. Accessibility and Lighthouse targets are waived for this page
+ * (AGENTS.md rule 7 exception, 2026-10-02).
+ */
+import '@fontsource-variable/anybody/standard.css';
+import '@fontsource-variable/anybody/standard-italic.css';
+import '@fontsource-variable/hanken-grotesk';
+import '../../../styles/v5.css';
+import { getImage } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/v5/Header.astro';
+import Footer from '../../../components/v5/Footer.astro';
+import Filters from '../../../components/v5/Filters.astro';
+import Photo from '../../../components/shared/Photo.astro';
+import Icon from '../../../components/shared/Icon.astro';
+import Todo from '../../../components/shared/Todo.astro';
+import StickyCta from '../../../components/shared/StickyCta.astro';
+import StatusScript from '../../../components/shared/StatusScript.astro';
+import dustImg from '../../../assets/generated/v5-film-dust.jpg';
+import { site, hours, prices, zones, diving, fff, highlight, priceSection } from '../../../lib/content';
+import { getPhoto } from '../../../lib/photos';
+import { priceShort, time } from '../../../lib/format';
+import { url } from '../../../lib/url';
+
+const book = '#rezervacie';
+const main = hours.periods.find((p) => p.id === 'hlavna')!;
+const dust = await getImage({ src: dustImg, width: 1600, format: 'webp', quality: 60 });
+
+// scene slate (names shown in the HUD and on the cut card)
+const scenes = [
+  { n: 1, name: 'Titulok', bg: 'var(--ultra)', fg: 'var(--paper)' },
+  { n: 2, name: 'Tri zóny', bg: 'var(--citron)', fg: 'var(--film)' },
+  { n: 3, name: 'Otváracie hodiny', bg: 'var(--signal)', fg: 'var(--film)' },
+  { n: 4, name: 'Cenník', bg: 'var(--film)', fg: 'var(--paper)' },
+  { n: 5, name: 'FotoFilmFest', bg: 'var(--pink)', fg: 'var(--film)' },
+  { n: 6, name: 'Galéria', bg: 'var(--ultra)', fg: 'var(--paper)' },
+  { n: 7, name: 'Cesta', bg: 'var(--citron)', fg: 'var(--film)' },
+  { n: 8, name: 'Rezervácie', bg: 'var(--signal)', fg: 'var(--film)' },
+];
+const sc = (n: number) => `--sbg:${scenes[n - 1].bg};--sfg:${scenes[n - 1].fg}`;
+
+const zoneRows = [
+  { word: zones.beach.short, name: zones.beach.name, href: url(zones.beach.href), more: 'Všetko o pláži', lead: zones.beach.lead,
+    price: `od ${priceShort(highlight('beach-adult').amount)}`, unit: 'dospelý / deň', photo: 'plaz-molo-lehatka' },
+  { word: zones.premium.short, name: zones.premium.name, href: url(zones.premium.href), more: 'Všetko o pobyte', lead: 'Apartmány a kemping priamo pri jazere, so súkromím a privátnym prístupom k vode.',
+    price: `od ${priceShort(highlight('apartment').amount)}`, unit: 'apartmán / noc', photo: 'apartmany-terasa' },
+  { word: 'Potápanie', name: diving.name, href: url(diving.href), more: 'Všetko o potápaní', lead: diving.lead,
+    price: priceShort(diving.intro.price), unit: 'skúšobný ponor s inštruktorom', photo: 'pod-vodou-plosina' },
+];
+
+// film clock: 24 h dial with the real main-season hours as arcs
+const toH = (hhmm: string) => { const [h, m] = hhmm.split(':').map(Number); return h + m / 60; };
+const pt = (h: number, r: number) => { const a = (h / 24) * Math.PI * 2 - Math.PI / 2; return [+(r * Math.cos(a)).toFixed(2), +(r * Math.sin(a)).toFixed(2)]; };
+const arc = (h0: number, h1: number, r: number) => {
+  const [x0, y0] = pt(h0, r), [x1, y1] = pt(h1, r);
+  return `M ${x0} ${y0} A ${r} ${r} 0 ${(h1 - h0) / 24 > 0.5 ? 1 : 0} 1 ${x1} ${y1}`;
+};
+const [wk, we] = main.weekly!;
+const ticks = Array.from({ length: 24 }, (_, h) => ({ h, a: pt(h, h % 6 === 0 ? 160 : 168), b: pt(h, 180) }));
+const months = [
+  { m: 'Máj', s: 'len potápači', kind: 'part' },
+  { m: 'Jún', s: 'postupné otvorenie, vybrané dni', kind: 'part' },
+  { m: 'Júl', s: `denne do ${time(wk.close)}`, kind: 'open' },
+  { m: 'August', s: 'denne, od 17. 8. do 19:00', kind: 'open' },
+  { m: 'September', s: 'piatky a víkendy, od 19. 9. len potápači', kind: 'part' },
+  { m: 'Október', s: 'zatvorené, skupiny od 15 osôb po dohode', kind: 'closed' },
+];
+
+// end credits: real highlights grouped by price-list section
+const freeKid = priceSection('plazova-zona').groups[0].rows.find((r) => r.free)!;
+const creditGroups = prices.sections.map((s) => ({
+  title: s.title,
+  rows: [
+    ...prices.highlights.filter((h) => h.section === s.id).map((h) => ({ label: h.label, value: `${h.from ? 'od ' : ''}${priceShort(h.amount)}` })),
+    ...(s.id === 'plazova-zona' ? [{ label: freeKid.label, value: 'zdarma' }] : []),
+  ],
+})).filter((g) => g.rows.length);
+
+// route: equirectangular schematic around the one real GPS point (no roads, no towns invented)
+const box = { lng0: 17.565, lng1: 17.665, lat0: 48.095, lat1: 48.135, w: 1000, h: 600 };
+const px = (lng: number) => +(((lng - box.lng0) / (box.lng1 - box.lng0)) * box.w).toFixed(1);
+const py = (lat: number) => +(((box.lat1 - lat) / (box.lat1 - box.lat0)) * box.h).toFixed(1);
+const pin = { x: px(site.address.lng), y: py(site.address.lat) };
+const lngLines = [17.57, 17.59, 17.61, 17.63, 17.65];
+const latLines = [48.1, 48.11, 48.12, 48.13];
+const route = `M -40 ${box.h - 40} C 150 ${box.h - 70}, 210 ${pin.y + 150}, 300 ${pin.y + 110} S ${pin.x - 90} ${pin.y + 30}, ${pin.x} ${pin.y}`;
+
+const flows = [
+  { ...site.booking.stayPrevio, title: 'Pobyt online', note: 'apartmány a kemping, výber termínu' },
+  { ...site.booking.stayForm, title: 'Pobyt formulárom', note: 'apartmány, kemping, stan v Dive Centre' },
+  { ...site.booking.introDive, title: 'Skúšobný ponor', note: `${priceShort(diving.intro.price)}, aj ako darček` },
+  { ...site.booking.course, title: 'Kurz OWD / AOWD', note: priceShort(diving.course.price) },
+  { ...site.booking.groups, title: 'Potápačská skupina', note: 'registrácia s reverzom' },
+];
+
+const competitionNames: Record<string, string> = { fotografia: 'fotografia', film: 'film', 'sutaz-pod-vodou': 'fotografovanie pod vodou' };
+const reel = ['pod-vodou-atrakcia-luce', 'plaz-molo-lehatka', 'dron-zatoka', 'pod-vodou-scuka', 'kemping-vlastne-molo', 'freediving-skupina', 'plaz-zapad-slnka', 'pod-vodou-motorka'].map((id) => getPhoto(id));
+---
+<Base
+  title="Smer 5 · Titulky"
+  description="Aquarea Čierna Voda ako úvodné titulky filmu: pláž, pobyt pri vode, Dive Center, otváracie hodiny, cenník, FotoFilmFest a rezervácie."
+  bodyClass="v5"
+  themeColor="#2a2af5"
+>
+  <script is:inline slot="head">document.documentElement.setAttribute('data-v5-js', ''); document.documentElement.setAttribute('data-v5-scene', '1');</script>
+  <Filters />
+  <script type="application/json" id="v5-scenes" set:html={JSON.stringify(scenes)} />
+
+  <!-- film leader (any input skips it; a CSS timeout removes it if scripts fail) -->
+  <div class="v5-leader" aria-hidden="true">
+    <div class="v5-leader-dial"><span class="v5-leader-num" data-v5-leader-num>3</span></div>
+    <span class="v5-leader-skip">Rolovaním preskočíte úvod</span>
+  </div>
+
+  <Header bookHref={book} />
+  <main id="obsah" data-shot-hover="[data-v5-frame]">
+
+    <!-- SCÉNA 01 · Titulok -->
+    <section aria-labelledby="v5-title" class="v5-scene min-h-[100svh] pb-20 pt-24 md:pt-28" data-v5-scene="1" style={sc(1)} id="s1">
+      <div class="v5-wrap">
+        <h1 id="v5-title" class="relative z-[2]">
+          <span class="v5-display v5-kin block text-[13vw]" data-k="aquarea" data-fit data-fit-w="150" data-fit-r="1">Aquarea</span>
+          <span class="v5-display v5-kin -mt-[0.06em] block text-[11vw] italic text-[var(--hi)]" data-k="cierna" data-fit data-fit-w="68" data-fit-r="0.9">Čierna Voda</span>
+        </h1>
+        <div class="mt-8 grid gap-10 md:mt-12 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:items-start">
+          <div class="relative z-[2] space-y-6" data-v5-hero-rest>
+            <p class="max-w-md text-lg font-medium leading-relaxed md:text-xl">Areál športu a relaxu pri jazere s krištáľovo čistou vodou. Pláž, pobyt pri vode a potápanie.</p>
+            <div class="flex flex-wrap gap-3">
+              <a href={book} class="v5-btn">Rezervovať</a>
+              <a href="#ceny" class="v5-btn-line">Cenník</a>
+            </div>
+            <a href={url('/otvaracie-hodiny/')} class="flex items-start gap-3" data-status data-state="unknown">
+              <span class="status-dot mt-[0.45rem]"></span>
+              <span><b data-status-text>Otváracie hodiny</b> <span class="opacity-80" data-status-detail>{hours.season}</span></span>
+            </a>
+          </div>
+          <figure class="v5-frame relative z-[1] md:-mt-10 md:rotate-[-3deg]" data-k="frame">
+            <Photo id="dron-areal" priority sizes="(min-width: 768px) 50vw, 100vw" widths={[480, 800, 1100]} class="v5-ht-pink aspect-[16/10] w-full object-cover" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCÉNA 02 · Tri zóny -->
+    <section aria-labelledby="v5-zones" class="v5-scene py-24 md:py-32" data-v5-scene="2" style={sc(2)} id="s2">
+      <div class="v5-wrap">
+        <h2 id="v5-zones" class="flex flex-wrap items-baseline gap-x-[0.2em]">
+          <span class="v5-display v5-kin text-[18vw] md:text-[13vw]" data-k="tri">Tri</span>
+          <span class="v5-display v5-kin text-[18vw] italic text-[var(--hi)] md:text-[13vw]" data-k="zony">zóny</span>
+        </h2>
+        <ol class="mt-14 space-y-20 md:mt-20 md:space-y-28" role="list">
+          {zoneRows.map((z, i) => (
+            <li class:list={['grid gap-6 md:items-end', i % 2 ? 'md:grid-cols-[minmax(0,22rem)_minmax(0,1fr)]' : 'md:grid-cols-[minmax(0,1fr)_minmax(0,22rem)]']}>
+              <div class:list={[i % 2 && 'md:order-2 md:text-right']}>
+                <a href={z.href} class="block"><span class="v5-display v5-kin text-[20vw]" data-k="zone" data-fit data-fit-w="122" data-fit-r="0.98" data-fit-max="0.34" data-from={i % 2 ? '1' : '-1'}>{z.word}</span></a>
+                <p class="mt-4 text-lg"><b>{z.name}.</b> {z.lead}</p>
+                <p class:list={['mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-2', i % 2 && 'md:justify-end']}><span class="v5-chip v5-num text-2xl">{z.price}</span><span class="font-semibold">{z.unit}</span></p>
+                <a href={z.href} class="v5-btn-line mt-6">{z.more}<Icon name="chevron-right" size={18} /></a>
+              </div>
+              <figure class:list={['v5-frame', i % 2 ? 'md:order-1 md:rotate-[2.5deg]' : 'md:rotate-[-2deg]']} data-k="zframe">
+                <Photo id={z.photo} sizes="(min-width: 768px) 22rem, 100vw" widths={[400, 700]} class="v5-ht-blue aspect-[4/3] w-full object-cover" />
+              </figure>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- SCÉNA 03 · Otváracie hodiny: film clock -->
+    <section aria-labelledby="v5-hours" class="v5-scene py-24 md:py-32" data-v5-scene="3" style={sc(3)} id="s3">
+      <div class="v5-wrap">
+        <h2 id="v5-hours"><span class="v5-display v5-kin block text-[30vw] md:text-[22vw]" data-k="kedy" data-fit data-fit-w="150" data-fit-r="0.9" data-fit-max="0.36">Kedy</span><span class="sr-only">je otvorené: </span><span class="v5-display mt-2 block text-[clamp(1.4rem,3vw,2.4rem)] [font-variation-settings:'wdth'_100]">Otváracie hodiny</span></h2>
+        <div class="mt-10 grid gap-12 md:grid-cols-[minmax(0,30rem)_minmax(0,1fr)] md:items-center">
+          <svg class="v5-clock mx-auto md:mx-0" viewBox="-205 -205 410 410" role="img" aria-label={`${main.title} ${main.subtitle}: ${wk.label} ${time(wk.open)} až ${time(wk.close)}, ${we.label} ${time(we.open)} až ${time(we.close)}`}>
+            <circle r="198" fill="none" stroke="currentColor" stroke-width="3" />
+            <circle r="180" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".5" />
+            {ticks.map((t) => <line x1={t.a[0]} y1={t.a[1]} x2={t.b[0]} y2={t.b[1]} stroke="currentColor" stroke-width={t.h % 6 === 0 ? 4 : 2} />)}
+            {[0, 6, 12, 18].map((h) => { const [x, y] = pt(h, 140); return <text x={x} y={y} text-anchor="middle" dominant-baseline="central" font-size="24">{h}</text>; })}
+            <path d={arc(toH(wk.open), toH(wk.close), 110)} fill="none" stroke="var(--film)" stroke-width="26" data-v5-arc />
+            <path d={arc(toH(we.open), toH(we.close), 78)} fill="none" stroke="var(--paper)" stroke-width="26" data-v5-arc />
+            <g data-v5-hand><line x1="0" y1="18" x2="0" y2="-186" stroke="currentColor" stroke-width="5" stroke-linecap="round" /><circle r="10" fill="currentColor" /></g>
+          </svg>
+          <div class="space-y-6">
+            <div data-status data-state="unknown">
+              <p class="v5-display flex items-center gap-3 text-[clamp(1.8rem,4vw,3.4rem)] [font-variation-settings:'wdth'_110]"><span class="status-dot !h-4 !w-4"></span><span data-status-text>Otváracie hodiny</span></p>
+              <p class="mt-2 max-w-xl font-medium" data-status-detail>{hours.season}</p>
+            </div>
+            <p class="font-semibold">{main.title}, {main.subtitle}</p>
+            <dl class="grid gap-4 sm:grid-cols-2">
+              <div><dt class="flex items-center gap-2"><span class="inline-block h-3 w-8 bg-[var(--film)]"></span>{wk.label}</dt><dd class="v5-display v5-num text-[clamp(2rem,4.2vw,3.6rem)] [font-variation-settings:'wdth'_90]">{time(wk.open)}–{time(wk.close)}</dd></div>
+              <div><dt class="flex items-center gap-2"><span class="inline-block h-3 w-8 bg-[var(--paper)]"></span>{we.label}</dt><dd class="v5-display v5-num text-[clamp(2rem,4.2vw,3.6rem)] [font-variation-settings:'wdth'_90]">{time(we.open)}–{time(we.close)}</dd></div>
+            </dl>
+            <p>{hours.lastEntry}</p>
+          </div>
+        </div>
+        <ol class="v5-season mt-14" role="list" aria-label={hours.season}>
+          {months.map((m) => <li data-kind={m.kind}><span class="v5-display block text-xl [font-variation-settings:'wdth'_85]">{m.m}</span><span class="mt-1 block text-sm font-medium leading-snug">{m.s}</span></li>)}
+        </ol>
+        <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <p class="font-medium">{hours.seasonEnd.text}</p>
+          <Todo text={hours.nextSeason.todo} />
+          <a href={url('/otvaracie-hodiny/')} class="v5-link font-semibold">Hodiny po dňoch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCÉNA 04 · Cenník: rolling end credits -->
+    <section id="ceny" aria-labelledby="v5-prices" class="v5-scene" data-v5-scene="4" style={sc(4)}>
+      <div class="v5-credits-stage">
+        <div class="v5-credits v5-wrap py-24" data-v5-credits>
+          <h2 id="v5-prices" class="v5-display text-[clamp(3.4rem,12vw,10rem)] [font-variation-settings:'wdth'_140]">Cenník</h2>
+          <p class="mt-3 font-semibold opacity-80">{prices.validFromText}</p>
+          {creditGroups.map((g) => (
+            <div class="mt-16 md:mt-20">
+              <h3 class="v5-display text-[clamp(1.4rem,3.4vw,2.6rem)] text-[var(--hi)] [font-variation-settings:'wdth'_120]">{g.title}</h3>
+              <dl class="mt-5">{g.rows.map((r) => <div class="v5-credit"><dt>{r.label}</dt><dd class="v5-num">{r.value}</dd></div>)}</dl>
+            </div>
+          ))}
+          <p class="mx-auto mt-16 max-w-md text-sm opacity-80 md:mt-20">{prices.notice}</p>
+          <a href={url('/cennik/')} class="v5-btn mt-10">Celý cenník všetkých zón</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCÉNA 05 · FotoFilmFest: clapperboard -->
+    <section aria-labelledby="v5-fff" class="v5-scene py-24 md:py-32" data-v5-scene="5" style={sc(5)} id="s5">
+      <div class="v5-wrap">
+        <h2 id="v5-fff"><span class="v5-display v5-kin block text-[14vw]" data-k="fff" data-fit data-fit-w="150" data-fit-r="1">FotoFilmFest</span><span class="v5-display block text-[clamp(2.6rem,9vw,8rem)] italic [font-variation-settings:'wdth'_60]">{fff.next.title.replace('FotoFilmFest ', '')}</span></h2>
+        <div class="mt-12 grid gap-12 lg:grid-cols-[minmax(0,44rem)_minmax(0,1fr)] lg:items-start">
+          <div class="v5-clap" data-v5-clap>
+            <div class="v5-clap-stick" data-v5-stick></div>
+            <div class="v5-clap-bar"></div>
+            <dl class="v5-clap-board">
+              <div class="v5-wide"><dt>Produkcia</dt><dd>{fff.next.title}</dd></div>
+              <div class="v5-l"><dt>Dátum</dt><dd>{fff.next.dateText}</dd></div>
+              <div><dt>Scéna</dt><dd>05</dd></div>
+              <div class="v5-wide"><dt>Miesto</dt><dd>{fff.next.place}</dd></div>
+              <div class="v5-wide"><dt>Súťaže</dt><dd>{fff.competitions.map((c) => competitionNames[c.id] ?? c.title).join(', ')}</dd></div>
+              <div class="v5-wide !border-b-0"><dt>Organizátor</dt><dd>{fff.team[0].who.split(' v spolupráci')[0]}</dd></div>
+            </dl>
+          </div>
+          <div class="space-y-6">
+            <Todo text={fff.next.todo} />
+            <p class="text-lg font-medium leading-relaxed">{fff.lead}</p>
+            <p>{fff.next.evening}.</p>
+            <a href={url(fff.href)} class="v5-btn">Propozície a prihlášky</a>
+            <figure class="v5-frame mt-4 max-w-sm rotate-[2deg]">
+              <Photo id="pod-vodou-rura" sizes="24rem" widths={[400, 700]} class="v5-ht-mono aspect-[4/3] w-full object-cover" />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCÉNA 06 · Galéria: pinned reel, Flip projects a frame -->
+    <section aria-labelledby="v5-gal" class="v5-scene" data-v5-scene="6" style={sc(6)} id="s6">
+      <div class="v5-reel py-20">
+        <div class="v5-wrap flex flex-wrap items-end justify-between gap-4">
+          <h2 id="v5-gal"><span class="v5-display v5-kin text-[clamp(3.4rem,13vw,11rem)]" data-k="gal">Galéria</span></h2>
+          <a href={url('/galeria/')} class="v5-btn-line">Všetky albumy</a>
+        </div>
+        <div class="v5-reel-viewport mt-8">
+          <div class="v5-reel-track" data-v5-track>
+            {reel.map((p) => (
+              <figure class="v5-reel-frame" data-v5-frame data-alt={p.alt} tabindex="0" role="button" aria-label={`Premietnuť: ${p.alt}`}>
+                <Photo id={p.id} sizes="(min-width: 768px) 34rem, 78vw" widths={[480, 800, 1100]} class="v5-ht-yellow" />
+                <figcaption>{p.alt}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+        <p class="v5-wrap mt-12 text-sm font-medium opacity-80">Ťuknite na políčko a premietne sa vo farbe.</p>
+      </div>
+    </section>
+
+    <!-- SCÉNA 07 · Cesta: route drawn to the real GPS point (schematic) -->
+    <section aria-labelledby="v5-way" class="v5-scene py-24 md:py-32" data-v5-scene="7" style={sc(7)} id="s7">
+      <div class="v5-wrap">
+        <h2 id="v5-way"><span class="v5-display v5-kin block text-[30vw] md:text-[20vw]" data-k="cesta" data-fit data-fit-w="140" data-fit-r="0.95" data-fit-max="0.34">Cesta</span></h2>
+        <div class="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:items-start">
+          <figure class="v5-route">
+            <svg viewBox={`0 0 ${box.w} ${box.h}`} role="img" aria-label={`Schéma: bod GPS ${site.address.lat} N, ${site.address.lng} E`}>
+              {lngLines.map((l) => <g><line class="grat" x1={px(l)} y1="0" x2={px(l)} y2={box.h} /><text class="grat-label" x={px(l) + 6} y={box.h - 8}>{l.toFixed(2)}° E</text></g>)}
+              {latLines.map((l) => <g><line class="grat" x1="0" y1={py(l)} x2={box.w} y2={py(l)} /><text class="grat-label" x="8" y={py(l) - 7}>{l.toFixed(2)}° N</text></g>)}
+              <path class="path" d={route} />
+              <path class="path-solid" d={route} data-v5-route />
+              <g data-v5-pin transform={`translate(${pin.x} ${pin.y})`}>
+                <circle r="34" fill="none" stroke="var(--film)" stroke-width="4" />
+                <circle r="14" fill="var(--film)" />
+              </g>
+              <text x={pin.x + 48} y={pin.y - 14} font-size="30" font-weight="900" fill="var(--film)" style="font-family:var(--display);text-transform:uppercase">Aquarea</text>
+              <text x={pin.x + 48} y={pin.y + 18} font-size="18" font-weight="700" fill="var(--film)" style="font-family:var(--text)">{site.address.lat} N, {site.address.lng} E</text>
+            </svg>
+            <figcaption class="mt-3 text-sm font-semibold">Schematické znázornenie, nie mapa ciest. Čiara len smeruje k skutočnému bodu GPS z aquarea.sk.</figcaption>
+          </figure>
+          <div class="space-y-5">
+            <p class="v5-display v5-num text-[clamp(2rem,5vw,4rem)] leading-[0.95] [font-variation-settings:'wdth'_75]"><span class="block" data-v5-coord={site.address.lat}>{site.address.lat}</span><span class="block" data-v5-coord={site.address.lng}>{site.address.lng}</span></p>
+            <address class="text-lg font-semibold not-italic">{site.address.lines.slice(0, 2).join(', ')}</address>
+            <p>{site.gettingThere.text}</p>
+            <p>{site.gettingThere.parking}</p>
+            <Todo text={site.gettingThere.todo} />
+            <div class="flex flex-wrap gap-3 pt-2">
+              <a href={site.maps.directions} target="_blank" rel="noopener" class="v5-btn"><Icon name="navigation" size={18} />Navigovať</a>
+              <a href={site.documents[1].href} target="_blank" rel="noopener" class="v5-btn-line"><Icon name="file" size={18} />Mapa areálu (PDF)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCÉNA 08 · Rezervácie -->
+    <section id="rezervacie" aria-labelledby="v5-book" class="v5-scene py-24 md:py-32" data-v5-scene="8" style={sc(8)}>
+      <div class="v5-wrap">
+        <h2 id="v5-book"><span class="v5-display v5-kin block text-[16vw]" data-k="rez" data-fit data-fit-w="130" data-fit-r="1">Rezervácie</span></h2>
+        <div class="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
+          <div>
+            <ul role="list">
+              {flows.map((f) => (
+                <li><a href={f.href} target="_blank" rel="noopener" class="v5-flow"><span class="min-w-0"><span class="v5-flow-title block">{f.title}</span><span class="mt-1.5 block font-semibold">{f.note}</span></span><Icon name="external" size={26} class="shrink-0" /></a></li>
+              ))}
+            </ul>
+            <p class="mt-5"><Todo text={site.booking.todo} /></p>
+          </div>
+          <div class="space-y-5">
+            <p class="text-lg font-medium">Rezervácie zatiaľ bežia na súčasnom webe aquarea.sk. Každý odkaz vedie na skutočný formulár alebo rezervačný systém.</p>
+            <p><span class="block text-sm font-semibold opacity-80">{site.contacts.info.label}</span><a class="v5-display v5-num text-[clamp(1.6rem,3.4vw,2.6rem)] [font-variation-settings:'wdth'_90] hover:underline" href={`tel:${site.contacts.info.tel}`}>{site.contacts.info.phone}</a></p>
+            <p><span class="block text-sm font-semibold opacity-80">{site.contacts.dive.label}</span><a class="v5-display v5-num text-[clamp(1.6rem,3.4vw,2.6rem)] [font-variation-settings:'wdth'_90] hover:underline" href={`tel:${site.contacts.dive.tel}`}>{site.contacts.dive.phone}</a></p>
+            <p><a class="v5-link font-semibold" href={`mailto:${site.contacts.info.email}`}>{site.contacts.info.email}</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+
+  <!-- projector (Flip target), cut overlay, flash frame, film texture -->
+  <div class="v5-projector" hidden data-v5-projector>
+    <img alt="" data-flip-id="projected" />
+    <p data-v5-projector-caption></p>
+    <button type="button" class="inline-flex h-11 w-11 items-center justify-center" data-v5-projector-close><Icon name="x" size={28} /><span class="sr-only">Zavrieť</span></button>
+  </div>
+  <div class="v5-cut" aria-hidden="true">
+    <div class="v5-cut-fill"></div>
+    <div class="v5-cut-slats">{Array.from({ length: 10 }, () => <i></i>)}</div>
+    <div class="v5-cut-card"><strong data-v5-cut-n>Scéna 02</strong><span data-v5-cut-t></span></div>
+  </div>
+  <div class="v5-flash" aria-hidden="true"></div>
+  <div class="v5-dust" style={`--dust:url(${dust.src})`} aria-hidden="true"></div>
+  <div class="v5-grain" aria-hidden="true"></div>
+
+  <StickyCta bookHref={book} class="bg-[var(--film)]" itemClass="text-[var(--paper)]" primaryClass="bg-[var(--hi)] text-[var(--film)]" />
+  <StatusScript />
+  <script>
+    import { initV5 } from '../../../components/v5/main';
+    initV5();
+  </script>
+</Base>

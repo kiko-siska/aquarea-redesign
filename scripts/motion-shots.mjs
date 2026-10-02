@@ -51,7 +51,7 @@ for (const w of widths) {
     const page = await ctx.newPage();
     page.on('pageerror', (e) => issues.push(`${p} @${w}: pageerror ${e.message}`));
     page.on('console', (m) => { if (m.type() === 'error') issues.push(`${p} @${w}: console.error ${m.text()}`); });
-    page.on('requestfailed', (r) => issues.push(`${p} @${w}: request failed ${r.url()} ${r.failure()?.errorText}`));
+    page.on('requestfailed', (r) => { if (!/^(tel|mailto):/.test(r.url())) issues.push(`${p} @${w}: request failed ${r.url()} ${r.failure()?.errorText}`); });
     await page.goto(base + p, { waitUntil: 'networkidle' });
     // `astro preview` injects its dev toolbar; it isn't part of the build
     await page.addStyleTag({ content: 'astro-dev-toolbar{display:none!important}' });
@@ -75,32 +75,55 @@ for (const w of widths) {
     // interaction states
     const hoverSel = await page.evaluate(() => document.querySelector('[data-shot-hover]')?.getAttribute('data-shot-hover') ?? null);
     if (hoverSel) {
-      const el = page.locator(hoverSel).first();
-      await el.scrollIntoViewIfNeeded();
-      await page.evaluate(() => window.lenis?.resize?.());
+      // scroll its section to the top (Playwright's scrollIntoView can't see frames a reel moved offscreen)
+      await page.evaluate((sel) => {
+        const el = document.querySelector(sel);
+        const sec = el?.closest('section') ?? el;
+        if (!sec) return;
+        const y = sec.getBoundingClientRect().top + window.scrollY + 40;
+        if (window.lenis) window.lenis.scrollTo(y, { immediate: true, force: true }); else window.scrollTo(0, y);
+      }, hoverSel);
       await wait(page, 900);
-      const box = await el.boundingBox();
+      // first candidate that is actually inside the viewport (horizontal reels move their frames sideways)
+      let box = null;
+      for (const el of await page.locator(hoverSel).all()) {
+        const b = await el.boundingBox();
+        // fully on screen horizontally-ish, and clear of the sticky bottom bar
+        if (b && b.x >= 0 && b.x + b.width * 0.5 <= w && b.y >= 60 && b.y + Math.min(b.height, 120) < (mobile ? 812 - 90 : 900)) { box = b; break; }
+      }
       if (box) {
-        const x = box.x + box.width * 0.3, y = box.y + box.height * 0.5;
+        const x = box.x + box.width * 0.3, y = box.y + Math.min(box.height * 0.5, 60);
+        const shot = (state) => page.screenshot({ path: `${outDir}/${tag}-${w}-${state}.jpg`, type: 'jpeg', quality: 80 });
         if (mobile) {
-          // touch: tap, then drag the torch across (CDP touch events)
+          // touch: a tap (click), then a drag across (CDP touch events)
           const cdp = await ctx.newCDPSession(page);
+          await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
+          await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+          await wait(page, 900);
+          await shot('tap');
+          await page.keyboard.press('Escape');
+          await wait(page, 700);
           await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
           for (let i = 1; i <= 8; i++) {
             await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: x + i * 12, y: y - i * 4 }] });
             await wait(page, 40);
           }
           await wait(page, 500);
-          await page.screenshot({ path: `${outDir}/${tag}-${w}-touch.jpg`, type: 'jpeg', quality: 80 });
+          await shot('drag');
           await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
         } else {
           await page.mouse.move(x - 200, y - 60);
           await page.mouse.move(x, y, { steps: 12 });
           await wait(page, 700);
+          await shot('hover');
           await page.mouse.down(); await page.mouse.up();
-          await wait(page, 450);
-          await page.screenshot({ path: `${outDir}/${tag}-${w}-hover.jpg`, type: 'jpeg', quality: 80 });
+          await wait(page, 900);
+          await shot('click');
+          await page.keyboard.press('Escape');
+          await wait(page, 600);
         }
+      } else {
+        issues.push(`${p} @${w}: no visible element for the interaction shot (${hoverSel})`);
       }
     }
 

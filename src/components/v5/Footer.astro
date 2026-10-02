@@ -1,0 +1,47 @@
+---
+/** V5 · Titulky footer: black leader stock after the last scene. Same facts and © line as V1–V4. */
+import Icon from '../shared/Icon.astro';
+import { site } from '../../lib/content';
+import { url } from '../../lib/url';
+const links = [
+  { href: url('/otvaracie-hodiny/'), label: 'Otváracie hodiny' },
+  { href: url('/cennik/'), label: 'Cenník' },
+  { href: url('/rezervacie/'), label: 'Rezervácie' },
+  { href: url('/fotofilmfest/'), label: 'FotoFilmFest' },
+  { href: url('/galeria/'), label: 'Galéria' },
+  { href: url('/o-nas/'), label: 'O nás' },
+];
+const { info, dive } = site.contacts;
+const h = 'v5-display text-2xl [font-variation-settings:\'wdth\'_120]';
+---
+<footer class="relative z-[1] bg-[var(--film)] pb-24 text-[var(--paper)] md:pb-10">
+  <div class="v5-wrap grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <h2 class={h}>Kontakt</h2>
+      <p class="mt-3 text-sm opacity-75">{info.label}</p>
+      <p><a class="v5-num text-lg font-bold hover:underline" href={`tel:${info.tel}`}>{info.phone}</a><br /><a class="v5-link" href={`mailto:${info.email}`}>{info.email}</a></p>
+      <p class="mt-3 text-sm opacity-75">{dive.label}</p>
+      <p><a class="v5-num text-lg font-bold hover:underline" href={`tel:${dive.tel}`}>{dive.phone}</a><br /><a class="v5-link" href={`mailto:${dive.email}`}>{dive.email}</a></p>
+    </div>
+    <div>
+      <h2 class={h}>Adresa</h2>
+      <address class="mt-3 not-italic">{site.address.lines.map((l) => <span class="block">{l}</span>)}</address>
+      <p class="v5-num mt-1 text-sm opacity-75">GPS {site.address.lat}, {site.address.lng}</p>
+    </div>
+    <div>
+      <h2 class={h}>Odkazy</h2>
+      <ul class="mt-3 space-y-1.5" role="list">{links.map((l) => <li><a class="v5-link" href={l.href}>{l.label}</a></li>)}</ul>
+      <ul class="mt-5 flex gap-3" role="list">
+        {site.social.map((s) => <li><a href={s.href} target="_blank" rel="noopener" class="v5-btn-line !min-h-11 !px-3 text-sm"><Icon name={s.label === 'Facebook' ? 'facebook' : 'instagram'} size={18} />{s.label}</a></li>)}
+      </ul>
+    </div>
+    <div>
+      <h2 class={h}>Dokumenty</h2>
+      <ul class="mt-3 space-y-1.5" role="list">
+        {site.documents.slice(0, 3).map((d) => <li><a class="v5-link" href={d.href} target="_blank" rel="noopener">{d.label}</a> <span class="text-sm opacity-70">({d.file})</span></li>)}
+      </ul>
+      <p class="mt-5 text-sm leading-relaxed opacity-75">{site.operator.name}, {site.operator.street}, {site.operator.city}, IČO {site.operator.ico}</p>
+    </div>
+  </div>
+  <p class="v5-wrap border-t border-white/15 pt-6 text-sm opacity-75">Koncept redizajnu, neoficiálna verzia. Obsah, fotografie a logo © {site.operator.name}. Aktuálne informácie na <a class="v5-link" href="https://www.aquarea.sk/">aquarea.sk</a>. Slovenská verzia, anglická a maďarská sa doplnia v ďalšej fáze.</p>
+</footer>

@@ -1,0 +1,61 @@
+---
+/** V5 · Titulky: HUD = logo plate, scene slate and a timecode bound to scroll (a device, not a fact). */
+import { Image } from 'astro:assets';
+import logo from '../../assets/brand/logo.png';
+import Icon from '../shared/Icon.astro';
+import { url } from '../../lib/url';
+
+interface Props { bookHref?: string }
+const { bookHref = url('/rezervacie/') } = Astro.props;
+const nav = [
+  { href: url('/plazova-zona/'), label: 'Pláž' },
+  { href: url('/premium-zona/'), label: 'Pobyt' },
+  { href: url('/potapanie/'), label: 'Potápanie' },
+  { href: url('/cennik/'), label: 'Cenník' },
+  { href: url('/kontakt/'), label: 'Kontakt' },
+];
+---
+<header class="v5-hud">
+  <div class="v5-wrap v5-hud-bar">
+    <a href={url('/')} class="v5-logo-plate" aria-label="Aquarea Čierna Voda, úvod">
+      <Image src={logo} alt="" width={140} height={53} class="h-7 w-auto md:h-9" loading="eager" />
+    </a>
+    <p class="v5-slate hidden justify-self-center text-center md:block" aria-hidden="true"><span data-v5-slate-n>Scéna 01</span><br /><span class="opacity-75" data-v5-slate-t>Titulok</span></p>
+    <div class="flex items-center gap-3 justify-self-end md:gap-5">
+      <p class="v5-tc v5-num text-right leading-tight" aria-hidden="true"><span class="md:hidden" data-v5-slate-short>S01 </span><b data-v5-tc>00:00:00:00</b><span class="hidden md:inline"> · F <span data-v5-fcount>0000</span></span></p>
+      <nav aria-label="Hlavná navigácia" class="hidden xl:block">
+        <ul class="flex gap-4 text-[0.9375rem] font-semibold" role="list">{nav.map((n) => <li><a class="hover:underline" href={n.href}>{n.label}</a></li>)}</ul>
+      </nav>
+      <a href={bookHref} class="v5-btn hidden !min-h-11 md:inline-flex">Rezervovať</a>
+      <button type="button" class="v5-menu-btn inline-flex h-11 w-11 items-center justify-center xl:hidden" aria-expanded="false" aria-controls="v5-menu">
+        <Icon name="menu" size={26} class="v5-open" /><Icon name="x" size={26} class="v5-close hidden" /><span class="sr-only">Menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+<div id="v5-menu" class="fixed inset-0 z-[49] hidden bg-[var(--film)] px-4 pb-8 pt-24 text-[var(--paper)] xl:hidden">
+  <nav aria-label="Hlavná navigácia (mobil)">
+    <ul class="grid gap-1" role="list">
+      {nav.map((n) => <li><a href={n.href} class="v5-display block py-1.5 text-[3rem] [font-variation-settings:'wdth'_120]">{n.label}</a></li>)}
+    </ul>
+    <p class="mt-8 flex flex-wrap gap-x-6 gap-y-2">
+      <a class="v5-link" href={url('/otvaracie-hodiny/')}>Otváracie hodiny</a>
+      <a class="v5-link" href={url('/fotofilmfest/')}>FotoFilmFest</a>
+      <a class="v5-link" href={url('/galeria/')}>Galéria</a>
+    </p>
+  </nav>
+</div>
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.v5-menu-btn');
+  const menu = document.getElementById('v5-menu');
+  const toggle = (open: boolean) => {
+    btn?.setAttribute('aria-expanded', String(open));
+    menu?.classList.toggle('hidden', !open);
+    btn?.querySelector('.v5-open')?.classList.toggle('hidden', open);
+    btn?.querySelector('.v5-close')?.classList.toggle('hidden', !open);
+    btn?.classList.toggle('text-[var(--paper)]', open);
+  };
+  btn?.addEventListener('click', () => toggle(btn.getAttribute('aria-expanded') !== 'true'));
+  menu?.addEventListener('click', (e) => { if ((e.target as HTMLElement).closest('a')) toggle(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggle(false); });
+</script>

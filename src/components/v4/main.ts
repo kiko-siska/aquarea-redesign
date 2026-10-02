@@ -100,6 +100,10 @@ export async function initV4() {
   // ---------- hero: letters surface from the water ----------
   const sceneTriggers: { id: string; active: () => boolean }[] = [];
   const activeScene = () => sceneTriggers.find((s) => s.active())?.id ?? data.hero;
+  await Promise.all([
+    document.fonts.load('800 100px "Syne Variable"', 'Aquarea Čierna Voda'),
+    document.fonts.load('400 16px "Geist Variable"', 'Areál'),
+  ]).catch(() => undefined);
   await document.fonts.ready;
   const lines = document.querySelectorAll<HTMLElement>('.v4-h1 [data-v4-line]');
   const h1 = SplitText.create(lines, { type: 'words,chars', wordsClass: 'v4-word', charsClass: 'v4-char v4-heat' });
