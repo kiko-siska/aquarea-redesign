@@ -1,7 +1,7 @@
 # Progress
 
-- **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-02 22:10
+- **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
+- **Last updated:** 2026-10-02 22:14
 - **Current phase:** 4
 
 ## Checklist
@@ -52,9 +52,9 @@ _Owner brief 2026-10-02. V4/V5 are exempt from a11y + Lighthouse (AGENTS.md rule
 - [x] Textures: ≤ 3 Gemini images (abstract only), logged below — 1 used (V5 film dust)
 - [x] V4 · Čierna voda at `/variants/4/` (WebGL water + torch, ripples, marine snow, SplitText H1, all sections) — three.js shader + Points, torch heat on text, gallery lamps, light-off/on scene cuts, magnetic CTAs, torch cursor; `scripts/motion-shots.mjs`: WebGL on (SwiftShader), 0 console errors, no overflow 375–1440, loop pauses off-screen + hidden
 - [x] V5 · Titulky at `/variants/5/` (leader countdown, scenes, kinetic type, timecode, Flip reel, credits, film clock, clapperboard, route) — 8 scenes with iris / blinds / hard-cut wipes switching the page grade, Anybody width-axis scrubs, SVG duotone+halftone, film dust (Gemini) + grain; `scripts/scene-shots.mjs` per-scene captures, 0 console errors
-- [ ] Picker `/variants/`: V4 + V5 with summary, palette, type, signature effect, desktop + mobile thumbnails
-- [ ] Verify 375 + 1440: scroll 0/25/50/75/100 % + hover/touch states → `screenshots/phase4/`; console, overflow, build
-- [ ] DECISIONS.md: entry per variant + "best wow / best for the mission / what V4–V5 need to ship"; PROGRESS handoff
+- [x] Picker `/variants/`: V4 + V5 with summary, palette, type, signature effect, desktop + mobile thumbnails — `scripts/picker-thumbs.mjs <url> 4 5` (V1–V3 PNGs untouched); picker still axe 0
+- [x] Verify 375 + 1440: scroll 0/25/50/75/100 % + hover/touch states → `screenshots/phase4/`; console, overflow, build — `scripts/motion-shots.mjs` (+ hover, click, tap, drag) and `scripts/scene-shots.mjs` (one shot per scene/section → `screenshots/phase4/scenes/`); 0 console errors; no overflow 375–1440; WebGL on (SwiftShader); loop pauses off-screen + hidden; Slovak glyphs checked on the built pages; three/gsap/lenis chunks referenced only by /variants/4–5; noindex on both, not in sitemap
+- [x] DECISIONS.md: entry per variant + "best wow / best for the mission / what V4–V5 need to ship"; PROGRESS handoff — best wow V4, best for the mission still V3 (recommendation unchanged)
 
 ## Budget log
 - 21st `get_component`: (date · component · used for)
@@ -70,6 +70,8 @@ _Owner brief 2026-10-02. V4/V5 are exempt from a11y + Lighthouse (AGENTS.md rule
 
 ## Blockers
 - 2026-10-01 (VS Code session): the built-in browser MCP (`mcp__Claude_Browser__*`) and `.claude/launch.json` preview are not available here. **Workaround:** screenshots and checks via Playwright (`playwright-core`) driving the installed Google Chrome (`scripts/screenshot.mjs`). The 21st, magicui and nano-banana MCPs are available.
+
+- 2026-10-02 (Phase 4): `astro preview` on :4321 collided with another process already listening there (an `astro dev` server not started by this session, left running). Phase 4 checks ran against the production preview on **:4322**. The built-in browser MCP is still unavailable → Playwright + installed Chrome (WebGL via SwiftShader: `--enable-unsafe-swiftshader --use-angle=swiftshader`).
 
 ## TODOs for the owner
 _Each one is also a visible yellow TODO on the page where it matters. Full list: `npm run build && npm run todos`._
@@ -95,6 +97,9 @@ _Notes for the next session: what's next, gotchas._
 
 - 2026-10-01 06:50 — Owner stopped the 06:03 backup session and confirmed a manual takeover from VS Code (concurrency guard overridden by owner). Phase 1 restarted from scratch (`content-audit/`, `source-images/` were empty).
 - 2026-10-01 08:08 — **All phases done.** Nothing is pending in the checklist. Next steps need the owner: answer the TODOs above, choose a direction (V3 is built out; V1/V2 stay at `/variants/1–2/`), then EN/HU and deployment.
+- 2026-10-02 22:25 — **Phase 4 done.** Two motion-led directions added: `/variants/4/` Čierna voda (WebGL lake at night + dive torch) and `/variants/5/` Titulky (film title sequence). Both in the picker. A11y/Lighthouse waived for these two only (AGENTS.md rule 7 exception); hardening list in DECISIONS.md and owner TODO 16. Recommendation stays **V3**.
+  - Run: `npm run build && npx astro preview --port 4322`, then `node scripts/motion-shots.mjs http://localhost:4322 screenshots/phase4 /variants/4/ /variants/5/` and `node scripts/scene-shots.mjs http://localhost:4322 screenshots/phase4/scenes /variants/5/ "section[data-v5-scene]"`. Picker thumbs: `node scripts/picker-thumbs.mjs http://localhost:4322 4 5`.
+  - Gotchas: page CSS (`v4.css`, `v5.css`) is bundled *before* Tailwind → it declares the layer order and lives in `@layer components`. Load fonts explicitly (`document.fonts.load`) before measuring/splitting. V5: `<html>` also has `data-v5-scene` (scope selectors to `section[...]`); fitted words are measured on an offscreen clone. `?leader=0` skips V5's leader. Debug hooks: `window.__v4.frames`, `window.__v5.scene()`, `window.lenis`.
 - Gotchas: content lives in `src/content/*.json` (zod-validated, every block needs an aquarea.sk `source`). `Photo` moves `col-span`/`row-span` classes onto `<picture>` automatically. Big Shoulders caps need leading ≥ 0,92 and no `truncate` (it clips Č/Š/Ž). Use `price()`/`priceShort()` for euros (non-breaking spaces). Screenshots: `npm run preview` then `npm run shots -- http://localhost:4321 screenshots/x /path/`; a11y: `node scripts/a11y.mjs http://localhost:4321 /path/`.
 
 ## Morning report
