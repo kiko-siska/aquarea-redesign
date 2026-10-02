@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-02 21:16
+- **Last updated:** 2026-10-02 21:31
 - **Current phase:** 4
 
 ## Checklist
@@ -47,9 +47,9 @@
 _Owner brief 2026-10-02. V4/V5 are exempt from a11y + Lighthouse (AGENTS.md rule 7 exception); replacement bar: build passes, 0 console errors, no overflow at 375 px, DPR ≤ 2, render loops pause off-screen, static poster if WebGL fails. V1–V3 and the site stay untouched._
 - [x] Step 1: AGENTS.md rule 7 exception, committed on its own (33effb8)
 - [x] Log both waivers in DECISIONS.md + owner TODO "hardening pass needed before V4/V5 can ship"
-- [ ] Design system for V4 + V5: fonts (Slovak glyph check), palettes, motion plan → DECISIONS.md
-- [ ] Page-scoped dependencies (gsap, three, lenis, fonts); nothing in shared layouts
-- [ ] Textures: ≤ 3 Gemini images (abstract only), logged below
+- [x] Design system for V4 + V5: fonts (Slovak glyph check), palettes, motion plan → DECISIONS.md — V4 Syne + Geist, V5 Anybody + Hanken Grotesk; section→scene map; skill overrides logged
+- [x] Page-scoped dependencies (gsap 3.15, three 0.186, lenis 1.3, 4 fontsource packages); nothing in shared layouts
+- [x] Textures: ≤ 3 Gemini images (abstract only), logged below — 1 used (V5 film dust)
 - [ ] V4 · Čierna voda at `/variants/4/` (WebGL water + torch, ripples, marine snow, SplitText H1, all sections)
 - [ ] V5 · Titulky at `/variants/5/` (leader countdown, scenes, kinetic type, timecode, Flip reel, credits, film clock, clapperboard, route)
 - [ ] Picker `/variants/`: V4 + V5 with summary, palette, type, signature effect, desktop + mobile thumbnails
@@ -61,8 +61,12 @@ _Owner brief 2026-10-02. V4/V5 are exempt from a11y + Lighthouse (AGENTS.md rule
   - 2026-10-01 · Horizontal Depth Fade (@unlumen, id 18439) · v1 underwater photo strip (ported to vanilla JS)
   - 2026-10-01 · Filmstrip Gallery (@n1m4mz, id 27093) · v2 day strip + lightbox (adapted)
   - **2026-10-01: 2/2 used.** Next retrieval possible 2026-10-02.
-- Gemini images: 1 / 8 (file · prompt summary)
+  - 2026-10-02 · Flashlight Text Reveal (@kedhareswer, id 32544) · V4 torch mechanics (eased light toward pointer / roaming path, CSS mask sampled from the shader falloff, context-loss + visibility pause); adapted into vanilla three.js, the mask warms text instead of hiding it
+  - **2026-10-02: 1/2 used.** Searches (free): magnetic button, film countdown, torch/spotlight, water ripple shader, film strip gallery, end credits, halftone, iris wipe.
+- Gemini images: 2 / 8 (file · prompt summary)
   - 2026-10-01 · `images/generated/v1-caustics.jpg` (2K, fast) · abstract sunlight caustics on sand through teal water; no objects/place/people · v1 texture overlay (`src/assets/generated/caustics.jpg`, resized)
+  - 2026-10-02 · `images/generated/v5-film-dust.jpg` (2K, fast) · abstract 35 mm film dust, hairs and vertical scratches on black; no objects/place/people/text · V5 screen-blended film overlay (`src/assets/generated/v5-film-dust.jpg`, 1600 px greyscale)
+  - Phase 4 plan: max 3 new images (owner). Planned: 1 (above). Reserve: 2, only if procedural textures fall short.
 
 ## Blockers
 - 2026-10-01 (VS Code session): the built-in browser MCP (`mcp__Claude_Browser__*`) and `.claude/launch.json` preview are not available here. **Workaround:** screenshots and checks via Playwright (`playwright-core`) driving the installed Google Chrome (`scripts/screenshot.mjs`). The 21st, magicui and nano-banana MCPs are available.

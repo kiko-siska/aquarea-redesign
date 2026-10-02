@@ -92,3 +92,37 @@ All three variants stay at `/variants/1–3/` so the owner can switch.
 - **Scope:** V1–V3, the picker's existing entries and the full site are untouched. Heavy libraries (gsap, three, lenis) load only on these two pages, via dynamic import inside page scripts, never from `Base.astro`, `Site.astro` or `global.css`.
 - **Still binding:** facts only (all content from `src/content`), Slovak copy, no fake booking, no push/deploy, `noindex`, no fake photos of the real place, no secrets, local commits.
 - **Consequence:** a hardening pass (a11y + performance) is required before either direction can ship. Added to the owner TODOs in PROGRESS.md.
+
+### 2026-10-02 21:30 · [auto] Phase 4 design system: V4 "Čierna voda" and V5 "Titulky"
+**Inputs.** Lead skill: design-taste-frontend v2 with the owner's fixed dials (V4 9/10/3, V5 8/10/4). Motion: gsap-core/timeline/scrolltrigger/plugins/performance; V4 also shader-glsl, threejs-animation, particle-system. `ui-ux-pro-max --design-system` was run for both ("night dive torch dark water immersive webgl lake resort", "film title sequence kinetic typography cinematic poster") plus typography/gsap searches.
+- **Generator: kept** the "Kinetic Motion" idea (a wide display face carries the motion) and its warning to pin sparingly. That warning is why V5 cuts scenes with triggered wipes on a fixed overlay instead of pinning every scene (only the credits and the reel pin). **Rejected:** Brutalism + light sky-blue palette, Varela Round/Nunito (wrong mood), Inter + Playfair (Inter is banned by the brief), trust-blue `#2563EB`.
+- **Skill rules overridden by the owner's brief** (the brief outranks skills): custom cursor (taste skill bans it; V4 needs a torch cursor), reduced-motion and dual-theme requirements (a11y waived), "no section numbering" (V5's "SCÉNA 0X" is the concept; it lives in the HUD slate and in the transition card, never as a small-caps eyebrow above each H2). The skill's en-dash ban is **not** applied to `src/content` strings (Slovak typography uses "–" in ranges; content stays as audited). New copy written for V4/V5 avoids em-dashes.
+
+**Same 9 sections in both pages** (fair comparison with V1–V3):
+
+| Required section | V4 Čierna voda | V5 Titulky |
+|---|---|---|
+| Hero | H1 surfaces letter by letter, torch clicks on over the hero photo | S01 Titulok: 3-2-1 leader → title card, AQUAREA / Čierna Voda collide on scroll |
+| 3 zones as entry points | three zone rows; hovering/tapping one swaps the photo in the beam | S02: PLÁŽ / POBYT / POTÁPANIE slide in from both sides and collide (width axis scrub) |
+| Status + hours | live status, 2026 season strip, main-season hours, last entry | S03: film clock (24 h dial, main-season arcs, scrubbed hand) + season frames |
+| Prices teaser | big numerals that catch the torch light | S04: rolling end credits (pinned) |
+| FotoFilmFest | date + visible TODO, beam on the pipe photo | S05: clapperboard snaps shut, slate fields with real data + TODO |
+| Gallery teaser | photos lit only where the torch falls (dim at rest) | S06: pinned horizontal reel, Flip projects a frame full screen in real colour |
+| How to get there | GPS read-out, address, parking, Navigovať | S07: route drawn on scroll to the real GPS pin on a lat/lng graticule, labelled schematic |
+| Booking/contact CTA | 5 real booking flows + phones | S08: 5 real flows as a kinetic list + phones |
+| Sticky mobile bar | shared `StickyCta` (Zavolať / Rezervovať / Navigovať) | same |
+
+**V4 · Čierna voda** (the lake at night, you hold a dive torch)
+- **Concept:** one fixed full-viewport WebGL water surface (three.js, one fullscreen fragment shader + a Points layer). Domain-warped ripples, caustics and specular glints; pointer/touch drops ripples (8-slot ring buffer). The torch cone reveals real underwater photos through a refraction shader; they come to life only in the beam. DOM text sits on top and stays readable at rest; the beam only warms it (per-letter heat on the H1, per-word on headings). Idle beam wanders on a Lissajous path (always on touch until you drag). Each section switches the photo with a hard light-off / light-on click.
+- **Palette:** atrament `#05070B` (blue-black, deliberately not V1's green-teal `#06232E`), hĺbka `#0A1018`, tieň `#131C29`, studená `#8796AA` (secondary text), hmla `#D6DEE8` (body text), baterka `#FFF1D6` (warm torch white, light only), **bója `#FF5A1F`** (surface-marker-buoy orange, the one accent, CTAs only; not acid green/lime). Status dots are re-coloured in V4 scope so orange stays CTA-only.
+- **Type:** **Syne** (display, 700–800: wide, slightly eccentric letterforms that read like something emerging; Slovak carons render at all weights) + **Geist** (text: neutral, technical, tabular figures for prices and GPS, so it reads like an instrument without mono labels). Glyph check ľ ĺ ŕ ô ä ď ť ň Č Š Ž passed programmatically in Chrome.
+- **Libraries (V4 page only, dynamic import):** three, gsap (+ScrollTrigger, SplitText), lenis.
+- **Reused:** `StickyCta`, `StatusScript`, `Todo`, `Icon`, `Photo`, `islandPhoto`-style resized WebP URLs for textures; the 21st "Flashlight Text Reveal" mechanics (eased light, roaming path, context-loss handling), adapted.
+- **Rejected:** a depth gauge or surface→deep gradient (that's V1), caustics texture from V1 (procedural instead), Unbounded (reads as web3), hiding text until lit (the brief: the torch adds light, it never hides information).
+
+**V5 · Titulky** (the homepage as a film title sequence)
+- **Concept:** scroll is the film. A fast 3-2-1 leader (any input skips it), then a title card. Each section is a scene; at each boundary a fixed overlay cuts (iris, venetian blinds via clip-path, or a hard cut with a flash frame) and flashes "SCÉNA 0X". The whole colour grade (page background + text colours) switches at the cut via CSS variables, so it's a real cut, not two colours scrolling past each other. Giant kinetic type scrubs on scroll (Anybody's width axis 50–150 and weight). A timecode + frame counter in the HUD is bound to scroll position (a device, not a fact).
+- **Palette (one saturated field per scene, no white page, no teal/cream/terracotta/navy, avoids V3's `#D62828`/`#FFC93C`):** ultramarín `#2A2AF5`, citrón `#F4E234`, signál `#FF5F1F`, ružová `#FF3E8A`, film `#121010` (credits), papier `#F5F2EC` (text on dark only, never a page background). Photos: SVG duotone (ink → scene colour) + halftone, plus a screen-blended film dust layer (Gemini texture) and grain.
+- **Type:** **Anybody** (display; variable width 50–150 % and weight 100–900, so one face can be squeezed tall or stretched wide on scroll; that's the Saul Bass / Studio Dumbar collision energy) + **Hanken Grotesk** (text: clean, neutral, good tabular figures for the credits and timecode). Glyph check passed at width 50 % and 150 %.
+- **Libraries (V5 page only, dynamic import):** gsap (+ScrollTrigger, SplitText, Flip, DrawSVG), lenis.
+- **Facts guard:** credits list only real prices from `prices.json`; the clapperboard uses only the real FFF title, date (with its TODO), place, competitions and organiser from `events.json`; the route is a schematic line ending at the one real GPS point from `site.json`, labelled "schematické", with the getting-there TODO kept and the real Navigovať link.
