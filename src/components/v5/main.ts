@@ -38,7 +38,7 @@ export async function initV5() {
     leaderTl.call(() => { if (num) num.textContent = n; }, [], i * 0.52);
     leaderTl.fromTo(dial ?? {}, { '--sweep': '0deg' }, { '--sweep': '360deg', duration: 0.52, ease: 'none' }, i * 0.52);
   });
-  leaderTl.to(leader ?? {}, { backgroundColor: '#f5f2ec', duration: 0.04 }, 1.56).to(leader ?? {}, { opacity: 0, duration: 0.06 }, 1.62);
+  leaderTl.to(leader ?? {}, { backgroundColor: '#f4f4f2', duration: 0.04 }, 1.56).to(leader ?? {}, { opacity: 0, duration: 0.06 }, 1.62);
   const onSkip = (e: Event) => {
     if (leaderDone) return;
     if (e.type === 'keydown') e.preventDefault();

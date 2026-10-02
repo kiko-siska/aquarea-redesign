@@ -13,7 +13,7 @@
     --signal: #ff5f1f;
     --pink: #ff3e8a;
     --film: #121010;
-    --paper: #f5f2ec;
+    --paper: #f4f4f2;
     --display: "Anybody Variable", "Anybody", ui-sans-serif, system-ui, sans-serif;
     --text: "Hanken Grotesk Variable", "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
     /* scene grade (switched in one frame at every cut) */
@@ -114,7 +114,7 @@
   .v5-ht-yellow { filter: url(#v5-ht-yellow); }
   .v5-frame { position: relative; background: var(--film); padding: .55rem; }
   .v5-frame::before, .v5-frame::after { content: ""; position: absolute; left: 0; right: 0; height: .55rem; z-index: 1;
-    background: repeating-linear-gradient(90deg, transparent 0 .55rem, rgb(245 242 236 / .85) .55rem 1.05rem, transparent 1.05rem 1.6rem); background-size: 1.6rem .32rem; background-repeat: repeat-x; background-position: 0 50%; }
+    background: repeating-linear-gradient(90deg, transparent 0 .55rem, rgb(244 244 242 / .85) .55rem 1.05rem, transparent 1.05rem 1.6rem); background-size: 1.6rem .32rem; background-repeat: repeat-x; background-position: 0 50%; }
   .v5-frame::before { top: 0; } .v5-frame::after { bottom: 0; }
 
   /* zones */
@@ -149,8 +149,8 @@
   .v5-clap-stick { position: absolute; left: 0; right: 0; top: 0; transform-origin: 0% 100%; transform: rotate(-24deg); z-index: 2; }
   .v5-clap-bar { margin-top: clamp(2.2rem, 6vw, 3.4rem); }
   .v5-clap-board { background: var(--film); padding: 1rem 1rem 1.25rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .v5-clap-board > div { border-bottom: 2px solid rgb(245 242 236 / .7); padding: .55rem .25rem .65rem; }
-  .v5-clap-board .v5-l { border-right: 2px solid rgb(245 242 236 / .7); padding-right: .75rem; }
+  .v5-clap-board > div { border-bottom: 2px solid rgb(244 244 242 / .7); padding: .55rem .25rem .65rem; }
+  .v5-clap-board .v5-l { border-right: 2px solid rgb(244 244 242 / .7); padding-right: .75rem; }
   .v5-clap-board .v5-l + div { padding-left: .75rem; }
   .v5-clap-board .v5-wide { grid-column: 1 / -1; }
   .v5-clap-board dt { font-size: .6875rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; opacity: .75; }
