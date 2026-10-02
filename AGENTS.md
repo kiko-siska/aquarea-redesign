@@ -18,7 +18,7 @@ The full brief, stack and phase plan are in [`aquarea-redesign-prompt.md`](aquar
 4. **`noindex` site-wide** until the owner approves.
 5. **Never generate fake photos** of the real place, its buildings or its people. AI images are only for textures, abstract water/underwater backgrounds, dividers and an OG image.
 6. **Slovak only for now.** Keep the structure i18n-ready (`/en/`, `/hu/` later), but don't translate.
-7. **Accessibility & performance:** WCAG AA contrast, visible focus, Slovak alt texts, `prefers-reduced-motion` fallbacks for every effect, Lighthouse mobile ≥ 90 for performance and accessibility.
+7. **Accessibility & performance:** WCAG AA contrast, visible focus, Slovak alt texts, `prefers-reduced-motion` fallbacks for every effect, Lighthouse mobile ≥ 90 for performance and accessibility. (Exception, owner, 2026-10-02: /variants/4/ and /variants/5/ are exempt from accessibility and Lighthouse targets. A hardening pass is required before either can ship.)
 8. **No secrets in the repo.** API keys live only in the local Claude config, never in files here.
 
 ## Unattended mode (the owner is asleep)
