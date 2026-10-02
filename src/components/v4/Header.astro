@@ -1,0 +1,58 @@
+---
+/** V4 · Čierna voda: transparent header over the water; logo kept as-is on a light plate. */
+import { Image } from 'astro:assets';
+import logo from '../../assets/brand/logo.png';
+import Icon from '../shared/Icon.astro';
+import { url } from '../../lib/url';
+
+interface Props { bookHref?: string }
+const { bookHref = url('/rezervacie/') } = Astro.props;
+const nav = [
+  { href: url('/plazova-zona/'), label: 'Pláž' },
+  { href: url('/premium-zona/'), label: 'Pobyt' },
+  { href: url('/potapanie/'), label: 'Potápanie' },
+  { href: url('/cennik/'), label: 'Cenník' },
+  { href: url('/kontakt/'), label: 'Kontakt' },
+];
+---
+<header class="v4-header" data-v4-header>
+  <div class="v4-wrap flex h-16 items-center gap-4 md:h-20">
+    <a href={url('/')} class="v4-logo-plate mr-auto inline-flex items-center" aria-label="Aquarea Čierna Voda, úvod">
+      <Image src={logo} alt="" width={150} height={56} class="h-8 w-auto md:h-10" loading="eager" />
+    </a>
+    <nav aria-label="Hlavná navigácia" class="hidden lg:block">
+      <ul class="flex items-center gap-1" role="list">
+        {nav.map((n) => <li><a href={n.href} class="rounded-full px-3.5 py-2 text-[0.9375rem] font-medium text-[var(--v4-hmla)] transition-colors hover:text-[var(--v4-baterka)]">{n.label}</a></li>)}
+      </ul>
+    </nav>
+    <a href={bookHref} class="v4-cta hidden md:inline-flex" data-magnetic>Rezervovať</a>
+    <button type="button" class="v4-menu-btn inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--v4-hmla)] lg:hidden" aria-expanded="false" aria-controls="v4-menu">
+      <Icon name="menu" size={24} class="v4-open" /><Icon name="x" size={24} class="v4-close hidden" /><span class="sr-only">Menu</span>
+    </button>
+  </div>
+</header>
+<div id="v4-menu" class="v4-menu hidden lg:hidden">
+  <nav aria-label="Hlavná navigácia (mobil)">
+    <ul class="grid gap-1" role="list">
+      {nav.map((n) => <li><a href={n.href} class="v4-display block py-2 text-[2.6rem] text-[var(--v4-hmla)]">{n.label}</a></li>)}
+    </ul>
+    <p class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[var(--v4-studena)]">
+      <a class="v4-link" href={url('/otvaracie-hodiny/')}>Otváracie hodiny</a>
+      <a class="v4-link" href={url('/fotofilmfest/')}>FotoFilmFest</a>
+      <a class="v4-link" href={url('/galeria/')}>Galéria</a>
+    </p>
+  </nav>
+</div>
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.v4-menu-btn');
+  const menu = document.getElementById('v4-menu');
+  const toggle = (open: boolean) => {
+    btn?.setAttribute('aria-expanded', String(open));
+    menu?.classList.toggle('hidden', !open);
+    btn?.querySelector('.v4-open')?.classList.toggle('hidden', open);
+    btn?.querySelector('.v4-close')?.classList.toggle('hidden', !open);
+  };
+  btn?.addEventListener('click', () => toggle(btn.getAttribute('aria-expanded') !== 'true'));
+  menu?.addEventListener('click', (e) => { if ((e.target as HTMLElement).closest('a')) toggle(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggle(false); });
+</script>

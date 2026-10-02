@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-02 21:31
+- **Last updated:** 2026-10-02 21:43
 - **Current phase:** 4
 
 ## Checklist
@@ -50,7 +50,7 @@ _Owner brief 2026-10-02. V4/V5 are exempt from a11y + Lighthouse (AGENTS.md rule
 - [x] Design system for V4 + V5: fonts (Slovak glyph check), palettes, motion plan → DECISIONS.md — V4 Syne + Geist, V5 Anybody + Hanken Grotesk; section→scene map; skill overrides logged
 - [x] Page-scoped dependencies (gsap 3.15, three 0.186, lenis 1.3, 4 fontsource packages); nothing in shared layouts
 - [x] Textures: ≤ 3 Gemini images (abstract only), logged below — 1 used (V5 film dust)
-- [ ] V4 · Čierna voda at `/variants/4/` (WebGL water + torch, ripples, marine snow, SplitText H1, all sections)
+- [x] V4 · Čierna voda at `/variants/4/` (WebGL water + torch, ripples, marine snow, SplitText H1, all sections) — three.js shader + Points, torch heat on text, gallery lamps, light-off/on scene cuts, magnetic CTAs, torch cursor; `scripts/motion-shots.mjs`: WebGL on (SwiftShader), 0 console errors, no overflow 375–1440, loop pauses off-screen + hidden
 - [ ] V5 · Titulky at `/variants/5/` (leader countdown, scenes, kinetic type, timecode, Flip reel, credits, film clock, clapperboard, route)
 - [ ] Picker `/variants/`: V4 + V5 with summary, palette, type, signature effect, desktop + mobile thumbnails
 - [ ] Verify 375 + 1440: scroll 0/25/50/75/100 % + hover/touch states → `screenshots/phase4/`; console, overflow, build
