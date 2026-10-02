@@ -1,8 +1,8 @@
 # Progress
 
-- **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-02 22:22
-- **Current phase:** 4
+- **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
+- **Last updated:** 2026-10-02 22:32
+- **Current phase:** 5
 
 ## Checklist
 
@@ -55,6 +55,18 @@ _Owner brief 2026-10-02. V4/V5 are exempt from a11y + Lighthouse (AGENTS.md rule
 - [x] Picker `/variants/`: V4 + V5 with summary, palette, type, signature effect, desktop + mobile thumbnails — `scripts/picker-thumbs.mjs <url> 4 5` (V1–V3 PNGs untouched); picker still axe 0
 - [x] Verify 375 + 1440: scroll 0/25/50/75/100 % + hover/touch states → `screenshots/phase4/`; console, overflow, build — `scripts/motion-shots.mjs` (+ hover, click, tap, drag) and `scripts/scene-shots.mjs` (one shot per scene/section → `screenshots/phase4/scenes/`); 0 console errors; no overflow 375–1440; WebGL on (SwiftShader); loop pauses off-screen + hidden; Slovak glyphs checked on the built pages; three/gsap/lenis chunks referenced only by /variants/4–5; noindex on both, not in sitemap; V4 without WebGL → `data-gl=off`, poster visible, 0 frames, no errors (`variants-4-*-nogl.jpg`); V4 context loss → poster, loop stops; V5 leader plays to the end on its own (removed, title visible, scroll works) and a real wheel skips it (`variants-5-*-leader.jpg`); `git diff 5020329` over V1–V3, shared components, layouts, lib, content, global/v3 CSS and site pages is empty; V3, V4, V5 each carry the same 4 visible TODOs
 - [x] DECISIONS.md: entry per variant + "best wow / best for the mission / what V4–V5 need to ship"; PROGRESS handoff — best wow V4, best for the mission still V3 (recommendation unchanged)
+
+### Phase 5 — V6 "Čistá voda", the usable one (`/variants/6/`)
+_Owner brief 2026-10-02. V6 is **not** waived: AGENTS.md rule 7 in full (WCAG AA, focus, Slovak alt, reduced motion for every effect, Lighthouse mobile perf ≥ 90 and a11y ≥ 90, axe 0). Native scroll only, progressive enhancement, effects are seasoning. V1–V5 and the site stay untouched._
+- [ ] Design system: concept, fonts (Slovak glyph check), palette from real objects, motion budget → DECISIONS.md
+- [ ] Reusable motion module `src/lib/motion/` (reduced-motion helper, reveal, count-up, status dot, flip gallery, water light) + README
+- [ ] V6 page at `/variants/6/`: same content, sections and TODOs; five-second test at 375 px
+- [ ] Hero signature: calm water light over the hero photo (after LCP, poster first, DPR ≤ 1.5, pauses off-screen/hidden, WebGL fallback, gentle ripple)
+- [ ] Micro-interactions: buttons, cards (lift, zoom, clip-path ripple), link underline, live status dot, count-up, accordions, marquee, scroll progress, Flip gallery + lightbox, SplitText H1, one parallax
+- [ ] Verify: Lighthouse mobile (perf, a11y, best practices), axe 0, CLS, JS weight, five-second screenshot, 0/25/50/75/100 % + hover + focus, reduced-motion pass, 0 console errors, no overflow → `screenshots/phase5/`
+- [ ] design:accessibility-review + design:design-critique on the finished page; fix findings
+- [ ] Picker: V6 with summary, palette, type, effect, thumbnails; noindex; out of sitemap
+- [ ] DECISIONS.md: V6 entry + V3 vs V6 table + recommendation for `/` (do not replace `/`); PROGRESS handoff
 
 ## Budget log
 - 21st `get_component`: (date · component · used for)
