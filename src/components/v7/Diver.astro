@@ -37,14 +37,18 @@ const INK = '#181818', BLACK = '#000000', BLUE = '#00A8F0', RED = '#D80018', RED
           </g></g>
         </g></g>
         <!-- tank on the back -->
-        <rect x="284" y="136" width="152" height="46" rx="23" fill={BLACK} />
-        <rect x="338" y="136" width="13" height="46" fill={BLUE} />
-        <rect x="428" y="148" width="24" height="16" rx="5" fill={INK} />
-        <circle cx="442" cy="143" r="7" fill={INK} />
+        <g data-d="tank">
+          <rect x="284" y="136" width="152" height="46" rx="23" fill={BLACK} />
+          <rect x="338" y="136" width="13" height="46" fill={BLUE} />
+          <rect x="428" y="148" width="24" height="16" rx="5" fill={INK} />
+          <circle cx="442" cy="143" r="7" fill={INK} />
+        </g>
         <!-- torso -->
+        <g data-d="torso">
         <path d="M236 194 C236 178 262 172 302 172 L402 172 C432 174 454 188 454 208 C454 232 432 252 402 254 L302 256 C262 256 236 246 236 228 Z" fill={INK} />
         <path d="M296 180 L404 180 C424 181 440 190 446 204" fill="none" stroke={BLUE} stroke-width="8" stroke-linecap="round" />
         <path d="M318 176 L318 252 M392 176 L392 252" stroke={BLACK} stroke-width="9" fill="none" />
+        </g>
         <!-- head -->
         <g transform="translate(470 200)"><g data-d="head" transform="rotate(0)">
           <circle cx="22" cy="-4" r="34" fill={INK} />

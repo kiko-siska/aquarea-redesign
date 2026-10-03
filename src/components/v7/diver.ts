@@ -69,7 +69,7 @@ export function rigDiver(svg: SVGElement, wrap: HTMLElement | null, nudge: HTMLE
     /** run for ms, then settle (hover kick on the static diver) */
     pulse(ms: number) { this.start(); gsap.delayedCall(ms / 1000, () => this.stop()); },
     pointer(nx: number, ny: number, movePx: number) {
-      driftX?.(nx * 40); driftY?.(ny * 28); tilt?.(nx * 4);
+      driftX?.(nx > 0 ? nx * 20 : nx * 40); // less toward the panel, so the head never reaches its angled edge driftY?.(ny * 28); tilt?.(nx * 4);
       pointerBoost = Math.min(1.6, pointerBoost + movePx * 0.012);
     },
     leave() { driftX?.(0); driftY?.(0); tilt?.(0); },

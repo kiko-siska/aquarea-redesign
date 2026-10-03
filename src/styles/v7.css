@@ -118,7 +118,7 @@
   .v7-pause:hover { background: #000; }
   .v7-pause:focus-visible { outline-color: #fff; box-shadow: 0 0 0 3px #000; }
 
-  .v7-panel { position: relative; z-index: 2; background: var(--v7-cierna); color: #fff; margin-top: calc(var(--cut) * -.6); padding: calc(var(--cut) * .6 + 1.25rem) 0 1.5rem; clip-path: polygon(0 calc(var(--cut) * .6), 100% 0, 100% 100%, 0 100%); }
+  .v7-panel { position: relative; z-index: 2; background: var(--v7-cierna); color: #fff; margin-top: calc(var(--cut) * -.6); padding: calc(var(--cut) * .6 + .9rem) 0 1rem; clip-path: polygon(0 calc(var(--cut) * .6), 100% 0, 100% 100%, 0 100%); }
   .v7-panel :focus-visible { outline-color: #fff; }
   .v7-price-strip { display: flex; flex-wrap: wrap; gap: .6rem .9rem; align-items: flex-end; }
   .v7-sticker { display: inline-flex; flex-direction: column; padding: .3rem .7rem .45rem; background: var(--v7-modra); color: var(--v7-cierna); transform: rotate(-2.5deg); clip-path: polygon(0 6%, 100% 0, 97% 100%, 3% 94%); }
@@ -126,7 +126,7 @@
   .v7-sticker:nth-child(3) { transform: rotate(-1deg); }
   .v7-sticker b { font-family: var(--v7-display); font-weight: 800; font-size: clamp(1.7rem, 5.4vw, 3rem); line-height: .95; white-space: nowrap; }
   .v7-sticker span { font-size: .8125rem; line-height: 1.15; font-weight: 700; }
-  .v7-status { display: grid; grid-template-columns: auto 1fr; gap: 0 .7rem; align-items: start; min-height: 4.25rem; padding: .65rem .9rem; border-radius: .35rem; background: rgb(255 255 255 / .08); box-shadow: inset 0 0 0 2px rgb(255 255 255 / .4); }
+  .v7-status { display: grid; grid-template-columns: auto 1fr; gap: 0 .7rem; align-items: start; min-height: 4.25rem; padding: .4rem .9rem .3rem; border-radius: .35rem; background: rgb(255 255 255 / .08); box-shadow: inset 0 0 0 2px rgb(255 255 255 / .4); }
   .v7-status .status-dot { margin-top: .5rem; }
   .v7 [data-state] .status-dot { width: .8rem; height: .8rem; background: #d6dde0; box-shadow: none; position: relative; color: var(--v7-modra); }
   .v7 [data-state="open"] .status-dot { background: var(--v7-modra); }

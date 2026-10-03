@@ -118,16 +118,17 @@ const priceGroups = [
       <div class="v7-panel v7-dark">
         <div class="px-4 md:px-8 lg:px-0">
           <h1 id="v7-title" class="v7-display v7-h1" data-v7-h1>Aquarea<br />Čierna Voda</h1>
+          <p class="mt-2 text-lg font-bold text-white sm:hidden" data-v7-what>{site.fullName}</p>
           <p class="v7-lead mt-3 hidden text-white sm:block">Areál športu a relaxu pri jazere s krištáľovo čistou vodou: pláž, pobyt pri vode a potápanie.</p>
-          <ul class="v7-price-strip mt-4" role="list">
+          <ul class="v7-price-strip mt-3 sm:mt-4" role="list">
             {heroFacts.map((f) => <li class="v7-sticker"><b class="v7-num">{f.value}</b><span>{f.label}</span></li>)}
           </ul>
-          <div class="mt-5 flex flex-wrap gap-3">
+          <div class="mt-4 flex flex-wrap gap-3 sm:mt-5">
             <a href={book} class="v7-cta">Rezervovať</a>
             <a href={`tel:${site.contacts.info.tel}`} class="v7-btn"><Icon name="phone" size={18} />Zavolať</a>
           </div>
           <!-- one-line live status (fixed height: the long detail lives in the hours section, so nothing shifts) -->
-          <div class="v7-status mt-4" data-status data-live data-state="unknown">
+          <div class="v7-status mt-3 sm:mt-4" data-status data-live data-state="unknown">
             <span class="status-dot" aria-hidden="true"></span>
             <p class="font-bold" data-status-text>Otváracie hodiny</p>
             <p class="col-start-2 text-[0.9375rem]"><a href="#hodiny" class="v7-link inline-flex min-h-11 items-center">Otváracie hodiny a výnimky</a></p>

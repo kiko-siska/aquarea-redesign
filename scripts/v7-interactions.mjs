@@ -47,8 +47,8 @@ const pose = (p) => p.evaluate(() => Object.fromEntries(['legNear', 'shinNear', 
   await p.mouse.move(100, 120, { steps: 25 }); await sleep(1300);
   const left = await xy();
   notes.push(`pointer drift (px) toward bottom-right ${right}, toward top-left ${left}`);
-  if (Math.abs(right[0]) > 41 || Math.abs(left[0]) > 41) issues.push('drift exceeds 40 px');
-  if (right[0] - left[0] < 20) issues.push('diver does not follow the pointer');
+  if (right[0] > 21 || Math.abs(left[0]) > 41) issues.push('drift exceeds its clamp (20 px right, 40 px left)');
+  if (right[0] - left[0] < 15) issues.push('diver does not follow the pointer');
   await p.locator('[data-v7-stage]').screenshot({ path: `${out}/v7-1440-pointer-drift.jpg`, type: 'jpeg', quality: 82 });
 
   // scroll nudge (≤ 80 px)
@@ -91,6 +91,7 @@ const pose = (p) => p.evaluate(() => Object.fromEntries(['legNear', 'shinNear', 
   await p.goto(url, { waitUntil: 'load' });
   await p.waitForFunction(() => window.__v7?.running, null, { timeout: 15000 }).catch(() => issues.push('touch: diver never started'));
   await sleep(800);
+  for (let i = 0; i < 4; i++) { await p.locator('[data-v7-stage]').screenshot({ path: `${out}/v7-375-diver-kick-${i + 1}.jpg`, type: 'jpeg', quality: 82 }); await sleep(300); }
   const box = await p.locator('[data-v7-stage]').boundingBox();
   await p.touchscreen.tap(box.x + box.width * 0.55, box.y + box.height * 0.6);
   await sleep(350);

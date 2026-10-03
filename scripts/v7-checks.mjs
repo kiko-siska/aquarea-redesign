@@ -84,7 +84,8 @@ for (const w of [375, 1440]) {
       const links = [...main.querySelectorAll('a')];
       const rez = links.find((a) => a.textContent.trim().startsWith('Rezervovať'));
       const zav = links.find((a) => a.textContent.trim().startsWith('Zavolať'));
-      return { h1: visible(h1), price: visible(od) ? od.textContent.trim() : false, status: visible(status) ? status.textContent.trim() : false, rezervovat: visible(rez), zavolat: visible(zav), barTop: Math.round(bar) };
+      const what = main.querySelector('[data-v7-what]');
+      return { what: visible(what) ? what.textContent.trim() : false, h1: visible(h1), price: visible(od) ? od.textContent.trim() : false, status: visible(status) ? status.textContent.trim() : false, rezervovat: visible(rez), zavolat: visible(zav), barTop: Math.round(bar) };
     });
     notes.push(`five-second test @375: ${JSON.stringify(five)}`);
     for (const [k, v] of Object.entries(five)) if (v === false) issues.push(`five-second test: ${k} not on the first screen`);
