@@ -16,7 +16,7 @@ The full brief, stack and phase plan are in [`aquarea-redesign-prompt.md`](aquar
 2. **No fake booking.** This is a static site with no backend. Link each existing booking flow to where it lives today (or `tel:` / `mailto:`). Never fake a working form.
 3. **Never push, deploy or publish.** No `git push`, no GitHub repo creation, no hosting. Commit locally only.
 4. **`noindex` site-wide** until the owner approves.
-5. **Never generate fake photos** of the real place, its buildings or its people. AI images are only for textures, abstract water/underwater backgrounds, dividers and an OG image.
+5. **Never generate fake photos** of the real place, its buildings or its people. AI images are only for textures, abstract water/underwater backgrounds, dividers and an OG image. (Exception, owner, 2026-10-03: for /variants/7/ only, rule 5 allows ONE stylised, non-photoreal, illustrated diver mascot generated or traced from Gemini concept art. It must not depict any real person, real staff, real equipment brand or certification mark. The Gemini cap for V7 is 3 new images, max 2K, quality 'balanced' allowed; total stays ≤ 8.)
 6. **Slovak only for now.** Keep the structure i18n-ready (`/en/`, `/hu/` later), but don't translate.
 7. **Accessibility & performance:** WCAG AA contrast, visible focus, Slovak alt texts, `prefers-reduced-motion` fallbacks for every effect, Lighthouse mobile ≥ 90 for performance and accessibility. (Exception, owner, 2026-10-02: /variants/4/ and /variants/5/ are exempt from accessibility and Lighthouse targets. A hardening pass is required before either can ship.)
 8. **No secrets in the repo.** API keys live only in the local Claude config, never in files here.
