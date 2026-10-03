@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-03 09:10
+- **Last updated:** 2026-10-03 09:18
 - **Current phase:** 5
 
 ## Checklist
@@ -59,7 +59,7 @@ _Owner brief 2026-10-02. V4/V5 are exempt from a11y + Lighthouse (AGENTS.md rule
 ### Phase 5 — V6 "Čistá voda", the usable one (`/variants/6/`)
 _Owner brief 2026-10-02. V6 is **not** waived: AGENTS.md rule 7 in full (WCAG AA, focus, Slovak alt, reduced motion for every effect, Lighthouse mobile perf ≥ 90 and a11y ≥ 90, axe 0). Native scroll only, progressive enhancement, effects are seasoning. V1–V5 and the site stay untouched._
 - [ ] Design system: concept, fonts (Slovak glyph check), palette from real objects, motion budget → DECISIONS.md
-- [ ] Reusable motion module `src/lib/motion/` (reduced-motion helper, reveal, count-up, status dot, flip gallery, water light) + README
+- [x] Reusable motion module `src/lib/motion/` (reduced-motion helper, reveal, count-up, status dot, flip gallery, water light) + README — also focus-in, ripple, marquee (with pause button), CSS accordion/progress/parallax/live dot
 - [x] V6 page at `/variants/6/`: same content, sections and TODOs; five-second test at 375 px — static baseline (no effects): Lighthouse mobile 94 / 100 / 100 (median of 3), CLS 0.001, axe 0 (normal + reduced), JS-off complete, five-second test passes (`screenshots/phase5/baseline/`)
 - [ ] Hero signature: calm water light over the hero photo (after LCP, poster first, DPR ≤ 1.5, pauses off-screen/hidden, WebGL fallback, gentle ripple)
 - [ ] Micro-interactions: buttons, cards (lift, zoom, clip-path ripple), link underline, live status dot, count-up, accordions, marquee, scroll progress, Flip gallery + lightbox, SplitText H1, one parallax

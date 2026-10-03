@@ -20,7 +20,8 @@
   /* ---- m-marquee: runs only once JS marks it [data-running] (it also adds a pause button) ---- */
   .m-marquee { overflow: hidden; }
   .m-marquee-track { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2.5rem 3rem; padding-inline: 1rem; }
-  .m-marquee[data-running] .m-marquee-track { flex-wrap: nowrap; justify-content: flex-start; width: max-content; padding-inline: 0; animation: m-marquee var(--m-marquee-duration, 40s) linear infinite; }
+  .m-marquee[data-running] .m-marquee-track { flex-wrap: nowrap; justify-content: flex-start; gap: 0; width: max-content; padding-inline: 0; animation: m-marquee var(--m-marquee-duration, 40s) linear infinite; }
+  .m-marquee[data-running] .m-marquee-track > * { margin-inline-end: var(--m-marquee-gap, 3rem); } /* margins, not gap: -50% is then exactly one set */
   .m-marquee[data-running]:hover .m-marquee-track,
   .m-marquee[data-running]:focus-within .m-marquee-track,
   .m-marquee[data-running][data-paused] .m-marquee-track { animation-play-state: paused; }
