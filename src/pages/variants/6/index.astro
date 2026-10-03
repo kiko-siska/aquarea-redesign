@@ -132,7 +132,7 @@ const priceGroups = [
     <section id="zony" aria-labelledby="v6-zones" class="v6-section !pt-6 md:!pt-10">
       <div class="v6-wrap">
         <h2 id="v6-zones" class="v6-display v6-h2 max-w-3xl">Pláž, pobyt alebo potápanie</h2>
-        <p class="v6-measure mt-4 v6-muted">Areál má tri časti. Vstup na pláž sa platí na mieste, pobyt a potápanie si rezervujete vopred.</p>
+        <p class="v6-measure mt-4 v6-muted">Verejná Plážová zóna a Prémium zóna s apartmánmi, kempingom a Dive Centrom. Na pláž vstúpite po zaplatení vstupného, pobyt je možný len na základe rezervácie a skúšobný ponor či kurz si objednáte cez formulár.</p>
         <ul class="mt-10 grid gap-5 lg:grid-cols-12 lg:gap-6" role="list" data-reveal-group>
           {zoneCards.map((z) => (
             <li class:list={['v6-zone', 'm-ripple', z.cls]} data-big={z.id === 'plaz' ? '' : undefined}>
@@ -163,7 +163,7 @@ const priceGroups = [
         <div class="order-1 lg:order-2">
           <h2 id="v6-dive" class="v6-display v6-h2">Potápanie k zanoreným atrakciám</h2>
           <p class="v6-measure mt-4">{diving.story[0]}</p>
-          <dl class="mt-8 grid grid-cols-2 gap-x-6 gap-y-6" data-reveal-group>
+          <dl class="mt-8 grid grid-cols-2 gap-x-6 gap-y-6">
             {diving.facts.map((f) => (
               <div class="v6-deep-fact flex flex-col-reverse border-t pt-3">
                 <dt class="mt-1 text-[0.9375rem] leading-snug v6-muted">{f.label}</dt>

@@ -7,7 +7,7 @@
  * - Reduced motion: one still frame, no loop, no ripples (it still looks finished frozen).
  * - No WebGL2, a shader error or a lost context: the canvas is removed and the photo stays.
  */
-import { prefersReducedMotion } from './reduced';
+import { prefersReducedMotion, REDUCE } from './reduced';
 
 const VERT = `#version 300 es
 in vec2 p; out vec2 vUv;
@@ -64,7 +64,7 @@ const ICON_PAUSE = '<svg width="20" height="20" viewBox="0 0 24 24" fill="curren
 const ICON_PLAY = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>';
 
 export function waterLight(frame: HTMLElement, img: HTMLImageElement, labels = { pause: 'Zastaviť pohyb vody', play: 'Spustiť pohyb vody' }) {
-  const reduce = prefersReducedMotion();
+  let reduce = prefersReducedMotion();
   const canvas = document.createElement('canvas');
   canvas.setAttribute('aria-hidden', 'true');
   canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .8s ease;pointer-events:none';
@@ -123,7 +123,7 @@ export function waterLight(frame: HTMLElement, img: HTMLImageElement, labels = {
   resize();
   // a visible pause control for the moving water (WCAG 2.2.2); not needed when motion is reduced
   let toggle: HTMLButtonElement | null = null;
-  if (!reduce) {
+  {
     toggle = document.createElement('button');
     toggle.type = 'button';
     toggle.className = 'm-water-toggle';
@@ -138,9 +138,19 @@ export function waterLight(frame: HTMLElement, img: HTMLImageElement, labels = {
       toggle!.setAttribute('aria-label', paused ? labels.play : labels.pause);
       toggle!.innerHTML = paused ? ICON_PLAY : ICON_PAUSE;
     });
+    toggle.hidden = reduce;
     frame.append(toggle);
   }
   if (reduce) { draw(3.2); } else { kick(); }
+
+  // the OS setting can change while the page is open: switch versions live (like gsap.matchMedia does)
+  const mq = matchMedia(REDUCE);
+  const onPref = () => {
+    reduce = mq.matches;
+    if (toggle) toggle.hidden = reduce;
+    if (reduce) { cancelAnimationFrame(raf); raf = 0; draw(3.2); } else { kick(); }
+  };
+  mq.addEventListener('change', onPref);
 
   const ro = new ResizeObserver(() => { resize(); if (reduce) draw(3.2); });
   ro.observe(frame);
@@ -163,6 +173,7 @@ export function waterLight(frame: HTMLElement, img: HTMLImageElement, labels = {
   const destroy = () => {
     alive = false; cancelAnimationFrame(raf); ro.disconnect(); io.disconnect();
     document.removeEventListener('visibilitychange', onVis);
+    mq.removeEventListener('change', onPref);
     frame.removeEventListener('pointermove', onMove); frame.removeEventListener('pointerdown', onDown);
     canvas.remove(); toggle?.remove();
   };

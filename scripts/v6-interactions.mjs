@@ -73,6 +73,22 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   await ctx.close();
 }
 {
+  // DPR cap on a 3× phone + live switch to reduced motion after load
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 3 });
+  const p = await ctx.newPage(); watch(p, 'dpr3');
+  await p.goto(url, { waitUntil: 'load' });
+  await p.waitForFunction(() => window.__v6?.frames > 0, null, { timeout: 15000 }).catch(() => issues.push('dpr3: never drew a frame'));
+  const dpr = await p.evaluate(() => { const c = document.querySelector('[data-water-light] canvas'); return +(c.width / c.clientWidth).toFixed(2); });
+  notes.push(`water light DPR on a 3× phone: ${dpr} (cap 1.5)`);
+  if (dpr > 1.5) issues.push(`dpr3: ${dpr} > 1.5`);
+  await p.emulateMedia({ reducedMotion: 'reduce' });
+  await sleep(400);
+  const live = await p.evaluate(async () => { const a = window.__v6.frames; await new Promise((r) => setTimeout(r, 700)); return { framesAfterSwitch: window.__v6.frames - a, toggleHidden: document.querySelector('.m-water-toggle')?.hidden, marqueeRunning: document.querySelector('[data-marquee]')?.hasAttribute('data-running') }; });
+  notes.push(`switched to reduced motion live: ${JSON.stringify(live)}`);
+  if (live.framesAfterSwitch > 1 || !live.toggleHidden || live.marqueeRunning) issues.push('live reduced-motion switch incomplete');
+  await ctx.close();
+}
+{
   const ctx = await browser.newContext({ viewport: { width: 375, height: 812 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
   const p = await ctx.newPage(); watch(p, 'no-webgl');
   await p.addInitScript(() => { const o = HTMLCanvasElement.prototype.getContext; HTMLCanvasElement.prototype.getContext = function (t, ...a) { return /webgl/.test(t) ? null : o.call(this, t, ...a); }; });

@@ -5,7 +5,7 @@ Ground rules for all of them:
 
 - **Progressive enhancement.** The page is complete without JS. A block only hides or changes something after its script has run, and the static HTML always holds the final content.
 - **Transform and opacity only.** Nothing animates layout, and nothing moves under text that someone is reading.
-- **Reduced motion is a first-class version, not an off switch.** JS blocks run inside `withMotion()` (`gsap.matchMedia`), so toggling the OS setting reverts them live. CSS blocks use the same media query in `motion.css`. `global.css` forces `animation-duration: 0.01ms` under `reduce`, which would snap CSS animations to their *end* keyframe, so every CSS block sets `animation: none` explicitly.
+- **Reduced motion is a first-class version, not an off switch.** GSAP blocks run inside `withMotion()` (`gsap.matchMedia`), so toggling the OS setting reverts them live; `water-light.ts` and `marquee.ts` listen to the same media query and switch live too, and `flip-gallery.ts` checks it on every interaction. CSS blocks use the same media query in `motion.css`. `global.css` forces `animation-duration: 0.01ms` under `reduce`, which would snap CSS animations to their *end* keyframe, so every CSS block sets `animation: none` explicitly.
 - **Weight.** gsap core + SplitText + Flip ≈ 39 KB gzipped, loaded by dynamic import after `load`. Everything else here is a few hundred bytes to ~3 KB.
 
 | Block | File | What it does | Reduced motion |
@@ -16,7 +16,7 @@ Ground rules for all of them:
 | Headline focus-in | `focus-in.ts` | Words go from a 6 px blur to sharp (≤ 600 ms) with SplitText, no opacity change, so the heading is readable and selectable the whole time; the split is reverted afterwards. Skipped if it can't start within ~1.8 s or the heading is off screen. | Not called. |
 | Card ripple | `ripple.ts` + `.m-ripple` | A soft wash grows from the point where the pointer entered (CSS `clip-path: circle()`), also on `:focus-within`. | The wash appears without the growing transition. |
 | Gallery filter + lightbox | `flip-gallery.ts` | Filter buttons (`aria-pressed`, polite live count) re-flow the grid with GSAP Flip; thumbnails are real links to the large image and open in a native `<dialog>` with a View Transition from the thumbnail. Arrow keys, Esc, backdrop click, focus returns to the thumbnail. | Filter and lightbox change instantly. |
-| Marquee | `marquee.ts` + `.m-marquee` | Starts only when JS can also show a **visible pause button** (WCAG 2.2.2); pauses on hover and keyboard focus too; clones are `aria-hidden`. | Never starts; a static, wrapped row. |
+| Marquee | `marquee.ts` + `.m-marquee` | Starts only when JS can also show a **visible pause button** (WCAG 2.2.2); pauses on hover and keyboard focus too; clones are `aria-hidden`. | Doesn't run (live switch); a static, wrapped row without the button. |
 | Smooth accordion | `.m-acc` (CSS) | Native `<details>` whose content height animates (`::details-content` + `interpolate-size`, Chromium 131+; instant elsewhere). | Instant. |
 | Reading progress | `.m-progress` (CSS) | A 3 px bar driven by `animation-timeline: scroll(root)`; no JS. | Hidden. |
 | Parallax | `.m-parallax` (CSS) | One image drifts ±20 px (40 px total) on a `view()` timeline inside an `overflow: hidden` frame. | Static. |
