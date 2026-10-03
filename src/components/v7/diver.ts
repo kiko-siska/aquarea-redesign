@@ -45,7 +45,7 @@ export function rigDiver(svg: SVGElement, wrap: HTMLElement | null, nudge: HTMLE
 
   const tick = (_t: number, deltaMs: number) => {
     const dt = Math.min(deltaMs / 1000, 0.05);
-    ampNow += (ampTarget - ampNow) * Math.min(1, dt * 4);
+    ampNow += (ampTarget - ampNow) * Math.min(1, dt * (ampTarget ? 4 : 9)); // ease in slowly, settle to the static pose in ~0.5 s
     pointerBoost *= Math.pow(0.12, dt);
     burstBoost *= Math.pow(0.3, dt);
     const sy = window.scrollY;
@@ -59,7 +59,7 @@ export function rigDiver(svg: SVGElement, wrap: HTMLElement | null, nudge: HTMLE
     phaseT += dt * speed;
     bobT += dt;
     apply();
-    if (!ampTarget && ampNow < 0.01) { gsap.ticker.remove(tick); running = false; ampNow = 0; toRest(); }
+    if (!ampTarget && ampNow < 0.02) { gsap.ticker.remove(tick); running = false; ampNow = 0; toRest(); }
   };
 
   return {
