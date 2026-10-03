@@ -17,11 +17,19 @@ import LightRays from '../../../components/ui/LightRays.astro';
 import DepthFadeStrip from '../../../components/ui/DepthFadeStrip.astro';
 import { Image } from 'astro:assets';
 import caustics from '../../../assets/generated/caustics.jpg';
+import aerial from '../../../assets/generated/v8-aerial-extended.jpg';
 import { site, hours, prices, zones, diving, fff, highlight } from '../../../lib/content';
 import { priceShort, time, dateLong } from '../../../lib/format';
 import { url } from '../../../lib/url';
 
 const book = '#rezervacie';
+// pricing: three labelled groups instead of a wall of cards (the group heading already names the zone, so rows drop the prefix)
+const shortLabel = (l: string) => { const t = l.replace(/^(Plážová zóna|Dive Center), /, ''); return t.charAt(0).toUpperCase() + t.slice(1); };
+const priceGroups = [
+  { title: 'Plážová zóna', ids: ['beach-adult', 'beach-child', 'beach-family', 'beach-afternoon'] },
+  { title: 'Prémium zóna: kemping a apartmány', ids: ['apartment', 'camp-adult'] },
+  { title: 'Dive Center', ids: ['dive-day', 'intro-dive', 'owd'] },
+];
 const main = hours.periods.find((p) => p.id === 'hlavna')!;
 const depthBars = [...diving.attractions]
   .filter((a) => a.depth.length)
@@ -136,9 +144,11 @@ const jsonLd = {
         </div>
         <figure class="relative">
           <div class="relative overflow-hidden rounded-[2rem] shadow-[0_30px_60px_-30px_rgba(6,35,46,0.55)]">
-            <Photo id="dron-plytcina" priority sizes="(min-width: 1024px) 48vw, 100vw" widths={[480, 800, 1200]} class="aspect-[4/3] h-full w-full object-cover lg:aspect-[5/6]" />
+            <!-- AI-extended placeholder of the real hero drone photo: the whole area fits the frame (AGENTS.md, fourth rule-5 exception) -->
+            <Image src={aerial} alt="Letecký pohľad na celý areál Aquarea: tyrkysové jazero, pláž, kemping a apartmány medzi poliami" widths={[360, 520, 760, 1100]} sizes="(min-width: 1024px) 48vw, calc(100vw - 2rem)" format="avif" quality={52} class="aspect-square h-full w-full object-cover" loading="eager" fetchpriority="high" />
           </div>
-          <figcaption class="mt-3 text-[0.9375rem] text-v1-ink/75">Pohľad zhora na plytčinu pri pláži. Foto: aquarea.sk</figcaption>
+          <figcaption class="mt-3 text-[0.9375rem] text-v1-ink/75">Letecký pohľad na celý areál. Foto: aquarea.sk, rozšírené umelou inteligenciou.</figcaption>
+          <p class="mt-2"><Todo text="Rozšírenie fotografie vytvorila AI, nahradiť skutočnou širšou leteckou fotografiou." /></p>
         </figure>
       </div>
       <Image src={caustics} alt="" width={1600} class="v1-caustics" loading="lazy" />
@@ -212,14 +222,21 @@ const jsonLd = {
           <h2 id="v1-prices-title" class="v1-display text-[2.1rem] leading-[1] md:text-[3.25rem]">Čo to stojí</h2>
           <p class="font-semibold">{prices.validFromText}</p>
         </div>
-        <ul class="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4" role="list">
-          {prices.highlights.map((h) => (
-            <li class="rounded-2xl bg-white/85 p-4 ring-1 ring-v1-ink/10 md:p-5">
-              <span class="block text-[0.9375rem] leading-snug text-v1-ink/85">{h.label}</span>
-              <span class="v1-display mt-2 block text-[1.9rem] leading-none tabular-nums md:text-[2.3rem]">{h.from ? 'od ' : ''}{priceShort(h.amount)}</span>
-            </li>
+        <div class="mt-10 grid gap-10 md:grid-cols-3 md:gap-8">
+          {priceGroups.map((g) => (
+            <div>
+              <h3 class="v1-display text-[1.35rem] leading-tight md:text-[1.5rem]">{g.title}</h3>
+              <dl class="mt-3 border-t-2 border-v1-ink">
+                {g.ids.map((id) => { const h = highlight(id); return (
+                  <div class="flex items-end justify-between gap-4 border-b border-v1-ink/40 py-3">
+                    <dt class="min-w-0 font-semibold leading-snug">{shortLabel(h.label)}</dt>
+                    <dd class="v1-display text-[1.9rem] leading-none tabular-nums md:text-[2.2rem] whitespace-nowrap">{h.from ? 'od ' : ''}{priceShort(h.amount)}</dd>
+                  </div>
+                ); })}
+              </dl>
+            </div>
           ))}
-        </ul>
+        </div>
         <p class="mt-6 max-w-3xl text-v1-ink/90">Deti do 3 rokov majú vstup zdarma. Hostia Prémium zóny majú vstup do Plážovej zóny v cene pobytu. Zákaz vodenia psov a iných zvierat.</p>
         <a href={url('/cennik/')} class="mt-5 inline-flex min-h-11 items-center gap-2 font-bold text-v1-dno underline decoration-2 underline-offset-4">Celý cenník: pláž, kemping a apartmány, Dive Center <Icon name="chevron-right" size={18} /></a>
       </div>
