@@ -17,6 +17,10 @@ import v6d from '../../assets/picker/v6-desktop.png';
 import v6m from '../../assets/picker/v6-mobile.png';
 import v7d from '../../assets/picker/v7-desktop.png';
 import v7m from '../../assets/picker/v7-mobile.png';
+import v8d from '../../assets/picker/v8-desktop.png';
+import v8m from '../../assets/picker/v8-mobile.png';
+import v9d from '../../assets/picker/v9-desktop.png';
+import v9m from '../../assets/picker/v9-mobile.png';
 
 const RECOMMENDED = 3; // [auto] pick, see DECISIONS.md
 
@@ -73,14 +77,30 @@ const directions = [
     signature: 'fotorealistický potápač (vrstvy: nohy kopú okolo bedier, telo sa vlní a pohupuje) nad skutočnou dronovou fotografiou s jemným svetlom a bublinami; sleduje prst alebo kurzor, ťuknutie vyvolá bubliny; tlačidlo na zastavenie a spustenie, aj pri obmedzenom pohybe',
     note: 'Potápač je vygenerovaný obrázok bez skutočnej osoby, značiek a certifikátov (výnimka vlastníka z pravidla 5 pre smer 7). Pozadie je skutočná fotografia z aquarea.sk.',
   },
+  {
+    n: 8, name: 'Rýchla voda · letecký pohľad', desktop: v8d, mobile: v8m,
+    mood: 'Vetva smeru 7 bez potápača. Úvod je len letecká fotografia areálu, ktorú návštevník hneď vidí celú: na telefóne skutočná fotografia, na počítači jej rozšírená verzia z AI, aby vyplnila rám. Pomaly sa k nej približuje a posúva ako dron, s tlačidlom na zastavenie. Vpravo rovnaký plný tmavý panel s cenami, stavom a tlačidlami, ďalej rovnaké pásy vo farbách loga.',
+    palette: [['modrá z loga', '#00a8f0'], ['hlboká modrá', '#006b99'], ['červená z loga', '#d80018'], ['čierna', '#181818'], ['hladina', '#f0faff'], ['biela', '#ffffff']],
+    type: 'Barlow Condensed + Barlow',
+    signature: 'skutočná letecká fotografia areálu na celý rám, pomalý prelet (približovanie a posun), tlačidlo na zastavenie a spustenie aj pri obmedzenom pohybe',
+    note: 'Rozšírenie fotografie na desktope je z AI (výnimka vlastníka z pravidla 5), na stránke je viditeľné TODO nahradiť skutočnou širšou fotografiou.',
+  },
+  {
+    n: 9, name: 'Rýchla voda · ponor v tme', desktop: v9d, mobile: v9m,
+    mood: 'Vetva smeru 7 len s potápačom. Tmavá voda jazera, v nej potápač, ktorého osvetľuje kužeľ svetla ako baterka, podobne ako v smere 4. Svetlo sleduje kurzor alebo prst, inak samo putuje, v lúči sa trblietajú čiastočky v hĺbke. Potápač kope nohami. Všetky údaje sú naďalej na plných paneloch a čitateľné.',
+    palette: [['modrá z loga', '#00a8f0'], ['hlboká modrá', '#006b99'], ['červená z loga', '#d80018'], ['čierna', '#181818'], ['tma', '#03070b'], ['biela', '#ffffff']],
+    type: 'Barlow Condensed + Barlow',
+    signature: 'kužeľ svetla v tmavej vode (kurzor, ťahanie prstom, alebo vlastná dráha), čiastočky svietiace len v lúči, potápač s kopaním nôh, tlačidlo na zastavenie a spustenie',
+    note: 'Podvodné pozadie aj potápač sú obrázky z AI (výnimka vlastníka z pravidla 5), na stránke je viditeľné TODO nahradiť skutočnými fotografiami.',
+  },
 ];
 ---
 <Base title="Smery domovskej stránky" description="Výber vizuálneho smeru pre redizajn webu Aquarea Čierna Voda." bodyClass="bg-[#f5f6f7] text-[#16202a]" themeColor="#f5f6f7">
   <main id="obsah" class="mx-auto max-w-6xl px-4 py-10 font-sans md:px-8 md:py-16">
     <p class="text-sm font-semibold text-[#4b5866]">Aquarea Čierna Voda, koncept redizajnu</p>
-    <h1 class="mt-2 text-3xl font-bold tracking-tight md:text-5xl">Sedem smerov domovskej stránky</h1>
+    <h1 class="mt-2 text-3xl font-bold tracking-tight md:text-5xl">Deväť smerov domovskej stránky</h1>
     <p class="mt-4 max-w-3xl text-lg leading-relaxed text-[#35424f]">
-      Všetkých sedem používa rovnaký skutočný obsah z aquarea.sk (ceny, hodiny, kontakty, fotografie) a rovnakú novú štruktúru webu. Líšia sa náladou, typografiou a hlavným efektom. Na mobile majú všetky spodnú lištu Zavolať / Rezervovať / Navigovať. Smery 4 a 5 sú najodvážnejšie, postavené na pohybe. Smer 6 je pohyb v službe čitateľnosti a rezervácie. Smer 7 je odvážny a športový, ale s rovnakou prísnosťou na prístupnosť.
+      Všetkých deväť používa rovnaký skutočný obsah z aquarea.sk (ceny, hodiny, kontakty, fotografie) a rovnakú novú štruktúru webu. Líšia sa náladou, typografiou a hlavným efektom. Na mobile majú všetky spodnú lištu Zavolať / Rezervovať / Navigovať. Smery 4 a 5 sú najodvážnejšie, postavené na pohybe. Smer 6 je pohyb v službe čitateľnosti a rezervácie. Smer 7 je odvážny a športový, ale s rovnakou prísnosťou na prístupnosť. Smery 8 a 9 sú dve vetvy smeru 7: len letecká fotografia, alebo len potápač v tme.
     </p>
     <ol class="mt-12 space-y-16" role="list">
       {directions.map((d) => (

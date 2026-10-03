@@ -1,0 +1,48 @@
+/*
+ * V8 (aerial) and V9 (dark diver): hero variants of V7 (Phase 7). Imported after v7.css by those two pages only.
+ * NOT waived: WCAG AA, visible focus, reduced motion, Lighthouse ≥ 90. AI placeholder photos carry a visible TODO chip.
+ */
+@layer properties, theme, base, components, utilities;
+
+@layer components {
+  .v7-chip-todo { position: absolute; right: .6rem; bottom: .6rem; z-index: 4; max-width: min(19rem, calc(100% - 4.5rem)); font-size: .75rem; }
+  .v7-chip-todo .todo-note { font-size: .75rem; padding: .25rem .45rem; }
+  @media (min-width: 1024px) { .v7-chip-todo { right: auto; left: 4.2rem; bottom: 1rem; max-width: 20rem; } }
+
+  /* ---------- V8: only the aerial photo ---------- */
+  .v8-photo { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: var(--v7-hlbka); }
+  .v8-photo img { display: block; width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 55%; }
+  /* the camera drifts slowly over the area (transform only; runs only while JS made the stage live, pausable) */
+  .v7-stage[data-live] .v8-photo img { animation: v8-drift 46s ease-in-out infinite alternate; }
+  .v7-stage[data-paused] .v8-photo img, .v7-stage[data-offscreen] .v8-photo img { animation-play-state: paused; }
+  @keyframes v8-drift { from { transform: scale(1.02) translate3d(0, 0, 0); } to { transform: scale(1.12) translate3d(-2.2%, -1.6%, 0); } }
+  @media (min-width: 1024px) {
+    .v8-photo { width: 58%; }
+    .v8-hero { grid-template-columns: 46% 54%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .v7-stage:not([data-live]) .v8-photo img, .v7-stage[data-optin][data-paused] .v8-photo img { animation: none !important; }
+    .v7-stage[data-optin]:not([data-paused]) .v8-photo img { animation-duration: 46s !important; animation-iteration-count: infinite !important; }
+  }
+
+  /* ---------- V9: only the diver, torch in dark water ---------- */
+  .v9-stage { --tx: 36%; --ty: 48%; --r: 300px; background: #03070b; }
+  .v9-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: #03070b; }
+  .v9-bg img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; }
+  .v9-snow { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; pointer-events: none; }
+  /* the torch: everything is dim except where the beam falls (the facts around it are on solid panels) */
+  .v9-dark { position: absolute; inset: 0; z-index: 3; pointer-events: none;
+    background: radial-gradient(circle var(--r) at var(--tx) var(--ty), rgb(3 7 11 / 0) 0%, rgb(3 7 11 / .1) 38%, rgb(3 7 11 / .62) 72%, rgb(3 7 11 / .8) 100%); }
+  .v9-glow { position: absolute; inset: 0; z-index: 3; pointer-events: none;
+    background: radial-gradient(circle calc(var(--r) * .8) at var(--tx) var(--ty), rgb(255 238 205 / .2) 0%, rgb(255 238 205 / .07) 45%, rgb(255 238 205 / 0) 100%); }
+  .v9-stage .v7-diver-nudge { z-index: 1; }
+  .v9-stage .v7-bubble { z-index: 4; }
+  .v9-stage .v7-pause, .v9-stage .v7-chip-todo { z-index: 5; }
+  .v9-stage .v7-diver { filter: none; }
+  @media (min-width: 1024px) {
+    .v9-bg { width: 58%; }
+    .v9-snow, .v9-dark, .v9-glow { width: 58%; right: auto; }
+    .v9-stage .v7-diver-nudge { top: 28%; }
+  }
+  @media (prefers-reduced-motion: reduce) { .v9-glow { opacity: .85; } }
+}

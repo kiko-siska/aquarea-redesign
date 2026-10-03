@@ -1,0 +1,389 @@
+---
+
+/**
+ * Direction 7 · Rýchla voda: bold and sporty, still fully usable (Phase 6, DECISIONS.md).
+ * V9 = V7 with only the diver: dark AI-generated underwater water lit by a torch (third rule-5 exception) beside a SOLID
+ * angled panel; text never sits on moving water. Below: flat logo-colour bands with hard angled edges.
+ * Effects are added by JS on top of a complete static page; each has a reduced-motion version.
+ * NOT waived: AGENTS.md rule 7 applies in full.
+ */
+import '@fontsource/barlow-condensed/latin-800.css';
+import '@fontsource/barlow-condensed/latin-ext-800.css';
+import '@fontsource/barlow-condensed/latin-800-italic.css';
+import '@fontsource/barlow-condensed/latin-ext-800-italic.css';
+import '@fontsource/barlow/latin-400.css';
+import '@fontsource/barlow/latin-ext-400.css';
+import '@fontsource/barlow/latin-700.css';
+import '@fontsource/barlow/latin-ext-700.css';
+import '../../../styles/v7.css';
+import '../../../styles/v7-heroes.css';
+import '../../../lib/motion/motion.css';
+import { Image, getImage } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/v7/Header.astro';
+import Footer from '../../../components/v7/Footer.astro';
+import Diver from '../../../components/v7/DiverPhoto.astro';
+import Photo from '../../../components/shared/Photo.astro';
+import Icon from '../../../components/shared/Icon.astro';
+import Todo from '../../../components/shared/Todo.astro';
+import StickyCta from '../../../components/shared/StickyCta.astro';
+import StatusScript from '../../../components/shared/StatusScript.astro';
+import { site, hours, prices, zones, diving, fff, highlight, photos as photoData } from '../../../lib/content';
+import { getPhoto } from '../../../lib/photos';
+import { priceShort, time, dateLong, dateRange } from '../../../lib/format';
+import underwater from '../../../assets/generated/v9-underwater-dark.jpg';
+import { Image as AstroImage } from 'astro:assets';
+import { url } from '../../../lib/url';
+
+const book = '#rezervacie';
+const main = hours.periods.find((p) => p.id === 'hlavna')!;
+const [wk, we] = main.weekly!;
+const partnerFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/partners/*.png', { eager: true });
+
+const heroFacts = [
+  { value: priceShort(highlight('beach-adult').amount), label: 'pláž, dospelý / deň' },
+  { value: `od ${priceShort(highlight('apartment').amount)}`, label: 'apartmán / noc' },
+  { value: priceShort(diving.intro.price), label: 'skúšobný ponor' },
+];
+
+const zoneCards = [
+  {
+    id: 'plaz', tone: 'v7-on-blue', name: zones.beach.name, href: url(zones.beach.href), more: 'Všetko o pláži', photo: 'plaz-molo-lehatka',
+    lead: zones.beach.lead,
+    big: priceShort(highlight('beach-adult').amount), price: `dospelý / deň, deti 4 – 14 r. ${priceShort(highlight('beach-child').amount)}`,
+    extra: `Event zóna pre oslavy a firemné akcie ${zones.beach.event.capacity.split(' (')[0]}.`,
+    cls: 'lg:col-span-7 lg:row-span-2', media: 'aspect-[4/3] lg:aspect-auto lg:min-h-[18rem] lg:flex-1',
+  },
+  {
+    id: 'pobyt', tone: 'v7-on-ink', name: zones.premium.name, href: url(zones.premium.href), more: 'Všetko o pobyte', photo: 'kemping-vlastne-molo',
+    lead: 'Apartmány a kemping priamo pri jazere, so súkromím a privátnym prístupom k vode.',
+    big: `od ${priceShort(highlight('apartment').amount)}`, price: `apartmán / noc, kemping ${priceShort(highlight('camp-adult').amount)} dospelý / deň`,
+    extra: 'Vstup na pláž je v cene pobytu.',
+    cls: 'lg:col-span-5', media: 'aspect-[16/9]',
+  },
+  {
+    id: 'dive', tone: 'v7-on-deep', name: diving.name, href: url(diving.href), more: 'Všetko o potápaní', photo: 'dive-vstup-do-vody',
+    lead: diving.lead,
+    big: priceShort(diving.intro.price), price: `skúšobný ponor, kurz OWD ${priceShort(diving.course.price)}`,
+    extra: '',
+    cls: 'lg:col-span-5', media: 'aspect-[16/9]',
+  },
+];
+
+const audience = (a: string) => (a === 'divers' ? 'len potápači' : 'verejnosť');
+
+// gallery: real albums grouped into three filters
+const groups = [
+  { id: 'plaz', label: 'Pláž', albums: ['plaz'] },
+  { id: 'pobyt', label: 'Pobyt', albums: ['apartmany', 'kemping'] },
+  { id: 'voda', label: 'Potápanie', albums: ['dive', 'freediving'] },
+];
+const galleryIds = ['dron-zatoka-stromy', 'pod-vodou-scuka', 'apartmany-terasa', 'plaz-zapad-slnka', 'kemping-altanok', 'pod-vodou-kapre-potapac', 'plaz-leto-travnik', 'freediving-ostrov', 'kemping-vecer'];
+const gallery = await Promise.all(galleryIds.map(async (id) => {
+  const p = getPhoto(id);
+  const big = await getImage({ src: p.img, width: Math.min(1600, p.img.width), format: 'webp', quality: 78 });
+  const group = groups.find((g) => g.albums.includes(p.album))!;
+  return { ...p, big: big.src, group: group.id, groupLabel: group.label };
+}));
+
+const flows = [
+  { ...site.booking.stayPrevio, title: 'Pobyt online', note: 'apartmány a kemping, výber termínu v Previo' },
+  { ...site.booking.stayForm, title: 'Pobyt cez formulár', note: 'apartmány, kemping, stan v Dive Centre' },
+  { ...site.booking.introDive, title: 'Skúšobný ponor', note: `${priceShort(diving.intro.price)}, dá sa kúpiť aj ako darček` },
+  { ...site.booking.course, title: 'Kurz OWD / AOWD', note: `${priceShort(diving.course.price)}, licencia SDI` },
+  { ...site.booking.groups, title: 'Registrácia potápačskej skupiny', note: 's potápačským reverzom' },
+];
+// the group heading already names the zone, so the rows don't repeat it (facts unchanged)
+const shortLabel = (l: string) => { const t = l.replace(/^(Plážová zóna|Dive Center), /, ''); return t.charAt(0).toUpperCase() + t.slice(1); };
+const priceGroups = [
+  { title: 'Plážová zóna', ids: ['beach-adult', 'beach-child', 'beach-family', 'beach-afternoon'] },
+  { title: 'Prémium zóna: kemping a apartmány', ids: ['apartment', 'camp-adult'] },
+  { title: 'Dive Center', ids: ['dive-day', 'intro-dive', 'owd'] },
+];
+---
+<Base
+  title="Smer 9 · Rýchla voda, ponor"
+  description="Aquarea Čierna Voda: pláž, pobyt pri vode a Dive Center pri jazere s krištáľovo čistou vodou. Ceny, dnešné otváracie hodiny a rezervácie."
+  bodyClass="v7"
+  themeColor="#181818"
+>
+  <Header bookHref={book} />
+  <main id="obsah">
+    <!-- Hero (V9): only the diver, in dark water lit by a torch; solid angled panel on the right -->
+    <section aria-labelledby="v7-title" class="v7-hero" data-v7-hero>
+      <div class="v7-stage v9-stage" data-v7-stage>
+        <div class="v9-bg"><AstroImage src={underwater} alt="" widths={[900, 1400, 2000]} sizes="(min-width: 1024px) 58vw, 100vw" format="webp" quality={74} loading="eager" fetchpriority="high" /></div>
+        <div class="v7-diver-nudge"><div class="v7-diver-wrap"><Diver /></div></div>
+        <canvas class="v9-snow" aria-hidden="true"></canvas>
+        <div class="v9-dark" aria-hidden="true"></div>
+        <div class="v9-glow" aria-hidden="true"></div>
+        {Array.from({ length: 9 }, () => <span class="v7-bubble" aria-hidden="true"></span>)}
+        <button type="button" class="v7-pause" data-v7-pause aria-pressed="false" aria-label="Zastaviť animáciu svetla a potápača" hidden></button>
+        <div class="v7-chip-todo"><Todo text="Podvodné pozadie a potápač sú obrázky z AI, nahradiť skutočnými fotografiami." /></div>
+      </div>
+      <div class="v7-panel v7-dark">
+        <div class="px-4 md:px-8 lg:px-0">
+          <h1 id="v7-title" class="v7-display v7-h1" data-v7-h1>Aquarea<br />Čierna Voda</h1>
+          <p class="mt-2 text-lg font-bold text-white sm:hidden" data-v7-what>{site.fullName}</p>
+          <p class="v7-lead mt-3 hidden text-white sm:block">Areál športu a relaxu pri jazere s krištáľovo čistou vodou: pláž, pobyt pri vode a potápanie.</p>
+          <ul class="v7-price-strip mt-3 sm:mt-4" role="list">
+            {heroFacts.map((f) => <li class="v7-sticker"><b class="v7-num">{f.value}</b><span>{f.label}</span></li>)}
+          </ul>
+          <div class="mt-4 flex flex-wrap gap-3 sm:mt-5">
+            <a href={book} class="v7-cta">Rezervovať</a>
+            <a href={`tel:${site.contacts.info.tel}`} class="v7-btn"><Icon name="phone" size={18} />Zavolať</a>
+          </div>
+          <!-- one-line live status (fixed height: the long detail lives in the hours section, so nothing shifts) -->
+          <div class="v7-status mt-3 sm:mt-4" data-status data-live data-state="unknown">
+            <span class="status-dot" aria-hidden="true"></span>
+            <p class="font-bold" data-status-text>Otváracie hodiny</p>
+            <p class="col-start-2 text-[0.9375rem]"><a href="#hodiny" class="v7-link inline-flex min-h-11 items-center">Otváracie hodiny a výnimky</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Zones: bold slabs, an asymmetric trio -->
+    <section id="zony" aria-labelledby="v7-zones" class="v7-band v7-on-white">
+      <div class="v7-wrap">
+        <h2 id="v7-zones" class="v7-display v7-h2 max-w-3xl">Pláž, pobyt alebo potápanie</h2>
+        <p class="v7-measure mt-4 v7-muted">Verejná Plážová zóna a Prémium zóna s apartmánmi, kempingom a Dive Centrom. Na pláž vstúpite po zaplatení vstupného, pobyt je možný len na základe rezervácie a skúšobný ponor či kurz si objednáte cez formulár.</p>
+        <ul class="mt-10 grid gap-6 lg:grid-cols-12 lg:gap-8" role="list" data-reveal-group>
+          {zoneCards.map((z) => (
+            <li class:list={['v7-slab m-ripple', z.tone, z.cls]} data-big={z.id === 'plaz' ? '' : undefined}>
+              <div class:list={['v7-slab-media', z.media]}>
+                <Photo id={z.photo} sizes="(min-width: 1024px) 58vw, 100vw" widths={[480, 720, 960]} pictureClass="block h-full" class="h-full w-full object-cover" />
+              </div>
+              <div class="v7-slab-body">
+                <h3 class="v7-display v7-h3">{z.name}</h3>
+                <p class="v7-big-num v7-num">{z.big}</p>
+                <p class="font-bold">{z.price}</p>
+                <p class="v7-measure">{z.lead}</p>
+                {z.extra && <p class="text-[0.9375rem]">{z.extra}</p>}
+                <p class="v7-slab-link mt-auto pt-2"><a href={z.href} class="v7-link inline-flex min-h-11 items-center">{z.more}</a></p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Dive Center: the diver again, static, kicks on hover -->
+    <section aria-labelledby="v7-dive" class="v7-band v7-on-deep v7-dark">
+      <div class="v7-wrap grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-center lg:gap-16">
+        <figure class="v7-diver-static relative aspect-[4/3] w-full overflow-hidden bg-[var(--v7-cierna)]" style="clip-path:polygon(0 0,100% 0,100% calc(100% - 2rem),calc(100% - 2rem) 100%,0 100%)" data-v7-diver-static>
+          <AstroImage src={underwater} alt="" widths={[700, 1000, 1400]} sizes="(min-width: 1024px) 50vw, 100vw" format="webp" quality={72} class="absolute inset-0 h-full w-full object-cover" />
+          <div class="absolute bottom-[24%] left-[-4%] w-[96%]"><Diver /></div>
+        </figure>
+        <div>
+          <h2 id="v7-dive" class="v7-display v7-h2">Potápanie k zanoreným atrakciám</h2>
+          <p class="v7-measure mt-4">{diving.story[0]}</p>
+          <dl class="mt-8 grid grid-cols-2 gap-x-6 gap-y-7">
+            {diving.facts.map((f) => (
+              <div class="v7-fact">
+                <dt>{f.label}</dt>
+                <dd class="v7-num" data-count={/^\d{4}$/.test(f.value) || /★/.test(f.value) ? undefined : ''}>{f.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a href={site.booking.introDive.href} target="_blank" rel="noopener" class="v7-cta">Rezervovať ponor<span class="sr-only"> (otvorí formulár na aquarea.sk)</span></a>
+            <a href={url(diving.href)} class="v7-btn">Všetko o potápaní</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Status + hours -->
+    <section id="hodiny" aria-labelledby="v7-hours" class="v7-band v7-on-tint">
+      <div class="v7-wrap grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
+        <div>
+          <h2 id="v7-hours" class="v7-display v7-h2">Kedy je otvorené</h2>
+          <div class="v7-on-ink v7-dark mt-6 grid grid-cols-[auto_1fr] items-start gap-x-3 p-5" data-status data-live data-state="unknown">
+            <span class="status-dot mt-2" aria-hidden="true"></span>
+            <p class="v7-display text-3xl uppercase" data-status-text>Otváracie hodiny</p>
+            <p class="col-start-2 text-[#d6dde0]" data-status-detail>{hours.season}</p>
+          </div>
+          <h3 class="v7-display mt-8 text-2xl uppercase">{main.title}, {main.subtitle}</h3>
+          <dl class="mt-3 grid gap-4 min-[420px]:grid-cols-2">
+            {[wk, we].map((w) => <div><dt class="v7-muted">{w.label}</dt><dd class="v7-display v7-num text-[clamp(1.9rem,2.6vw,2.5rem)] leading-none lg:whitespace-nowrap">{time(w.open)} – {time(w.close)}</dd></div>)}
+          </dl>
+          <p class="v7-measure mt-5">{hours.lastEntry}</p>
+        </div>
+        <div>
+          <h3 class="v7-display text-2xl uppercase">{hours.season} po obdobiach</h3>
+          <div class="v7-accordion mt-4">
+            {hours.periods.map((p) => (
+              <details class="m-acc">
+                <summary><span class="font-bold">{p.title}</span> <span class="v7-muted">{p.subtitle}</span><Icon name="chevron-down" size={22} class="v7-acc-icon" /></summary>
+                <div class="v7-acc-body">
+                  {p.closed && <p>{p.text}</p>}
+                  {p.rows && (
+                    <table class="v7-table">
+                      <caption class="sr-only">{p.title}</caption>
+                      <thead><tr><th scope="col">Dátum</th><th scope="col">Hodiny</th><th scope="col">Pre koho</th></tr></thead>
+                      <tbody>{p.rows.map((r) => <tr><td class="v7-num">{r.days} {dateRange(r.from, r.to)}</td><td class="v7-num whitespace-nowrap">{time(r.open)} – {time(r.close)}</td><td>{audience(r.audience)}</td></tr>)}</tbody>
+                    </table>
+                  )}
+                  {p.weekly && !p.rows && (
+                    <table class="v7-table">
+                      <caption class="sr-only">{p.title}</caption>
+                      <thead><tr><th scope="col">Dni</th><th scope="col">Hodiny</th><th scope="col">Pre koho</th></tr></thead>
+                      <tbody>{p.weekly.map((w) => <tr><td>{w.label}</td><td class="v7-num whitespace-nowrap">{time(w.open)} – {time(w.close)}</td><td>{audience(w.audience)}</td></tr>)}</tbody>
+                    </table>
+                  )}
+                </div>
+              </details>
+            ))}
+          </div>
+          <p class="v7-measure mt-5 v7-muted">{hours.seasonEnd.text}</p>
+          <p class="mt-3"><Todo text={hours.nextSeason.todo} /></p>
+          <p class="mt-4"><a href={url('/otvaracie-hodiny/')} class="v7-link inline-flex min-h-11 items-center">Otváracie hodiny po dňoch</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prices: logo-blue band, ink numerals -->
+    <section id="ceny" aria-labelledby="v7-prices" class="v7-band v7-on-blue">
+      <div class="v7-wrap">
+        <h2 id="v7-prices" class="v7-display v7-h2">Cenník v skratke</h2>
+        <p class="mt-3 font-bold">{prices.validFromText}. Deti do 3 rokov majú vstup zdarma.</p>
+        <div class="mt-10 grid gap-10 md:grid-cols-3 md:gap-8" data-reveal-group>
+          {priceGroups.map((g) => (
+            <div>
+              <h3 class="v7-display text-2xl uppercase">{g.title}</h3>
+              <dl class="mt-3">
+                {g.ids.map((id) => { const h = highlight(id); return (
+                  <div class="v7-price-row"><dt class="font-bold">{shortLabel(h.label)}</dt><dd class="v7-num">{h.from && 'od '}{priceShort(h.amount)}</dd></div>
+                ); })}
+              </dl>
+            </div>
+          ))}
+        </div>
+        <p class="mt-10"><a href={url('/cennik/')} class="v7-btn">Celý cenník všetkých zón</a></p>
+      </div>
+    </section>
+
+    <!-- FotoFilmFest -->
+    <section aria-labelledby="v7-fff" class="v7-band v7-on-ink v7-dark">
+      <div class="v7-wrap grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:gap-16">
+        <div>
+          <h2 id="v7-fff" class="v7-display v7-h2">{fff.next.title}</h2>
+          <p class="v7-display v7-num mt-3 text-3xl text-[var(--v7-modra)]">{dateLong(fff.next.date)}</p>
+          <p class="mt-3"><Todo text={fff.next.todo} /></p>
+          <p class="v7-measure mt-5">{fff.lead}</p>
+          <p class="mt-7"><a href={url(fff.href)} class="v7-btn">Propozície a prihlášky</a></p>
+        </div>
+        <div class="overflow-hidden" style="clip-path:polygon(0 0,100% 0,100% calc(100% - 2rem),calc(100% - 2rem) 100%,0 100%)">
+          <Photo id="pod-vodou-rura" sizes="(min-width: 1024px) 45vw, 100vw" widths={[480, 720, 960]} pictureClass="block aspect-[4/3]" class="h-full w-full object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery: filter (Flip) + lightbox, plain links without JS -->
+    <section id="galeria" aria-labelledby="v7-gal" class="v7-band v7-on-white" data-flip-gallery>
+      <div class="v7-wrap">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <h2 id="v7-gal" class="v7-display v7-h2">Galéria</h2>
+          <a href={url('/galeria/')} class="v7-link inline-flex min-h-11 items-center">Všetky albumy</a>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-2" role="group" aria-label="Filtrovať fotografie" data-gallery-filters hidden>
+          <button type="button" class="v7-chip" aria-pressed="true" data-filter="all">Všetko</button>
+          {groups.map((g) => <button type="button" class="v7-chip" aria-pressed="false" data-filter={g.id}>{g.label}</button>)}
+        </div>
+        <p class="sr-only" aria-live="polite" data-gallery-status></p>
+        <ul class="v7-gallery mt-6" role="list" data-gallery-grid>
+          {gallery.map((g, i) => (
+            <li data-group={g.group} class:list={[i === 0 && 'v7-gallery-wide']}>
+              <a href={g.big} class="v7-thumb" data-lightbox data-caption={g.alt}>
+                <Photo id={g.id} sizes="(min-width: 1024px) 33vw, 50vw" widths={[360, 540, 720]} pictureClass="block h-full" class="h-full w-full object-cover" />
+                <span class="sr-only">Zväčšiť fotografiu ({g.groupLabel})</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-14 flex flex-wrap items-center justify-between gap-3">
+          <h3 id="v7-partners" class="v7-display text-2xl uppercase">Certifikácie a partneri Dive Centra</h3>
+          <button type="button" class="v7-btn !min-h-11 !px-4 !text-base" aria-pressed="false" data-marquee-toggle hidden>Pozastaviť pohyb</button>
+        </div>
+        <div class="m-marquee mt-6" data-marquee aria-labelledby="v7-partners" role="group">
+          <ul class="m-marquee-track" role="list">
+            {site.partners.map((p) => {
+              const img = partnerFiles[`/src/assets/partners/${p.file}`].default;
+              return <li><Image src={img} alt={p.label} height={56} width={Math.round((img.width / img.height) * 56)} class="h-12 w-auto md:h-14" loading="lazy" /></li>;
+            })}
+          </ul>
+        </div>
+      </div>
+      <dialog class="v7-lightbox" aria-label="Fotografia" data-lightbox-dialog>
+        <figure>
+          <img src="" alt="" data-lightbox-img />
+          <figcaption data-lightbox-caption></figcaption>
+        </figure>
+        <div class="v7-lightbox-bar">
+          <button type="button" class="v7-iconbtn !text-white" data-lightbox-prev><Icon name="chevron-left" size={26} /><span class="sr-only">Predchádzajúca</span></button>
+          <button type="button" class="v7-iconbtn !text-white" data-lightbox-next><Icon name="chevron-right" size={26} /><span class="sr-only">Ďalšia</span></button>
+          <button type="button" class="v7-iconbtn !text-white" data-lightbox-close><Icon name="x" size={26} /><span class="sr-only">Zavrieť</span></button>
+        </div>
+      </dialog>
+    </section>
+
+    <!-- Getting there -->
+    <section id="cesta" aria-labelledby="v7-way" class="v7-band v7-on-tint">
+      <div class="v7-wrap grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-16">
+        <div>
+          <h2 id="v7-way" class="v7-display v7-h2">Ako sa k nám dostanete</h2>
+          <address class="mt-5 text-xl font-bold not-italic">{site.address.lines.slice(0, 2).join(', ')}</address>
+          <p class="v7-num mt-1 v7-muted">GPS {site.address.lat}, {site.address.lng}</p>
+          <p class="v7-measure mt-4">{site.gettingThere.text}</p>
+          <p class="v7-measure mt-3">{site.gettingThere.parking}</p>
+          <p class="mt-3"><Todo text={site.gettingThere.todo} /></p>
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a href={site.maps.directions} target="_blank" rel="noopener" class="v7-cta"><Icon name="navigation" size={20} />Navigovať<span class="sr-only"> (Google Mapy, nové okno)</span></a>
+            <a href={site.documents[1].href} target="_blank" rel="noopener" class="v7-btn"><Icon name="file" size={20} />Mapa areálu (PDF)</a>
+          </div>
+        </div>
+        <div class="border-4 border-[var(--v7-cierna)] bg-white">
+          <Photo id="mapa-arealu" sizes="(min-width: 1024px) 50vw, 100vw" widths={[480, 800, 1200]} class="w-full" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking -->
+    <section id="rezervacie" aria-labelledby="v7-book" class="v7-band v7-on-blue">
+      <div class="v7-wrap grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
+        <div>
+          <h2 id="v7-book" class="v7-display v7-h2">Rezervácie</h2>
+          <p class="v7-measure mt-4 font-bold">Rezervácie zatiaľ bežia na súčasnom webe aquarea.sk. Každý odkaz vedie na skutočný formulár alebo rezervačný systém a otvorí sa v novom okne.</p>
+          <p class="mt-6">{site.contacts.info.label}</p>
+          <p><a class="v7-display v7-num inline-flex min-h-11 items-center text-4xl hover:underline" href={`tel:${site.contacts.info.tel}`}>{site.contacts.info.phone}</a></p>
+          <p class="mt-3">{site.contacts.dive.label}</p>
+          <p><a class="v7-display v7-num inline-flex min-h-11 items-center text-4xl hover:underline" href={`tel:${site.contacts.dive.tel}`}>{site.contacts.dive.phone}</a></p>
+          <p class="mt-2"><a class="v7-link inline-flex min-h-11 items-center" href={`mailto:${site.contacts.info.email}`}>{site.contacts.info.email}</a></p>
+        </div>
+        <div>
+          <ul class="v7-flows" role="list" data-reveal-group>
+            {flows.map((f, i) => (
+              <li>
+                <a href={f.href} target="_blank" rel="noopener" class="v7-flow">
+                  <span class="min-w-0"><span class="v7-display block text-3xl uppercase leading-none md:text-4xl">{f.title}</span><span class="mt-1 block font-bold">{f.note}</span></span>
+                  <span class:list={['v7-flow-go', i === 0 && 'is-primary']}><Icon name="external" size={22} /><span class="sr-only"> (aquarea.sk, nové okno)</span></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-5"><Todo text={site.booking.todo} /></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <StickyCta bookHref={book} class="v7-bar" itemClass="text-white" primaryClass="bg-[var(--v7-cervena)] text-white" />
+  <StatusScript />
+  <script>
+    import { initV7 } from '../../../components/v7/main';
+    import { initTorch } from '../../../components/v7/torch';
+    initV7();
+    initTorch(document.querySelector<HTMLElement>('[data-v7-stage]')!);
+  </script>
+</Base>

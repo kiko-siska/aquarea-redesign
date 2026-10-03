@@ -37,9 +37,10 @@ export async function initV7() {
   // button: motion starts only if the visitor presses it (user-initiated, so it is allowed).
   const hero_ = (autostart: boolean) => {
     const cleanups: (() => void)[] = [];
-    if (hero && stage && svg) {
-      const rig = rigDiver(svg, wrap, nudge, gsap);
-      const bubbles = bubbleField(stage, bubbleEls, svg.querySelector('[data-d="reg"]'), gsap);
+    if (hero && stage) {
+      // V8 (aerial only) has no diver: the same pause / off-screen / reduced-motion logic still applies
+      const rig = svg ? rigDiver(svg, wrap, nudge, gsap) : { start() {}, stop() {}, setHeroVisible() {}, pointer() {}, leave() {}, burst() {}, destroy() {}, running: false };
+      const bubbles = svg ? bubbleField(stage, bubbleEls, svg.querySelector('[data-d="reg"]'), gsap) : { start() {}, stop() {}, burst() {} };
       let paused = !autostart, visible = true;
       stage.setAttribute('data-live', '');
       if (!autostart) stage.setAttribute('data-optin', '');
@@ -95,7 +96,7 @@ export async function initV7() {
       hero.addEventListener('pointerleave', onLeave);
       hero.addEventListener('pointerdown', onDown, { passive: true });
       sync();
-      (window as unknown as { __v7: object }).__v7 = { get running() { return rig.running; } };
+      (window as unknown as { __v7: object }).__v7 = { get running() { return svg ? rig.running : !paused && visible && !document.hidden; } };
 
       cleanups.push(() => {
         io.disconnect(); document.removeEventListener('visibilitychange', onVis);
