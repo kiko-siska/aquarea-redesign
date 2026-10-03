@@ -1,0 +1,63 @@
+/*
+ * Reusable motion building blocks (CSS half). See ./README.md.
+ * Rules: transform/opacity only, nothing moves under text that is being read, and every block has an
+ * explicit prefers-reduced-motion version (global.css forces animation-duration to 0.01 ms under
+ * `reduce`, which would snap CSS animations to their END keyframe, so each block sets `animation: none`).
+ * Lives in `components` so Tailwind utilities still win (the importing page declares the layer order).
+ */
+@layer components {
+  /* ---- m-ripple: a wash that expands from the pointer's entry point (clip-path), cards/buttons ---- */
+  .m-ripple { position: relative; isolation: isolate; --rx: 50%; --ry: 50%; }
+  .m-ripple::before {
+    content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+    background: var(--m-ripple-color, rgb(21 156 151 / 0.12));
+    clip-path: circle(0% at var(--rx) var(--ry));
+    transition: clip-path .6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @media (hover: hover) { .m-ripple:hover::before { clip-path: circle(150% at var(--rx) var(--ry)); } }
+  .m-ripple:focus-within::before { clip-path: circle(150% at var(--rx) var(--ry)); }
+
+  /* ---- m-marquee: runs only once JS marks it [data-running] (it also adds a pause button) ---- */
+  .m-marquee { overflow: hidden; }
+  .m-marquee-track { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2.5rem 3rem; padding-inline: 1rem; }
+  .m-marquee[data-running] .m-marquee-track { flex-wrap: nowrap; justify-content: flex-start; width: max-content; padding-inline: 0; animation: m-marquee var(--m-marquee-duration, 40s) linear infinite; }
+  .m-marquee[data-running]:hover .m-marquee-track,
+  .m-marquee[data-running]:focus-within .m-marquee-track,
+  .m-marquee[data-running][data-paused] .m-marquee-track { animation-play-state: paused; }
+  @keyframes m-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ---- m-acc: smooth native <details> (Chromium 131+); instant elsewhere ---- */
+  .m-acc { interpolate-size: allow-keywords; }
+  .m-acc::details-content { block-size: 0; overflow: clip; transition: block-size .35s cubic-bezier(0.22, 1, 0.36, 1), content-visibility .35s allow-discrete; }
+  .m-acc[open]::details-content { block-size: auto; }
+
+  /* ---- m-progress: thin reading-progress bar, CSS scroll-driven (no JS) ---- */
+  .m-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; transform-origin: 0 50%; transform: scaleX(0); background: var(--m-progress-color, #159c97); }
+  @supports (animation-timeline: scroll()) {
+    .m-progress { animation: m-progress linear both; animation-timeline: scroll(root); }
+  }
+  @keyframes m-progress { to { transform: scaleX(1); } }
+
+  /* ---- m-parallax: one image, ≤ 40 px of travel, CSS view timeline (no JS) ---- */
+  @supports (animation-timeline: view()) {
+    .m-parallax { scale: 1.1; animation: m-parallax linear both; animation-timeline: view(); }
+  }
+  @keyframes m-parallax { from { translate: 0 -20px; } to { translate: 0 20px; } }
+
+  /* ---- m-live: status dot pulses only while the place is open ---- */
+  [data-live][data-state="open"] .status-dot::after {
+    content: ""; position: absolute; inset: -5px; border-radius: 999px; border: 2px solid currentColor;
+    animation: m-live 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+  @keyframes m-live { from { transform: scale(.6); opacity: .9; } to { transform: scale(1.8); opacity: 0; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .m-ripple::before { transition: none; }
+    .m-marquee[data-running] .m-marquee-track { animation: none; flex-wrap: wrap; justify-content: center; width: auto; }
+    .m-marquee [data-clone] { display: none; }
+    .m-acc::details-content { transition: none; }
+    .m-progress { animation: none; display: none; }
+    .m-parallax { animation: none; scale: 1; translate: none; }
+    [data-live][data-state="open"] .status-dot::after { animation: none; transform: scale(1.35); opacity: .5; }
+  }
+}

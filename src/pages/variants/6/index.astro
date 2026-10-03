@@ -1,0 +1,374 @@
+---
+/**
+ * Direction 6 · Čistá voda: the usable one (Phase 5, DECISIONS.md).
+ * Bright, crisp, clear water. Text always sits on solid surfaces; the one signature effect (water light)
+ * lives inside the hero photo frame. Every effect is added by JS on top of a complete static page and
+ * has a reduced-motion version. NOT waived: AGENTS.md rule 7 applies in full.
+ */
+import '@fontsource-variable/bricolage-grotesque/opsz.css';
+import '@fontsource-variable/atkinson-hyperlegible-next';
+import '../../../styles/v6.css';
+import '../../../lib/motion/motion.css';
+import { Image, getImage } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/v6/Header.astro';
+import Footer from '../../../components/v6/Footer.astro';
+import Photo from '../../../components/shared/Photo.astro';
+import Icon from '../../../components/shared/Icon.astro';
+import Todo from '../../../components/shared/Todo.astro';
+import StickyCta from '../../../components/shared/StickyCta.astro';
+import StatusScript from '../../../components/shared/StatusScript.astro';
+import { site, hours, prices, zones, diving, fff, highlight, photos as photoData } from '../../../lib/content';
+import { getPhoto } from '../../../lib/photos';
+import { priceShort, time, dateLong, dateRange } from '../../../lib/format';
+import { url } from '../../../lib/url';
+
+const book = '#rezervacie';
+const main = hours.periods.find((p) => p.id === 'hlavna')!;
+const [wk, we] = main.weekly!;
+const partnerFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/partners/*.png', { eager: true });
+
+const heroFacts = [
+  { value: priceShort(highlight('beach-adult').amount), label: 'pláž, dospelý / deň' },
+  { value: `od ${priceShort(highlight('apartment').amount)}`, label: 'apartmán / noc' },
+  { value: priceShort(diving.intro.price), label: 'skúšobný ponor' },
+];
+
+const zoneCards = [
+  {
+    id: 'plaz', name: zones.beach.name, href: url(zones.beach.href), more: 'Všetko o pláži', photo: 'plaz-molo-lehatka',
+    lead: zones.beach.lead,
+    price: `${priceShort(highlight('beach-adult').amount)} dospelý / deň, deti 4 – 14 r. ${priceShort(highlight('beach-child').amount)}`,
+    extra: `Event zóna pre oslavy a firemné akcie ${zones.beach.event.capacity.split(' (')[0]}.`,
+    cls: 'lg:col-span-7 lg:row-span-2', media: 'aspect-[4/3] lg:aspect-auto lg:h-[26rem]',
+  },
+  {
+    id: 'pobyt', name: zones.premium.name, href: url(zones.premium.href), more: 'Všetko o pobyte', photo: 'kemping-vlastne-molo',
+    lead: 'Apartmány a kemping priamo pri jazere, so súkromím a privátnym prístupom k vode.',
+    price: `apartmán od ${priceShort(highlight('apartment').amount)} / noc, kemping ${priceShort(highlight('camp-adult').amount)} dospelý / deň`,
+    extra: 'Vstup na pláž je v cene pobytu.',
+    cls: 'lg:col-span-5', media: 'aspect-[16/9]',
+  },
+  {
+    id: 'dive', name: diving.name, href: url(diving.href), more: 'Všetko o potápaní', photo: 'dive-vstup-do-vody',
+    lead: diving.lead,
+    price: `skúšobný ponor ${priceShort(diving.intro.price)}, kurz OWD ${priceShort(diving.course.price)}`,
+    extra: '',
+    cls: 'lg:col-span-5', media: 'aspect-[16/9]',
+  },
+];
+
+const audience = (a: string) => (a === 'divers' ? 'len potápači' : 'verejnosť');
+
+// gallery: real albums grouped into three filters
+const groups = [
+  { id: 'plaz', label: 'Pláž', albums: ['plaz'] },
+  { id: 'pobyt', label: 'Pobyt', albums: ['apartmany', 'kemping'] },
+  { id: 'voda', label: 'Potápanie', albums: ['dive', 'freediving'] },
+];
+const galleryIds = ['dron-zatoka-stromy', 'pod-vodou-scuka', 'apartmany-terasa', 'plaz-zapad-slnka', 'kemping-altanok', 'pod-vodou-kapre-potapac', 'plaz-leto-travnik', 'freediving-ostrov', 'kemping-vecer'];
+const gallery = await Promise.all(galleryIds.map(async (id) => {
+  const p = getPhoto(id);
+  const big = await getImage({ src: p.img, width: Math.min(1600, p.img.width), format: 'webp', quality: 78 });
+  const group = groups.find((g) => g.albums.includes(p.album))!;
+  return { ...p, big: big.src, group: group.id, groupLabel: group.label };
+}));
+
+const flows = [
+  { ...site.booking.stayPrevio, title: 'Pobyt online', note: 'apartmány a kemping, výber termínu v Previo' },
+  { ...site.booking.stayForm, title: 'Pobyt cez formulár', note: 'apartmány, kemping, stan v Dive Centre' },
+  { ...site.booking.introDive, title: 'Skúšobný ponor', note: `${priceShort(diving.intro.price)}, dá sa kúpiť aj ako darček` },
+  { ...site.booking.course, title: 'Kurz OWD / AOWD', note: `${priceShort(diving.course.price)}, licencia SDI` },
+  { ...site.booking.groups, title: 'Registrácia potápačskej skupiny', note: 's potápačským reverzom' },
+];
+const priceGroups = [
+  { title: 'Plážová zóna', ids: ['beach-adult', 'beach-child', 'beach-family', 'beach-afternoon'] },
+  { title: 'Prémium zóna: kemping a apartmány', ids: ['apartment', 'camp-adult'] },
+  { title: 'Dive Center', ids: ['dive-day', 'intro-dive', 'owd'] },
+];
+---
+<Base
+  title="Smer 6 · Čistá voda"
+  description="Aquarea Čierna Voda: pláž, pobyt pri vode a Dive Center pri jazere s krištáľovo čistou vodou. Ceny, dnešné otváracie hodiny a rezervácie."
+  bodyClass="v6"
+  themeColor="#f5fafa"
+>
+  <Header bookHref={book} />
+  <main id="obsah">
+    <!-- Hero: everything a visitor needs in five seconds, on a solid surface -->
+    <section aria-labelledby="v6-title" class="pb-12 pt-6 md:pb-20 md:pt-14">
+      <div class="v6-wrap grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-center lg:gap-14">
+        <div>
+          <h1 id="v6-title" class="v6-display v6-h1" data-v6-h1>Aquarea Čierna Voda</h1>
+          <p class="v6-lead mt-4">Areál športu a relaxu pri jazere s krištáľovo čistou vodou: pláž, pobyt pri vode a potápanie.</p>
+          <dl class="v6-facts mt-6">
+            {heroFacts.map((f) => <div class="flex flex-col-reverse"><dt class="v6-fact-label">{f.label}</dt><dd class="v6-fact-num v6-num">{f.value}</dd></div>)}
+          </dl>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href={book} class="v6-cta">Rezervovať</a>
+            <a href={`tel:${site.contacts.info.tel}`} class="v6-btn"><Icon name="phone" size={18} />Zavolať</a>
+          </div>
+          <!-- one-line live status (fixed height: the long detail lives in the hours section, so nothing shifts) -->
+          <div class="v6-status mt-5" data-status data-live data-state="unknown">
+            <span class="status-dot" aria-hidden="true"></span>
+            <p class="font-bold" data-status-text>Otváracie hodiny</p>
+            <p class="col-start-2 text-[0.9375rem]"><a href="#hodiny" class="v6-link">Otváracie hodiny a výnimky</a></p>
+          </div>
+        </div>
+        <figure>
+          <div class="v6-frame">
+            <div class="v6-frame-core aspect-[4/3] lg:aspect-[5/4]" data-water-light>
+              <Photo id="dron-plytcina" priority sizes="(min-width: 1024px) 50vw, 100vw" widths={[480, 720, 960, 1280]} pictureClass="block h-full" class="h-full w-full object-cover" />
+            </div>
+          </div>
+          <figcaption class="mt-3 text-[0.9375rem] text-[var(--v6-tlmena)]">Tyrkysová plytčina a mólo, pohľad zhora. Fotografie: aquarea.sk</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Zones -->
+    <section id="zony" aria-labelledby="v6-zones" class="v6-section !pt-6 md:!pt-10">
+      <div class="v6-wrap">
+        <h2 id="v6-zones" class="v6-display v6-h2 max-w-3xl">Pláž, pobyt alebo potápanie</h2>
+        <p class="v6-measure mt-4 v6-muted">Areál má tri časti. Vstup na pláž sa platí na mieste, pobyt a potápanie si rezervujete vopred.</p>
+        <ul class="mt-10 grid gap-5 lg:grid-cols-12 lg:gap-6" role="list" data-reveal-group>
+          {zoneCards.map((z) => (
+            <li class:list={['v6-zone', 'm-ripple', z.cls]}>
+              <div class:list={['v6-zone-media', z.media]}>
+                <Photo id={z.photo} sizes="(min-width: 1024px) 58vw, 100vw" widths={[480, 720, 960]} pictureClass="block h-full" class="h-full w-full object-cover" />
+              </div>
+              <div class="v6-zone-body">
+                <h3 class="v6-display v6-h3">{z.name}</h3>
+                <p class="v6-measure">{z.lead}</p>
+                <p class="v6-num font-bold">{z.price}</p>
+                {z.extra && <p class="v6-muted text-[0.9375rem]">{z.extra}</p>}
+                <p class="v6-zone-link"><a href={z.href} class="v6-link">{z.more}</a></p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Dive Center in numbers (count-up; the final values are in the HTML) -->
+    <section aria-labelledby="v6-dive" class="v6-section v6-alt">
+      <div class="v6-wrap grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center lg:gap-16">
+        <div class="v6-frame order-2 lg:order-1">
+          <div class="v6-frame-core aspect-[4/3]">
+            <Photo id="pod-vodou-atrakcia-luce" sizes="(min-width: 1024px) 50vw, 100vw" widths={[480, 720, 960, 1280]} pictureClass="block h-full" class="m-parallax h-full w-full object-cover" />
+          </div>
+        </div>
+        <div class="order-1 lg:order-2">
+          <h2 id="v6-dive" class="v6-display v6-h2">Potápanie k zanoreným atrakciám</h2>
+          <p class="v6-measure mt-4">{diving.story[0]}</p>
+          <dl class="mt-8 grid grid-cols-2 gap-x-6 gap-y-6" data-reveal-group>
+            {diving.facts.map((f) => (
+              <div class="flex flex-col-reverse border-t border-[var(--v6-ciara)] pt-3">
+                <dt class="mt-1 text-[0.9375rem] leading-snug v6-muted">{f.label}</dt>
+                <dd class="v6-display v6-num text-[2.2rem] font-bold leading-none md:text-[2.6rem]" data-count={f.value}>{f.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href={site.booking.introDive.href} target="_blank" rel="noopener" class="v6-cta">Rezervovať ponor<span class="sr-only"> (otvorí formulár na aquarea.sk)</span></a>
+            <a href={url(diving.href)} class="v6-btn">Všetko o potápaní</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Status + hours -->
+    <section id="hodiny" aria-labelledby="v6-hours" class="v6-section">
+      <div class="v6-wrap grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
+        <div>
+          <h2 id="v6-hours" class="v6-display v6-h2">Kedy je otvorené</h2>
+          <div class="v6-status mt-6 !min-h-0 !p-5" data-status data-live data-state="unknown">
+            <span class="status-dot" aria-hidden="true"></span>
+            <p class="v6-display text-2xl font-bold" data-status-text>Otváracie hodiny</p>
+            <p class="col-start-2 v6-muted" data-status-detail>{hours.season}</p>
+          </div>
+          <h3 class="v6-display mt-8 text-xl font-bold">{main.title}, {main.subtitle}</h3>
+          <dl class="mt-3 grid grid-cols-2 gap-4">
+            {[wk, we].map((w) => <div><dt class="v6-muted">{w.label}</dt><dd class="v6-display v6-num text-[1.9rem] font-bold leading-tight">{time(w.open)} – {time(w.close)}</dd></div>)}
+          </dl>
+          <p class="v6-measure mt-5">{hours.lastEntry}</p>
+        </div>
+        <div>
+          <h3 class="v6-display text-xl font-bold">{hours.season} po obdobiach</h3>
+          <div class="v6-accordion mt-4">
+            {hours.periods.map((p) => (
+              <details class="m-acc">
+                <summary><span class="font-bold">{p.title}</span> <span class="v6-muted">{p.subtitle}</span><Icon name="chevron-down" size={20} class="v6-acc-icon" /></summary>
+                <div class="v6-acc-body">
+                  {p.closed && <p>{p.text}</p>}
+                  {p.rows && (
+                    <table class="v6-table">
+                      <caption class="sr-only">{p.title}</caption>
+                      <thead><tr><th scope="col">Dátum</th><th scope="col">Hodiny</th><th scope="col">Pre koho</th></tr></thead>
+                      <tbody>{p.rows.map((r) => <tr><td class="v6-num">{r.days} {dateRange(r.from, r.to)}</td><td class="v6-num whitespace-nowrap">{time(r.open)} – {time(r.close)}</td><td>{audience(r.audience)}</td></tr>)}</tbody>
+                    </table>
+                  )}
+                  {p.weekly && !p.rows && (
+                    <table class="v6-table">
+                      <caption class="sr-only">{p.title}</caption>
+                      <thead><tr><th scope="col">Dni</th><th scope="col">Hodiny</th><th scope="col">Pre koho</th></tr></thead>
+                      <tbody>{p.weekly.map((w) => <tr><td>{w.label}</td><td class="v6-num whitespace-nowrap">{time(w.open)} – {time(w.close)}</td><td>{audience(w.audience)}</td></tr>)}</tbody>
+                    </table>
+                  )}
+                </div>
+              </details>
+            ))}
+          </div>
+          <p class="v6-measure mt-5 v6-muted">{hours.seasonEnd.text}</p>
+          <p class="mt-3"><Todo text={hours.nextSeason.todo} /></p>
+          <p class="mt-4"><a href={url('/otvaracie-hodiny/')} class="v6-link inline-flex min-h-11 items-center">Otváracie hodiny po dňoch</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prices -->
+    <section id="ceny" aria-labelledby="v6-prices" class="v6-section v6-alt">
+      <div class="v6-wrap">
+        <h2 id="v6-prices" class="v6-display v6-h2">Cenník v skratke</h2>
+        <p class="mt-3 v6-muted">{prices.validFromText}. Deti do 3 rokov majú vstup zdarma.</p>
+        <div class="mt-10 grid gap-10 md:grid-cols-3 md:gap-8" data-reveal-group>
+          {priceGroups.map((g) => (
+            <div>
+              <h3 class="v6-display text-xl font-bold">{g.title}</h3>
+              <dl class="mt-3">
+                {g.ids.map((id) => { const h = highlight(id); return (
+                  <div class="v6-price-row"><dt>{h.label}</dt><dd class="v6-display v6-num">{h.from && 'od '}{priceShort(h.amount)}</dd></div>
+                ); })}
+              </dl>
+            </div>
+          ))}
+        </div>
+        <p class="mt-10"><a href={url('/cennik/')} class="v6-btn">Celý cenník všetkých zón</a></p>
+      </div>
+    </section>
+
+    <!-- FotoFilmFest -->
+    <section aria-labelledby="v6-fff" class="v6-section">
+      <div class="v6-wrap grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:gap-16">
+        <div>
+          <h2 id="v6-fff" class="v6-display v6-h2">{fff.next.title}</h2>
+          <p class="v6-display v6-num mt-3 text-2xl font-bold text-[var(--v6-tyrkys-tmava)]">{dateLong(fff.next.date)}</p>
+          <p class="mt-3"><Todo text={fff.next.todo} /></p>
+          <p class="v6-measure mt-5">{fff.lead}</p>
+          <p class="mt-6"><a href={url(fff.href)} class="v6-btn">Propozície a prihlášky</a></p>
+        </div>
+        <div class="v6-frame">
+          <div class="v6-frame-core aspect-[4/3]">
+            <Photo id="pod-vodou-rura" sizes="(min-width: 1024px) 45vw, 100vw" widths={[480, 720, 960]} pictureClass="block h-full" class="h-full w-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery: filter + lightbox (works as plain links without JS) -->
+    <section id="galeria" aria-labelledby="v6-gal" class="v6-section v6-alt" data-flip-gallery>
+      <div class="v6-wrap">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <h2 id="v6-gal" class="v6-display v6-h2">Galéria</h2>
+          <a href={url('/galeria/')} class="v6-link inline-flex min-h-11 items-center">Všetky albumy</a>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-2" role="group" aria-label="Filtrovať fotografie" data-gallery-filters hidden>
+          <button type="button" class="v6-chip" aria-pressed="true" data-filter="all">Všetko</button>
+          {groups.map((g) => <button type="button" class="v6-chip" aria-pressed="false" data-filter={g.id}>{g.label}</button>)}
+        </div>
+        <p class="sr-only" aria-live="polite" data-gallery-status></p>
+        <ul class="v6-gallery mt-6" role="list" data-gallery-grid>
+          {gallery.map((g, i) => (
+            <li data-group={g.group} class:list={[i === 0 && 'v6-gallery-wide']}>
+              <a href={g.big} class="v6-thumb" data-lightbox data-caption={g.alt}>
+                <Photo id={g.id} sizes="(min-width: 1024px) 33vw, 50vw" widths={[360, 540, 720]} pictureClass="block h-full" class="h-full w-full object-cover" />
+                <span class="sr-only">Zväčšiť fotografiu ({g.groupLabel})</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <dialog class="v6-lightbox" aria-label="Fotografia" data-lightbox-dialog>
+        <figure>
+          <img src="" alt="" data-lightbox-img />
+          <figcaption data-lightbox-caption></figcaption>
+        </figure>
+        <div class="v6-lightbox-bar">
+          <button type="button" class="v6-iconbtn !text-white" data-lightbox-prev><Icon name="chevron-left" size={26} /><span class="sr-only">Predchádzajúca</span></button>
+          <button type="button" class="v6-iconbtn !text-white" data-lightbox-next><Icon name="chevron-right" size={26} /><span class="sr-only">Ďalšia</span></button>
+          <button type="button" class="v6-iconbtn !text-white" data-lightbox-close><Icon name="x" size={26} /><span class="sr-only">Zavrieť</span></button>
+        </div>
+      </dialog>
+    </section>
+
+    <!-- Partners (marquee runs only with JS, with a pause button; static row otherwise) -->
+    <section aria-labelledby="v6-partners" class="py-12 md:py-16">
+      <div class="v6-wrap flex flex-wrap items-center justify-between gap-3">
+        <h2 id="v6-partners" class="v6-display text-xl font-bold">Certifikácie a partneri Dive Centra</h2>
+        <button type="button" class="v6-btn !min-h-11 !px-4 text-[0.9375rem]" aria-pressed="false" data-marquee-toggle hidden>Pozastaviť pohyb</button>
+      </div>
+      <div class="m-marquee mt-6" data-marquee>
+        <ul class="m-marquee-track" role="list">
+          {site.partners.map((p) => {
+            const img = partnerFiles[`/src/assets/partners/${p.file}`].default;
+            return <li><Image src={img} alt={p.label} height={56} width={Math.round((img.width / img.height) * 56)} class="h-12 w-auto md:h-14" loading="lazy" /></li>;
+          })}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Getting there -->
+    <section id="cesta" aria-labelledby="v6-way" class="v6-section v6-alt">
+      <div class="v6-wrap grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-16">
+        <div>
+          <h2 id="v6-way" class="v6-display v6-h2">Ako sa k nám dostanete</h2>
+          <address class="mt-5 text-lg font-bold not-italic">{site.address.lines.slice(0, 2).join(', ')}</address>
+          <p class="v6-num mt-1 v6-muted">GPS {site.address.lat}, {site.address.lng}</p>
+          <p class="v6-measure mt-4">{site.gettingThere.text}</p>
+          <p class="v6-measure mt-3">{site.gettingThere.parking}</p>
+          <p class="mt-3"><Todo text={site.gettingThere.todo} /></p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href={site.maps.directions} target="_blank" rel="noopener" class="v6-cta"><Icon name="navigation" size={18} />Navigovať<span class="sr-only"> (Google Mapy, nové okno)</span></a>
+            <a href={site.documents[1].href} target="_blank" rel="noopener" class="v6-btn"><Icon name="file" size={18} />Mapa areálu (PDF)</a>
+          </div>
+        </div>
+        <div class="v6-frame">
+          <div class="v6-frame-core bg-white">
+            <Photo id="mapa-arealu" sizes="(min-width: 1024px) 50vw, 100vw" widths={[480, 800, 1200]} class="w-full" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking -->
+    <section id="rezervacie" aria-labelledby="v6-book" class="v6-section">
+      <div class="v6-wrap grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
+        <div>
+          <h2 id="v6-book" class="v6-display v6-h2">Rezervácie</h2>
+          <p class="v6-measure mt-4">Rezervácie zatiaľ bežia na súčasnom webe aquarea.sk. Každý odkaz vedie na skutočný formulár alebo rezervačný systém a otvorí sa v novom okne.</p>
+          <p class="mt-6 v6-muted">{site.contacts.info.label}</p>
+          <p><a class="v6-display v6-num inline-flex min-h-11 items-center text-2xl font-bold hover:underline" href={`tel:${site.contacts.info.tel}`}>{site.contacts.info.phone}</a></p>
+          <p class="mt-3 v6-muted">{site.contacts.dive.label}</p>
+          <p><a class="v6-display v6-num inline-flex min-h-11 items-center text-2xl font-bold hover:underline" href={`tel:${site.contacts.dive.tel}`}>{site.contacts.dive.phone}</a></p>
+          <p class="mt-2"><a class="v6-link inline-flex min-h-11 items-center" href={`mailto:${site.contacts.info.email}`}>{site.contacts.info.email}</a></p>
+        </div>
+        <div>
+          <ul class="v6-flows" role="list" data-reveal-group>
+            {flows.map((f, i) => (
+              <li>
+                <a href={f.href} target="_blank" rel="noopener" class="v6-flow">
+                  <span class="min-w-0"><span class="v6-display block text-xl font-bold md:text-2xl">{f.title}</span><span class="mt-1 block v6-muted">{f.note}</span></span>
+                  <span class:list={['v6-flow-go', i === 0 && 'is-primary']}><Icon name="external" size={20} /><span class="sr-only"> (aquarea.sk, nové okno)</span></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-5"><Todo text={site.booking.todo} /></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <StickyCta bookHref={book} class="v6-bar" itemClass="text-[var(--v6-hlbka)]" primaryClass="bg-[var(--v6-stolicka)] text-white" />
+  <StatusScript />
+</Base>
