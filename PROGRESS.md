@@ -1,7 +1,7 @@
 # Progress
 
-- **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-03 09:51
+- **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
+- **Last updated:** 2026-10-03 10:27
 - **Current phase:** 6
 
 ## Checklist
@@ -71,16 +71,16 @@ _Owner brief 2026-10-02. V6 is **not** waived: AGENTS.md rule 7 in full (WCAG AA
 ### Phase 6 — V7 "Rýchla voda": bold, sporty, still fully usable (`/variants/7/`)
 _Owner brief 2026-10-03. NOT waived: V6's bar in full (WCAG AA, reduced motion, Lighthouse ≥ 90, axe 0, JS-off usable, native scroll, pause control, one animation per viewport). Palette from the logo. AGENTS.md rule 5 exception for ONE illustrated diver mascot (V7 only; Gemini ≤ 3 new images). The reference URL in the brief is still a placeholder → interpreted as the fallback style. V1–V6 and the site stay untouched._
 - [x] Step 1: AGENTS.md rule 5 exception, committed on its own
-- [ ] Design system: concept, logo-sampled palette + derived blue + contrast table, fonts (Slovak glyphs), diver rig plan → DECISIONS.md
-- [ ] Gemini concept art of the diver (≤ 2 images, flat vector, logged below)
-- [ ] Diver rig: hand-built layered SVG (≤ 30 KB), pivots, kick cycle, interaction, static pose
-- [ ] Procedural water: SVG wave layers, caustic bands, surface line, ≤ 12 bubbles, pointer ripple, pause control
-- [ ] V7 page `/variants/7/`: hero (diver + solid angled panel), all sections, bold bands, five-second test at 375 px
-- [ ] Reuse V6 motion kit; diver reappears once static + hover kick in Dive Center
-- [ ] Verify: Lighthouse mobile ×3, axe, `scripts/a11y.mjs`, CLS, JS weight, five-second screenshot, diver poses, hover/focus/touch, reduced motion, pause button, JS-off → `screenshots/phase6/`
-- [ ] design:accessibility-review + design:design-critique; fix findings
-- [ ] Picker: V7 with summary, palette, type, effect, thumbnails; noindex; out of sitemap
-- [ ] DECISIONS.md: V7 entry + V3 vs V6 vs V7 table + recommendation for `/` (do not replace `/`); PROGRESS handoff
+- [x] Design system: concept, logo-sampled palette + derived blue + contrast table, fonts (Slovak glyphs), diver rig plan → DECISIONS.md — Barlow Condensed + Barlow; deep blue #006B99 / tint #F0FAFF derived at hue 198°; `scripts/v7-contrast.mjs` (24 pairs)
+- [x] Gemini concept art of the diver (≤ 2 images, flat vector, logged below)
+- [x] Diver rig: hand-built layered SVG (≤ 30 KB), pivots, kick cycle, interaction, static pose — 4.2 KB; ticker-driven sine rig (no jumps on start/pause); `screenshots/phase6/v7-1440-diver-kick-1..4.jpg`
+- [x] Procedural water: SVG wave layers, caustic bands, surface line, ≤ 12 bubbles, pointer ripple, pause control
+- [x] V7 page `/variants/7/`: hero (diver + solid angled panel), all sections, bold bands, five-second test at 375 px
+- [x] Reuse V6 motion kit; diver reappears once static + hover kick in Dive Center
+- [x] Verify: Lighthouse mobile ×3, axe, `scripts/a11y.mjs`, CLS, JS weight, five-second screenshot, diver poses, hover/focus/touch, reduced motion, pause button, JS-off → `screenshots/phase6/` — Lighthouse 99 / 100 / 100 ×3 (LCP 1.7–1.8 s, CLS 0.003, TBT 0), axe 0 (normal + reduced, 375 + 1440), `a11y.mjs` 0, five-second test passes, JS ≈ 4.5 KB + 44 KB after load, 0 console errors, no overflow 320–1440 (also with WCAG text spacing), JS-off complete, pause/off-screen/hidden/reduced/live-switch verified (`scripts/v7-checks.mjs`, `v7-interactions.mjs`, `v7-a11y-audit.mjs`)
+- [x] design:accessibility-review + design:design-critique; fix findings
+- [x] Picker: V7 with summary, palette, type, effect, thumbnails; noindex; out of sitemap
+- [x] DECISIONS.md: V7 entry + V3 vs V6 vs V7 table + recommendation for `/` (do not replace `/`); PROGRESS handoff
 
 ## Budget log
 - 21st `get_component`: (date · component · used for)
@@ -135,6 +135,9 @@ _Notes for the next session: what's next, gotchas._
 - 2026-10-03 09:35 — **Phase 5 done.** `/variants/6/` Čistá voda: the non-waived, usable direction (Lighthouse 94/100/100, axe 0, CLS 0.001, five-second test passes, works without JS). Reusable motion blocks in `src/lib/motion/` (README). DECISIONS.md recommends V6 for `/` together with a follow-up that moves the inner pages to V6's tokens; `/` is unchanged until the owner decides.
   - Run checks: `npm run build && npx astro preview --port 4322`, then `node scripts/v6-checks.mjs http://localhost:4322`, `node scripts/v6-interactions.mjs http://localhost:4322`, `node scripts/v6-a11y-audit.mjs http://localhost:4322`; Lighthouse: `npx lighthouse http://localhost:4322/variants/6/ --only-categories=performance,accessibility,best-practices`.
   - Gotchas: StatusScript replaces a short text with a long one after load, so in the hero only the one-line status is shown (the detail lives in the hours section) to keep CLS at 0.001; gsap loads after `load` so it never competes with the LCP photo; the focus-in skips itself if it can't start within ~1.8 s.
+- 2026-10-03 10:27 — **Phase 6 done.** `/variants/7/` Rýchla voda (logo palette, rigged SVG diver + procedural water hero, bold angled bands; NOT waived: Lighthouse 99/100/100, axe 0). DECISIONS.md recommends V7 for `/` (V6 as the calmer fallback) with an inner-page follow-up; `/` is unchanged. The brief's reference URL was still a placeholder (fallback style used).
+  - Run checks: `npm run build && npx astro preview --port 4322`, then `node scripts/v7-checks.mjs http://localhost:4322`, `node scripts/v7-interactions.mjs http://localhost:4322`, `node scripts/v7-a11y-audit.mjs http://localhost:4322`, `node scripts/v7-contrast.mjs`, `node scripts/glyph-check.mjs <url> '<font>'`.
+  - Gotchas: the diver's parts are rotated by one `gsap.ticker` callback (`diver.ts`), not keyframe tweens, so start/pause never jump; the wave periods must divide 1600 for a seamless loop; decorative pooled elements need a `display: none` guard until JS is live; Playwright `addStyleTag` hangs with JS disabled.
 - Gotchas: content lives in `src/content/*.json` (zod-validated, every block needs an aquarea.sk `source`). `Photo` moves `col-span`/`row-span` classes onto `<picture>` automatically. Big Shoulders caps need leading ≥ 0,92 and no `truncate` (it clips Č/Š/Ž). Use `price()`/`priceShort()` for euros (non-breaking spaces). Screenshots: `npm run preview` then `npm run shots -- http://localhost:4321 screenshots/x /path/`; a11y: `node scripts/a11y.mjs http://localhost:4321 /path/`.
 
 ## Morning report
