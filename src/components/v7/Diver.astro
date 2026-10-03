@@ -1,0 +1,87 @@
+---
+/**
+ * V7 diver mascot: a hand-built, layered SVG rig (stylised, faceless, no logos). Facing right.
+ * Pivots come from nesting: every moving part sits in `<g transform="translate(pivot)"><g data-d="name" transform="rotate(rest)">`,
+ * so GSAP rotates it around its own origin (0 0). The markup IS the static pose (no JS needed, also the
+ * reduced-motion and pause pose). Colours: logo black / blue / red only.
+ * Parts: root (bob) › body (diagonal) › legFar, upper (undulation: tank, torso, head, arms), legNear;
+ * each leg: thigh › shin › fin; each arm: upper arm › forearm; head (+ mask). Decorative: aria-hidden.
+ */
+interface Props { class?: string }
+const { class: cls } = Astro.props;
+const INK = '#181818', BLACK = '#000000', BLUE = '#00A8F0', RED = '#D80018', RED_FAR = '#A80012';
+---
+<svg class:list={['v7-diver', cls]} viewBox="-90 0 730 420" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <g data-d="root">
+    <g data-d="body" transform="rotate(-20 330 215)">
+      <!-- far leg (behind) -->
+      <g transform="translate(252 232)"><g data-d="legFar" transform="rotate(184)">
+        <rect x="-8" y="-17" width="104" height="34" rx="17" fill={BLACK} />
+        <g transform="translate(96 0)"><g data-d="shinFar" transform="rotate(-14)">
+          <rect x="-6" y="-14" width="90" height="28" rx="14" fill={BLACK} />
+          <g transform="translate(82 0)"><g data-d="finFar" transform="rotate(8)">
+            <rect x="-4" y="-12" width="18" height="24" rx="8" fill={BLACK} />
+            <path d="M8 -10 L26 -12 L106 -30 Q122 -16 122 0 Q122 16 106 30 L26 12 L8 10 Z" fill={RED_FAR} />
+          </g></g>
+        </g></g>
+      </g></g>
+
+      <!-- upper body: undulates around the hip -->
+      <g transform="translate(252 232)"><g data-d="upper" transform="rotate(0)"><g transform="translate(-252 -232)">
+        <!-- far arm -->
+        <g transform="translate(434 206)"><g data-d="armFarU" transform="rotate(66)">
+          <rect x="-10" y="-13" width="70" height="26" rx="13" fill={BLACK} />
+          <g transform="translate(60 0)"><g data-d="armFarF" transform="rotate(14)">
+            <rect x="-8" y="-11" width="58" height="22" rx="11" fill={BLACK} />
+            <circle cx="52" cy="0" r="14" fill={BLACK} />
+          </g></g>
+        </g></g>
+        <!-- tank on the back -->
+        <rect x="284" y="136" width="152" height="46" rx="23" fill={BLACK} />
+        <rect x="338" y="136" width="13" height="46" fill={BLUE} />
+        <rect x="428" y="148" width="24" height="16" rx="5" fill={INK} />
+        <circle cx="442" cy="143" r="7" fill={INK} />
+        <!-- torso -->
+        <path d="M236 194 C236 178 262 172 302 172 L402 172 C432 174 454 188 454 208 C454 232 432 252 402 254 L302 256 C262 256 236 246 236 228 Z" fill={INK} />
+        <path d="M296 180 L404 180 C424 181 440 190 446 204" fill="none" stroke={BLUE} stroke-width="8" stroke-linecap="round" />
+        <path d="M318 176 L318 252 M392 176 L392 252" stroke={BLACK} stroke-width="9" fill="none" />
+        <!-- head -->
+        <g transform="translate(470 200)"><g data-d="head" transform="rotate(0)">
+          <circle cx="22" cy="-4" r="34" fill={INK} />
+          <rect x="28" y="-24" width="50" height="32" rx="13" fill={BLACK} />
+          <rect x="37" y="-18" width="34" height="19" rx="8" fill={BLUE} />
+          <path d="M43 -14 L54 -14" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".7" />
+          <circle data-d="reg" cx="76" cy="16" r="6.5" fill={BLACK} />
+        </g></g>
+        <path d="M546 216 C536 262 478 262 458 206 C450 184 442 166 436 158" fill="none" stroke={BLACK} stroke-width="5" stroke-linecap="round" />
+        <!-- near arm -->
+        <g transform="translate(424 214)"><g data-d="armNearU" transform="rotate(40)">
+          <rect x="-12" y="-14" width="72" height="28" rx="14" fill={INK} />
+          <rect x="4" y="-14" width="50" height="6" rx="3" fill={BLUE} />
+          <g transform="translate(60 0)"><g data-d="armNearF" transform="rotate(6)">
+            <rect x="-8" y="-12" width="60" height="24" rx="12" fill={INK} />
+            <circle cx="54" cy="0" r="15" fill={BLACK} />
+          </g></g>
+        </g></g>
+      </g></g></g>
+
+      <!-- near leg (in front) -->
+      <g transform="translate(254 238)"><g data-d="legNear" transform="rotate(160)">
+        <rect x="-8" y="-18" width="104" height="36" rx="18" fill={INK} />
+        <rect x="8" y="-18" width="78" height="6" rx="3" fill={BLUE} />
+        <g transform="translate(96 0)"><g data-d="shinNear" transform="rotate(22)">
+          <rect x="-6" y="-15" width="90" height="30" rx="15" fill={INK} />
+          <rect x="6" y="-15" width="68" height="6" rx="3" fill={BLUE} />
+          <g transform="translate(82 0)"><g data-d="finNear" transform="rotate(-6)">
+            <rect x="-4" y="-13" width="18" height="26" rx="9" fill={BLACK} />
+            <path d="M8 -11 L26 -13 L108 -32 Q126 -17 126 0 Q126 17 108 32 L26 13 L8 11 Z" fill={RED} />
+          </g></g>
+        </g></g>
+      </g></g>
+    </g>
+    <!-- breath bubbles of the static pose (JS replaces them with rising ones while it animates) -->
+    <g class="v7-sb" fill="none" stroke="#ffffff" stroke-width="3" opacity=".9">
+      <circle cx="548" cy="112" r="7" /><circle cx="560" cy="82" r="10" /><circle cx="548" cy="48" r="6" />
+    </g>
+  </g>
+</svg>

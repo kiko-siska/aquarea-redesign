@@ -90,10 +90,12 @@ _Owner brief 2026-10-03. NOT waived: V6's bar in full (WCAG AA, reduced motion, 
   - 2026-10-02 · Flashlight Text Reveal (@kedhareswer, id 32544) · V4 torch mechanics (eased light toward pointer / roaming path, CSS mask sampled from the shader falloff, context-loss + visibility pause); adapted into vanilla three.js, the mask warms text instead of hiding it
   - **2026-10-02: 1/2 used.** Searches (free): magnetic button, film countdown, torch/spotlight, water ripple shader, film strip gallery, end credits, halftone, iris wipe.
   - **2026-10-03: 0/2 used** (V6 needed no catalogue component).
-- Gemini images: 2 / 8 (file · prompt summary)
+- Gemini images: 3 / 8 (file · prompt summary)
   - 2026-10-01 · `images/generated/v1-caustics.jpg` (2K, fast) · abstract sunlight caustics on sand through teal water; no objects/place/people · v1 texture overlay (`src/assets/generated/caustics.jpg`, resized)
   - 2026-10-02 · `images/generated/v5-film-dust.jpg` (2K, fast) · abstract 35 mm film dust, hairs and vertical scratches on black; no objects/place/people/text · V5 screen-blended film overlay (`src/assets/generated/v5-film-dust.jpg`, 1600 px greyscale)
   - Phase 4 plan: max 3 new images (owner). Planned: 1 (above). Reserve: 2, only if procedural textures fall short.
+  - 2026-10-03 · `images/generated/v7-diver-concept-1.jpg` (2K, balanced) · flat-vector faceless diver concept (black suit, blue stripes, red fins, limbs separated; no logos, no real person) · reference only, rebuilt by hand as the V7 SVG rig (AGENTS.md rule 5 exception for /variants/7/)
+  - **Gemini total: 3 / 8** (V7: 1 of max 3 new). Second concept pose not needed.
   - Phase 5: 0 used. Note: the owner's Phase 5 brief says "4/8 used"; this log shows 2/8. The stricter cap (1 more) was followed; none needed (the water light is procedural).
 
 ## Blockers

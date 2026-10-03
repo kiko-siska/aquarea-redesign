@@ -1,0 +1,40 @@
+---
+/**
+ * V7 procedural water: 4 SVG wave layers at different speeds/phases, a surface line, 3 caustic bands.
+ * Pure CSS motion (transform only), switched on by JS (`[data-live]` on the stage), paused by the pause
+ * button / off-screen, absent under reduced motion. Looks finished when frozen. Decorative.
+ * Wave paths are generated here (period 400 in a 1600-wide tile, doubled so a 50 % shift loops seamlessly).
+ */
+const wave = (y: number, amp: number, period = 400) => {
+  const tiles = 6400 / period; // half-periods across the 3200-unit tile; periods divide 1600, so a 50 % shift loops
+  let d = `M0 ${y} Q${period / 4} ${y - amp} ${period / 2} ${y}`;
+  for (let i = 1; i < tiles; i++) d += ` T${(period / 2) * (i + 1)} ${y}`;
+  return `${d} L${(period / 2) * tiles} 220 L0 220 Z`;
+};
+let edge = 'M0 62 Q100 38 200 62';
+for (let x = 400; x <= 3200; x += 200) edge += ` T${x} 62`;
+const layers = [
+  { cls: 'v7-w1', d: wave(70, 26), dur: '26s', delay: '-4s', fill: 'rgb(255 255 255 / .16)' },
+  { cls: 'v7-w2', d: wave(96, 20, 320), dur: '19s', delay: '-11s', fill: 'rgb(0 107 153 / .26)' },
+  { cls: 'v7-w3', d: wave(124, 30, 800), dur: '33s', delay: '-20s', fill: 'rgb(255 255 255 / .12)' },
+  { cls: 'v7-w4', d: wave(156, 18, 400, 8), dur: '15s', delay: '-2s', fill: 'rgb(0 107 153 / .38)' },
+];
+---
+<div class="v7-water" aria-hidden="true">
+  <!-- caustic light bands -->
+  <div class="v7-caustics">
+    <i style="--l:6%;--w:15%;--d:38s;--o:-6s"></i><i style="--l:34%;--w:9%;--d:29s;--o:-17s"></i><i style="--l:62%;--w:18%;--d:44s;--o:-26s"></i>
+  </div>
+  {layers.map((l) => (
+    <div class:list={['v7-wave', l.cls]} style={`--d:${l.dur};--o:${l.delay}`}>
+      <svg viewBox="0 0 3200 220" preserveAspectRatio="none"><path d={l.d} fill={l.fill} /></svg>
+    </div>
+  ))}
+  <!-- surface: pale water-light above, white line on the edge -->
+  <div class="v7-surface" style="--d:42s;--o:-9s">
+    <svg viewBox="0 0 3200 120" preserveAspectRatio="none">
+      <path d={`${edge} V0 H0 Z`} fill="#f0faff" />
+      <path d={edge} fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" />
+    </svg>
+  </div>
+</div>
