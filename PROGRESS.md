@@ -1,7 +1,7 @@
 # Progress
 
-- **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-03 10:27
+- **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
+- **Last updated:** 2026-10-03 10:45
 - **Current phase:** 6
 
 ## Checklist
@@ -82,7 +82,14 @@ _Owner brief 2026-10-03. NOT waived: V6's bar in full (WCAG AA, reduced motion, 
 - [x] Picker: V7 with summary, palette, type, effect, thumbnails; noindex; out of sitemap
 - [x] DECISIONS.md: V7 entry + V3 vs V6 vs V7 table + recommendation for `/` (do not replace `/`); PROGRESS handoff
 
-## Budget log
+### Phase 6b — V7 hero revision (owner request 2026-10-03)
+_Owner: the diver must be a real-looking person (rule 5 waived for V7, 2nd exception), it must visibly move, and the hero water must be a real aerial (drone) photo. Everything else in V7 stays._
+- [x] Second AGENTS.md exception, committed on its own
+- [ ] Gemini: one photoreal generic diver (green-screen background), cut-out, logged
+- [ ] Hero: real drone photo as the water, diver cut-out on top, layered motion (pitch, kick of the legs layer, bob, drift, bubbles), pause + reduced motion
+- [ ] Dive Center section reuses the cut-out; remove the old SVG diver
+- [ ] Re-verify (Lighthouse ×3, axe, five-second test, motion proof frames, reduced motion, JS-off) + docs + picker thumbnails
+
 - 21st `get_component`: (date · component · used for)
   - 2026-10-01 · Horizontal Depth Fade (@unlumen, id 18439) · v1 underwater photo strip (ported to vanilla JS)
   - 2026-10-01 · Filmstrip Gallery (@n1m4mz, id 27093) · v2 day strip + lightbox (adapted)
