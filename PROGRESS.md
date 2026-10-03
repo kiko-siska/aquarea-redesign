@@ -1,8 +1,8 @@
 # Progress
 
-- **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-03 09:38
-- **Current phase:** 5
+- **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
+- **Last updated:** 2026-10-03 09:51
+- **Current phase:** 6
 
 ## Checklist
 
@@ -67,6 +67,20 @@ _Owner brief 2026-10-02. V6 is **not** waived: AGENTS.md rule 7 in full (WCAG AA
 - [x] design:accessibility-review + design:design-critique on the finished page; fix findings — water-light pause button, live dot < 5 s, 44 px targets, deep Dive band, shorter price labels
 - [x] Picker: V6 with summary, palette, type, effect, thumbnails; noindex; out of sitemap — picker axe 0; V1–V5 thumbnails untouched
 - [x] DECISIONS.md: V6 entry + V3 vs V6 table + recommendation for `/` (do not replace `/`); PROGRESS handoff — recommends V6 for `/` with an inner-page follow-up; `/` unchanged
+
+### Phase 6 — V7 "Rýchla voda": bold, sporty, still fully usable (`/variants/7/`)
+_Owner brief 2026-10-03. NOT waived: V6's bar in full (WCAG AA, reduced motion, Lighthouse ≥ 90, axe 0, JS-off usable, native scroll, pause control, one animation per viewport). Palette from the logo. AGENTS.md rule 5 exception for ONE illustrated diver mascot (V7 only; Gemini ≤ 3 new images). The reference URL in the brief is still a placeholder → interpreted as the fallback style. V1–V6 and the site stay untouched._
+- [x] Step 1: AGENTS.md rule 5 exception, committed on its own
+- [ ] Design system: concept, logo-sampled palette + derived blue + contrast table, fonts (Slovak glyphs), diver rig plan → DECISIONS.md
+- [ ] Gemini concept art of the diver (≤ 2 images, flat vector, logged below)
+- [ ] Diver rig: hand-built layered SVG (≤ 30 KB), pivots, kick cycle, interaction, static pose
+- [ ] Procedural water: SVG wave layers, caustic bands, surface line, ≤ 12 bubbles, pointer ripple, pause control
+- [ ] V7 page `/variants/7/`: hero (diver + solid angled panel), all sections, bold bands, five-second test at 375 px
+- [ ] Reuse V6 motion kit; diver reappears once static + hover kick in Dive Center
+- [ ] Verify: Lighthouse mobile ×3, axe, `scripts/a11y.mjs`, CLS, JS weight, five-second screenshot, diver poses, hover/focus/touch, reduced motion, pause button, JS-off → `screenshots/phase6/`
+- [ ] design:accessibility-review + design:design-critique; fix findings
+- [ ] Picker: V7 with summary, palette, type, effect, thumbnails; noindex; out of sitemap
+- [ ] DECISIONS.md: V7 entry + V3 vs V6 vs V7 table + recommendation for `/` (do not replace `/`); PROGRESS handoff
 
 ## Budget log
 - 21st `get_component`: (date · component · used for)
