@@ -17,20 +17,30 @@ export function flipGallery(root: HTMLElement, gsap: typeof GSAP, Flip: typeof F
   const status = root.querySelector<HTMLElement>('[data-gallery-status]');
   const items = [...root.querySelectorAll<HTMLElement>('[data-gallery-grid] > li')];
   const chips = [...root.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+  const grid = root.querySelector<HTMLElement>('[data-gallery-grid]');
   if (filters) filters.hidden = false;
 
   chips.forEach((chip) => chip.addEventListener('click', () => {
     const f = chip.dataset.filter!;
     chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
     const state = Flip.getState(items);
+    const h0 = grid?.offsetHeight ?? 0;
     let shown = 0;
     items.forEach((li) => { const on = f === 'all' || li.dataset.group === f; li.hidden = !on; if (on) shown++; });
     if (status) status.textContent = `Zobrazené fotografie: ${shown}`;
-    if (prefersReducedMotion()) return;
+    if (prefersReducedMotion() || !grid) return;
+    // hold the old height while cards glide, then ease to the new one (no jump of the section below)
+    grid.style.minHeight = `${h0}px`;
     Flip.from(state, {
-      duration: 0.5, ease: 'power2.inOut', absolute: true, scale: true,
-      onEnter: (els) => gsap.fromTo(els, { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.35, delay: 0.1 }),
-      onLeave: (els) => gsap.to(els, { opacity: 0, scale: 0.94, duration: 0.25 }),
+      onComplete: () => {
+        grid.style.minHeight = '';
+        const h1 = grid.offsetHeight;
+        if (h1 < h0) gsap.fromTo(grid, { minHeight: h0 }, { minHeight: h1, duration: 0.3, ease: 'power2.inOut', clearProps: 'minHeight' });
+      },
+      duration: 0.5, ease: 'power2.inOut', absolute: true, scale: true, zIndex: 1,
+      onEnter: (els) => gsap.fromTo(els, { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.35, delay: 0.12 }),
+      // leavers fade out fast and stay behind the cards that remain
+      onLeave: (els) => { gsap.set(els, { zIndex: 0 }); return gsap.to(els, { opacity: 0, scale: 0.96, duration: 0.15, ease: 'power1.out' }); },
     });
   }));
 

@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-03 09:18
+- **Last updated:** 2026-10-03 09:21
 - **Current phase:** 5
 
 ## Checklist
@@ -61,8 +61,8 @@ _Owner brief 2026-10-02. V6 is **not** waived: AGENTS.md rule 7 in full (WCAG AA
 - [ ] Design system: concept, fonts (Slovak glyph check), palette from real objects, motion budget → DECISIONS.md
 - [x] Reusable motion module `src/lib/motion/` (reduced-motion helper, reveal, count-up, status dot, flip gallery, water light) + README — also focus-in, ripple, marquee (with pause button), CSS accordion/progress/parallax/live dot
 - [x] V6 page at `/variants/6/`: same content, sections and TODOs; five-second test at 375 px — static baseline (no effects): Lighthouse mobile 94 / 100 / 100 (median of 3), CLS 0.001, axe 0 (normal + reduced), JS-off complete, five-second test passes (`screenshots/phase5/baseline/`)
-- [ ] Hero signature: calm water light over the hero photo (after LCP, poster first, DPR ≤ 1.5, pauses off-screen/hidden, WebGL fallback, gentle ripple)
-- [ ] Micro-interactions: buttons, cards (lift, zoom, clip-path ripple), link underline, live status dot, count-up, accordions, marquee, scroll progress, Flip gallery + lightbox, SplitText H1, one parallax
+- [x] Hero signature: calm water light over the hero photo (after LCP, poster first, DPR ≤ 1.5, pauses off-screen/hidden, WebGL fallback, gentle ripple) — `scripts/v6-interactions.mjs`: 48 frames/0.8 s on screen, 0 off-screen, 0 hidden; reduced = still frame; no WebGL = photo only
+- [x] Micro-interactions: buttons, cards (lift, zoom, clip-path ripple), link underline, live status dot, count-up, accordions, marquee, scroll progress, Flip gallery + lightbox, SplitText H1, one parallax — gallery filter announces the count, lightbox returns focus, marquee pause button (`aria-pressed`), live dot shown on a simulated July date
 - [ ] Verify: Lighthouse mobile (perf, a11y, best practices), axe 0, CLS, JS weight, five-second screenshot, 0/25/50/75/100 % + hover + focus, reduced-motion pass, 0 console errors, no overflow → `screenshots/phase5/`
 - [ ] design:accessibility-review + design:design-critique on the finished page; fix findings
 - [ ] Picker: V6 with summary, palette, type, effect, thumbnails; noindex; out of sitemap
