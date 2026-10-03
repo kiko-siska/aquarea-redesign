@@ -44,6 +44,15 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   if (r.away > 0) issues.push('water: still running off-screen');
   if (r.hidden > 0) issues.push('water: still running in a hidden tab');
   if (r.dpr > 1.5) issues.push(`water: DPR ${r.dpr} > 1.5`);
+  // pause button (WCAG 2.2.2): stops the loop, resumes on second press
+  const tog = p.locator('.m-water-toggle');
+  await tog.click(); await sleep(400);
+  const pz = await p.evaluate(async () => { const a = window.__v6.frames; await new Promise((r) => setTimeout(r, 700)); return { framesWhilePaused: window.__v6.frames - a, pressed: document.querySelector('.m-water-toggle')?.getAttribute('aria-pressed'), label: document.querySelector('.m-water-toggle')?.getAttribute('aria-label') }; });
+  await p.locator('[data-water-light]').screenshot({ path: `${out}/v6-1440-water-paused.jpg`, type: 'jpeg', quality: 85 });
+  await tog.click(); await sleep(400);
+  const resumed = await p.evaluate(async () => { const a = window.__v6.frames; await new Promise((r) => setTimeout(r, 500)); return window.__v6.frames - a; });
+  notes.push(`water pause button: ${JSON.stringify(pz)}, frames after resume ${resumed}`);
+  if (pz.framesWhilePaused > 0) issues.push('water: pause button did not stop the loop');
   // ripple: click into the photo
   const box = await p.locator('[data-water-light]').boundingBox();
   await p.mouse.move(box.x + box.width * 0.3, box.y + box.height * 0.4);

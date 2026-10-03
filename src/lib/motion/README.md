@@ -20,8 +20,8 @@ Ground rules for all of them:
 | Smooth accordion | `.m-acc` (CSS) | Native `<details>` whose content height animates (`::details-content` + `interpolate-size`, Chromium 131+; instant elsewhere). | Instant. |
 | Reading progress | `.m-progress` (CSS) | A 3 px bar driven by `animation-timeline: scroll(root)`; no JS. | Hidden. |
 | Parallax | `.m-parallax` (CSS) | One image drifts ±20 px (40 px total) on a `view()` timeline inside an `overflow: hidden` frame. | Static. |
-| Live status dot | `[data-live]` (CSS) | With `StatusScript`, the dot pulses only while the place is open (`data-state="open"`). | A static ring. |
-| Water light | `water-light.ts` | The one signature effect: raw WebGL2 caustics drawn over a real photo, only where the photo is water-coloured, with a gentle ripple on pointer/touch. Mounts after `load` + idle over the `<img>` poster (the LCP element), DPR ≤ 1.5, pauses off-screen and in hidden tabs, removes itself on context loss or if WebGL2 is missing. | One still frame, no loop, no ripples. |
+| Live status dot | `[data-live]` (CSS) | With `StatusScript`, the dot pulses twice while the place is open (`data-state="open"`), so it stops by itself within 5 s (WCAG 2.2.2). | A static ring. |
+| Water light | `water-light.ts` | The one signature effect: raw WebGL2 caustics drawn over a real photo, only where the photo is water-coloured, with a gentle ripple on pointer/touch. Mounts after `load` + idle over the `<img>` poster (the LCP element), DPR ≤ 1.5, pauses off-screen and in hidden tabs, removes itself on context loss or if WebGL2 is missing. Adds a visible 44 px pause/play button (`aria-pressed`, WCAG 2.2.2). | One still frame, no loop, no ripples, no button. |
 
 ## Using it
 

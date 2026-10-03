@@ -48,9 +48,14 @@
   /* ---- m-live: status dot pulses only while the place is open ---- */
   [data-live][data-state="open"] .status-dot::after {
     content: ""; position: absolute; inset: -5px; border-radius: 999px; border: 2px solid currentColor;
-    animation: m-live 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    animation: m-live 2.4s cubic-bezier(0.22, 1, 0.36, 1) 2;   /* stops by itself within 5 s (WCAG 2.2.2) */
   }
   @keyframes m-live { from { transform: scale(.6); opacity: .9; } to { transform: scale(1.8); opacity: 0; } }
+
+  /* ---- m-water-toggle: the pause/play button water-light.ts adds over the photo (WCAG 2.2.2) ---- */
+  .m-water-toggle { position: absolute; left: .75rem; bottom: .75rem; z-index: 2; display: inline-flex; align-items: center; justify-content: center;
+    width: 2.75rem; height: 2.75rem; border-radius: 999px; background: rgb(255 255 255 / .92); color: var(--m-ink, #0d2830); box-shadow: 0 6px 18px -8px rgb(13 40 48 / .5); }
+  .m-water-toggle:hover { background: #fff; }
 
   @media (prefers-reduced-motion: reduce) {
     .m-ripple::before { transition: none; }

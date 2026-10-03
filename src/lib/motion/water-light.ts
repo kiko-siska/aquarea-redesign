@@ -60,7 +60,10 @@ void main() {
   o = vec4(min(col, vec3(1.0)), 1.0);
 }`;
 
-export function waterLight(frame: HTMLElement, img: HTMLImageElement) {
+const ICON_PAUSE = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></svg>';
+const ICON_PLAY = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>';
+
+export function waterLight(frame: HTMLElement, img: HTMLImageElement, labels = { pause: 'Zastaviť pohyb vody', play: 'Spustiť pohyb vody' }) {
   const reduce = prefersReducedMotion();
   const canvas = document.createElement('canvas');
   canvas.setAttribute('aria-hidden', 'true');
@@ -112,11 +115,31 @@ export function waterLight(frame: HTMLElement, img: HTMLImageElement) {
     frames++;
     if (frames === 1) requestAnimationFrame(() => { canvas.style.opacity = '1'; });
   };
-  const loop = () => { raf = 0; if (!alive || !visible || document.hidden) return; draw(now()); raf = requestAnimationFrame(loop); };
-  const kick = () => { if (!reduce && !raf && alive && visible && !document.hidden) raf = requestAnimationFrame(loop); };
+  let paused = false, pausedAt = 0;
+  const loop = () => { raf = 0; if (!alive || !visible || paused || document.hidden) return; draw(now()); raf = requestAnimationFrame(loop); };
+  const kick = () => { if (!reduce && !raf && alive && visible && !paused && !document.hidden) raf = requestAnimationFrame(loop); };
 
   frame.append(canvas);
   resize();
+  // a visible pause control for the moving water (WCAG 2.2.2); not needed when motion is reduced
+  let toggle: HTMLButtonElement | null = null;
+  if (!reduce) {
+    toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'm-water-toggle';
+    toggle.setAttribute('aria-pressed', 'false');
+    toggle.setAttribute('aria-label', labels.pause);
+    toggle.innerHTML = ICON_PAUSE;
+    toggle.addEventListener('click', () => {
+      paused = !paused;
+      if (paused) { pausedAt = now(); cancelAnimationFrame(raf); raf = 0; }
+      else { start = performance.now() - pausedAt * 1000; kick(); }
+      toggle!.setAttribute('aria-pressed', String(paused));
+      toggle!.setAttribute('aria-label', paused ? labels.play : labels.pause);
+      toggle!.innerHTML = paused ? ICON_PLAY : ICON_PAUSE;
+    });
+    frame.append(toggle);
+  }
   if (reduce) { draw(3.2); } else { kick(); }
 
   const ro = new ResizeObserver(() => { resize(); if (reduce) draw(3.2); });
@@ -128,7 +151,7 @@ export function waterLight(frame: HTMLElement, img: HTMLImageElement) {
 
   let last = 0;
   const drop = (e: PointerEvent, amp: number) => {
-    if (reduce) return;
+    if (reduce || paused || (e.target as HTMLElement).closest('button')) return;
     const r = frame.getBoundingClientRect();
     ripples.set([(e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height, now(), amp], (slot++ % 4) * 4);
   };
@@ -141,8 +164,8 @@ export function waterLight(frame: HTMLElement, img: HTMLImageElement) {
     alive = false; cancelAnimationFrame(raf); ro.disconnect(); io.disconnect();
     document.removeEventListener('visibilitychange', onVis);
     frame.removeEventListener('pointermove', onMove); frame.removeEventListener('pointerdown', onDown);
-    canvas.remove();
+    canvas.remove(); toggle?.remove();
   };
   canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); destroy(); });
-  return { destroy, get frames() { return frames; }, get running() { return raf !== 0; } };
+  return { destroy, get frames() { return frames; }, get running() { return raf !== 0; }, get paused() { return paused; } };
 }

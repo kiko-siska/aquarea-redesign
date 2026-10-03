@@ -112,7 +112,7 @@ const priceGroups = [
           <div class="v6-status mt-5" data-status data-live data-state="unknown">
             <span class="status-dot" aria-hidden="true"></span>
             <p class="font-bold" data-status-text>Otváracie hodiny</p>
-            <p class="col-start-2 text-[0.9375rem]"><a href="#hodiny" class="v6-link">Otváracie hodiny a výnimky</a></p>
+            <p class="col-start-2 text-[0.9375rem]"><a href="#hodiny" class="v6-link inline-flex min-h-11 items-center">Otváracie hodiny a výnimky</a></p>
           </div>
         </div>
         <figure>
@@ -142,7 +142,7 @@ const priceGroups = [
                 <p class="v6-measure">{z.lead}</p>
                 <p class="v6-num font-bold">{z.price}</p>
                 {z.extra && <p class="v6-muted text-[0.9375rem]">{z.extra}</p>}
-                <p class="v6-zone-link"><a href={z.href} class="v6-link">{z.more}</a></p>
+                <p class="v6-zone-link"><a href={z.href} class="v6-link inline-flex min-h-11 items-center">{z.more}</a></p>
               </div>
             </li>
           ))}
