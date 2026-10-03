@@ -70,7 +70,7 @@
   .v7-link:hover { text-decoration-thickness: 4px; text-underline-offset: .3em; }
   .v7-cta, .v7-btn {
     display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 3.25rem; padding: 0 1.5rem;
-    border-radius: .35rem; font-family: var(--v7-display); font-weight: 800; font-size: 1.3rem; text-transform: uppercase; letter-spacing: .01em; line-height: 1; white-space: nowrap;
+    border-radius: .35rem; font-family: var(--v7-display); font-weight: 800; font-size: 1.3rem; text-transform: uppercase; letter-spacing: .01em; line-height: 1; text-align: center;
     transition: transform .18s var(--ease-out), box-shadow .18s var(--ease-out), background-color .2s var(--ease-out);
   }
   .v7-cta { background: var(--v7-cervena); color: #fff; box-shadow: 4px 4px 0 var(--v7-cierna); }
@@ -120,7 +120,7 @@
 
   .v7-panel { position: relative; z-index: 2; background: var(--v7-cierna); color: #fff; margin-top: calc(var(--cut) * -.6); padding: calc(var(--cut) * .6 + 1.25rem) 0 1.5rem; clip-path: polygon(0 calc(var(--cut) * .6), 100% 0, 100% 100%, 0 100%); }
   .v7-panel :focus-visible { outline-color: #fff; }
-  .v7-price-strip { display: grid; grid-template-columns: repeat(3, auto); gap: .6rem .9rem; align-items: end; justify-content: start; }
+  .v7-price-strip { display: flex; flex-wrap: wrap; gap: .6rem .9rem; align-items: flex-end; }
   .v7-sticker { display: inline-flex; flex-direction: column; padding: .3rem .7rem .45rem; background: var(--v7-modra); color: var(--v7-cierna); transform: rotate(-2.5deg); clip-path: polygon(0 6%, 100% 0, 97% 100%, 3% 94%); }
   .v7-sticker:nth-child(2) { transform: rotate(1.5deg); }
   .v7-sticker:nth-child(3) { transform: rotate(-1deg); }
@@ -149,6 +149,7 @@
   .v7-slab:focus-within { outline: 3px solid var(--v7-cierna); outline-offset: -3px; }
   .v7-dark.v7-slab:focus-within, .v7-slab.v7-on-ink:focus-within, .v7-slab.v7-on-deep:focus-within { outline-color: #fff; }
   @media (hover: hover) { .v7-slab:hover .v7-slab-media img { transform: scale(1.05); } }
+  @media (min-width: 1024px) { .v7-slab[data-big] .v7-slab-body { flex: none; } }  /* the tall slab's photo takes the spare height */
   .v7-big-num { font-family: var(--v7-display); font-weight: 800; font-size: clamp(2.6rem, 5vw, 3.8rem); line-height: .9; }
 
   /* facts (Dive Center) */
@@ -160,7 +161,7 @@
 
   /* prices */
   .v7-price-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; padding: .8rem 0; border-bottom: 3px solid var(--v7-cierna); }
-  .v7-price-row dd { font-family: var(--v7-display); font-weight: 800; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: .9; white-space: nowrap; }
+  .v7-price-row dd { font-family: var(--v7-display); font-weight: 800; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: .9; }
 
   /* hours accordion + tables (m-acc from lib/motion) */
   .v7-accordion { border-top: 3px solid currentColor; }
