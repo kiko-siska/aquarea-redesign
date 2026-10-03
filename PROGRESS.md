@@ -1,7 +1,7 @@
 # Progress
 
-- **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-03 10:45
+- **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
+- **Last updated:** 2026-10-03 11:27
 - **Current phase:** 6
 
 ## Checklist
@@ -85,10 +85,10 @@ _Owner brief 2026-10-03. NOT waived: V6's bar in full (WCAG AA, reduced motion, 
 ### Phase 6b — V7 hero revision (owner request 2026-10-03)
 _Owner: the diver must be a real-looking person (rule 5 waived for V7, 2nd exception), it must visibly move, and the hero water must be a real aerial (drone) photo. Everything else in V7 stays._
 - [x] Second AGENTS.md exception, committed on its own
-- [ ] Gemini: one photoreal generic diver (green-screen background), cut-out, logged
-- [ ] Hero: real drone photo as the water, diver cut-out on top, layered motion (pitch, kick of the legs layer, bob, drift, bubbles), pause + reduced motion
-- [ ] Dive Center section reuses the cut-out; remove the old SVG diver
-- [ ] Re-verify (Lighthouse ×3, axe, five-second test, motion proof frames, reduced motion, JS-off) + docs + picker thumbnails
+- [x] Gemini: one photoreal generic diver (green-screen background), cut-out, logged
+- [x] Hero: real drone photo as the water, diver cut-out on top, layered motion (pitch, kick of the legs layer, bob, drift, bubbles), pause + reduced motion
+- [x] Dive Center section reuses the cut-out; remove the old SVG diver
+- [x] Re-verify (Lighthouse ×3, axe, five-second test, motion proof frames, reduced motion, JS-off) + docs + picker thumbnails — Lighthouse 96–98 / 100 / 100 (5 runs), LCP 2.3–2.5 s; legs ±13° kick proven in frames; play button under reduced motion
 
 - 21st `get_component`: (date · component · used for)
   - 2026-10-01 · Horizontal Depth Fade (@unlumen, id 18439) · v1 underwater photo strip (ported to vanilla JS)
@@ -97,12 +97,14 @@ _Owner: the diver must be a real-looking person (rule 5 waived for V7, 2nd excep
   - 2026-10-02 · Flashlight Text Reveal (@kedhareswer, id 32544) · V4 torch mechanics (eased light toward pointer / roaming path, CSS mask sampled from the shader falloff, context-loss + visibility pause); adapted into vanilla three.js, the mask warms text instead of hiding it
   - **2026-10-02: 1/2 used.** Searches (free): magnetic button, film countdown, torch/spotlight, water ripple shader, film strip gallery, end credits, halftone, iris wipe.
   - **2026-10-03: 0/2 used** (V6 needed no catalogue component).
-- Gemini images: 3 / 8 (file · prompt summary)
+- Gemini images: 4 / 8 (file · prompt summary)
   - 2026-10-01 · `images/generated/v1-caustics.jpg` (2K, fast) · abstract sunlight caustics on sand through teal water; no objects/place/people · v1 texture overlay (`src/assets/generated/caustics.jpg`, resized)
   - 2026-10-02 · `images/generated/v5-film-dust.jpg` (2K, fast) · abstract 35 mm film dust, hairs and vertical scratches on black; no objects/place/people/text · V5 screen-blended film overlay (`src/assets/generated/v5-film-dust.jpg`, 1600 px greyscale)
   - Phase 4 plan: max 3 new images (owner). Planned: 1 (above). Reserve: 2, only if procedural textures fall short.
   - 2026-10-03 · `images/generated/v7-diver-concept-1.jpg` (2K, balanced) · flat-vector faceless diver concept (black suit, blue stripes, red fins, limbs separated; no logos, no real person) · reference only, rebuilt by hand as the V7 SVG rig (AGENTS.md rule 5 exception for /variants/7/)
   - **Gemini total: 3 / 8** (V7: 1 of max 3 new). Second concept pose not needed.
+  - 2026-10-03 · `images/generated/v7-diver-photo-1.jpg` (2K, balanced) · photoreal generic anonymous diver on a green screen (no logos/text/real person), keyed + mirrored into `src/assets/generated/v7-diver.webp`; AGENTS.md second rule-5 exception for /variants/7/
+  - **Gemini total: 4 / 8** (V7: 2 of max 3 new).
   - Phase 5: 0 used. Note: the owner's Phase 5 brief says "4/8 used"; this log shows 2/8. The stricter cap (1 more) was followed; none needed (the water light is procedural).
 
 ## Blockers

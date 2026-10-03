@@ -5,6 +5,8 @@
  * button / off-screen, absent under reduced motion. Looks finished when frozen. Decorative.
  * Wave paths are generated here (period 400 in a 1600-wide tile, doubled so a 50 % shift loops seamlessly).
  */
+interface Props { photo?: boolean }
+const { photo = false } = Astro.props;
 const wave = (y: number, amp: number, period = 400) => {
   const tiles = 6400 / period; // half-periods across the 3200-unit tile; periods divide 1600, so a 50 % shift loops
   let d = `M0 ${y} Q${period / 4} ${y - amp} ${period / 2} ${y}`;
@@ -20,7 +22,7 @@ const layers = [
   { cls: 'v7-w4', d: wave(156, 18, 400, 8), dur: '15s', delay: '-2s', fill: 'rgb(0 107 153 / .38)' },
 ];
 ---
-<div class="v7-water" aria-hidden="true">
+<div class:list={['v7-water', photo && 'v7-water-photo']} aria-hidden="true">
   <!-- caustic light bands -->
   <div class="v7-caustics">
     <i style="--l:6%;--w:15%;--d:38s;--o:-6s"></i><i style="--l:34%;--w:9%;--d:29s;--o:-17s"></i><i style="--l:62%;--w:18%;--d:44s;--o:-26s"></i>
@@ -30,11 +32,12 @@ const layers = [
       <svg viewBox="0 0 3200 220" preserveAspectRatio="none"><path d={l.d} fill={l.fill} /></svg>
     </div>
   ))}
-  <!-- surface: pale water-light above, white line on the edge -->
+ {!photo && (
   <div class="v7-surface" style="--d:42s;--o:-9s">
     <svg viewBox="0 0 3200 120" preserveAspectRatio="none">
       <path d={`${edge} V0 H0 Z`} fill="#f0faff" />
       <path d={edge} fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" />
     </svg>
   </div>
+  )}
 </div>

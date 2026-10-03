@@ -13,8 +13,8 @@ const watch = (p, tag) => {
   p.on('pageerror', (e) => issues.push(`${tag}: ${e.message}`));
   p.on('console', (m) => { if (m.type() === 'error') issues.push(`${tag}: console ${m.text()}`); });
 };
-const pose = (p) => p.evaluate(() => Object.fromEntries(['legNear', 'shinNear', 'finNear', 'legFar', 'armNearU', 'upper'].map((n) => {
-  const t = document.querySelector(`[data-v7-stage] [data-d="${n}"]`).getAttribute('transform') || '';
+const pose = (p) => p.evaluate(() => Object.fromEntries(['legs', 'upper', 'body'].map((n) => {
+  const t = getComputedStyle(document.querySelector(`[data-v7-stage] [data-d="${n}"]`)).transform || '';
   const m = t.match(/matrix\(([^)]+)\)/); const [a, b] = m ? m[1].split(',').map(Number) : [1, 0];
   return [n, Math.round(Math.atan2(b, a) * 180 / Math.PI * 10) / 10];
 })));
@@ -33,9 +33,9 @@ const pose = (p) => p.evaluate(() => Object.fromEntries(['legNear', 'shinNear', 
     await stage.screenshot({ path: `${out}/v7-1440-diver-kick-${i + 1}.jpg`, type: 'jpeg', quality: 82 });
     await sleep(300);
   }
-  notes.push(`kick cycle (4 frames, 0.3 s apart) legNear° ${poses.map((q) => q.legNear).join(' → ')}; shinNear° ${poses.map((q) => q.shinNear).join(' → ')}; finNear° ${poses.map((q) => q.finNear).join(' → ')}`);
+  notes.push(`kick cycle (4 frames, 0.3 s apart) legs° ${poses.map((q) => q.legs).join(' → ')}; torso° ${poses.map((q) => q.upper).join(' → ')}; pitch° ${poses.map((q) => q.body).join(' → ')}`);
   const rng = (k) => Math.max(...poses.map((q) => q[k])) - Math.min(...poses.map((q) => q[k]));
-  if (rng('legNear') < 8) issues.push('diver: thigh barely moves');
+  if (rng('legs') < 8) issues.push('diver: legs barely move');
   const el = await p.evaluate(() => ({ bubbles: document.querySelectorAll('.v7-bubble').length, animatedWaves: [...document.querySelectorAll('[data-v7-stage] .v7-wave')].map((w) => getComputedStyle(w).animationName).join(',') }));
   notes.push(`bubbles in DOM: ${el.bubbles} (≤ 12); wave animation: ${el.animatedWaves}`);
   if (el.bubbles > 12) issues.push('too many bubbles');
@@ -102,21 +102,26 @@ const pose = (p) => p.evaluate(() => Object.fromEntries(['legNear', 'shinNear', 
   await ctx.close();
 }
 
-// ---- reduced motion: static pose, nothing loops, button hidden; live switch ----
+// ---- reduced motion: static pose and nothing loops until the visitor presses play; live switch ----
 {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
   const p = await ctx.newPage(); watch(p, 'reduced');
   await p.goto(url, { waitUntil: 'load' }); await sleep(2500);
-  const r = await p.evaluate(() => ({ live: document.querySelector('[data-v7-stage]').hasAttribute('data-live'), running: window.__v7?.running ?? false, wave: getComputedStyle(document.querySelector('[data-v7-stage] .v7-wave')).animationName, pauseHidden: getComputedStyle(document.querySelector('[data-v7-pause]')).display === 'none' || document.querySelector('[data-v7-pause]').hidden }));
-  notes.push(`reduced motion: ${JSON.stringify(r)}`);
-  if (r.live || r.running || r.wave !== 'none' || !r.pauseHidden) issues.push('reduced motion not static');
+  const r = await p.evaluate(() => { const b = document.querySelector('[data-v7-pause]'); return { running: window.__v7?.running ?? false, wave: getComputedStyle(document.querySelector('[data-v7-stage] .v7-wave')).animationName, playButton: !b.hidden && getComputedStyle(b).display !== 'none', pressed: b.getAttribute('aria-pressed'), label: b.getAttribute('aria-label') }; });
+  notes.push(`reduced motion at load: ${JSON.stringify(r)}`);
+  if (r.running || r.wave !== 'none' || !r.playButton || r.pressed !== 'true') issues.push('reduced motion not static, or no play button');
   await p.locator('[data-v7-stage]').screenshot({ path: `${out}/v7-1440-reduced-static-pose.jpg`, type: 'jpeg', quality: 82 });
+  await p.locator('[data-v7-pause]').click(); await sleep(1500);
+  const played = await p.evaluate(() => ({ running: window.__v7.running, waveDuration: getComputedStyle(document.querySelector('[data-v7-stage] .v7-wave')).animationDuration, pressed: document.querySelector('[data-v7-pause]').getAttribute('aria-pressed') }));
+  notes.push(`after the visitor pressed play: ${JSON.stringify(played)}`);
+  if (!played.running || played.waveDuration === '0.01s' || played.pressed !== 'false') issues.push('play button did not start the motion under reduced motion');
+  await p.locator('[data-v7-pause]').click(); await sleep(1200);
   await p.emulateMedia({ reducedMotion: 'no-preference' }); await sleep(1500);
   const on = await p.evaluate(() => ({ live: document.querySelector('[data-v7-stage]').hasAttribute('data-live'), running: window.__v7?.running }));
   await p.emulateMedia({ reducedMotion: 'reduce' }); await sleep(1500);
-  const off = await p.evaluate(() => ({ live: document.querySelector('[data-v7-stage]').hasAttribute('data-live'), running: window.__v7?.running }));
+  const off = await p.evaluate(() => ({ running: window.__v7?.running, paused: document.querySelector('[data-v7-stage]').hasAttribute('data-paused') }));
   notes.push(`live switch: allow → ${JSON.stringify(on)}; reduce → ${JSON.stringify(off)}`);
-  if (!on.live || !on.running || off.live || off.running) issues.push('live reduced-motion switch broken');
+  if (!on.live || !on.running || off.running || !off.paused) issues.push('live reduced-motion switch broken');
   await ctx.close();
 }
 
@@ -127,13 +132,13 @@ const pose = (p) => p.evaluate(() => Object.fromEntries(['legNear', 'shinNear', 
   await p.goto(url, { waitUntil: 'load' }); await sleep(1800);
   const fig = p.locator('[data-v7-diver-static]');
   await fig.scrollIntoViewIfNeeded(); await sleep(500);
-  const rest = await p.evaluate(() => document.querySelector('[data-v7-diver-static] [data-d="legNear"]').getAttribute('transform'));
+  const rest = await p.evaluate(() => document.querySelector('[data-v7-diver-static] [data-d="legs"]').style.transform);
   const bx = await fig.boundingBox();
   await p.mouse.move(bx.x + 40, bx.y + 40); await p.mouse.move(bx.x + bx.width / 2, bx.y + bx.height / 2, { steps: 6 }); await sleep(450);
-  const mid = await p.evaluate(() => document.querySelector('[data-v7-diver-static] [data-d="legNear"]').getAttribute('transform'));
+  const mid = await p.evaluate(() => document.querySelector('[data-v7-diver-static] [data-d="legs"]').style.transform);
   await fig.screenshot({ path: `${out}/v7-1440-dive-diver-hover-kick.jpg`, type: 'jpeg', quality: 82 });
   await sleep(2400);
-  const back = await p.evaluate(() => document.querySelector('[data-v7-diver-static] [data-d="legNear"]').getAttribute('transform'));
+  const back = await p.evaluate(() => document.querySelector('[data-v7-diver-static] [data-d="legs"]').style.transform);
   notes.push(`dive diver hover: kicks (${rest !== mid}) and returns to the static pose (${back === rest || back === mid ? 'check' : 'settled'})`);
   if (rest === mid) issues.push('dive diver did not kick on hover');
   await p.locator('#galeria').scrollIntoViewIfNeeded(); await sleep(800);

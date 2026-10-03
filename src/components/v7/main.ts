@@ -1,6 +1,6 @@
 /**
  * V7 · Rýchla voda: effects layered on a page that is complete without JS (Phase 6).
- * Signature (hero only): procedural water (CSS, switched on here) + the rigged diver (diver.ts).
+ * Signature (hero only): a real drone photo as the water with procedural light on top (CSS, switched on here) + the photoreal diver cut-out, kicking via layered transforms (diver.ts).
  * Everything else comes from the V6 motion kit in src/lib/motion. One thing animates per viewport:
  * the hero loops only while the hero is on screen; below it only short, one-off reveals and the
  * hover kick of the static diver. Reduced motion (live, via gsap.matchMedia): no loops, static pose.
@@ -27,20 +27,23 @@ export async function initV7() {
 
   const hero = document.querySelector<HTMLElement>('[data-v7-hero]');
   const stage = document.querySelector<HTMLElement>('[data-v7-stage]');
-  const svg = stage?.querySelector<SVGElement>('.v7-diver');
+  const svg = stage?.querySelector<HTMLElement>('.v7-diver');
   const wrap = stage?.querySelector<HTMLElement>('.v7-diver-wrap') ?? null;
   const nudge = stage?.querySelector<HTMLElement>('.v7-diver-nudge') ?? null;
   const pauseBtn = stage?.querySelector<HTMLButtonElement>('[data-v7-pause]') ?? null;
   const bubbleEls = [...(stage?.querySelectorAll<HTMLElement>('.v7-bubble') ?? [])];
 
-  // Hero: water + diver. Full branch = loops; reduced branch = nothing (the markup is the static pose).
-  withMotion(gsap, () => {
+  // Hero: water + diver. `full` runs the loops; `reduced` (OS reduce-motion) shows the static pose and a play
+  // button: motion starts only if the visitor presses it (user-initiated, so it is allowed).
+  const hero_ = (autostart: boolean) => {
     const cleanups: (() => void)[] = [];
     if (hero && stage && svg) {
       const rig = rigDiver(svg, wrap, nudge, gsap);
       const bubbles = bubbleField(stage, bubbleEls, svg.querySelector('[data-d="reg"]'), gsap);
-      let paused = false, visible = true;
+      let paused = !autostart, visible = true;
       stage.setAttribute('data-live', '');
+      if (!autostart) stage.setAttribute('data-optin', '');
+      stage.toggleAttribute('data-paused', paused);
       const sync = () => {
         const run = !paused && visible && !document.hidden;
         stage.toggleAttribute('data-offscreen', !visible);
@@ -52,7 +55,7 @@ export async function initV7() {
       const onVis = () => sync();
       document.addEventListener('visibilitychange', onVis);
 
-      // pause control (WCAG 2.2.2): everything returns to the static pose
+      // pause / play control (WCAG 2.2.2): everything returns to the static pose when paused
       if (pauseBtn) {
         pauseBtn.hidden = false;
         const label = (p: boolean) => {
@@ -60,7 +63,7 @@ export async function initV7() {
           pauseBtn.setAttribute('aria-label', p ? 'Spustiť animáciu vody a potápača' : 'Zastaviť animáciu vody a potápača');
           pauseBtn.innerHTML = p ? ICON_PLAY : ICON_PAUSE;
         };
-        label(false);
+        label(paused);
         pauseBtn.onclick = () => { paused = !paused; stage.toggleAttribute('data-paused', paused); label(paused); sync(); };
       }
 
@@ -98,22 +101,30 @@ export async function initV7() {
         io.disconnect(); document.removeEventListener('visibilitychange', onVis);
         hero.removeEventListener('pointermove', onMove); hero.removeEventListener('pointerleave', onLeave); hero.removeEventListener('pointerdown', onDown);
         bubbles.stop(); rig.destroy();
-        stage.removeAttribute('data-live'); stage.removeAttribute('data-paused'); stage.removeAttribute('data-offscreen');
+        stage.removeAttribute('data-live'); stage.removeAttribute('data-paused'); stage.removeAttribute('data-offscreen'); stage.removeAttribute('data-optin');
         stage.querySelectorAll('.v7-ripple-ring').forEach((n) => n.remove());
-        if (pauseBtn) pauseBtn.hidden = true;
+        if (pauseBtn) { pauseBtn.hidden = true; pauseBtn.onclick = null; }
       });
     }
+    return cleanups;
+  };
+
+  withMotion(gsap, () => {
+    const cleanups = hero_(true);
     // below the hero (V6 motion kit): H1 focus-in, reveals, count-up
     focusIn(gsap, SplitText, document.querySelector('[data-v7-h1]'));
     const undoReveal = reveal(gsap, document);
     const undoCount = countUp(gsap, document.querySelectorAll<HTMLElement>('[data-count]'));
     cleanups.push(undoReveal, undoCount);
     return () => cleanups.forEach((c) => c());
+  }, () => {
+    const cleanups = hero_(false);
+    return () => cleanups.forEach((c) => c());
   });
 
   // Dive Center: the same rig again, static, with a short kick on hover/focus (motion allowed only)
   const diveFig = document.querySelector<HTMLElement>('[data-v7-diver-static]');
-  const diveSvg = diveFig?.querySelector<SVGElement>('.v7-diver');
+  const diveSvg = diveFig?.querySelector<HTMLElement>('.v7-diver');
   if (diveFig && diveSvg) {
     let rig: ReturnType<typeof rigDiver> | null = null;
     const kick = () => {

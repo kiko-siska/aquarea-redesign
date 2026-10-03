@@ -1,34 +1,30 @@
 /**
  * V7 diver rig driver. One gsap.ticker callback sets the rotation of each rig part to
- * `rest + amp·sin(phase)`: flutter kick 1.2 s per cycle (thighs ±18°, shins ±12° and fins ±10° lagging in phase,
- * far leg in counter-phase), arm sway ±6°, torso undulation ±2.5°, head ±3°, a slow bob. Sine = sine.inOut feel.
+ * `rest + amp·sin(phase)`: flutter kick 1.2 s per cycle (the legs layer ±13° around the hip, the torso ±2.2° in answer, whole-figure pitch ±3.2°), a slow bob. Sine = sine.inOut feel.
  * Because the values are computed (not tweened from a keyframe), starting eases the amplitude in from 0 and
- * stopping eases it back to the rest pose, which is the static, composed pose written in the SVG markup.
- * All transform-only; pivots are the local (0 0) of each nested `<g>` (see Diver.astro).
- * Interaction: drift toward the pointer (±40 px) and tilt, kick speed rises with pointer movement and scrolling,
+ * stopping eases it back to the rest pose, which is the static, composed pose of the photo (see DiverPhoto.astro).
+ * All transform-only; the pivot of every layer is the hip (CSS transform-origin).
+ * Interaction: drift toward the pointer (≤ 40 px away from the panel, ≤ 20 px toward it) and tilt, kick speed rises with pointer movement and scrolling,
  * a tap/burst makes a stronger kick, scrolling the hero nudges the diver down ≤ 80 px.
  */
 import type { gsap as GSAP } from 'gsap';
 
 type Part = { el: Element; rest: number; amp: number; phase: number; freq: number; set: (v: number) => void };
 
-export function rigDiver(svg: SVGElement, wrap: HTMLElement | null, nudge: HTMLElement | null, gsap: typeof GSAP) {
-  const q = (n: string) => svg.querySelector<SVGGElement>(`[data-d="${n}"]`)!;
+export function rigDiver(rig: HTMLElement, wrap: HTMLElement | null, nudge: HTMLElement | null, gsap: typeof GSAP) {
+  const q = (n: string) => rig.querySelector<HTMLElement>(`[data-d="${n}"]`)!;
   const T = 1.2; // seconds per kick cycle
   const cfg: [string, number, number, number][] = [
     // name, amplitude (deg), phase (rad), frequency multiplier
-    ['legNear', 18, 0, 1], ['legFar', 18, Math.PI, 1],
-    ['shinNear', 12, 0.9, 1], ['shinFar', 12, Math.PI + 0.9, 1],
-    ['finNear', 10, 1.7, 1], ['finFar', 10, Math.PI + 1.7, 1],
-    ['armNearU', 6, 0.3, 0.75], ['armNearF', 6, 1.4, 0.75], ['armFarU', 6, Math.PI + 0.3, 0.75], ['armFarF', 6, Math.PI + 1.4, 0.75],
-    ['upper', 2.5, 0.4, 1], ['head', 3, 1.2, 1],
+    ['legs', 13, 0, 1],        // legs + fins kick around the hip (the cut-out's second layer)
+    ['upper', 2.2, 0.9, 1],   // the torso answers the kick
+    ['body', 3.2, 1.9, 0.5],  // whole-figure pitch, twice as slow
   ];
   const parts: Part[] = cfg.map(([n, amp, phase, freq]) => {
     const el = q(n);
-    return { el, rest: Number(gsap.getProperty(el, 'rotation')), amp, phase, freq, set: gsap.quickSetter(el, 'rotation') as (v: number) => void };
+    return { el, rest: 0, amp, phase, freq, set: gsap.quickSetter(el, 'rotation', 'deg') as (v: number) => void };
   });
-  const root = q('root');
-  const setBob = gsap.quickSetter(root, 'y', 'px') as (v: number) => void;
+  const setBob = gsap.quickSetter(rig, 'y', 'px') as (v: number) => void;
   const driftX = wrap ? gsap.quickTo(wrap, 'x', { duration: 0.9, ease: 'power3' }) : null;
   const driftY = wrap ? gsap.quickTo(wrap, 'y', { duration: 0.9, ease: 'power3' }) : null;
   const tilt = wrap ? gsap.quickTo(wrap, 'rotation', { duration: 1.1, ease: 'power3' }) : null;
@@ -39,7 +35,7 @@ export function rigDiver(svg: SVGElement, wrap: HTMLElement | null, nudge: HTMLE
 
   const apply = () => {
     for (const p of parts) p.set(p.rest + p.amp * ampNow * Math.sin(phaseT * p.freq * ((Math.PI * 2) / T) + p.phase));
-    setBob(6 * ampNow * Math.sin(bobT * ((Math.PI * 2) / 3.2)));
+    setBob(7 * ampNow * Math.sin(bobT * ((Math.PI * 2) / 3.2)));
   };
   const toRest = () => { for (const p of parts) p.set(p.rest); setBob(0); };
 

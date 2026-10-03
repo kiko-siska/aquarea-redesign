@@ -1,0 +1,34 @@
+---
+/**
+ * V7 diver: ONE photoreal, AI-generated, generic anonymous diver cut-out (AGENTS.md second rule-5 exception,
+ * V7 only), keyed from a green screen (scripts/key-diver.mjs). Faces right, toward the text panel.
+ * Layered "photo rig": two copies of the same image. The base copy has the legs cut out (a polygon hole),
+ * the legs copy is clipped to exactly that polygon and rotates around the hip (transform-origin = the hip),
+ * so the legs and fins kick while the torso stays; the whole figure pitches and bobs. The seam sits in
+ * black neoprene and the two copies overlap by ~1 % so no gap opens. The markup is the static pose
+ * (also the pause and reduced-motion pose). Decorative: aria-hidden.
+ */
+import { getImage } from 'astro:assets';
+import cutout from '../../assets/generated/v7-diver.webp';
+interface Props { class?: string }
+const { class: cls } = Astro.props;
+const sizes = '(min-width: 1024px) 50vw, 96vw';
+const [s1, s2, img] = await Promise.all([700, 1000, 1400].map((w) => getImage({ src: cutout, width: w, format: 'webp', quality: 84 })));
+const srcset = `${s1.src} 700w, ${s2.src} 1000w, ${img.src} 1400w`;
+const pct = (n: number) => `${(n * 100).toFixed(2)}%`;
+// legs region (fractions of the cut-out, y down); x < 0 is clamped to the image edge
+const lower: [number, number][] = [[0.5304, 0.3956], [0.43, 0.3956], [0.43, 0.0176], [0, 0.0176], [0, 0.9626], [0.4761, 0.9626], [0.4761, 0.6602], [0.5304, 0.6602]];
+const poly = (pts: [number, number][]) => pts.map(([x, y]) => `${pct(x)} ${pct(y)}`).join(', ');
+// the base copy is the image minus the legs, as ONE simple polygon (a notch carved from the left edge);
+// the notch is a little smaller than the legs polygon, so the two copies overlap along the seam
+const notch: [number, number][] = [[0, 0.9626], [0.4641, 0.9626], [0.4641, 0.6482], [0.5184, 0.6482], [0.5184, 0.4076], [0.4196, 0.4076], [0.4196, 0.0176], [0, 0.0176]];
+const baseClip = `polygon(0 0, 100% 0, 100% 100%, 0 100%, ${poly(notch)})`;
+const legsClip = `polygon(${poly(lower)})`;
+---
+<div class:list={['v7-diver', cls]} aria-hidden="true" data-d="root" style={`--hip:49.6% 53.7%;--base-clip:${baseClip};--legs-clip:${legsClip};aspect-ratio:${img.attributes.width}/${img.attributes.height}`}>
+  <div class="v7-d-body" data-d="body">
+    <img class="v7-d-upper" data-d="upper" src={img.src} srcset={srcset} sizes={sizes} fetchpriority="high" width={img.attributes.width} height={img.attributes.height} alt="" decoding="async" />
+    <img class="v7-d-legs" data-d="legs" src={img.src} srcset={srcset} sizes={sizes} width={img.attributes.width} height={img.attributes.height} alt="" decoding="async" />
+    <i class="v7-d-reg" data-d="reg"></i>
+  </div>
+</div>

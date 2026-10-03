@@ -2,7 +2,7 @@
 
 /**
  * Direction 7 · Rýchla voda: bold and sporty, still fully usable (Phase 6, DECISIONS.md).
- * Hero = procedural water + a rigged illustrated diver (AGENTS.md rule 5 exception, V7 only) beside a SOLID
+ * Hero = a real drone photo + procedural light + a photoreal diver cut-out (AGENTS.md rule 5 exceptions, V7 only) beside a SOLID
  * angled panel; text never sits on moving water. Below: flat logo-colour bands with hard angled edges.
  * Effects are added by JS on top of a complete static page; each has a reduced-motion version.
  * NOT waived: AGENTS.md rule 7 applies in full.
@@ -22,7 +22,7 @@ import Base from '../../../layouts/Base.astro';
 import Header from '../../../components/v7/Header.astro';
 import Footer from '../../../components/v7/Footer.astro';
 import Water from '../../../components/v7/Water.astro';
-import Diver from '../../../components/v7/Diver.astro';
+import Diver from '../../../components/v7/DiverPhoto.astro';
 import Photo from '../../../components/shared/Photo.astro';
 import Icon from '../../../components/shared/Icon.astro';
 import Todo from '../../../components/shared/Todo.astro';
@@ -110,7 +110,10 @@ const priceGroups = [
     <!-- Hero: water + diver on the left, SOLID angled panel on the right (never text on moving water) -->
     <section aria-labelledby="v7-title" class="v7-hero" data-v7-hero>
       <div class="v7-stage" data-v7-stage>
-        <Water />
+        <div class="v7-stage-photo">
+          <Photo id="dron-molo-plytcina" priority sizes="(min-width: 1024px) 52vw, 100vw" widths={[480, 720, 960, 1280]} pictureClass="block h-full" class="h-full w-full object-cover" decorative />
+        </div>
+        <Water photo />
         <div class="v7-diver-nudge"><div class="v7-diver-wrap"><Diver /></div></div>
         {Array.from({ length: 9 }, () => <span class="v7-bubble" aria-hidden="true"></span>)}
         <button type="button" class="v7-pause" data-v7-pause aria-pressed="false" aria-label="Zastaviť animáciu vody a potápača" hidden></button>
@@ -165,9 +168,10 @@ const priceGroups = [
     <!-- Dive Center: the diver again, static, kicks on hover -->
     <section aria-labelledby="v7-dive" class="v7-band v7-on-deep v7-dark">
       <div class="v7-wrap grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-center lg:gap-16">
-        <figure class="v7-diver-static relative aspect-[4/3] w-full overflow-hidden bg-[var(--v7-modra)]" style="clip-path:polygon(0 0,100% 0,100% calc(100% - 2rem),calc(100% - 2rem) 100%,0 100%)" data-v7-diver-static>
-          <Water />
-          <div class="absolute bottom-[2%] left-[-6%] w-[104%]"><Diver /></div>
+        <figure class="v7-diver-static relative aspect-[4/3] w-full overflow-hidden bg-[var(--v7-cierna)]" style="clip-path:polygon(0 0,100% 0,100% calc(100% - 2rem),calc(100% - 2rem) 100%,0 100%)" data-v7-diver-static>
+          <Photo id="dron-zatoka" decorative sizes="(min-width: 1024px) 50vw, 100vw" widths={[480, 720, 960]} pictureClass="absolute inset-0 block" class="h-full w-full object-cover" />
+          <Water photo />
+          <div class="absolute bottom-[24%] left-[-4%] w-[96%]"><Diver /></div>
         </figure>
         <div>
           <h2 id="v7-dive" class="v7-display v7-h2">Potápanie k zanoreným atrakciám</h2>
