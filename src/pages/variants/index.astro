@@ -13,6 +13,8 @@ import v4d from '../../assets/picker/v4-desktop.png';
 import v4m from '../../assets/picker/v4-mobile.png';
 import v5d from '../../assets/picker/v5-desktop.png';
 import v5m from '../../assets/picker/v5-mobile.png';
+import v6d from '../../assets/picker/v6-desktop.png';
+import v6m from '../../assets/picker/v6-mobile.png';
 
 const RECOMMENDED = 3; // [auto] pick, see DECISIONS.md
 
@@ -54,14 +56,21 @@ const directions = [
     signature: 'strihy medzi scénami, kinetické písmo na osi šírky, časový kód podľa rolovania, filmový pás s premietaním vo farbe, duotón a raster na fotografiách',
     note: 'Smelý koncept s výnimkou z prístupnosti a Lighthouse (rozhodnutie vlastníka). Pred použitím na ostrom webe treba úpravy.',
   },
+  {
+    n: 6, name: 'Čistá voda', desktop: v6d, mobile: v6m,
+    mood: 'Svetlá, vzdušná a presná, ako pohľad cez čistú vodu. Na prvej obrazovke mobilu je všetko podstatné: čo Aquarea je, ceny, dnešný stav a tlačidlá Rezervovať a Zavolať. Svetlo sa hýbe len vo fotografii v úvode, informácie stoja. Potápanie má jeden hlboký tmavý pás. Spĺňa prístupnosť aj Lighthouse a funguje aj bez JavaScriptu.',
+    palette: [['svetlo', '#f5fafa'], ['plytčina', '#e3f1f0'], ['hĺbka', '#0d2830'], ['tlmená', '#43606a'], ['tyrkys', '#159c97'], ['stolička', '#c8352a']],
+    type: 'Bricolage Grotesque (nadpisy, optická veľkosť) + Atkinson Hyperlegible Next (texty)',
+    signature: 'svetlo z vody (kaustiky) len vo fotografii v úvode s jemným vlnením pod prstom a tlačidlom na zastavenie; drobné animácie: odhaľovanie, počítadlá, galéria s filtrom a lightboxom',
+  },
 ];
 ---
 <Base title="Smery domovskej stránky" description="Výber vizuálneho smeru pre redizajn webu Aquarea Čierna Voda." bodyClass="bg-[#f5f6f7] text-[#16202a]" themeColor="#f5f6f7">
   <main id="obsah" class="mx-auto max-w-6xl px-4 py-10 font-sans md:px-8 md:py-16">
     <p class="text-sm font-semibold text-[#4b5866]">Aquarea Čierna Voda, koncept redizajnu</p>
-    <h1 class="mt-2 text-3xl font-bold tracking-tight md:text-5xl">Päť smerov domovskej stránky</h1>
+    <h1 class="mt-2 text-3xl font-bold tracking-tight md:text-5xl">Šesť smerov domovskej stránky</h1>
     <p class="mt-4 max-w-3xl text-lg leading-relaxed text-[#35424f]">
-      Všetkých päť používa rovnaký skutočný obsah z aquarea.sk (ceny, hodiny, kontakty, fotografie) a rovnakú novú štruktúru webu. Líšia sa náladou, typografiou a hlavným efektom. Na mobile majú všetky spodnú lištu Zavolať / Rezervovať / Navigovať. Smery 4 a 5 sú najodvážnejšie, postavené na pohybe.
+      Všetkých šesť používa rovnaký skutočný obsah z aquarea.sk (ceny, hodiny, kontakty, fotografie) a rovnakú novú štruktúru webu. Líšia sa náladou, typografiou a hlavným efektom. Na mobile majú všetky spodnú lištu Zavolať / Rezervovať / Navigovať. Smery 4 a 5 sú najodvážnejšie, postavené na pohybe. Smer 6 je pohyb v službe čitateľnosti a rezervácie.
     </p>
     <ol class="mt-12 space-y-16" role="list">
       {directions.map((d) => (

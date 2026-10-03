@@ -1,7 +1,7 @@
 # Progress
 
-- **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-03 09:26
+- **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
+- **Last updated:** 2026-10-03 09:32
 - **Current phase:** 5
 
 ## Checklist
@@ -58,15 +58,15 @@ _Owner brief 2026-10-02. V4/V5 are exempt from a11y + Lighthouse (AGENTS.md rule
 
 ### Phase 5 — V6 "Čistá voda", the usable one (`/variants/6/`)
 _Owner brief 2026-10-02. V6 is **not** waived: AGENTS.md rule 7 in full (WCAG AA, focus, Slovak alt, reduced motion for every effect, Lighthouse mobile perf ≥ 90 and a11y ≥ 90, axe 0). Native scroll only, progressive enhancement, effects are seasoning. V1–V5 and the site stay untouched._
-- [ ] Design system: concept, fonts (Slovak glyph check), palette from real objects, motion budget → DECISIONS.md
+- [x] Design system: concept, fonts (Slovak glyph check), palette from real objects, motion budget → DECISIONS.md — Bricolage Grotesque + Atkinson Hyperlegible Next; CTA `#C8352A`; all token pairs computed
 - [x] Reusable motion module `src/lib/motion/` (reduced-motion helper, reveal, count-up, status dot, flip gallery, water light) + README — also focus-in, ripple, marquee (with pause button), CSS accordion/progress/parallax/live dot
 - [x] V6 page at `/variants/6/`: same content, sections and TODOs; five-second test at 375 px — static baseline (no effects): Lighthouse mobile 94 / 100 / 100 (median of 3), CLS 0.001, axe 0 (normal + reduced), JS-off complete, five-second test passes (`screenshots/phase5/baseline/`)
 - [x] Hero signature: calm water light over the hero photo (after LCP, poster first, DPR ≤ 1.5, pauses off-screen/hidden, WebGL fallback, gentle ripple) — `scripts/v6-interactions.mjs`: 48 frames/0.8 s on screen, 0 off-screen, 0 hidden; reduced = still frame; no WebGL = photo only
 - [x] Micro-interactions: buttons, cards (lift, zoom, clip-path ripple), link underline, live status dot, count-up, accordions, marquee, scroll progress, Flip gallery + lightbox, SplitText H1, one parallax — gallery filter announces the count, lightbox returns focus, marquee pause button (`aria-pressed`), live dot shown on a simulated July date
-- [ ] Verify: Lighthouse mobile (perf, a11y, best practices), axe 0, CLS, JS weight, five-second screenshot, 0/25/50/75/100 % + hover + focus, reduced-motion pass, 0 console errors, no overflow → `screenshots/phase5/`
-- [ ] design:accessibility-review + design:design-critique on the finished page; fix findings
-- [ ] Picker: V6 with summary, palette, type, effect, thumbnails; noindex; out of sitemap
-- [ ] DECISIONS.md: V6 entry + V3 vs V6 table + recommendation for `/` (do not replace `/`); PROGRESS handoff
+- [x] Verify: Lighthouse mobile (perf, a11y, best practices), axe 0, CLS, JS weight, five-second screenshot, 0/25/50/75/100 % + hover + focus, reduced-motion pass, 0 console errors, no overflow → `screenshots/phase5/` — Lighthouse 93 / 100 / 100 (median of 3), CLS 0.001, axe 0 (normal + reduced, 375 + 1440), JS ≈ 4 KB + 42 KB after load + 2.8 KB idle, 0 console errors, no overflow 320–1440, JS-off complete (`scripts/v6-checks.mjs`, `v6-interactions.mjs`, `v6-a11y-audit.mjs`)
+- [x] design:accessibility-review + design:design-critique on the finished page; fix findings — water-light pause button, live dot < 5 s, 44 px targets, deep Dive band, shorter price labels
+- [x] Picker: V6 with summary, palette, type, effect, thumbnails; noindex; out of sitemap — picker axe 0; V1–V5 thumbnails untouched
+- [x] DECISIONS.md: V6 entry + V3 vs V6 table + recommendation for `/` (do not replace `/`); PROGRESS handoff — recommends V6 for `/` with an inner-page follow-up; `/` unchanged
 
 ## Budget log
 - 21st `get_component`: (date · component · used for)
@@ -75,10 +75,12 @@ _Owner brief 2026-10-02. V6 is **not** waived: AGENTS.md rule 7 in full (WCAG AA
   - **2026-10-01: 2/2 used.** Next retrieval possible 2026-10-02.
   - 2026-10-02 · Flashlight Text Reveal (@kedhareswer, id 32544) · V4 torch mechanics (eased light toward pointer / roaming path, CSS mask sampled from the shader falloff, context-loss + visibility pause); adapted into vanilla three.js, the mask warms text instead of hiding it
   - **2026-10-02: 1/2 used.** Searches (free): magnetic button, film countdown, torch/spotlight, water ripple shader, film strip gallery, end credits, halftone, iris wipe.
+  - **2026-10-03: 0/2 used** (V6 needed no catalogue component).
 - Gemini images: 2 / 8 (file · prompt summary)
   - 2026-10-01 · `images/generated/v1-caustics.jpg` (2K, fast) · abstract sunlight caustics on sand through teal water; no objects/place/people · v1 texture overlay (`src/assets/generated/caustics.jpg`, resized)
   - 2026-10-02 · `images/generated/v5-film-dust.jpg` (2K, fast) · abstract 35 mm film dust, hairs and vertical scratches on black; no objects/place/people/text · V5 screen-blended film overlay (`src/assets/generated/v5-film-dust.jpg`, 1600 px greyscale)
   - Phase 4 plan: max 3 new images (owner). Planned: 1 (above). Reserve: 2, only if procedural textures fall short.
+  - Phase 5: 0 used. Note: the owner's Phase 5 brief says "4/8 used"; this log shows 2/8. The stricter cap (1 more) was followed; none needed (the water light is procedural).
 
 ## Blockers
 - 2026-10-01 (VS Code session): the built-in browser MCP (`mcp__Claude_Browser__*`) and `.claude/launch.json` preview are not available here. **Workaround:** screenshots and checks via Playwright (`playwright-core`) driving the installed Google Chrome (`scripts/screenshot.mjs`). The 21st, magicui and nano-banana MCPs are available.
@@ -114,6 +116,9 @@ _Notes for the next session: what's next, gotchas._
 - 2026-10-02 22:25 — **Phase 4 done.** Two motion-led directions added: `/variants/4/` Čierna voda (WebGL lake at night + dive torch) and `/variants/5/` Titulky (film title sequence). Both in the picker. A11y/Lighthouse waived for these two only (AGENTS.md rule 7 exception); hardening list in DECISIONS.md and owner TODO 16. Recommendation stays **V3**.
   - Run: `npm run build && npx astro preview --port 4322`, then `node scripts/motion-shots.mjs http://localhost:4322 screenshots/phase4 /variants/4/ /variants/5/` and `node scripts/scene-shots.mjs http://localhost:4322 screenshots/phase4/scenes /variants/5/ "section[data-v5-scene]"`. Picker thumbs: `node scripts/picker-thumbs.mjs http://localhost:4322 4 5`.
   - Gotchas: page CSS (`v4.css`, `v5.css`) is bundled *before* Tailwind → it declares the layer order and lives in `@layer components`. Load fonts explicitly (`document.fonts.load`) before measuring/splitting. V5: `<html>` also has `data-v5-scene` (scope selectors to `section[...]`); fitted words are measured on an offscreen clone. `?leader=0` skips V5's leader. Debug hooks: `window.__v4.frames`, `window.__v5.scene()`, `window.lenis`.
+- 2026-10-03 09:35 — **Phase 5 done.** `/variants/6/` Čistá voda: the non-waived, usable direction (Lighthouse 93/100/100, axe 0, CLS 0.001, five-second test passes, works without JS). Reusable motion blocks in `src/lib/motion/` (README). DECISIONS.md recommends V6 for `/` together with a follow-up that moves the inner pages to V6's tokens; `/` is unchanged until the owner decides.
+  - Run checks: `npm run build && npx astro preview --port 4322`, then `node scripts/v6-checks.mjs http://localhost:4322`, `node scripts/v6-interactions.mjs http://localhost:4322`, `node scripts/v6-a11y-audit.mjs http://localhost:4322`; Lighthouse: `npx lighthouse http://localhost:4322/variants/6/ --only-categories=performance,accessibility,best-practices`.
+  - Gotchas: StatusScript replaces a short text with a long one after load, so in the hero only the one-line status is shown (the detail lives in the hours section) to keep CLS at 0.001; gsap loads after `load` so it never competes with the LCP photo; the focus-in skips itself if it can't start within ~1.8 s.
 - Gotchas: content lives in `src/content/*.json` (zod-validated, every block needs an aquarea.sk `source`). `Photo` moves `col-span`/`row-span` classes onto `<picture>` automatically. Big Shoulders caps need leading ≥ 0,92 and no `truncate` (it clips Č/Š/Ž). Use `price()`/`priceShort()` for euros (non-breaking spaces). Screenshots: `npm run preview` then `npm run shots -- http://localhost:4321 screenshots/x /path/`; a11y: `node scripts/a11y.mjs http://localhost:4321 /path/`.
 
 ## Morning report
