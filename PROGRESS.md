@@ -1,7 +1,7 @@
 # Progress
 
-- **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-03 11:50
+- **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
+- **Last updated:** 2026-10-03 12:15
 - **Current phase:** 6
 
 ## Checklist
@@ -90,6 +90,16 @@ _Owner: the diver must be a real-looking person (rule 5 waived for V7, 2nd excep
 - [x] Dive Center section reuses the cut-out; remove the old SVG diver
 - [x] Re-verify (Lighthouse ×3, axe, five-second test, motion proof frames, reduced motion, JS-off) + docs + picker thumbnails — Lighthouse 96–98 / 100 / 100 (5 runs), LCP 2.3–2.5 s; legs ±13° kick proven in frames; play button under reduced motion
 
+### Phase 7 — two branches of V7's landing: V8 aerial, V9 dark diver (owner request 2026-10-03)
+_V8 `/variants/8/` = V7 without the diver: only the real aerial photo, AI-extended to fit the frame on desktop. V9 `/variants/9/` = only the diver with a V4-style torch-in-dark-water effect. AI placeholder photos allowed (third rule-5 exception), each with a visible TODO. Same bar as V6/V7 (not waived). V1–V7 untouched. Ends with an owner-facing comparison._
+- [x] Third AGENTS.md rule-5 exception, committed on its own
+- [x] AI images: extended aerial (V8), dark underwater background (V9); logged (Gemini 6 / 8)
+- [x] V8 page: aerial hero (real photo on phones, AI-extended on desktop), slow drone drift with pause, TODO chip
+- [x] V9 page: dark water, torch cone (pointer / touch / idle wander), marine snow, diver kick, pause + reduced motion, TODO chip
+- [x] Verify both → `screenshots/phase7/` — V8 96/100/100, V9 96–99/100/100 (3 runs each), axe 0, `a11y.mjs` 0, five-second test, 320 px reflow, JS-off, pause, reduced motion + play button (`scripts/v89-interactions.mjs`)
+- [x] Picker: V8 + V9 with thumbnails; DECISIONS.md entry + owner comparison (fit with the current site, easiest to sell, price ranges, UX); handoff
+
+## Budget log
 - 21st `get_component`: (date · component · used for)
   - 2026-10-01 · Horizontal Depth Fade (@unlumen, id 18439) · v1 underwater photo strip (ported to vanilla JS)
   - 2026-10-01 · Filmstrip Gallery (@n1m4mz, id 27093) · v2 day strip + lightbox (adapted)
@@ -150,6 +160,9 @@ _Notes for the next session: what's next, gotchas._
 - 2026-10-03 10:27 — **Phase 6 done.** `/variants/7/` Rýchla voda (logo palette, rigged SVG diver + procedural water hero, bold angled bands; NOT waived: Lighthouse 99/100/100, axe 0). DECISIONS.md recommends V7 for `/` (V6 as the calmer fallback) with an inner-page follow-up; `/` is unchanged. The brief's reference URL was still a placeholder (fallback style used).
   - Run checks: `npm run build && npx astro preview --port 4322`, then `node scripts/v7-checks.mjs http://localhost:4322`, `node scripts/v7-interactions.mjs http://localhost:4322`, `node scripts/v7-a11y-audit.mjs http://localhost:4322`, `node scripts/v7-contrast.mjs`, `node scripts/glyph-check.mjs <url> '<font>'`.
   - Gotchas: the diver's parts are rotated by one `gsap.ticker` callback (`diver.ts`), not keyframe tweens, so start/pause never jump; the wave periods must divide 1600 for a seamless loop; decorative pooled elements need a `display: none` guard until JS is live; Playwright `addStyleTag` hangs with JS disabled.
+- 2026-10-03 12:15 — **Phase 7 done.** `/variants/8/` (aerial only: real photo on phones, AI-extended square on desktop) and `/variants/9/` (dark water + torch + diver). Both in the picker, noindex, 5 visible TODOs each (incl. the AI-image TODO). Gemini 6/8 used. The owner comparison (fit with the current site, easiest to sell, price ranges, UX) is at the end of DECISIONS.md.
+  - Run checks: `npx astro preview --port 4322`, then `node scripts/v89-interactions.mjs http://localhost:4322`, `node scripts/v8-checks.mjs …` / `v9-checks.mjs …`, `node scripts/v8-a11y-audit.mjs …`.
+  - Gotchas: Gemini image edit re-renders the whole frame (V8's extended aerial is a placeholder, not the original pixels); `torch.ts` is driven by the stage attributes `data-live / data-paused / data-offscreen` that `main.ts` sets, so any new hero variant gets pausing and reduced motion for free.
 - Gotchas: content lives in `src/content/*.json` (zod-validated, every block needs an aquarea.sk `source`). `Photo` moves `col-span`/`row-span` classes onto `<picture>` automatically. Big Shoulders caps need leading ≥ 0,92 and no `truncate` (it clips Č/Š/Ž). Use `price()`/`priceShort()` for euros (non-breaking spaces). Screenshots: `npm run preview` then `npm run shots -- http://localhost:4321 screenshots/x /path/`; a11y: `node scripts/a11y.mjs http://localhost:4321 /path/`.
 
 ## Morning report
