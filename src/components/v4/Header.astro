@@ -6,18 +6,18 @@ import Icon from '../shared/Icon.astro';
 import { url } from '../../lib/url';
 
 interface Props { bookHref?: string }
-const { bookHref = url('/rezervacie/') } = Astro.props;
+const { bookHref = '#rezervacie' } = Astro.props;
 const nav = [
-  { href: url('/plazova-zona/'), label: 'Pláž' },
-  { href: url('/premium-zona/'), label: 'Pobyt' },
-  { href: url('/potapanie/'), label: 'Potápanie' },
-  { href: url('/cennik/'), label: 'Cenník' },
-  { href: url('/kontakt/'), label: 'Kontakt' },
+  { href: '#v4-zones', label: 'Pláž' },
+  { href: '#v4-zones', label: 'Pobyt' },
+  { href: '#v4-zones', label: 'Potápanie' },
+  { href: '#ceny', label: 'Cenník' },
+  { href: '#rezervacie', label: 'Kontakt' },
 ];
 ---
 <header class="v4-header" data-v4-header>
   <div class="v4-wrap flex h-16 items-center gap-4 md:h-20">
-    <a href={url('/')} class="v4-logo-plate mr-auto inline-flex items-center" aria-label="Aquarea Čierna Voda, úvod">
+    <a href={url('/variants/4/')} class="v4-logo-plate mr-auto inline-flex items-center" aria-label="Aquarea Čierna Voda, úvod">
       <Image src={logo} alt="" width={150} height={56} class="h-8 w-auto md:h-10" loading="eager" />
     </a>
     <nav aria-label="Hlavná navigácia" class="hidden lg:block">
@@ -37,9 +37,9 @@ const nav = [
       {nav.map((n) => <li><a href={n.href} class="v4-display block py-2 text-[2.6rem] text-[var(--v4-hmla)]">{n.label}</a></li>)}
     </ul>
     <p class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[var(--v4-studena)]">
-      <a class="v4-link" href={url('/otvaracie-hodiny/')}>Otváracie hodiny</a>
-      <a class="v4-link" href={url('/fotofilmfest/')}>FotoFilmFest</a>
-      <a class="v4-link" href={url('/galeria/')}>Galéria</a>
+      <a class="v4-link" href={'#v4-hours'}>Otváracie hodiny</a>
+      <a class="v4-link" href={'#v4-fff'}>FotoFilmFest</a>
+      <a class="v4-link" href={'#v4-gal'}>Galéria</a>
     </p>
   </nav>
 </div>

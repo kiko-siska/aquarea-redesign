@@ -5,18 +5,18 @@ import Icon from '../shared/Icon.astro';
 import { url } from '../../lib/url';
 
 interface Props { current?: string; bookHref?: string }
-const { current, bookHref = url('/rezervacie/') } = Astro.props;
+const { current, bookHref = '#rezervacie' } = Astro.props;
 const nav = [
-  { href: url('/plazova-zona/'), label: 'Pláž', id: 'plaz', color: 'bg-v3-plaz' },
-  { href: url('/premium-zona/'), label: 'Pobyt', id: 'pobyt', color: 'bg-v3-premium' },
-  { href: url('/potapanie/'), label: 'Potápanie', id: 'potapanie', color: 'bg-v3-dive' },
-  { href: url('/cennik/'), label: 'Cenník', id: 'cennik', color: 'bg-v3-slnko' },
-  { href: url('/kontakt/'), label: 'Kontakt', id: 'kontakt', color: 'bg-v3-event' },
+  { href: '#v3-zones', label: 'Pláž', id: 'plaz', color: 'bg-v3-plaz' },
+  { href: '#v3-zones', label: 'Pobyt', id: 'pobyt', color: 'bg-v3-premium' },
+  { href: '#v3-zones', label: 'Potápanie', id: 'potapanie', color: 'bg-v3-dive' },
+  { href: '#v3-prices', label: 'Cenník', id: 'cennik', color: 'bg-v3-slnko' },
+  { href: '#rezervacie', label: 'Kontakt', id: 'kontakt', color: 'bg-v3-event' },
 ];
 ---
 <header class="sticky top-0 z-50 bg-white shadow-[0_1px_0_#10212b1a]">
   <div class="mx-auto flex h-16 max-w-[90rem] items-center gap-3 px-4 md:h-20 md:px-8">
-    <a href={url('/')} class="mr-auto flex items-center rounded" aria-label="Aquarea Čierna Voda – úvod">
+    <a href={url('/variants/3/')} class="mr-auto flex items-center rounded" aria-label="Aquarea Čierna Voda – úvod">
       <Image src={logo} alt="" width={150} height={56} class="h-10 w-auto md:h-12" loading="eager" />
     </a>
     <nav aria-label="Hlavná navigácia" class="hidden lg:block">
@@ -42,9 +42,9 @@ const nav = [
           <li><a href={n.href} class="flex items-center gap-3 rounded-lg bg-v3-siva px-4 py-3 font-v3-display text-[1.9rem] font-extrabold uppercase leading-none text-v3-atrament"><span class:list={['h-4 w-4 rounded-full', n.color]} aria-hidden="true"></span>{n.label}</a></li>
         ))}
         <li class="flex flex-wrap gap-x-5 gap-y-2 px-1 pt-2 font-v3-sans font-semibold">
-          <a href={url('/otvaracie-hodiny/')} class="underline underline-offset-4">Otváracie hodiny</a>
-          <a href={url('/fotofilmfest/')} class="underline underline-offset-4">FotoFilmFest</a>
-          <a href={url('/galeria/')} class="underline underline-offset-4">Galéria</a>
+          <a href={'#v3-hours'} class="underline underline-offset-4">Otváracie hodiny</a>
+          <a href={'#v3-fff'} class="underline underline-offset-4">FotoFilmFest</a>
+          <a href={'#v3-gal'} class="underline underline-offset-4">Galéria</a>
         </li>
       </ul>
     </nav>
@@ -60,5 +60,6 @@ const nav = [
     btn.querySelector('.v3-open')?.classList.toggle('hidden', !open);
     btn.querySelector('.v3-close')?.classList.toggle('hidden', open);
   });
+  menu?.addEventListener('click', (e) => { if ((e.target as HTMLElement).closest('a') && btn?.getAttribute('aria-expanded') === 'true') btn.click(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && btn?.getAttribute('aria-expanded') === 'true') { btn.click(); btn.focus(); } });
 </script>

@@ -6,18 +6,18 @@ import Icon from '../shared/Icon.astro';
 import { url } from '../../lib/url';
 
 interface Props { bookHref?: string }
-const { bookHref = url('/rezervacie/') } = Astro.props;
+const { bookHref = '#rezervacie' } = Astro.props;
 const nav = [
-  { href: url('/plazova-zona/'), label: 'Pláž' },
-  { href: url('/premium-zona/'), label: 'Pobyt' },
-  { href: url('/potapanie/'), label: 'Potápanie' },
-  { href: url('/cennik/'), label: 'Cenník' },
-  { href: url('/kontakt/'), label: 'Kontakt' },
+  { href: '#s2', label: 'Pláž' },
+  { href: '#s2', label: 'Pobyt' },
+  { href: '#s2', label: 'Potápanie' },
+  { href: '#ceny', label: 'Cenník' },
+  { href: '#rezervacie', label: 'Kontakt' },
 ];
 ---
 <header class="v5-hud">
   <div class="v5-wrap v5-hud-bar">
-    <a href={url('/')} class="v5-logo-plate" aria-label="Aquarea Čierna Voda, úvod">
+    <a href={url('/variants/5/')} class="v5-logo-plate" aria-label="Aquarea Čierna Voda, úvod">
       <Image src={logo} alt="" width={140} height={53} class="h-7 w-auto md:h-9" loading="eager" />
     </a>
     <p class="v5-slate hidden justify-self-center text-center md:block" aria-hidden="true"><span data-v5-slate-n>Scéna 01</span><br /><span class="opacity-75" data-v5-slate-t>Titulok</span></p>
@@ -39,9 +39,9 @@ const nav = [
       {nav.map((n) => <li><a href={n.href} class="v5-display block py-1.5 text-[3rem] [font-variation-settings:'wdth'_120]">{n.label}</a></li>)}
     </ul>
     <p class="mt-8 flex flex-wrap gap-x-6 gap-y-2">
-      <a class="v5-link" href={url('/otvaracie-hodiny/')}>Otváracie hodiny</a>
-      <a class="v5-link" href={url('/fotofilmfest/')}>FotoFilmFest</a>
-      <a class="v5-link" href={url('/galeria/')}>Galéria</a>
+      <a class="v5-link" href={'#s3'}>Otváracie hodiny</a>
+      <a class="v5-link" href={'#s5'}>FotoFilmFest</a>
+      <a class="v5-link" href={'#s6'}>Galéria</a>
     </p>
   </nav>
 </div>

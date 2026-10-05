@@ -7,19 +7,19 @@ import { site } from '../../lib/content';
 import { url } from '../../lib/url';
 
 interface Props { bookHref?: string }
-const { bookHref = url('/rezervacie/') } = Astro.props;
+const { bookHref = '#rezervacie' } = Astro.props;
 const nav = [
-  { href: url('/plazova-zona/'), label: 'Pláž' },
-  { href: url('/premium-zona/'), label: 'Pobyt' },
-  { href: url('/potapanie/'), label: 'Potápanie' },
-  { href: url('/cennik/'), label: 'Cenník' },
-  { href: url('/kontakt/'), label: 'Kontakt' },
+  { href: '#zony', label: 'Pláž' },
+  { href: '#zony', label: 'Pobyt' },
+  { href: '#v6-dive', label: 'Potápanie' },
+  { href: '#ceny', label: 'Cenník' },
+  { href: '#rezervacie', label: 'Kontakt' },
 ];
 ---
 <header class="v6-header">
   <div class="m-progress" aria-hidden="true"></div>
   <div class="v6-wrap flex h-16 items-center gap-2 md:h-[4.5rem] md:gap-4">
-    <a href={url('/')} class="mr-auto inline-flex min-h-11 items-center rounded-md" aria-label="Aquarea Čierna Voda, úvod">
+    <a href={url('/variants/6/')} class="mr-auto inline-flex min-h-11 items-center rounded-md" aria-label="Aquarea Čierna Voda, úvod">
       <Image src={logo} alt="" width={150} height={56} class="h-9 w-auto md:h-11" loading="eager" />
     </a>
     <nav aria-label="Hlavná navigácia" class="v6-nav hidden lg:block">
@@ -38,9 +38,9 @@ const nav = [
         {nav.map((n) => <li><a href={n.href} class="v6-display flex min-h-12 items-center text-2xl font-semibold">{n.label}</a></li>)}
       </ul>
       <p class="mt-2 flex flex-wrap gap-x-6 pb-2">
-        <a class="v6-link inline-flex min-h-11 items-center" href={url('/otvaracie-hodiny/')}>Otváracie hodiny</a>
-        <a class="v6-link inline-flex min-h-11 items-center" href={url('/fotofilmfest/')}>FotoFilmFest</a>
-        <a class="v6-link inline-flex min-h-11 items-center" href={url('/galeria/')}>Galéria</a>
+        <a class="v6-link inline-flex min-h-11 items-center" href={'#hodiny'}>Otváracie hodiny</a>
+        <a class="v6-link inline-flex min-h-11 items-center" href={'#v6-fff'}>FotoFilmFest</a>
+        <a class="v6-link inline-flex min-h-11 items-center" href={'#galeria'}>Galéria</a>
       </p>
     </nav>
   </div>
@@ -55,6 +55,7 @@ const nav = [
     btn?.querySelector('.v6-close')?.classList.toggle('hidden', !open);
   };
   btn?.addEventListener('click', () => toggle(btn.getAttribute('aria-expanded') !== 'true'));
+  menu?.addEventListener('click', (e) => { if ((e.target as HTMLElement).closest('a')) toggle(false); });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && btn?.getAttribute('aria-expanded') === 'true') { toggle(false); btn.focus(); }
   });
