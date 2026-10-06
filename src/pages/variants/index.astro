@@ -21,6 +21,8 @@ import v8d from '../../assets/picker/v8-desktop.png';
 import v8m from '../../assets/picker/v8-mobile.png';
 import v9d from '../../assets/picker/v9-desktop.png';
 import v9m from '../../assets/picker/v9-mobile.png';
+import v10d from '../../assets/picker/v10-desktop.png';
+import v10m from '../../assets/picker/v10-mobile.png';
 
 const RECOMMENDED = 3; // [auto] pick, see DECISIONS.md
 
@@ -93,14 +95,22 @@ const directions = [
     signature: 'kužeľ svetla v tmavej vode (kurzor, ťahanie prstom, alebo vlastná dráha), čiastočky svietiace len v lúči, potápač s kopaním nôh, tlačidlo na zastavenie a spustenie',
     note: 'Podvodné pozadie aj potápač sú obrázky z AI (výnimka vlastníka z pravidla 5), na stránke je viditeľné TODO nahradiť skutočnými fotografiami.',
   },
+  {
+    n: 10, name: 'Mapa z výšky', desktop: v10d, mobile: v10m,
+    mood: 'Skutočná letecká fotografia areálu je mapa celého miesta. Vyplní celú prvú obrazovku a ukazovatele na nej označujú Pláž, Prémium zónu (kemping) a zátoku Dive Centra, každý vedie na svoju časť stránky. Ceny, dnešný stav a tlačidlá Rezervovať a Zavolať sú na jednej plnej ploche. Pri rolovaní fotografia ostane stáť, priblíži sa k pláži a biela stránka sa cez ňu vysunie s vlnou z loga. Každú zónu otvorí krátky záber z dronu. Farby loga, na prvom mieste rodiny, potápanie na druhom.',
+    palette: [['modrá z loga', '#00a8f0'], ['hlboká modrá', '#006b99'], ['červená z loga', '#d80018'], ['čierna', '#181818'], ['žltá dlaždica (pláž)', '#f0d010'], ['zelená dlaždica (potápanie)', '#7cbf30']],
+    type: 'Ubuntu Sans (nadpisy a ukazovatele, blízke písmu loga) + Onest (texty)',
+    signature: 'letecká fotografia ako mapa s overenými ukazovateľmi, pomalý prelet dronom (tlačidlo na zastavenie, aj pri obmedzenom pohybe), prelet pri rolovaní (priblíženie k pláži, stránka sa vysúva s vlnou z loga), krátke zábery z dronu na začiatku každej zóny',
+    note: 'Na telefóne a pri takmer štvorcových obrazovkách sú okraje leteckej fotografie (obloha hore, lúka dole) dopočítané AI, stred je skutočná fotografia (výnimka vlastníka z pravidla 5). Na stránke je viditeľné TODO nahradiť ju skutočnou vyššou fotografiou.',
+  },
 ];
 ---
 <Base title="Smery domovskej stránky" description="Výber vizuálneho smeru pre redizajn webu Aquarea Čierna Voda." bodyClass="bg-[#f5f6f7] text-[#16202a]" themeColor="#f5f6f7">
   <main id="obsah" class="mx-auto max-w-6xl px-4 py-10 font-sans md:px-8 md:py-16">
     <p class="text-sm font-semibold text-[#4b5866]">Aquarea Čierna Voda, koncept redizajnu</p>
-    <h1 class="mt-2 text-3xl font-bold tracking-tight md:text-5xl">Deväť smerov domovskej stránky</h1>
+    <h1 class="mt-2 text-3xl font-bold tracking-tight md:text-5xl">Desať smerov domovskej stránky</h1>
     <p class="mt-4 max-w-3xl text-lg leading-relaxed text-[#35424f]">
-      Všetkých deväť používa rovnaký skutočný obsah z aquarea.sk (ceny, hodiny, kontakty, fotografie) a rovnakú novú štruktúru webu. Líšia sa náladou, typografiou a hlavným efektom. Na mobile majú všetky spodnú lištu Zavolať / Rezervovať / Navigovať. Smery 4 a 5 sú najodvážnejšie, postavené na pohybe. Smer 6 je pohyb v službe čitateľnosti a rezervácie. Smer 7 je odvážny a športový, ale s rovnakou prísnosťou na prístupnosť. Smery 8 a 9 sú dve vetvy smeru 7: len letecká fotografia, alebo len potápač v tme.
+      Všetkých desať používa rovnaký skutočný obsah z aquarea.sk (ceny, hodiny, kontakty, fotografie) a rovnakú novú štruktúru webu. Líšia sa náladou, typografiou a hlavným efektom. Na mobile majú všetky spodnú lištu Zavolať / Rezervovať / Navigovať. Smery 4 a 5 sú najodvážnejšie, postavené na pohybe. Smer 6 je pohyb v službe čitateľnosti a rezervácie. Smer 7 je odvážny a športový, ale s rovnakou prísnosťou na prístupnosť. Smery 8 a 9 sú dve vetvy smeru 7: len letecká fotografia, alebo len potápač v tme. Smer 10 robí z leteckej fotografie mapu areálu a stavia na prvé miesto rodiny.
     </p>
     <ol class="mt-12 space-y-16" role="list">
       {directions.map((d) => (
