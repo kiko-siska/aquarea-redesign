@@ -5,3 +5,6 @@ dist/
 .env
 .env.*
 .claude/settings.local.json
+
+# rejected Gemini outputs (logged in PROGRESS.md, kept locally for review, too large for git)
+images/generated/rejected/

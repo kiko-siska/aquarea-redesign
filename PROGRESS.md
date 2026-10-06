@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-06 21:54
+- **Last updated:** 2026-10-06 22:14
 - **Current phase:** 8
 
 ## Checklist
@@ -103,7 +103,7 @@ _V8 `/variants/8/` = V7 without the diver: only the real aerial photo, AI-extend
 _Owner brief 2026-10-06. NOT waived: V6–V9 bar in full (WCAG AA, reduced motion, Lighthouse mobile ≥ 90 / ≥ 90, axe 0, JS-off usable, native scroll, pause control, one animation per viewport). Owner answers: two AI extensions of the real aerial (4:5 + 21:9, visible TODO), Gemini cap 10 for V10 only (fast, ≤ 2K), no diver; palette = the logo (business cards are printed), families first, diving second. V1–V9 and the site stay untouched._
 - [x] Step 1: AGENTS.md fifth rule-5 exception (V10 only), committed on its own (005b513)
 - [ ] Design system: concept, logo palette + contrast, new font pair (Slovak glyphs), motion budget, pin verification → DECISIONS.md
-- [ ] AI extensions of the real aerial (4:5 portrait, 21:9 ultra-wide), checked against the original, logged below
+- [x] AI extensions of the real aerial (4:5 portrait, 21:9 ultra-wide), checked against the original, logged below — 4:5 kept (real pixels pasted back, 1 invented board removed from the AI margin); 21:9 rejected twice (zoom-out + invented houses/lake) → ultra-wide uses the real 3:2 crop. Gemini 10/10
 - [ ] V10 page: full-bleed aerial hero with verified pins, info dock, sticky curtain + scale, zone photo stops, solid reading surfaces, all sections, nav inside the variant, TODO chips
 - [ ] Motion: drone drift (pausable, off-screen paused), scroll flight + stop push-ins (gsap ScrollTrigger, matchMedia reduced), play control under reduced motion
 - [ ] `scripts/v10-photo-contrast.mjs` (real pixels behind every text at 375 + 1440, several scroll/drift/scale states) passes
@@ -131,6 +131,13 @@ _Owner brief 2026-10-06. NOT waived: V6–V9 bar in full (WCAG AA, reduced motio
   - 2026-10-03 · `images/generated/v8-aerial-extended.jpg` (2K, balanced, image edit of the real hero drone photo) · AI-extended to a square frame (more fields/sky above, meadow below); no new buildings/people; PLACEHOLDER, visible TODO · V8 desktop hero (`src/assets/generated/`)
   - 2026-10-03 · `images/generated/v9-underwater-dark.jpg` (2K, balanced) · photoreal dark underwater lake scene, light shafts, silty bottom, branches; no people/fish/objects/text · V9 hero + Dive tile background; PLACEHOLDER, visible TODO
   - **Gemini total: 6 / 8.**
+  - **Phase 8 (V10, AGENTS.md fifth rule-5 exception, cap 10 for V10 only, `fast`, 2K):** method = outpaint a canvas that holds the real photo (`scripts/v10-outpaint.mjs canvas`), then paste the REAL pixels back over the middle with a 60 px feather and a colour match (`composite`), so every building, roof, road and shoreline stays the real photo; only the margins are AI.
+    - 2026-10-06 22:08 · first call failed upstream ("fetch failed", 7 MB PNG input): no image returned, not counted. Inputs are now ~0.6 MB JPEGs.
+    - 2026-10-06 22:09 · #7 `images/generated/rejected/v10-aerial-portrait-ai.jpg` (4:5, 1856×2304) · "Extend this aerial drone photograph to a portrait 4:5 frame … only continue fields, meadow, tree lines and horizon …" · **REJECTED**: invented a second lake above the real horizon and redrew the horizon.
+    - 2026-10-06 22:10 · #8 `images/generated/v10-aerial-portrait-ai-2.jpg` (4:5, 1856×2304) · "Outpaint … fill the grey areas only … ABOVE: only sky … BELOW: meadow, grass, bushes and the existing dirt path … no water, no buildings …" · **KEPT** → `src/assets/generated/v10-aerial-portrait.jpg` (2000×2483; real photo pasted back at 0,575, match SAD 3.5). One invented object in the AI margin (a small blue/white board under a tree, ~80×40 px, 90 px below the real photo) was removed with a deterministic clone of the neighbouring AI grass (`patch`, refuses to touch the real area). The AI margins also add a crop field and farm tracks below the real photo (field-type continuation, accepted).
+    - 2026-10-06 22:12 · #9 `images/generated/rejected/v10-aerial-wide-ai.jpg` (21:9, 3168×1344) · "Outpaint … left and right only … do not continue the camping row … no water …" · **REJECTED**: zoomed out and recomposed the scene (match SAD 52), invented a second lake with a jetty, a house, cars and a tractor.
+    - 2026-10-06 22:13 · #10 `images/generated/rejected/v10-aerial-wide-ai-2.jpg` (21:9) · same + "do not zoom out, do not change the scale" · **REJECTED**: zoomed out again (SAD 46), invented a cluster of red-roofed houses on the left.
+    - **Gemini total: 10 / 10 (V10 cap reached).** Result: the 4:5 portrait extension is used on phones (visible TODO chip). No 21:9 extension: ultra-wide screens use the real 3:2 photo cropped in height (no AI, no chip).
   - Phase 5: 0 used. Note: the owner's Phase 5 brief says "4/8 used"; this log shows 2/8. The stricter cap (1 more) was followed; none needed (the water light is procedural).
 
 ## Blockers

@@ -1,0 +1,23 @@
+{
+  "file": "src/assets/generated/v10-aerial-portrait.jpg",
+  "width": 2000,
+  "height": 2483,
+  "real": {
+    "x": 0,
+    "y": 575,
+    "w": 2000,
+    "h": 1333
+  },
+  "matchScore": 3.48,
+  "patches": [
+    {
+      "x": 790,
+      "y": 1955,
+      "w": 140,
+      "h": 95,
+      "dx": 150,
+      "dy": 0,
+      "why": "invented object removed"
+    }
+  ]
+}
