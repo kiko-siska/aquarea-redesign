@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-06 22:28
+- **Last updated:** 2026-10-06 22:59
 - **Current phase:** 8
 
 ## Checklist
@@ -104,9 +104,9 @@ _Owner brief 2026-10-06. NOT waived: V6–V9 bar in full (WCAG AA, reduced motio
 - [x] Step 1: AGENTS.md fifth rule-5 exception (V10 only), committed on its own (005b513)
 - [ ] Design system: concept, logo palette + contrast, new font pair (Slovak glyphs), motion budget, pin verification → DECISIONS.md
 - [x] AI extensions of the real aerial (4:5 portrait, 21:9 ultra-wide), checked against the original, logged below — 4:5 kept (real pixels pasted back, 1 invented board removed from the AI margin); 21:9 rejected twice (zoom-out + invented houses/lake) → ultra-wide uses the real 3:2 crop. Gemini 10/10
-- [ ] V10 page: full-bleed aerial hero with verified pins, info dock, sticky curtain + scale, zone photo stops, solid reading surfaces, all sections, nav inside the variant, TODO chips
+- [x] V10 page: full-bleed aerial hero with verified pins, info dock, sticky curtain + scale, zone photo stops, solid reading surfaces, all sections, nav inside the variant, TODO chips — `src/pages/variants/10/`, `src/components/v10/`, `src/styles/v10.css`
 - [ ] Motion: drone drift (pausable, off-screen paused), scroll flight + stop push-ins (gsap ScrollTrigger, matchMedia reduced), play control under reduced motion
-- [ ] `scripts/v10-photo-contrast.mjs` (real pixels behind every text at 375 + 1440, several scroll/drift/scale states) passes
+- [x] `scripts/v10-photo-contrast.mjs` (real pixels behind every text at 375 + 1440, several scroll/drift/scale states) passes — 662 measurements, 5 viewports
 - [ ] Verify: Lighthouse mobile ×3, axe (normal + reduced), `a11y.mjs`, 320 px reflow, JS-off, console, overflow, five-second test 375 × 667 / 812, screenshots 375 / 768 / 1440 / 2560 → `screenshots/phase8/`
 - [ ] design:accessibility-review + design:design-critique; fix findings; DPR 2 self-critique
 - [ ] Picker: V10 (summary, palette, type, effect, thumbnails); noindex; not in sitemap; nav-check

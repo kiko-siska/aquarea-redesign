@@ -44,7 +44,7 @@
 
   /* ---------- type ---------- */
   .v10-display { font-family: var(--f-display); font-weight: 760; letter-spacing: -0.012em; text-wrap: balance; }
-  .v10-h1 { font-size: clamp(1.9rem, 8.2vw, 2.4rem); line-height: 1.04; }
+  .v10-h1 { font-size: clamp(1.6rem, 8.3vw, 2.4rem); line-height: 1.04; }
   @media (min-width: 1024px) { .v10-h1 { font-size: clamp(2.3rem, 3.3vw, 3.3rem); } }
   .v10-h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 1.05; }
   .v10-h3 { font-size: clamp(1.35rem, 2vw, 1.6rem); line-height: 1.15; font-weight: 720; }
@@ -107,7 +107,7 @@
   }
   @media (max-width: 1023px), (max-aspect-ratio: 23/20) {
     .v10-stage {
-      --ar: .8055; --fx: .7; --fy: .47;
+      --ar: .8055; --fx: .7; --fy: .42;
       --plaz-x: 39%; --plaz-y: 47.3%; --dive-x: 57.5%; --dive-y: 48.6%; --pobyt-x: 90%; --pobyt-y: 41.1%;
     }
   }
@@ -134,7 +134,7 @@
   .v10-stage[data-covered] .v10-scale { visibility: hidden; }
 
   /* pins: a dot exactly on the verified spot + a solid label plate (no text on the photo) */
-  .v10-pins { position: absolute; inset: 0; z-index: 2; }
+  .v10-pins { position: absolute; inset: 0; z-index: 5; } /* above the TODO chip: a pin link is never covered */
   .v10-pins ul { margin: 0; padding: 0; list-style: none; }
   .v10-pin { position: absolute; display: block; width: 0; height: 0; color: var(--cierna); }
   .v10-pin[data-pin="plaz"] { left: var(--plaz-x); top: var(--plaz-y); }
@@ -167,18 +167,21 @@
   @media (max-width: 767px) { .v10-pin-plate .v10-pin-long { display: none; } }
 
   /* hero controls on the photo */
-  .v10-pause { position: absolute; right: .75rem; bottom: .75rem; z-index: 4; display: inline-flex; align-items: center; justify-content: center;
+  .v10-pause { position: absolute; left: .75rem; bottom: .75rem; z-index: 4; display: inline-flex; align-items: center; justify-content: center;
     width: 2.75rem; height: 2.75rem; border-radius: 999px; background: #fff; color: var(--cierna); box-shadow: 0 0 0 2px var(--cierna); }
   .v10-pause:hover { background: var(--hladina); }
   .v10-pause:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
-  .v10-chip-todo { position: absolute; left: .6rem; top: .6rem; z-index: 4; display: none; max-width: min(19rem, calc(100% - 1.2rem)); }
-  .v10-chip-todo .todo-note { font-size: .75rem; padding: .25rem .45rem; margin: 0; }
+  .v10-chip-todo { position: absolute; left: .6rem; top: .6rem; z-index: 4; display: none; max-width: min(15rem, 52%); } /* left half: the Pobyt pin sits top-right */
+  /* very small phones (< 360 px): the top of the photo is full of pin plates, the meadow at the bottom is empty */
+  @media (max-width: 359px) { .v10-chip-todo { top: auto; bottom: .6rem; left: 3.9rem; right: .5rem; max-width: none; } .v10-chip-todo .todo-note { font-size: .6875rem !important; } }
+  .v10-chip-todo .todo-note { font-size: .75rem; line-height: 1.25; padding: .2rem .45rem; margin: 0; }
   /* the chip is visible exactly when the AI-extended 4:5 image is shown (same media query as its <source>) */
   @media (max-width: 1023px), (max-aspect-ratio: 23/20) { .v10-chip-todo { display: block; } }
-  @media (min-width: 1024px) { .v10-pause { right: 1.5rem; bottom: calc(1.25rem + clamp(1.25rem, 2.6vw, 2.25rem)); } .v10-chip-todo { left: 1.5rem; top: 1.25rem; } }
+  @media (min-width: 1024px) { .v10-pause { left: auto; right: 1.5rem; bottom: calc(1.25rem + clamp(1.25rem, 2.6vw, 2.25rem)); } .v10-chip-todo { left: 1.5rem; top: 1.25rem; } }
 
   /* the dock: one solid surface with what, price, status and both actions */
-  .v10-dock { position: relative; z-index: 3; background: #fff; padding: .85rem 1rem 1rem; }
+  /* below 1024 the curtain's wave rises over the dock's bottom edge: keep the actions clear of it */
+  .v10-dock { position: relative; z-index: 3; background: #fff; padding: .85rem 1rem calc(.6rem + clamp(1.25rem, 2.6vw, 2.25rem)); }
   .v10-dock-what { margin-top: .2rem; font-weight: 550; font-size: 1rem; line-height: 1.35; }
   .v10-dock-price { display: flex; align-items: center; gap: .75rem; margin-top: .55rem; }
   .v10-dock-price b { font-family: var(--f-display); font-weight: 780; font-size: 1.85rem; line-height: 1; white-space: nowrap; }
@@ -186,7 +189,7 @@
   .v10-dock-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin-top: .7rem; }
   .v10-dock .v10-status { margin-top: .5rem; }
   @media (min-width: 768px) and (max-width: 1023px) {
-    .v10-dock { padding: 1.25rem 2rem 1.5rem; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 2rem; align-items: end; }
+    .v10-dock { padding: 1.25rem 2rem calc(1rem + clamp(1.25rem, 2.6vw, 2.25rem)); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 2rem; align-items: end; }
     .v10-dock-actions { grid-column: 2; grid-row: 1 / span 3; align-self: end; }
   }
   @media (min-width: 1024px) {

@@ -2,7 +2,7 @@
 // Usage: node scripts/nav-check.mjs <baseUrl> [variants...]
 import { chromium } from 'playwright-core';
 const [base = 'http://localhost:4322', ...vs] = process.argv.slice(2);
-const variants = vs.length ? vs.map(Number) : [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const variants = vs.length ? vs.map(Number) : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const browser = await chromium.launch({ channel: 'chrome' });
 const problems = [];
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -10,7 +10,7 @@ for (const v of variants) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const p = await ctx.newPage();
   await p.goto(`${base}/variants/${v}/${v === 5 ? '?leader=0' : ''}`, { waitUntil: 'load' }); await sleep(2500);
-  const links = await p.evaluate(() => [...document.querySelectorAll('header a[href], #v4-menu a[href], #v5-menu a[href], #v6-menu a[href], #v7-menu a[href], footer a[href]')]
+  const links = await p.evaluate(() => [...document.querySelectorAll('header a[href], #v4-menu a[href], #v5-menu a[href], #v6-menu a[href], #v7-menu a[href], #v10-menu a[href], footer a[href]')]
     .map((a) => ({ text: a.textContent.trim().replace(/\s+/g, ' ').slice(0, 26), href: a.getAttribute('href'), inFooter: !!a.closest('footer') }))
     .filter((l) => !/^(tel:|mailto:|https?:)/.test(l.href)));
   const bad = [];

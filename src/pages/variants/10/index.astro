@@ -36,11 +36,11 @@ const PORTRAIT_MQ = '(max-width: 1023px), (max-aspect-ratio: 23/20)';
 const real = getPhoto('dron-areal');
 const set = async (src: ImageMetadata, widths: number[], format: 'avif' | 'webp', quality: number) =>
   (await Promise.all(widths.map((w) => getImage({ src, width: w, format, quality })))).map((i, k) => `${i.src} ${widths[k]}w`).join(', ');
-const realW = [640, 960, 1440, 2000];
-const portW = [640, 960, 1440];
+const realW = [640, 960, 1280, 1600, 2000];
+const portW = [480, 640, 800, 960, 1280];
 const [realAvif, realWebp, portAvif, portWebp] = await Promise.all([
-  set(real.img, realW, 'avif', 52), set(real.img, realW, 'webp', 74),
-  set(aerialPortrait, portW, 'avif', 52), set(aerialPortrait, portW, 'webp', 74),
+  set(real.img, realW, 'avif', 46), set(real.img, realW, 'webp', 72),
+  set(aerialPortrait, portW, 'avif', 46), set(aerialPortrait, portW, 'webp', 72),
 ]);
 const realFallback = await getImage({ src: real.img, width: 1440, format: 'webp', quality: 74 });
 const aerialAlt = 'Letecký pohľad na areál Aquarea: tyrkysové jazero, piesočná pláž, budovy s červenými strechami, rad kempingových miest pri vode a polia okolo';
@@ -113,7 +113,7 @@ const priceGroups = [
         <div class="v10-dock">
           <h1 id="v10-title" class="v10-display v10-h1">Aquarea Čierna Voda</h1>
           <p class="v10-dock-what" data-v10-what>Pláž, pobyt pri vode a potápanie pri jazere s krištáľovo čistou vodou.</p>
-          <p class="v10-dock-price"><b class="v10-num" data-v10-price>od {priceShort(beach.child)}</b><span>celodenný vstup na pláž, dieťa 4 – 14 r.<br />dospelý {priceShort(beach.adult)}</span></p>
+          <p class="v10-dock-price"><b class="v10-num" data-v10-price>od {priceShort(beach.child)}</b><span>celodenný vstup na pláž:<br />dieťa 4 – 14 r., dospelý {priceShort(beach.adult)}</span></p>
           <div class="v10-status" data-status data-live data-state="unknown">
             <span class="status-dot" aria-hidden="true"></span>
             <p data-status-text>Otváracie hodiny</p>
@@ -152,7 +152,7 @@ const priceGroups = [
             </div>
           </div>
           <button type="button" class="v10-pause" data-v10-pause aria-pressed="false" aria-label="Zastaviť pomalý prelet nad areálom" hidden></button>
-          <div class="v10-chip-todo"><Todo text="Oblohu a lúku na okrajoch fotografie dopočítala AI. Nahradiť skutočnou fotografiou." /></div>
+          <div class="v10-chip-todo"><Todo text="Okraje fotky z AI, nahradiť skutočnou." /></div>
         </div>
       </section>
 
