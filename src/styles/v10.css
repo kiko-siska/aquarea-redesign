@@ -145,7 +145,8 @@
   .v10-pin-dot { position: absolute; left: -.55rem; top: -.55rem; width: 1.1rem; height: 1.1rem; border-radius: 999px; background: #fff;
     box-shadow: 0 0 0 3px var(--cierna), 0 2px 10px rgb(0 0 0 / .45); }
   .v10-pin-dot::after { content: ""; position: absolute; inset: .27rem; border-radius: 999px; background: var(--cierna); }
-  .v10-pin-plate { position: absolute; display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; padding: .3rem .85rem .3rem .65rem;
+  /* the pin anchor is 0 px wide, so the plate must size itself (otherwise it shrinks to min-content and wraps) */
+  .v10-pin-plate { position: absolute; width: max-content; display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; padding: .3rem .85rem .3rem .65rem;
     border-radius: var(--r); background: #fff; color: var(--cierna); white-space: nowrap; box-shadow: 0 0 0 2px var(--cierna), 0 8px 22px -10px rgb(0 0 0 / .6);
     font-family: var(--f-display); font-weight: 720; font-size: 1rem; line-height: 1.1; text-decoration: none; }
   .v10-pin-plate small { display: none; font-family: var(--f-text); font-weight: 500; font-size: .8125rem; color: var(--seda); }
@@ -162,8 +163,9 @@
   @media (min-width: 768px) {
     .v10-pin[data-side-md="up-right"] .v10-pin-plate { right: auto; left: .1rem; bottom: 1.35rem; }
     .v10-pin[data-side-md="up-right"] .v10-pin-plate::before { right: auto; left: -.1rem; transform: rotate(26deg); }
-    .v10-pin-plate { flex-wrap: wrap; column-gap: .5rem; row-gap: 0; padding-block: .4rem; font-size: 1.0625rem; }
-    .v10-pin-plate small { display: block; flex-basis: 100%; padding-left: 1.45rem; }
+    /* two rows: key + name, then the sub-label under the name */
+    .v10-pin-plate { display: inline-grid; grid-template-columns: auto auto; align-items: center; column-gap: .5rem; row-gap: 0; padding-block: .4rem; font-size: 1.0625rem; }
+    .v10-pin-plate small { display: block; grid-column: 2; }
     .v10-pin-plate .v10-pin-short { display: none; }
   }
   @media (max-width: 767px) { .v10-pin-plate .v10-pin-long { display: none; } }

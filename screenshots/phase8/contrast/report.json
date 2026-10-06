@@ -99,38 +99,6 @@
   {
    "vp": "375x812 (AI 4:5)",
    "state": "hero drift 0%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.77,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 0%",
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.42,
@@ -140,24 +108,8 @@
    "vp": "375x812 (AI 4:5)",
    "state": "hero drift 0%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.56,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.38,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.33,
    "need": 3
   },
   {
@@ -178,14 +130,6 @@
   },
   {
    "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 6.06,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
    "state": "hero drift 50%",
    "kind": "text",
    "what": "v10-dock: \"Aquarea Čierna Voda\"",
@@ -283,38 +227,6 @@
   {
    "vp": "375x812 (AI 4:5)",
    "state": "hero drift 50%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.18,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 50%",
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.43,
@@ -324,24 +236,8 @@
    "vp": "375x812 (AI 4:5)",
    "state": "hero drift 50%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.57,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.39,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.33,
    "need": 3
   },
   {
@@ -362,14 +258,6 @@
   },
   {
    "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 6.43,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
    "state": "hero drift 100%",
    "kind": "text",
    "what": "v10-dock: \"Aquarea Čierna Voda\"",
@@ -467,38 +355,6 @@
   {
    "vp": "375x812 (AI 4:5)",
    "state": "hero drift 100%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.92,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 100%",
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.45,
@@ -508,24 +364,8 @@
    "vp": "375x812 (AI 4:5)",
    "state": "hero drift 100%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.59,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.35,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.33,
    "need": 3
   },
   {
@@ -542,14 +382,6 @@
    "kind": "ui",
    "what": "v10-pause",
    "value": 4.3,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 6.89,
    "need": 3
   },
   {
@@ -579,38 +411,6 @@
   {
    "vp": "375x812 (AI 4:5)",
    "state": "flight 30% (scale 1.0361)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 30% (scale 1.0361)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 30% (scale 1.0361)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 30% (scale 1.0361)",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.96,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 30% (scale 1.0361)",
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.48,
@@ -620,23 +420,7 @@
    "vp": "375x812 (AI 4:5)",
    "state": "flight 30% (scale 1.0361)",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.5,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 30% (scale 1.0361)",
-   "kind": "ui",
    "what": "v10-pin-plate",
-   "value": 4.36,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 30% (scale 1.0361)",
-   "kind": "ui",
-   "what": "v10-pin-dot",
    "value": 4.36,
    "need": 3
   },
@@ -658,14 +442,6 @@
   },
   {
    "vp": "375x812 (AI 4:5)",
-   "state": "flight 30% (scale 1.0361)",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 7.33,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
    "state": "flight 60% (scale 1.072)",
    "kind": "text",
    "what": "v10-pin: \"Pláž\"",
@@ -683,38 +459,6 @@
   {
    "vp": "375x812 (AI 4:5)",
    "state": "flight 60% (scale 1.072)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.01,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.45,
@@ -724,64 +468,8 @@
    "vp": "375x812 (AI 4:5)",
    "state": "flight 60% (scale 1.072)",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.94,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.33,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.34,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 7.56,
-   "need": 3
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 90% (scale 1.108)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 90% (scale 1.108)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 90% (scale 1.108)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x812 (AI 4:5)",
-   "state": "flight 90% (scale 1.108)",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 6.65,
    "need": 3
   },
   {
@@ -1075,38 +763,6 @@
   {
    "vp": "375x667 (AI 4:5)",
    "state": "hero drift 0%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.77,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 0%",
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.42,
@@ -1116,24 +772,8 @@
    "vp": "375x667 (AI 4:5)",
    "state": "hero drift 0%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.5,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.35,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.32,
    "need": 3
   },
   {
@@ -1154,14 +794,6 @@
   },
   {
    "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 4.63,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
    "state": "hero drift 50%",
    "kind": "text",
    "what": "v10-dock: \"Aquarea Čierna Voda\"",
@@ -1259,49 +891,9 @@
   {
    "vp": "375x667 (AI 4:5)",
    "state": "hero drift 50%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.07,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 50%",
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.38,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.81,
    "need": 3
   },
   {
@@ -1310,14 +902,6 @@
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.36,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.38,
    "need": 3
   },
   {
@@ -1338,14 +922,6 @@
   },
   {
    "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 4.59,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
    "state": "hero drift 100%",
    "kind": "text",
    "what": "v10-dock: \"Aquarea Čierna Voda\"",
@@ -1443,38 +1019,6 @@
   {
    "vp": "375x667 (AI 4:5)",
    "state": "hero drift 100%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.77,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 100%",
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.36,
@@ -1484,24 +1028,8 @@
    "vp": "375x667 (AI 4:5)",
    "state": "hero drift 100%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.67,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.36,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.41,
    "need": 3
   },
   {
@@ -1518,14 +1046,6 @@
    "kind": "ui",
    "what": "v10-pause",
    "value": 4.38,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 4.31,
    "need": 3
   },
   {
@@ -1567,38 +1087,6 @@
    "what": "v10-pin: \"Pobyt\"",
    "value": 17.76,
    "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 30% (scale 1.036)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 30% (scale 1.036)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 30% (scale 1.036)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 30% (scale 1.036)",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.87,
-   "need": 3
   },
   {
    "vp": "375x667 (AI 4:5)",
@@ -1612,24 +1100,8 @@
    "vp": "375x667 (AI 4:5)",
    "state": "flight 30% (scale 1.036)",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.58,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 30% (scale 1.036)",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.35,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 30% (scale 1.036)",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.31,
    "need": 3
   },
   {
@@ -1646,14 +1118,6 @@
    "kind": "ui",
    "what": "v10-pause",
    "value": 4.42,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 30% (scale 1.036)",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 4.52,
    "need": 3
   },
   {
@@ -1675,38 +1139,6 @@
   {
    "vp": "375x667 (AI 4:5)",
    "state": "flight 60% (scale 1.072)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.74,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.47,
@@ -1716,56 +1148,8 @@
    "vp": "375x667 (AI 4:5)",
    "state": "flight 60% (scale 1.072)",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.83,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.3,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.32,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 4.45,
-   "need": 3
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 90% (scale 1.1079)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 90% (scale 1.1079)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "375x667 (AI 4:5)",
-   "state": "flight 90% (scale 1.1079)",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 5.92,
    "need": 3
   },
   {
@@ -2123,38 +1507,6 @@
   {
    "vp": "768x1024 (AI 4:5)",
    "state": "hero drift 0%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.35,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 0%",
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.26,
@@ -2164,24 +1516,8 @@
    "vp": "768x1024 (AI 4:5)",
    "state": "hero drift 0%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.27,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.32,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.84,
    "need": 3
   },
   {
@@ -2198,14 +1534,6 @@
    "kind": "ui",
    "what": "v10-pause",
    "value": 4.31,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 0%",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 9.07,
    "need": 3
   },
   {
@@ -2339,38 +1667,6 @@
   {
    "vp": "768x1024 (AI 4:5)",
    "state": "hero drift 50%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.41,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 50%",
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.29,
@@ -2380,24 +1676,8 @@
    "vp": "768x1024 (AI 4:5)",
    "state": "hero drift 50%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.93,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.32,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.67,
    "need": 3
   },
   {
@@ -2418,14 +1698,6 @@
   },
   {
    "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 50%",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 9.65,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
    "state": "hero drift 100%",
    "kind": "text",
    "what": "v10-dock: \"Aquarea Čierna Voda\"",
@@ -2555,38 +1827,6 @@
   {
    "vp": "768x1024 (AI 4:5)",
    "state": "hero drift 100%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.4,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 100%",
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.27,
@@ -2596,24 +1836,8 @@
    "vp": "768x1024 (AI 4:5)",
    "state": "hero drift 100%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.28,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.35,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.62,
    "need": 3
   },
   {
@@ -2630,14 +1854,6 @@
    "kind": "ui",
    "what": "v10-pause",
    "value": 4.35,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "hero drift 100%",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 10.41,
    "need": 3
   },
   {
@@ -2691,49 +1907,9 @@
   {
    "vp": "768x1024 (AI 4:5)",
    "state": "flight 30% (scale 1.0361)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 30% (scale 1.0361)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 30% (scale 1.0361)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 30% (scale 1.0361)",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.36,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 30% (scale 1.0361)",
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.28,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 30% (scale 1.0361)",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.15,
    "need": 3
   },
   {
@@ -2748,24 +1924,8 @@
    "vp": "768x1024 (AI 4:5)",
    "state": "flight 30% (scale 1.0361)",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.42,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 30% (scale 1.0361)",
-   "kind": "ui",
    "what": "v10-pin-plate",
-   "value": 4.33,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 30% (scale 1.0361)",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 11.36,
+   "value": 4.34,
    "need": 3
   },
   {
@@ -2803,38 +1963,6 @@
   {
    "vp": "768x1024 (AI 4:5)",
    "state": "flight 60% (scale 1.072)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.35,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
    "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.27,
@@ -2844,64 +1972,8 @@
    "vp": "768x1024 (AI 4:5)",
    "state": "flight 60% (scale 1.072)",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 6.02,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.57,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "ui",
    "what": "v10-pin-plate",
-   "value": 4.36,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 11.33,
-   "need": 3
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 90% (scale 1.108)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"TODO\"",
-   "value": 7.67,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 90% (scale 1.108)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 90% (scale 1.108)",
-   "kind": "text",
-   "what": "v10-chip-todo: \"Okraje fotky z AI, nahradiť \"",
-   "value": 10.65,
-   "need": 4.5
-  },
-  {
-   "vp": "768x1024 (AI 4:5)",
-   "state": "flight 90% (scale 1.108)",
-   "kind": "ui",
-   "what": "todo-note",
-   "value": 11.82,
+   "value": 4.34,
    "need": 3
   },
   {
@@ -3324,24 +2396,8 @@
    "vp": "1440x900 (real 3:2)",
    "state": "hero drift 0%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.51,
-   "need": 3
-  },
-  {
-   "vp": "1440x900 (real 3:2)",
-   "state": "hero drift 0%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.78,
-   "need": 3
-  },
-  {
-   "vp": "1440x900 (real 3:2)",
-   "state": "hero drift 0%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.65,
    "need": 3
   },
   {
@@ -3356,16 +2412,8 @@
    "vp": "1440x900 (real 3:2)",
    "state": "hero drift 0%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.47,
-   "need": 3
-  },
-  {
-   "vp": "1440x900 (real 3:2)",
-   "state": "hero drift 0%",
-   "kind": "ui",
    "what": "v10-pin-plate",
-   "value": 4.3,
+   "value": 4.27,
    "need": 3
   },
   {
@@ -3508,24 +2556,8 @@
    "vp": "1440x900 (real 3:2)",
    "state": "hero drift 50%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.45,
-   "need": 3
-  },
-  {
-   "vp": "1440x900 (real 3:2)",
-   "state": "hero drift 50%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.72,
-   "need": 3
-  },
-  {
-   "vp": "1440x900 (real 3:2)",
-   "state": "hero drift 50%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.99,
    "need": 3
   },
   {
@@ -3540,16 +2572,8 @@
    "vp": "1440x900 (real 3:2)",
    "state": "hero drift 50%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.48,
-   "need": 3
-  },
-  {
-   "vp": "1440x900 (real 3:2)",
-   "state": "hero drift 50%",
-   "kind": "ui",
    "what": "v10-pin-plate",
-   "value": 4.3,
+   "value": 4.27,
    "need": 3
   },
   {
@@ -3692,14 +2716,6 @@
    "vp": "1440x900 (real 3:2)",
    "state": "hero drift 100%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.48,
-   "need": 3
-  },
-  {
-   "vp": "1440x900 (real 3:2)",
-   "state": "hero drift 100%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.74,
    "need": 3
@@ -3708,14 +2724,6 @@
    "vp": "1440x900 (real 3:2)",
    "state": "hero drift 100%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.29,
-   "need": 3
-  },
-  {
-   "vp": "1440x900 (real 3:2)",
-   "state": "hero drift 100%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.48,
    "need": 3
@@ -3724,16 +2732,8 @@
    "vp": "1440x900 (real 3:2)",
    "state": "hero drift 100%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.57,
-   "need": 3
-  },
-  {
-   "vp": "1440x900 (real 3:2)",
-   "state": "hero drift 100%",
-   "kind": "ui",
    "what": "v10-pin-plate",
-   "value": 4.31,
+   "value": 4.29,
    "need": 3
   },
   {
@@ -3812,24 +2812,8 @@
    "vp": "1440x900 (real 3:2)",
    "state": "flight 30% (scale 1.0359)",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.39,
-   "need": 3
-  },
-  {
-   "vp": "1440x900 (real 3:2)",
-   "state": "flight 30% (scale 1.0359)",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.78,
-   "need": 3
-  },
-  {
-   "vp": "1440x900 (real 3:2)",
-   "state": "flight 30% (scale 1.0359)",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.1,
    "need": 3
   },
   {
@@ -3844,16 +2828,8 @@
    "vp": "1440x900 (real 3:2)",
    "state": "flight 30% (scale 1.0359)",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.61,
-   "need": 3
-  },
-  {
-   "vp": "1440x900 (real 3:2)",
-   "state": "flight 30% (scale 1.0359)",
-   "kind": "ui",
    "what": "v10-pin-plate",
-   "value": 4.3,
+   "value": 4.29,
    "need": 3
   },
   {
@@ -3876,16 +2852,8 @@
    "vp": "1440x900 (real 3:2)",
    "state": "flight 60% (scale 1.072)",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.45,
-   "need": 3
-  },
-  {
-   "vp": "1440x900 (real 3:2)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "ui",
    "what": "v10-pin-plate",
-   "value": 4.33,
+   "value": 4.3,
    "need": 3
   },
   {
@@ -4308,24 +3276,8 @@
    "vp": "2560x1080 (real 3:2, ultra-wide)",
    "state": "hero drift 0%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.4,
-   "need": 3
-  },
-  {
-   "vp": "2560x1080 (real 3:2, ultra-wide)",
-   "state": "hero drift 0%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.7,
-   "need": 3
-  },
-  {
-   "vp": "2560x1080 (real 3:2, ultra-wide)",
-   "state": "hero drift 0%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 8.29,
    "need": 3
   },
   {
@@ -4340,16 +3292,8 @@
    "vp": "2560x1080 (real 3:2, ultra-wide)",
    "state": "hero drift 0%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.13,
-   "need": 3
-  },
-  {
-   "vp": "2560x1080 (real 3:2, ultra-wide)",
-   "state": "hero drift 0%",
-   "kind": "ui",
    "what": "v10-pin-plate",
-   "value": 4.3,
+   "value": 4.36,
    "need": 3
   },
   {
@@ -4492,24 +3436,8 @@
    "vp": "2560x1080 (real 3:2, ultra-wide)",
    "state": "hero drift 50%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.41,
-   "need": 3
-  },
-  {
-   "vp": "2560x1080 (real 3:2, ultra-wide)",
-   "state": "hero drift 50%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.65,
-   "need": 3
-  },
-  {
-   "vp": "2560x1080 (real 3:2, ultra-wide)",
-   "state": "hero drift 50%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 8.2,
    "need": 3
   },
   {
@@ -4524,16 +3452,8 @@
    "vp": "2560x1080 (real 3:2, ultra-wide)",
    "state": "hero drift 50%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.18,
-   "need": 3
-  },
-  {
-   "vp": "2560x1080 (real 3:2, ultra-wide)",
-   "state": "hero drift 50%",
-   "kind": "ui",
    "what": "v10-pin-plate",
-   "value": 4.33,
+   "value": 4.36,
    "need": 3
   },
   {
@@ -4676,24 +3596,8 @@
    "vp": "2560x1080 (real 3:2, ultra-wide)",
    "state": "hero drift 100%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.3,
-   "need": 3
-  },
-  {
-   "vp": "2560x1080 (real 3:2, ultra-wide)",
-   "state": "hero drift 100%",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.59,
-   "need": 3
-  },
-  {
-   "vp": "2560x1080 (real 3:2, ultra-wide)",
-   "state": "hero drift 100%",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 8.29,
    "need": 3
   },
   {
@@ -4708,16 +3612,8 @@
    "vp": "2560x1080 (real 3:2, ultra-wide)",
    "state": "hero drift 100%",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.21,
-   "need": 3
-  },
-  {
-   "vp": "2560x1080 (real 3:2, ultra-wide)",
-   "state": "hero drift 100%",
-   "kind": "ui",
    "what": "v10-pin-plate",
-   "value": 4.34,
+   "value": 4.41,
    "need": 3
   },
   {
@@ -4788,24 +3684,8 @@
    "vp": "2560x1080 (real 3:2, ultra-wide)",
    "state": "flight 30% (scale 1.036)",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 4.38,
-   "need": 3
-  },
-  {
-   "vp": "2560x1080 (real 3:2, ultra-wide)",
-   "state": "flight 30% (scale 1.036)",
-   "kind": "ui",
    "what": "v10-pin-plate",
    "value": 4.63,
-   "need": 3
-  },
-  {
-   "vp": "2560x1080 (real 3:2, ultra-wide)",
-   "state": "flight 30% (scale 1.036)",
-   "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 8.29,
    "need": 3
   },
   {
@@ -4820,16 +3700,8 @@
    "vp": "2560x1080 (real 3:2, ultra-wide)",
    "state": "flight 30% (scale 1.036)",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.1,
-   "need": 3
-  },
-  {
-   "vp": "2560x1080 (real 3:2, ultra-wide)",
-   "state": "flight 30% (scale 1.036)",
-   "kind": "ui",
    "what": "v10-pin-plate",
-   "value": 4.3,
+   "value": 4.38,
    "need": 3
   },
   {
@@ -4852,16 +3724,8 @@
    "vp": "2560x1080 (real 3:2, ultra-wide)",
    "state": "flight 60% (scale 1.072)",
    "kind": "ui",
-   "what": "v10-pin-dot",
-   "value": 5.12,
-   "need": 3
-  },
-  {
-   "vp": "2560x1080 (real 3:2, ultra-wide)",
-   "state": "flight 60% (scale 1.072)",
-   "kind": "ui",
    "what": "v10-pin-plate",
-   "value": 4.34,
+   "value": 4.38,
    "need": 3
   },
   {
