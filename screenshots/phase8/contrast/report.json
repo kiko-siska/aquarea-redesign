@@ -1,0 +1,5301 @@
+{
+ "rows": [
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"Pláž\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"Potápanie\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"Pobyt\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.18,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.43,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.36,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.36,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.33,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.32,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 5.27,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"Pláž\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"Potápanie\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"Pobyt\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.87,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.4,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.92,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.36,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.33,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.36,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.32,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 5.54,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"Pláž\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"Potápanie\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"Pobyt\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.91,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.38,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.6,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.33,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.44,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.31,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.3,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 5.77,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-pin: \"Pláž\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-pin: \"Potápanie\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-pin: \"Pobyt\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.01,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.45,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.75,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.33,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.37,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.34,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.28,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 6.13,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-pin: \"Pláž\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-pin: \"Pobyt\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.98,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.36,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.89,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.49,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.33,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.3,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 6.47,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 90% (scale 1.108)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 90% (scale 1.108)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 90% (scale 1.108)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "flight 90% (scale 1.108)",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 6.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #plaz centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #plaz centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pláži\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #plaz centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.58,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #plaz leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #plaz leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pláži\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #plaz leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.48,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #pobyt centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #pobyt centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pobyte\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #pobyt centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.48,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #pobyt leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #pobyt leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pobyte\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #pobyt leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.48,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #potapanie centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Dive Center\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #potapanie centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o potápaní\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #potapanie centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 6.86,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #potapanie leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Dive Center\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #potapanie leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o potápaní\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #potapanie leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 6.82,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #hodiny centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Kedy je otvorené\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #hodiny centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Otváracie hodiny po dňoch\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #hodiny centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.49,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #hodiny leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Kedy je otvorené\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #hodiny leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Otváracie hodiny po dňoch\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x812 (AI 4:5)",
+   "state": "stop #hodiny leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.5,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"Pláž\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"Potápanie\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.15,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.5,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.82,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.35,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.33,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.32,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 4.62,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"Pláž\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"Potápanie\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.99,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.4,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.8,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.35,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.34,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.39,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 4.66,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"Pláž\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"Potápanie\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.04,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.46,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.78,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.37,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.35,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.35,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 4.81,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-pin: \"Pláž\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-pin: \"Potápanie\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.59,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.64,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.36,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.27,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.28,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 4.73,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-pin: \"Pláž\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-pin: \"Potápanie\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.2,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.5,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.84,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.44,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.33,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 4.67,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 90% (scale 1.1079)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "flight 90% (scale 1.1079)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #plaz entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #plaz centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #plaz centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pláži\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #plaz centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.47,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #plaz leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #plaz leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pláži\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #plaz leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.46,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #pobyt entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #pobyt centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #pobyt centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pobyte\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #pobyt centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.46,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #pobyt leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #pobyt leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pobyte\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #pobyt leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.4,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #potapanie entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Dive Center\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #potapanie centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Dive Center\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #potapanie centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o potápaní\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #potapanie centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 6.8,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #potapanie leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Dive Center\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #potapanie leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o potápaní\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #potapanie leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 6.8,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #hodiny entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Kedy je otvorené\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #hodiny centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Kedy je otvorené\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #hodiny centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Otváracie hodiny po dňoch\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #hodiny centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.28,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #hodiny leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Kedy je otvorené\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #hodiny leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Otváracie hodiny po dňoch\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "375x667 (AI 4:5)",
+   "state": "stop #hodiny leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.28,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"pláž, ihriská, volejbal\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"Dive Center\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"zátoka na potápanie\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.4,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.24,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.48,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.33,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.65,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.31,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.28,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 9.66,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"pláž, ihriská, volejbal\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"Dive Center\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"zátoka na potápanie\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.45,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.26,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.49,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.35,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.36,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.34,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.32,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 10.43,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"pláž, ihriská, volejbal\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"Dive Center\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"zátoka na potápanie\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.33,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.26,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.3,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.33,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.62,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.35,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.36,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 11.08,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-pin: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-pin: \"pláž, ihriská, volejbal\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-pin: \"Dive Center\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-pin: \"zátoka na potápanie\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.48,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.26,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.02,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.35,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.34,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.31,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 30% (scale 1.0361)",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 11.51,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-pin: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-pin: \"pláž, ihriská, volejbal\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.36,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.26,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.71,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.64,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.37,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 11.91,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 90% (scale 1.108)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"TODO\"",
+   "value": 7.67,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 90% (scale 1.108)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 90% (scale 1.108)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 90% (scale 1.108)",
+   "kind": "text",
+   "what": "v10-chip-todo: \"Oblohu a lúku na okrajoch fo\"",
+   "value": 10.65,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "flight 90% (scale 1.108)",
+   "kind": "ui",
+   "what": "todo-note",
+   "value": 4.93,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #plaz entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #plaz entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pláži\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #plaz entering",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.53,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #plaz centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #plaz centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pláži\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #plaz centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.49,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #plaz leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #plaz leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pláži\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #plaz leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.53,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #pobyt entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #pobyt entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pobyte\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #pobyt entering",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.47,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #pobyt centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #pobyt centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pobyte\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #pobyt centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.43,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #pobyt leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #pobyt leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pobyte\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #pobyt leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.46,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #potapanie entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Dive Center\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #potapanie entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o potápaní\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #potapanie entering",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 6.75,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #potapanie centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Dive Center\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #potapanie centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o potápaní\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #potapanie centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 6.71,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #potapanie leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Dive Center\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #potapanie leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o potápaní\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #potapanie leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 6.8,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #hodiny entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Kedy je otvorené\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #hodiny entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Otváracie hodiny po dňoch\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #hodiny entering",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 5.7,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #hodiny centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Kedy je otvorené\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #hodiny centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Otváracie hodiny po dňoch\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #hodiny centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 5.7,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #hodiny leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Kedy je otvorené\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #hodiny leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Otváracie hodiny po dňoch\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "768x1024 (AI 4:5)",
+   "state": "stop #hodiny leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 5.66,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"pláž, ihriská, volejbal\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"Dive Center\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"zátoka na potápanie\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.6,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.74,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.48,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.45,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.39,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.28,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.29,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"pláž, ihriská, volejbal\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"Dive Center\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"zátoka na potápanie\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.49,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.65,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.15,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.44,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.35,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.31,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.34,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"pláž, ihriská, volejbal\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"Dive Center\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"zátoka na potápanie\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.59,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.74,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.17,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.4,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.43,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.3,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.39,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 30% (scale 1.0359)",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 30% (scale 1.0359)",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 30% (scale 1.0359)",
+   "kind": "text",
+   "what": "v10-pin: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 30% (scale 1.0359)",
+   "kind": "text",
+   "what": "v10-pin: \"pláž, ihriská, volejbal\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 30% (scale 1.0359)",
+   "kind": "text",
+   "what": "v10-pin: \"Dive Center\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 30% (scale 1.0359)",
+   "kind": "text",
+   "what": "v10-pin: \"zátoka na potápanie\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 30% (scale 1.0359)",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 30% (scale 1.0359)",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 30% (scale 1.0359)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.4,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 30% (scale 1.0359)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.7,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 30% (scale 1.0359)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.37,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 30% (scale 1.0359)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.44,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 30% (scale 1.0359)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.35,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 30% (scale 1.0359)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.29,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.32,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.31,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #plaz entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #plaz entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pláži\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #plaz entering",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.55,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #plaz centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #plaz centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pláži\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #plaz centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.54,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #plaz leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #plaz leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pláži\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #plaz leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.52,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #pobyt entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #pobyt entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pobyte\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #pobyt entering",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.84,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #pobyt centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #pobyt centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pobyte\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #pobyt centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.8,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #pobyt leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #pobyt leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pobyte\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #pobyt leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.73,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #potapanie entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Dive Center\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #potapanie entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o potápaní\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #potapanie entering",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 7.28,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #potapanie centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Dive Center\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #potapanie centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o potápaní\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #potapanie centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 7.2,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #potapanie leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Dive Center\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #potapanie leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o potápaní\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #potapanie leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 7.27,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #hodiny entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Kedy je otvorené\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #hodiny entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Otváracie hodiny po dňoch\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #hodiny entering",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.36,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #hodiny centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Kedy je otvorené\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #hodiny centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Otváracie hodiny po dňoch\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #hodiny centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.29,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #hodiny leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Kedy je otvorené\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #hodiny leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Otváracie hodiny po dňoch\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "1440x900 (real 3:2)",
+   "state": "stop #hodiny leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.28,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"pláž, ihriská, volejbal\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"Dive Center\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"zátoka na potápanie\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.42,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.7,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 8.29,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.56,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.2,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.29,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 0%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.34,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"pláž, ihriská, volejbal\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"Dive Center\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"zátoka na potápanie\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.41,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.65,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 8.2,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.6,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.2,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.27,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 50%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.36,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Pláž, pobyt pri vode a potáp\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"od 7 €\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"celodenný vstup na pláž, die\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"dospelý 9 €\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Areál je zatvorený\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Rezervovať\"",
+   "value": 5.34,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-dock: \"Zavolať\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"pláž, ihriská, volejbal\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"Dive Center\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"zátoka na potápanie\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.35,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.61,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 8.3,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.54,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 5.13,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.3,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "hero drift 100%",
+   "kind": "ui",
+   "what": "v10-pause",
+   "value": 4.5,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-dock: \"Aquarea Čierna Voda\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-pin: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-pin: \"pláž, ihriská, volejbal\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-pin: \"Dive Center\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-pin: \"zátoka na potápanie\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.38,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.68,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 8.22,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.51,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.96,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 30% (scale 1.036)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.28,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-pin: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "text",
+   "what": "v10-pin: \"kemping pri jazere\"",
+   "value": 9.11,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-dot",
+   "value": 4.94,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "flight 60% (scale 1.072)",
+   "kind": "ui",
+   "what": "v10-pin-plate",
+   "value": 4.29,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #plaz entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #plaz entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pláži\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #plaz entering",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.7,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #plaz centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #plaz centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pláži\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #plaz centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.71,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #plaz leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Plážová zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #plaz leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pláži\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #plaz leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.7,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #pobyt entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #pobyt entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pobyte\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #pobyt entering",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.63,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #pobyt centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #pobyt centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pobyte\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #pobyt centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.6,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #pobyt leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Prémium zóna\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #pobyt leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o pobyte\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #pobyt leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.66,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #potapanie entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Dive Center\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #potapanie entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o potápaní\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #potapanie entering",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 7.34,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #potapanie centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Dive Center\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #potapanie centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o potápaní\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #potapanie centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 7.38,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #potapanie leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Dive Center\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #potapanie leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Všetko o potápaní\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #potapanie leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 7.3,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #hodiny entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Kedy je otvorené\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #hodiny entering",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Otváracie hodiny po dňoch\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #hodiny entering",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.26,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #hodiny centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Kedy je otvorené\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #hodiny centred",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Otváracie hodiny po dňoch\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #hodiny centred",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.26,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #hodiny leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Kedy je otvorené\"",
+   "value": 17.76,
+   "need": 3
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #hodiny leaving",
+   "kind": "text",
+   "what": "v10-stop-plate: \"Otváracie hodiny po dňoch\"",
+   "value": 5.89,
+   "need": 4.5
+  },
+  {
+   "vp": "2560x1080 (real 3:2, ultra-wide)",
+   "state": "stop #hodiny leaving",
+   "kind": "ui",
+   "what": "v10-stop-plate",
+   "value": 4.26,
+   "need": 3
+  }
+ ],
+ "fails": []
+}
