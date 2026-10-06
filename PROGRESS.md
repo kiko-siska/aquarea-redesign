@@ -1,7 +1,7 @@
 # Progress
 
-- **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-06 22:59
+- **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
+- **Last updated:** 2026-10-06 23:29
 - **Current phase:** 8
 
 ## Checklist
@@ -102,15 +102,15 @@ _V8 `/variants/8/` = V7 without the diver: only the real aerial photo, AI-extend
 ### Phase 8 — V10 "Mapa z výšky": the real aerial as the map of the place (`/variants/10/`)
 _Owner brief 2026-10-06. NOT waived: V6–V9 bar in full (WCAG AA, reduced motion, Lighthouse mobile ≥ 90 / ≥ 90, axe 0, JS-off usable, native scroll, pause control, one animation per viewport). Owner answers: two AI extensions of the real aerial (4:5 + 21:9, visible TODO), Gemini cap 10 for V10 only (fast, ≤ 2K), no diver; palette = the logo (business cards are printed), families first, diving second. V1–V9 and the site stay untouched._
 - [x] Step 1: AGENTS.md fifth rule-5 exception (V10 only), committed on its own (005b513)
-- [ ] Design system: concept, logo palette + contrast, new font pair (Slovak glyphs), motion budget, pin verification → DECISIONS.md
+- [x] Design system: concept, logo palette + contrast, new font pair (Slovak glyphs), motion budget, pin verification → DECISIONS.md — Ubuntu Sans + Onest; logo tiles as the map legend; pins verified with 2+ landmarks each
 - [x] AI extensions of the real aerial (4:5 portrait, 21:9 ultra-wide), checked against the original, logged below — 4:5 kept (real pixels pasted back, 1 invented board removed from the AI margin); 21:9 rejected twice (zoom-out + invented houses/lake) → ultra-wide uses the real 3:2 crop. Gemini 10/10
 - [x] V10 page: full-bleed aerial hero with verified pins, info dock, sticky curtain + scale, zone photo stops, solid reading surfaces, all sections, nav inside the variant, TODO chips — `src/pages/variants/10/`, `src/components/v10/`, `src/styles/v10.css`
 - [ ] Motion: drone drift (pausable, off-screen paused), scroll flight + stop push-ins (gsap ScrollTrigger, matchMedia reduced), play control under reduced motion
 - [x] `scripts/v10-photo-contrast.mjs` (real pixels behind every text at 375 + 1440, several scroll/drift/scale states) passes — 662 measurements, 5 viewports
-- [ ] Verify: Lighthouse mobile ×3, axe (normal + reduced), `a11y.mjs`, 320 px reflow, JS-off, console, overflow, five-second test 375 × 667 / 812, screenshots 375 / 768 / 1440 / 2560 → `screenshots/phase8/`
-- [ ] design:accessibility-review + design:design-critique; fix findings; DPR 2 self-critique
-- [ ] Picker: V10 (summary, palette, type, effect, thumbnails); noindex; not in sitemap; nav-check
-- [ ] DECISIONS.md: V10 entry, acceptance evidence, V8 vs V10 side-by-side + recommendation; PROGRESS handoff
+- [x] Verify: Lighthouse mobile ×3, axe (normal + reduced), `a11y.mjs`, 320 px reflow, JS-off, console, overflow, five-second test 375 × 667 / 812, screenshots 375 / 768 / 1440 / 2560 → `screenshots/phase8/` — Lighthouse 93/91/91 · 100 · 100 (CLS 0), axe 0, `a11y.mjs` 0, reflow + text spacing clean, JS-off complete, five-second test passes at both sizes
+- [x] design:accessibility-review + design:design-critique; fix findings; DPR 2 self-critique — pause toggle naming, 2.4.11 focus into the covered hero, 44 px legend links, pins layer blocking the pause button (reduced motion), closed dot, link affordance, plate sizing
+- [x] Picker: V10 (summary, palette, type, effect, thumbnails); noindex; not in sitemap; nav-check — all 10 variants pass `nav-check.mjs`
+- [x] DECISIONS.md: V10 entry, acceptance evidence, V8 vs V10 side-by-side + recommendation; PROGRESS handoff — recommends V10 as the main pitch, V8 as fallback; `/` unchanged
 
 ## Budget log
 - 21st `get_component`: (date · component · used for)
@@ -137,7 +137,7 @@ _Owner brief 2026-10-06. NOT waived: V6–V9 bar in full (WCAG AA, reduced motio
     - 2026-10-06 22:10 · #8 `images/generated/v10-aerial-portrait-ai-2.jpg` (4:5, 1856×2304) · "Outpaint … fill the grey areas only … ABOVE: only sky … BELOW: meadow, grass, bushes and the existing dirt path … no water, no buildings …" · **KEPT** → `src/assets/generated/v10-aerial-portrait.jpg` (2000×2483; real photo pasted back at 0,575, match SAD 3.5). One invented object in the AI margin (a small blue/white board under a tree, ~80×40 px, 90 px below the real photo) was removed with a deterministic clone of the neighbouring AI grass (`patch`, refuses to touch the real area). The AI margins also add a crop field and farm tracks below the real photo (field-type continuation, accepted).
     - 2026-10-06 22:12 · #9 `images/generated/rejected/v10-aerial-wide-ai.jpg` (21:9, 3168×1344) · "Outpaint … left and right only … do not continue the camping row … no water …" · **REJECTED**: zoomed out and recomposed the scene (match SAD 52), invented a second lake with a jetty, a house, cars and a tractor.
     - 2026-10-06 22:13 · #10 `images/generated/rejected/v10-aerial-wide-ai-2.jpg` (21:9) · same + "do not zoom out, do not change the scale" · **REJECTED**: zoomed out again (SAD 46), invented a cluster of red-roofed houses on the left.
-    - **Gemini total: 10 / 10 (V10 cap reached).** Result: the 4:5 portrait extension is used on phones (visible TODO chip). No 21:9 extension: ultra-wide screens use the real 3:2 photo cropped in height (no AI, no chip).
+    - **Gemini total: 10 / 10 (V10 cap reached; the general cap of 8 still applies to every other page).** Result: the 4:5 portrait extension is used on phones (visible TODO chip). No 21:9 extension: ultra-wide screens use the real 3:2 photo cropped in height (no AI, no chip).
   - Phase 5: 0 used. Note: the owner's Phase 5 brief says "4/8 used"; this log shows 2/8. The stricter cap (1 more) was followed; none needed (the water light is procedural).
 
 ## Blockers
@@ -166,6 +166,8 @@ _Each one is also a visible yellow TODO on the page where it matters. Full list:
 15. **Before launch:** confirm the new URLs, set up redirects from the old ones (SITEMAP.md §7), remove `noindex` and the robots.txt block, and decide on EN/HU translation and hosting.
 16. **Hardening pass needed before V4/V5 can ship.** `/variants/4/` and `/variants/5/` were built with accessibility and Lighthouse targets waived (owner, 2026-10-02). Before either direction is used for the real site: WCAG AA contrast, keyboard/focus, reduced-motion fallbacks, screen-reader text for the WebGL/scroll scenes, and Lighthouse mobile ≥ 90.
 
+17. **Real taller drone photo (V10).** `/variants/10/` shows an AI-extended 4:5 version of the real aerial on phones and near-square screens (sky and meadow margins only; visible TODO). One real portrait/taller drone shot of the whole area replaces it; a higher-resolution original would also sharpen 2560 px screens.
+
 ## Handoff
 _Notes for the next session: what's next, gotchas._
 
@@ -184,6 +186,10 @@ _Notes for the next session: what's next, gotchas._
   - Run checks: `npx astro preview --port 4322`, then `node scripts/v89-interactions.mjs http://localhost:4322`, `node scripts/v8-checks.mjs …` / `v9-checks.mjs …`, `node scripts/v8-a11y-audit.mjs …`.
   - Gotchas: Gemini image edit re-renders the whole frame (V8's extended aerial is a placeholder, not the original pixels); `torch.ts` is driven by the stage attributes `data-live / data-paused / data-offscreen` that `main.ts` sets, so any new hero variant gets pausing and reduced motion for free.
 - Gotchas: content lives in `src/content/*.json` (zod-validated, every block needs an aquarea.sk `source`). `Photo` moves `col-span`/`row-span` classes onto `<picture>` automatically. Big Shoulders caps need leading ≥ 0,92 and no `truncate` (it clips Č/Š/Ž). Use `price()`/`priceShort()` for euros (non-breaking spaces). Screenshots: `npm run preview` then `npm run shots -- http://localhost:4321 screenshots/x /path/`; a11y: `node scripts/a11y.mjs http://localhost:4321 /path/`.
+
+- 2026-10-06 23:25 — **Phase 8 done.** `/variants/10/` Mapa z výšky: the real aerial as the map (verified pins, solid dock, sticky curtain with the logo wave, zone drone-photo stops), families first, logo colours, Ubuntu Sans + Onest. NOT waived: Lighthouse 91–93/100/100, axe 0, contrast proof 502/502, five-second test at 375 × 667 and 812. Gemini 10/10 for V10 (one 4:5 extension kept with real pixels pasted back; 21:9 rejected twice, ultra-wide uses the real photo). DECISIONS.md recommends V10 as the main pitch (V8 fallback); `/` unchanged.
+  - Run checks: `npm run build`, serve `dist` on :4322 (`npx astro preview --port 4322` or the running `serve dist -l 4322`), then `node scripts/v10-checks.mjs http://localhost:4322`, `node scripts/v10-photo-contrast.mjs http://localhost:4322`, `node scripts/v10-interactions.mjs http://localhost:4322`, `node scripts/nav-check.mjs http://localhost:4322`, `node scripts/a11y.mjs http://localhost:4322 /variants/10/`; Lighthouse: `npx lighthouse http://localhost:4322/variants/10/ --only-categories=performance,accessibility,best-practices --form-factor=mobile`.
+  - Gotchas: the hero image geometry (aspect, focal point, pin %) lives in `v10.css` under the same media query as the `<picture>` source in the page (`(max-width: 1023px), (max-aspect-ratio: 23/20)`); change both together, and the TODO chip follows it. A covered sticky hero still "intersects", so covered/flying state comes from ScrollTrigger, not IO. The pins layer must keep `pointer-events: none` (only plates take clicks), or it swallows the pause button when no transform creates a stacking context (reduced motion). Playwright's `.click()`/`.hover()` mis-handle the moving/sticky hero: the scripts click by coordinates. `scripts/v10-outpaint.mjs` regenerates the composite (canvas / composite / patch).
 
 ## Morning report
 _2026-10-01, written for the owner._
