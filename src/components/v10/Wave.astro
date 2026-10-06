@@ -1,0 +1,11 @@
+---
+/** The logo's wave as an edge: a white (or ink) fill with a logo-blue line on top. Decorative. */
+interface Props { class?: string }
+const { class: cls } = Astro.props;
+// 3 full periods across a 1440-wide box, stretched to any width (the line keeps its thickness: non-scaling stroke)
+const d = 'M0 22 C60 6 180 6 240 22 S420 38 480 22 S660 6 720 22 S900 38 960 22 S1140 6 1200 22 S1380 38 1440 22';
+---
+<svg class:list={['v10-wave', cls]} viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <path class="w-fill" d={`${d} V40 H0 Z`} />
+  <path class="w-line" d={d} />
+</svg>
