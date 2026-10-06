@@ -1,8 +1,8 @@
 # Progress
 
-- **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-03 12:15
-- **Current phase:** 6
+- **Status:** RUNNING  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
+- **Last updated:** 2026-10-06 21:54
+- **Current phase:** 8
 
 ## Checklist
 
@@ -98,6 +98,19 @@ _V8 `/variants/8/` = V7 without the diver: only the real aerial photo, AI-extend
 - [x] V9 page: dark water, torch cone (pointer / touch / idle wander), marine snow, diver kick, pause + reduced motion, TODO chip
 - [x] Verify both → `screenshots/phase7/` — V8 96/100/100, V9 96–99/100/100 (3 runs each), axe 0, `a11y.mjs` 0, five-second test, 320 px reflow, JS-off, pause, reduced motion + play button (`scripts/v89-interactions.mjs`)
 - [x] Picker: V8 + V9 with thumbnails; DECISIONS.md entry + owner comparison (fit with the current site, easiest to sell, price ranges, UX); handoff
+
+### Phase 8 — V10 "Mapa z výšky": the real aerial as the map of the place (`/variants/10/`)
+_Owner brief 2026-10-06. NOT waived: V6–V9 bar in full (WCAG AA, reduced motion, Lighthouse mobile ≥ 90 / ≥ 90, axe 0, JS-off usable, native scroll, pause control, one animation per viewport). Owner answers: two AI extensions of the real aerial (4:5 + 21:9, visible TODO), Gemini cap 10 for V10 only (fast, ≤ 2K), no diver; palette = the logo (business cards are printed), families first, diving second. V1–V9 and the site stay untouched._
+- [x] Step 1: AGENTS.md fifth rule-5 exception (V10 only), committed on its own (005b513)
+- [ ] Design system: concept, logo palette + contrast, new font pair (Slovak glyphs), motion budget, pin verification → DECISIONS.md
+- [ ] AI extensions of the real aerial (4:5 portrait, 21:9 ultra-wide), checked against the original, logged below
+- [ ] V10 page: full-bleed aerial hero with verified pins, info dock, sticky curtain + scale, zone photo stops, solid reading surfaces, all sections, nav inside the variant, TODO chips
+- [ ] Motion: drone drift (pausable, off-screen paused), scroll flight + stop push-ins (gsap ScrollTrigger, matchMedia reduced), play control under reduced motion
+- [ ] `scripts/v10-photo-contrast.mjs` (real pixels behind every text at 375 + 1440, several scroll/drift/scale states) passes
+- [ ] Verify: Lighthouse mobile ×3, axe (normal + reduced), `a11y.mjs`, 320 px reflow, JS-off, console, overflow, five-second test 375 × 667 / 812, screenshots 375 / 768 / 1440 / 2560 → `screenshots/phase8/`
+- [ ] design:accessibility-review + design:design-critique; fix findings; DPR 2 self-critique
+- [ ] Picker: V10 (summary, palette, type, effect, thumbnails); noindex; not in sitemap; nav-check
+- [ ] DECISIONS.md: V10 entry, acceptance evidence, V8 vs V10 side-by-side + recommendation; PROGRESS handoff
 
 ## Budget log
 - 21st `get_component`: (date · component · used for)
