@@ -151,7 +151,7 @@ const priceGroups = [
               </div>
             </div>
           </div>
-          <button type="button" class="v10-pause" data-v10-pause aria-pressed="false" aria-label="Zastaviť pomalý prelet nad areálom" hidden></button>
+          <button type="button" class="v10-pause" data-v10-pause aria-pressed="false" aria-label="Pozastaviť prelet nad areálom" hidden></button>
           <div class="v10-chip-todo"><Todo text="Okraje fotky z AI, nahradiť skutočnou." /></div>
         </div>
       </section>
@@ -167,7 +167,7 @@ const priceGroups = [
               {legend.map((l) => (
                 <li class="v10-legend-row">
                   <span class="v10-key" data-k={l.k} aria-hidden="true"></span>
-                  <h3 class="v10-display v10-h3"><a href={l.href}>{l.name}</a></h3>
+                  <h3 class="v10-display v10-h3"><a href={l.href} class="inline-flex min-h-11 items-center">{l.name}</a></h3>
                   <p class="v10-measure">{l.what}</p>
                   <p class="v10-legend-price"><b class="v10-num">{l.big}</b><span class="v10-muted">{l.note}</span></p>
                 </li>

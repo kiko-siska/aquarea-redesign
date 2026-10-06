@@ -33,6 +33,8 @@ async function open(ctx, tag) {
   return p;
 }
 const shot = (p, name, opts = {}) => p.screenshot({ path: `${out}/${name}.jpg`, type: 'jpeg', quality: 80, timeout: 20000, ...opts }).catch((e) => issues.push(`shot ${name}: ${e.message.split('\n')[0]}`));
+// click like a person (Playwright's own scroll-into-view mis-scrolls for elements inside a sticky container)
+const press = async (p, sel) => { const b = await p.locator(sel).boundingBox(); await p.mouse.click(b.x + b.width / 2, b.y + b.height / 2); };
 const live = (p) => p.waitForFunction(() => document.querySelector('[data-v10-stage]')?.hasAttribute('data-live'), null, { timeout: 15000 }).catch(() => issues.push('drift never went live'));
 async function axe(p, tag) {
   await p.evaluate(async () => { for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight * 0.7) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 120)); } scrollTo(0, 0); await new Promise((r) => setTimeout(r, 400)); });
@@ -142,11 +144,11 @@ for (const [w, h] of [[1440, 900], [375, 812]]) {
     await p.mouse.move(5, 300);
   }
   // pause button
-  await p.locator('[data-v10-pause]').click(); await sleep(400);
+  await press(p, '[data-v10-pause]'); await sleep(400);
   const p1 = await tf(); await sleep(900); const p2 = await tf();
   notes.push(`motion ${w}: pause → ${(await st()).play}, frozen ${p1 === p2}, aria-pressed ${await p.locator('[data-v10-pause]').getAttribute('aria-pressed')}, label "${await p.locator('[data-v10-pause]').getAttribute('aria-label')}"`);
   if (p1 !== p2) issues.push(`motion ${w}: pause does not freeze the drift`);
-  await p.locator('[data-v10-pause]').click(); await sleep(300);
+  await press(p, '[data-v10-pause]'); await sleep(300);
   // scroll flight: flying pauses the drift, the photo scales toward the beach, covered at the end
   const heroH = await p.evaluate(() => document.querySelector('.v10-hero').offsetHeight);
   await p.mouse.move(w / 2, h / 2);
@@ -205,7 +207,7 @@ for (const [w, h] of [[1440, 900], [375, 812]]) {
   if (rs !== 'none' || rstop !== 'none') issues.push(`reduced ${w}: scroll effects run under reduced motion`);
   await p.evaluate(() => scrollTo(0, 0)); await sleep(600);
   await shot(p, `v10-${w}-reduced-top`);
-  await p.locator('[data-v10-pause]').click(); await sleep(1200);
+  await press(p, '[data-v10-pause]'); await sleep(1200);
   const r1 = await p.evaluate(() => ({ anim: getComputedStyle(document.querySelector('.v10-drift')).animationName, dur: getComputedStyle(document.querySelector('.v10-drift')).animationDuration, play: getComputedStyle(document.querySelector('.v10-drift')).animationPlayState }));
   notes.push(`reduced ${w}: after play → ${JSON.stringify(r1)}`);
   if (r1.anim !== 'v10-drift' || r1.dur !== '46s' || r1.play !== 'running') issues.push(`reduced ${w}: play button does not start the drift`);

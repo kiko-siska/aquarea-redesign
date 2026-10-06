@@ -134,7 +134,9 @@
   .v10-stage[data-covered] .v10-scale { visibility: hidden; }
 
   /* pins: a dot exactly on the verified spot + a solid label plate (no text on the photo) */
-  .v10-pins { position: absolute; inset: 0; z-index: 5; } /* above the TODO chip: a pin link is never covered */
+  /* the pins layer spans the map but only the plates take clicks (it must never sit over the pause button) */
+  .v10-pins { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+  .v10-pin-plate { pointer-events: auto; }
   .v10-pins ul { margin: 0; padding: 0; list-style: none; }
   .v10-pin { position: absolute; display: block; width: 0; height: 0; color: var(--cierna); }
   .v10-pin[data-pin="plaz"] { left: var(--plaz-x); top: var(--plaz-y); }
@@ -167,11 +169,11 @@
   @media (max-width: 767px) { .v10-pin-plate .v10-pin-long { display: none; } }
 
   /* hero controls on the photo */
-  .v10-pause { position: absolute; left: .75rem; bottom: .75rem; z-index: 4; display: inline-flex; align-items: center; justify-content: center;
+  .v10-pause { position: absolute; left: .75rem; bottom: .75rem; z-index: 6; display: inline-flex; align-items: center; justify-content: center;
     width: 2.75rem; height: 2.75rem; border-radius: 999px; background: #fff; color: var(--cierna); box-shadow: 0 0 0 2px var(--cierna); }
   .v10-pause:hover { background: var(--hladina); }
   .v10-pause:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
-  .v10-chip-todo { position: absolute; left: .6rem; top: .6rem; z-index: 4; display: none; max-width: min(15rem, 52%); } /* left half: the Pobyt pin sits top-right */
+  .v10-chip-todo { position: absolute; left: .6rem; top: .6rem; z-index: 4; display: none; pointer-events: none; max-width: min(15rem, 52%); } /* left half: the Pobyt pin sits top-right */
   /* very small phones (< 360 px): the top of the photo is full of pin plates, the meadow at the bottom is empty */
   @media (max-width: 359px) { .v10-chip-todo { top: auto; bottom: .6rem; left: 3.9rem; right: .5rem; max-width: none; } .v10-chip-todo .todo-note { font-size: .6875rem !important; } }
   .v10-chip-todo .todo-note { font-size: .75rem; line-height: 1.25; padding: .2rem .45rem; margin: 0; }
@@ -203,14 +205,13 @@
   .v10 [data-state] .status-dot { position: relative; width: .75rem; height: .75rem; box-shadow: 0 0 0 2px var(--cierna); background: #fff; color: var(--cierna); }
   .v10 [data-state="open"] .status-dot { background: var(--kluc-dive); }
   .v10 [data-state="later"] .status-dot { background: var(--kluc-plaz); }
-  .v10 [data-state="closed"] .status-dot { background: #fff; }
+  .v10 [data-state="closed"] .status-dot { background: #7d888e; } /* solid: a white ring read like an unchecked radio button */
 
   /* ================= the curtain: the white page rises over the map, its edge is the logo's wave ================= */
   .v10-curtain { position: relative; z-index: 2; background: #fff; }
   .v10-wave { position: absolute; left: 0; right: 0; bottom: calc(100% - 1px); width: 100%; height: clamp(1.25rem, 2.6vw, 2.25rem); pointer-events: none; }
   .v10-wave .w-fill { fill: #fff; }
   .v10-wave .w-line { fill: none; stroke: var(--modra); stroke-width: 6px; vector-effect: non-scaling-stroke; }
-  .v10-sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
 
   /* legend (the first panel): three zones as rows of a map legend */
   .v10-legend { padding-block: 2.75rem 3.5rem; }
@@ -219,8 +220,9 @@
   .v10-legend-row { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 1rem; row-gap: .35rem; align-items: start;
     padding: 1.15rem 0; border-bottom: 1px solid var(--ciara); }
   .v10-legend-row .v10-key { width: 1.6rem; height: 1.6rem; border-radius: 6px; margin-top: .2rem; }
-  .v10-legend-row h3 a { text-decoration: none; }
-  .v10-legend-row h3 a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .18em; }
+  /* the zone names are links: a permanent logo-blue underline says so */
+  .v10-legend-row h3 a { text-decoration: underline; text-decoration-color: var(--modra); text-decoration-thickness: 3px; text-underline-offset: .22em; }
+  .v10-legend-row h3 a:hover { text-decoration-color: var(--cierna); }
   .v10-legend-row > p { grid-column: 2; }
   .v10-legend-price { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: .6rem; }
   .v10-legend-price b { font-family: var(--f-display); font-weight: 780; font-size: 1.75rem; line-height: 1.1; }

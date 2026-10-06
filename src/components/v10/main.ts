@@ -33,6 +33,9 @@ export async function initV10() {
   const pauseBtn = stage?.querySelector<HTMLButtonElement>('[data-v10-pause]') ?? null;
   const set = (attr: string, on: boolean) => stage?.toggleAttribute(attr, on);
 
+  // WCAG 2.4.11: the white page can cover the sticky hero; keyboard focus moving into the hero (Shift+Tab) brings it back
+  hero?.addEventListener('focusin', () => { if (window.scrollY > 1) window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior }); });
+
   // flight state (both motion modes): flying while the curtain rises, covered once it fills the hero
   if (stage && curtain) {
     ScrollTrigger.create({
@@ -61,9 +64,10 @@ export async function initV10() {
     document.addEventListener('visibilitychange', onVis);
     if (pauseBtn) {
       pauseBtn.hidden = false;
+      // toggle-button pattern: one fixed name, the state is aria-pressed (pressed = paused); the icon shows the next action
+      pauseBtn.setAttribute('aria-label', 'Pozastaviť prelet nad areálom');
       const label = (p: boolean) => {
         pauseBtn.setAttribute('aria-pressed', String(p));
-        pauseBtn.setAttribute('aria-label', p ? 'Spustiť pomalý prelet nad areálom' : 'Zastaviť pomalý prelet nad areálom');
         pauseBtn.innerHTML = p ? ICON_PLAY : ICON_PAUSE;
       };
       label(paused);
