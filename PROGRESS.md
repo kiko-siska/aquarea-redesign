@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-07 07:25
+- **Last updated:** 2026-10-07 07:35
 - **Current phase:** 8
 
 ## Checklist
@@ -111,6 +111,7 @@ _Owner brief 2026-10-06. NOT waived: V6–V9 bar in full (WCAG AA, reduced motio
 - [x] design:accessibility-review + design:design-critique; fix findings; DPR 2 self-critique — pause toggle naming, 2.4.11 focus into the covered hero, 44 px legend links, pins layer blocking the pause button (reduced motion), closed dot, link affordance, plate sizing
 - [x] Picker: V10 (summary, palette, type, effect, thumbnails); noindex; not in sitemap; nav-check — all 10 variants pass `nav-check.mjs`
 - [x] DECISIONS.md: V10 entry, acceptance evidence, V8 vs V10 side-by-side + recommendation; PROGRESS handoff — recommends V10 as the main pitch, V8 as fallback; `/` unchanged
+- [x] Owner follow-up 2026-10-07: H1 coloured like the logo (AQUA + Voda blue `#0096D8`, AA-safe shade of the logo blue; rea + Čierna black)
 
 ## Budget log
 - 21st `get_component`: (date · component · used for)
