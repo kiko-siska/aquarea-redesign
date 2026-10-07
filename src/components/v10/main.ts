@@ -34,7 +34,11 @@ export async function initV10() {
   const set = (attr: string, on: boolean) => stage?.toggleAttribute(attr, on);
 
   // WCAG 2.4.11: the white page can cover the sticky hero; keyboard focus moving into the hero (Shift+Tab) brings it back
-  hero?.addEventListener('focusin', () => { if (window.scrollY > 1) window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior }); });
+  // keyboard only (:focus-visible): a mouse click or a tap on a hero link must never jump the page
+  hero?.addEventListener('focusin', (e) => {
+    if (!(e.target as Element).matches(':focus-visible')) return;
+    if (window.scrollY > 1) window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+  });
 
   // flight state (both motion modes): flying while the curtain rises, covered once it fills the hero
   if (stage && curtain) {
@@ -105,6 +109,9 @@ export async function initV10() {
     });
     return () => { undoDrift(); tweens.forEach((t) => { t.scrollTrigger?.kill(); t.kill(); }); if (scale) gsap.set(scale, { clearProps: 'transform' }); };
   }, () => drift(false));
+
+  // a web-font swap after load shifts trigger positions (gsap-scrolltrigger: refresh after fonts)
+  document.fonts?.ready.then(() => ScrollTrigger.refresh());
 
   const gallery = document.querySelector<HTMLElement>('[data-flip-gallery]');
   if (gallery) flipGallery(gallery, gsap, Flip);

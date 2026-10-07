@@ -1,7 +1,7 @@
 # Progress
 
 - **Status:** DONE  <!-- NOT_STARTED | RUNNING | PAUSED | DONE -->
-- **Last updated:** 2026-10-06 23:29
+- **Last updated:** 2026-10-07 07:25
 - **Current phase:** 8
 
 ## Checklist
@@ -187,7 +187,7 @@ _Notes for the next session: what's next, gotchas._
   - Gotchas: Gemini image edit re-renders the whole frame (V8's extended aerial is a placeholder, not the original pixels); `torch.ts` is driven by the stage attributes `data-live / data-paused / data-offscreen` that `main.ts` sets, so any new hero variant gets pausing and reduced motion for free.
 - Gotchas: content lives in `src/content/*.json` (zod-validated, every block needs an aquarea.sk `source`). `Photo` moves `col-span`/`row-span` classes onto `<picture>` automatically. Big Shoulders caps need leading ≥ 0,92 and no `truncate` (it clips Č/Š/Ž). Use `price()`/`priceShort()` for euros (non-breaking spaces). Screenshots: `npm run preview` then `npm run shots -- http://localhost:4321 screenshots/x /path/`; a11y: `node scripts/a11y.mjs http://localhost:4321 /path/`.
 
-- 2026-10-06 23:25 — **Phase 8 done.** `/variants/10/` Mapa z výšky: the real aerial as the map (verified pins, solid dock, sticky curtain with the logo wave, zone drone-photo stops), families first, logo colours, Ubuntu Sans + Onest. NOT waived: Lighthouse 91–93/100/100, axe 0, contrast proof 502/502, five-second test at 375 × 667 and 812. Gemini 10/10 for V10 (one 4:5 extension kept with real pixels pasted back; 21:9 rejected twice, ultra-wide uses the real photo). DECISIONS.md recommends V10 as the main pitch (V8 fallback); `/` unchanged.
+- 2026-10-06 23:25 — **Phase 8 done.** `/variants/10/` Mapa z výšky: the real aerial as the map (verified pins, solid dock, sticky curtain with the logo wave, zone drone-photo stops), families first, logo colours, Ubuntu Sans + Onest. NOT waived: Lighthouse 90–94/100/100 (thin margin), axe 0, contrast proof 502/502, five-second test at 375 × 667 and 812. Gemini 10/10 for V10 (one 4:5 extension kept with real pixels pasted back, owner approved the patched margin on 2026-10-07; 21:9 rejected twice, ultra-wide uses the real photo). DECISIONS.md recommends V10 as the main pitch (V8 fallback); `/` unchanged.
   - Run checks: `npm run build`, serve `dist` on :4322 (`npx astro preview --port 4322` or the running `serve dist -l 4322`), then `node scripts/v10-checks.mjs http://localhost:4322`, `node scripts/v10-photo-contrast.mjs http://localhost:4322`, `node scripts/v10-interactions.mjs http://localhost:4322`, `node scripts/nav-check.mjs http://localhost:4322`, `node scripts/a11y.mjs http://localhost:4322 /variants/10/`; Lighthouse: `npx lighthouse http://localhost:4322/variants/10/ --only-categories=performance,accessibility,best-practices --form-factor=mobile`.
   - Gotchas: the hero image geometry (aspect, focal point, pin %) lives in `v10.css` under the same media query as the `<picture>` source in the page (`(max-width: 1023px), (max-aspect-ratio: 23/20)`); change both together, and the TODO chip follows it. A covered sticky hero still "intersects", so covered/flying state comes from ScrollTrigger, not IO. The pins layer must keep `pointer-events: none` (only plates take clicks), or it swallows the pause button when no transform creates a stacking context (reduced motion). Playwright's `.click()`/`.hover()` mis-handle the moving/sticky hero: the scripts click by coordinates. `scripts/v10-outpaint.mjs` regenerates the composite (canvas / composite / patch).
 

@@ -111,7 +111,7 @@
       --plaz-x: 39%; --plaz-y: 47.3%; --dive-x: 57.5%; --dive-y: 48.6%; --pobyt-x: 90%; --pobyt-y: 41.1%;
     }
   }
-  .v10-scale, .v10-drift { position: absolute; inset: 0; }
+  .v10-scale, .v10-drift { position: absolute; inset: 0; } /* no permanent will-change: the browser promotes them while they animate; a full-screen layer kept for the whole visit costs memory on phones */
   .v10-scale {
     --w: max(100cqw, 100cqh * var(--ar));
     --h: max(100cqh, 100cqw / var(--ar));
