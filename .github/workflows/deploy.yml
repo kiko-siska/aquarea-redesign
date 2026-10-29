@@ -1,6 +1,6 @@
 # Deploys the static Astro build to GitHub Pages.
-# NOT ACTIVE: this repository has no remote and must not be pushed or published
-# until Aquarea approves the redesign (AGENTS.md rules 3 and 4).
+# Manual-only (workflow_dispatch). Allowed since 2026-10-29 as a noindex preview of /variants/10/ and /variants/11/
+# (AGENTS.md rule 3 exception, rule 4 still applies).
 name: Deploy to GitHub Pages
 
 on:
