@@ -1,0 +1,78 @@
+/*
+ * Experiment 11 · Slnečná: V8's layout and sporty type, turned light for a family audience.
+ * Loaded after v7.css by /variants/11/ and /variants/12/ only. Everything lives in the `utilities` layer on purpose:
+ * V8's markup carries Tailwind utilities (text-white, bg-[var(--v7-cierna)]) that would otherwise beat these overrides.
+ * Palette = V7's logo colours, plus two derived tints: sand #fff3d1 (sun on the meadow) and sky #d9f3ff (pale lake).
+ * Ink on sand 16:1, ink on sky 14:1, deep blue #006b99 on white / tint 5.9:1 / 5.5:1.
+ * NOT waived: WCAG AA, visible focus, reduced motion.
+ */
+@layer properties, theme, base, components, utilities;
+
+@layer utilities {
+  .v11 {
+    --v11-piesok: #fff3d1;
+    --v11-obloha: #d9f3ff;
+    --v11-tien: 0 .35rem 0 rgb(0 72 105 / .28);
+    --focus-color: var(--v7-hlbka);
+  }
+  .v11 :focus-visible, .v11 .v7-dark :focus-visible, .v11 .v7-on-blue :focus-visible, .v11 .v7-panel :focus-visible { outline-color: var(--v7-cierna); }
+  .v11 ::selection { background: var(--v7-modra); color: var(--v7-cierna); }
+
+  /* the real 3:2 photo (no AI-extended square here) must still fill the hero frame */
+  .v11 .v8-photo picture { display: block; width: 100%; height: 100%; }
+  .v11 .v8-photo img { object-position: 38% 50%; }
+
+  /* header: a blue line instead of a black one */
+  .v11 .v7-header { border-bottom: 4px solid var(--v7-modra); }
+  .v11 .v7-nav a:hover, .v11 .v7-iconbtn:hover { background: var(--v11-obloha); }
+
+  /* buttons: soft, pressable, no black hard shadow */
+  .v11 .v7-cta, .v11 .v7-btn { border-radius: .8rem; }
+  .v11 .v7-cta, .v11 .v7-dark .v7-cta, .v11 .v7-on-ink .v7-cta, .v11 .v7-on-deep .v7-cta { background: var(--v7-cervena); color: #fff; box-shadow: 0 .3rem 0 #7d000e; }
+  .v11 .v7-cta:hover, .v11 .v7-dark .v7-cta:hover { background: var(--v7-cervena-tm); transform: translateY(2px); box-shadow: 0 .15rem 0 #7d000e; }
+  .v11 .v7-btn, .v11 .v7-dark .v7-btn, .v11 .v7-on-ink .v7-btn, .v11 .v7-on-deep .v7-btn { background: #fff; color: var(--v7-hlbka); box-shadow: inset 0 0 0 3px var(--v7-hlbka), 0 .3rem 0 var(--v7-hlbka); }
+  .v11 .v7-btn:hover, .v11 .v7-dark .v7-btn:hover { background: var(--v11-obloha); transform: translateY(2px); box-shadow: inset 0 0 0 3px var(--v7-hlbka), 0 .15rem 0 var(--v7-hlbka); }
+  .v11 .v7-cta:active, .v11 .v7-btn:active { transform: translateY(.3rem); box-shadow: inset 0 0 0 3px var(--v7-hlbka); }
+  .v11 .v7-cta:active { box-shadow: none; }
+  .v11 .v7-on-blue .v7-btn { color: var(--v7-cierna); box-shadow: inset 0 0 0 3px var(--v7-cierna), 0 .3rem 0 var(--v7-cierna); }
+
+  /* hero: pale panel, ink and deep-blue text */
+  .v11 .v7-hero { background: var(--v7-hladina); }
+  .v11 .v7-panel { background: var(--v7-hladina); color: var(--v7-cierna); }
+  .v11 .v7-panel .text-white { color: var(--v7-cierna); }
+  .v11 .v7-h1 { color: var(--v7-hlbka); }
+  .v11 .v7-sticker { background: var(--v7-modra); color: var(--v7-cierna); }
+  .v11 .v7-status { background: #fff; box-shadow: inset 0 0 0 3px var(--v7-modra); border-radius: .8rem; }
+  .v11 .v7 [data-state] .status-dot, .v11 [data-state] .status-dot { background: #6b7a82; color: inherit; box-shadow: none; }
+  .v11 [data-state="open"] .status-dot { background: #1f9d55; box-shadow: 0 0 0 4px rgb(31 157 85 / .22); }
+  .v11 [data-state="later"] .status-dot { background: #d59a00; }
+  .v11 [data-state="closed"] .status-dot { background: #c2410c; }
+  .v11 .v7-pause { background: #fff; color: var(--v7-cierna); box-shadow: 3px 3px 0 var(--v7-modra); border-radius: .6rem; }
+  .v11 .v7-pause:hover { background: var(--v11-obloha); }
+  .v11 .v7-pause:focus-visible { outline-color: var(--v7-cierna); box-shadow: none; }
+
+  /* the dark surfaces become warm / pale; the logo-blue bands stay (they are the cheerful ones) */
+  .v11 .v7-on-ink { background: var(--v11-piesok); color: var(--v7-cierna); }
+  .v11 .v7-on-deep { background: var(--v11-obloha); color: var(--v7-cierna); }
+  .v11 .v7-dark .v7-muted, .v11 .v7-on-deep .v7-muted { color: var(--v7-seda); }
+  .v11 .v7-on-ink .text-\[\#d6dde0\], .v11 .v7-on-ink .text-\[var\(--v7-modra\)\] { color: var(--v7-hlbka); }
+  .v11 .v7-slab:focus-within, .v11 .v7-slab.v7-on-ink:focus-within, .v11 .v7-slab.v7-on-deep:focus-within { outline-color: var(--v7-cierna); }
+  .v11 .v7-fact { border-top-color: var(--v7-modra); }
+  .v11 .v7-fact dd { color: var(--v7-hlbka); }
+  .v11 .v7-on-ink .v7-link, .v11 .v7-on-deep .v7-link { color: var(--v7-hlbka); }
+  .v11 .v7-accordion, .v11 .v7-accordion details { border-color: var(--v7-ciara); }
+  .v11 .v7-chip { box-shadow: inset 0 0 0 3px var(--v7-hlbka); color: var(--v7-hlbka); border-radius: .8rem; }
+  .v11 .v7-chip[aria-pressed="true"] { background: var(--v7-hlbka); color: #fff; }
+  .v11 .v7-thumb { border-radius: .8rem; background: var(--v11-obloha); }
+  .v11 [class*="border-[var(--v7-cierna)]"] { border-color: var(--v7-modra); }
+
+  /* footer + phone bar: light */
+  .v11 footer.v7-dark { background: var(--v7-hladina); color: var(--v7-cierna); border-top: 4px solid var(--v7-modra); }
+  .v11 footer .text-white, .v11 footer .text-\[\#d6dde0\] { color: var(--v7-cierna); }
+  .v11 footer .text-\[\#d6dde0\] { color: var(--v7-seda); }
+  .v11 footer .ring-1 { --tw-ring-color: var(--v7-hlbka); }
+  .v11 footer .hover\:bg-white\/10:hover { background: var(--v11-obloha); }
+  .v11 footer .border-t { border-color: var(--v7-ciara); }
+  .v11 .v7-bar { background: #fff; border-top: 4px solid var(--v7-modra); box-shadow: 0 -.5rem 1.5rem rgb(0 72 105 / .1); }
+  .v11 .v7-bar li:not(:nth-child(2)) a { color: var(--v7-hlbka); }
+}

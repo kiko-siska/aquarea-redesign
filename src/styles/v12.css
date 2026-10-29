@@ -1,0 +1,74 @@
+/*
+ * Experiment 12 · Hravá: V11's light palette plus a friendlier shape language.
+ * Ubuntu Sans (closest open face to the logo wordmark) in sentence case instead of condensed italic capitals,
+ * Onest for text, rounded sheets instead of hard angled edges, pill buttons, soft shadows.
+ * Loaded after v7.css and v11.css by /variants/12/ only. Same `utilities` layer trick as v11.css.
+ */
+@layer properties, theme, base, components, utilities;
+
+@layer utilities {
+  .v12 {
+    --v7-display: "Ubuntu Sans Variable", "Ubuntu Sans", ui-sans-serif, system-ui, sans-serif;
+    --v7-text: "Onest Variable", "Onest", ui-sans-serif, system-ui, sans-serif;
+    --cut: 2.25rem;
+    --v12-r: 1.5rem;
+    --v12-tien: 0 .75rem 2rem rgb(0 72 105 / .12);
+  }
+  @media (min-width: 768px) { .v12 { --cut: 3rem; } }
+
+  /* type: sentence case, upright, rounded humanist */
+  .v12 .v7-display { font-weight: 760; letter-spacing: -.012em; }
+  .v12 .v7-h1 { font-style: normal; text-transform: none; font-size: clamp(2.75rem, 5.6vw, 5.2rem); line-height: 1.02; }
+  .v12 .v7-h2 { font-style: normal; text-transform: none; font-size: clamp(2.2rem, 4.4vw, 3.9rem); line-height: 1.04; }
+  .v12 .v7-h3 { text-transform: none; font-size: clamp(1.6rem, 2.4vw, 2.1rem); line-height: 1.08; }
+  .v12 .uppercase { text-transform: none; }
+  .v12 .v7-nav a { text-transform: none; font-size: 1.05rem; border-radius: 999px; }
+  .v12 .v7-cta, .v12 .v7-btn { text-transform: none; font-size: 1.1rem; border-radius: 999px; padding-inline: 1.6rem; }
+  .v12 .v7-chip { text-transform: none; font-size: 1rem; border-radius: 999px; }
+  .v12 .v7-iconbtn, .v12 .v7-pause { border-radius: 999px; }
+  .v12 .v7-big-num, .v12 .v7-fact dd, .v12 .v7-price-row dd, .v12 .v7-sticker b { font-weight: 800; letter-spacing: -.02em; }
+  .v12 .v7-fact dd { font-size: clamp(2.6rem, 6vw, 4.2rem); }
+  .v12 .v7-price-row dd { font-size: clamp(2rem, 3.6vw, 2.8rem); }
+
+  /* header: floating pill line instead of a bar edge */
+  .v12 .v7-header { border-bottom: 0; box-shadow: 0 .4rem 1.5rem rgb(0 72 105 / .1); }
+
+  /* sheets: rounded tops instead of angled cuts */
+  .v12 .v7-band, .v12 .v7-band.v7-flip { clip-path: none; border-radius: var(--cut) var(--cut) 0 0; padding-block: calc(var(--cut) + 3rem) 4rem; }
+  @media (min-width: 768px) { .v12 .v7-band, .v12 .v7-band.v7-flip { padding-block: calc(var(--cut) + 4.5rem) 6rem; } }
+
+  /* hero panel */
+  .v12 .v7-panel { clip-path: none; border-radius: var(--v12-r) var(--v12-r) 0 0; margin-top: -1.5rem; padding-top: 2rem; }
+  @media (min-width: 1024px) {
+    .v12 .v7-panel { margin: 0; border-radius: 3rem 0 0 3rem; padding-left: 4rem; box-shadow: -1rem 0 3rem rgb(0 72 105 / .18); }
+  }
+  .v12 .v7-sticker { clip-path: none; border-radius: 1.1rem; box-shadow: 0 .3rem 0 rgb(0 72 105 / .25); padding: .4rem .8rem .5rem; }
+  .v12 .v7-sticker b { font-size: clamp(1.5rem, 4.8vw, 2.45rem); }
+  .v12 .v7-status { border-radius: 1.2rem; box-shadow: inset 0 0 0 3px var(--v7-modra), var(--v12-tien); }
+  .v12 .v7-on-ink[data-status] { border-radius: 1.2rem; }
+
+  /* zones: soft cards, each its own colour */
+  .v12 .v7-slab { clip-path: none; border-radius: var(--v12-r); overflow: hidden; box-shadow: var(--v12-tien); }
+  .v12 .v7-slab.v7-on-blue { background: var(--v11-obloha); }
+  .v12 .v7-slab.v7-on-deep { background: #fff; box-shadow: inset 0 0 0 3px var(--v11-obloha), var(--v12-tien); }
+  .v12 .v7-slab:focus-within { outline-offset: 3px; }
+  .v12 .v7-slab-body { padding: 1.4rem 1.5rem 1.8rem; }
+
+  /* everything that was clipped to an angled corner becomes round */
+  .v12 [style*="clip-path"] { clip-path: none !important; border-radius: var(--v12-r); }
+  .v12 [class*="border-[var(--v7-cierna)]"] { border-radius: var(--v12-r); overflow: hidden; border-width: 4px; }
+  .v12 .v7-thumb { border-radius: 1.1rem; }
+  .v12 .v7-lightbox { border-radius: var(--v12-r); }
+
+  /* lists: round the heavy rules down to hairlines */
+  .v12 .v7-fact { border-top-width: 5px; border-radius: 3px; }
+  .v12 .v7-price-row { border-bottom-width: 2px; }
+  .v12 .v7-flows { border-top-width: 3px; }
+  .v12 .v7-flow { border-bottom-width: 3px; }
+  .v12 .v7-flow-go { border-radius: 999px; }
+  .v12 .v7-on-ink[data-status] , .v12 .v7-on-blue .v7-flows { border-color: var(--v7-cierna); }
+
+  /* footer + phone bar */
+  .v12 footer.v7-dark { border-radius: var(--cut) var(--cut) 0 0; margin-top: calc(var(--cut) * -1); position: relative; }
+  .v12 .v7-bar { border-radius: 1.25rem 1.25rem 0 0; }
+}
