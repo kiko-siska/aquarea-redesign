@@ -132,3 +132,6 @@
 
 /* Screenshot mode (scripts/screenshot.mjs): full-page captures without smooth scroll. */
 html[data-shot] { scroll-behavior: auto !important; }
+
+/* paragraphs that only held a TODO note on builds with PUBLIC_HIDE_TODO=true would leave a gap */
+main p:empty { display: none; }

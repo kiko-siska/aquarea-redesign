@@ -21,6 +21,7 @@ jobs:
     env:
       SITE_URL: https://${{ github.repository_owner }}.github.io
       BASE_PATH: /${{ github.event.repository.name }}
+      PUBLIC_HIDE_TODO: 'true'   # no visible TODO notes on the published preview (owner request, 2026-10-29)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

@@ -3,8 +3,10 @@
  * Visible marker for information aquarea.sk doesn't provide (AGENTS.md rule 1).
  * Every instance carries data-todo, so the full list can be collected with:
  *   grep -rho 'data-todo="[^"]*"' dist | sort -u
+ * The published GitHub Pages preview is built with PUBLIC_HIDE_TODO=true (owner request, 2026-10-29): it renders nothing there.
  */
 interface Props { text: string; class?: string }
 const { text, class: cls } = Astro.props;
+const hide = import.meta.env.PUBLIC_HIDE_TODO === 'true';
 ---
-<span class:list={['todo-note', cls]} data-todo={text}><strong>TODO</strong> {text}</span>
+{!hide && <span class:list={['todo-note', cls]} data-todo={text}><strong>TODO</strong> {text}</span>}
