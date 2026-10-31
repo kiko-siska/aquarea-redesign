@@ -37,8 +37,9 @@
   .v12 .v7-band, .v12 .v7-band.v7-flip { clip-path: none; border-radius: var(--cut) var(--cut) 0 0; padding-block: calc(var(--cut) + 3rem) 4rem; }
   @media (min-width: 768px) { .v12 .v7-band, .v12 .v7-band.v7-flip { padding-block: calc(var(--cut) + 4.5rem) 6rem; } }
 
-  /* the next rounded sheet overlaps the hero by --cut: keep the services strip above it */
-  @media (min-width: 1024px) { .v12 .v7-stage .svc-strip { bottom: calc(var(--cut) + .75rem); } }
+  /* the photo ends in a straight edge: the first sheet doesn't ride up over it */
+  .v12 .v8-hero + .v7-band { margin-top: 0; border-radius: 0; padding-block-start: 3rem; }
+  @media (min-width: 768px) { .v12 .v8-hero + .v7-band { padding-block-start: 4.5rem; } }
 
   /* hero panel */
   .v12 .v7-panel { clip-path: none; border-radius: var(--v12-r) var(--v12-r) 0 0; margin-top: -1.5rem; padding-top: 2rem; }

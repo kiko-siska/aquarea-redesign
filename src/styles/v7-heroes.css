@@ -20,6 +20,11 @@
     .v8-photo { width: 58%; }
     .v8-hero { grid-template-columns: 46% 54%; }
   }
+  /* the photo ends in a straight edge (owner 2026-10-31): the first band no longer rides up over it with an angled top,
+     and on phones the text panel starts flat under the photo instead of cutting into it. The desktop panel keeps its angled left edge. */
+  .v8-hero + .v7-band { margin-top: 0; clip-path: none; padding-block-start: 3.5rem; }
+  @media (min-width: 768px) { .v8-hero + .v7-band { padding-block-start: 5rem; } }
+  @media (max-width: 1023px) { .v8-hero .v7-panel { clip-path: none; margin-top: 0; padding-top: 1.1rem; } }
   @media (prefers-reduced-motion: reduce) {
     .v7-stage:not([data-live]) .v8-photo img, .v7-stage[data-optin][data-paused] .v8-photo img { animation: none !important; }
     .v7-stage[data-optin]:not([data-paused]) .v8-photo img { animation-duration: 46s !important; animation-iteration-count: infinite !important; }
