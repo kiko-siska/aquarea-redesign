@@ -11,6 +11,7 @@
 import '@fontsource-variable/ubuntu-sans/wght.css';
 import '@fontsource-variable/onest/wght.css';
 import '../../../styles/v10.css';
+import '../../../styles/svc-strip.css';
 import '../../../lib/motion/motion.css';
 import { Image, getImage } from 'astro:assets';
 import Base from '../../../layouts/Base.astro';
@@ -20,6 +21,7 @@ import Wave from '../../../components/v10/Wave.astro';
 import Photo from '../../../components/shared/Photo.astro';
 import Icon from '../../../components/shared/Icon.astro';
 import Todo from '../../../components/shared/Todo.astro';
+import ServicesStrip from '../../../components/shared/ServicesStrip.astro';
 import StickyCta from '../../../components/shared/StickyCta.astro';
 import StatusScript from '../../../components/shared/StatusScript.astro';
 import { site, hours, prices, zones, diving, fff, highlight } from '../../../lib/content';
@@ -151,6 +153,7 @@ const priceGroups = [
               </div>
             </div>
           </div>
+          <ServicesStrip />
           <button type="button" class="v10-pause" data-v10-pause aria-pressed="false" aria-label="Pozastaviť prelet nad areálom" hidden></button>
           <div class="v10-chip-todo"><Todo text="Okraje fotky z AI, nahradiť skutočnou." /></div>
         </div>

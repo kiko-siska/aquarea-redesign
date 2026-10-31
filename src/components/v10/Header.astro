@@ -1,7 +1,8 @@
 ---
 /** V10 · Mapa z výšky: sticky header, 5 tabs + Zavolať / Rezervovať. Every tab scrolls inside the variant (DECISIONS 2026-10-05). */
 import { Image } from 'astro:assets';
-import logo from '../../assets/brand/logo.png';
+import wordmark from '../../assets/brand/logo-wordmark.png';
+import diver from '../../assets/brand/logo-diver.png';
 import Icon from '../shared/Icon.astro';
 import { site } from '../../lib/content';
 
@@ -19,7 +20,7 @@ const nav = [
   <div class="m-progress" aria-hidden="true"></div>
   <div class="v10-wrap flex h-16 items-center gap-2 md:h-[4.5rem] md:gap-3">
     <a href="./" class="mr-auto inline-flex min-h-11 items-center rounded-md" aria-label="Aquarea Čierna Voda, úvod">
-      <Image src={logo} alt="" width={150} height={56} class="h-9 w-auto md:h-11" loading="eager" />
+      <Image src={wordmark} alt="" width={172} height={88} class="h-10 w-auto md:h-12" loading="eager" />
     </a>
     <nav aria-label="Hlavná navigácia" class="v10-nav hidden lg:block">
       <ul class="flex items-center gap-0.5" role="list">{nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}</ul>
@@ -30,6 +31,9 @@ const nav = [
     <button type="button" class="v10-iconbtn v10-menu-btn lg:hidden" aria-expanded="false" aria-controls="v10-menu">
       <Icon name="menu" size={24} class="v10-open" /><Icon name="x" size={24} class="v10-close hidden" /><span class="sr-only">Menu</span>
     </button>
+    <a href="#potapanie" class="inline-flex min-h-11 shrink-0 items-center rounded-md" aria-label="Aquarea Dive Center, potápanie">
+      <Image src={diver} alt="" width={131} height={118} class="h-10 w-auto md:h-12" loading="eager" />
+    </a>
   </div>
   <div id="v10-menu" class="hidden border-t-2 border-[var(--cierna)] bg-white lg:hidden">
     <nav aria-label="Hlavná navigácia (mobil)" class="v10-wrap py-3">

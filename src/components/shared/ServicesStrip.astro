@@ -1,0 +1,15 @@
+---
+/**
+ * The six service tiles of the logo (lounger, kayak, diver, cable park, caravan, gastro) as a strip inside the hero photo.
+ * Cut from the logo by scripts/split-logo.mjs. Decorative: the zones are named in text right next to it.
+ * Position comes from the page's stylesheet (svc-strip.css: .v7-stage / .v10-stage).
+ */
+import { Image } from 'astro:assets';
+import strip from '../../assets/brand/logo-services.png';
+
+interface Props { class?: string }
+const { class: cls } = Astro.props;
+---
+<div class:list={['svc-strip', cls]}>
+  <Image src={strip} alt="" width={516} height={78} class="svc-strip-img" loading="eager" />
+</div>

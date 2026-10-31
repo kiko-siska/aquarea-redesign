@@ -18,6 +18,7 @@ import '@fontsource/barlow/latin-ext-700.css';
 import '../../../styles/v7.css';
 import '../../../styles/v7-heroes.css';
 import '../../../lib/motion/motion.css';
+import '../../../styles/svc-strip.css';
 import { Image, getImage } from 'astro:assets';
 import Base from '../../../layouts/Base.astro';
 import Header from '../../../components/v7/Header.astro';
@@ -25,6 +26,7 @@ import Footer from '../../../components/v7/Footer.astro';
 import Photo from '../../../components/shared/Photo.astro';
 import Icon from '../../../components/shared/Icon.astro';
 import Todo from '../../../components/shared/Todo.astro';
+import ServicesStrip from '../../../components/shared/ServicesStrip.astro';
 import StickyCta from '../../../components/shared/StickyCta.astro';
 import StatusScript from '../../../components/shared/StatusScript.astro';
 import { site, hours, prices, zones, diving, fff, highlight, photos as photoData } from '../../../lib/content';
@@ -111,7 +113,7 @@ const priceGroups = [
   bodyClass="v7"
   themeColor="#181818"
 >
-  <Header bookHref={book} />
+  <Header bookHref={book} split />
   <main id="obsah">
     <!-- Hero (V8): only the aerial photo. Real photo on phones, AI-extended square on desktop; solid angled panel on the right -->
     <section aria-labelledby="v7-title" class="v7-hero v8-hero" data-v7-hero>
@@ -122,6 +124,7 @@ const priceGroups = [
             <img src={aeM[1].src} srcset={aeMSet} sizes="100vw" width={aeReal.img.width} height={aeReal.img.height} alt="Letecký pohľad na jazero Aquarea, pláž, kemping a areál medzi poliami" fetchpriority="high" decoding="sync" />
           </picture>
         </div>
+        <ServicesStrip />
         <button type="button" class="v7-pause" data-v7-pause aria-pressed="false" aria-label="Zastaviť pomalý prelet nad areálom" hidden></button>
         <div class="v7-chip-todo"><Todo text="Rozšírenie fotografie na šírku vytvorila AI, nahradiť skutočnou širšou leteckou fotografiou." /></div>
       </div>

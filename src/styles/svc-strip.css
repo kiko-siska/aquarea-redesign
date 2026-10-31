@@ -1,0 +1,26 @@
+/*
+ * The logo's service tiles inside the hero photo (owner request 2026-10-31). Loaded by V8, V10, V11, V12.
+ * A white rounded plate keeps the saturated tiles readable on any part of the photo; the strip never takes pointer events.
+ */
+@layer properties, theme, base, components, utilities;
+
+@layer components {
+  .svc-strip { position: absolute; z-index: 4; padding: .35rem .5rem; border-radius: .9rem; background: rgb(255 255 255 / .94);
+    box-shadow: 0 .25rem 1rem rgb(0 40 70 / .28); line-height: 0; pointer-events: none; }
+  .svc-strip-img { display: block; height: 1.9rem; width: auto; }
+  @media (min-width: 768px) { .svc-strip-img { height: 2.4rem; } }
+
+  /* V8 / V11 / V12 (v7 stage): phones top-left; desktop bottom-left of the photo, the TODO chip moves to the top beside the pause button */
+  .v7-stage .svc-strip { left: .75rem; top: .75rem; }
+  @media (min-width: 1024px) {
+    .v7-stage .svc-strip { top: auto; bottom: 1rem; left: 1rem; }
+    .v7-stage:has(.svc-strip) .v7-chip-todo { bottom: auto; top: 1rem; }
+  }
+
+  /* V10: bottom right, level with the pause button and clear of the dock (bottom-left on desktop) */
+  .v10-stage .svc-strip { right: .75rem; bottom: .75rem; }
+  @media (min-width: 1024px) {
+    .v10-stage .svc-strip { right: 5.25rem; bottom: calc(1.25rem + clamp(1.25rem, 2.6vw, 2.25rem)); }
+  }
+  .v10-stage[data-covered] .svc-strip { visibility: hidden; }
+}

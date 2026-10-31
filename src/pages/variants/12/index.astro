@@ -2,7 +2,7 @@
 
 /**
  * Experiment 12 · Hravá: V8 turned light, rounded and friendly.
- * (Copy of V8's markup, restyled by its own stylesheet; V8 is untouched. Real drone photo only: the AI-extended image stays on V8/V9/V1/V10.)
+ * (Copy of V8's markup, restyled by its own stylesheet; V8 keeps its own look. Hero = V8's AI-extended placeholder photo, AGENTS.md sixth rule-5 exception.)
  * Direction 7 · Rýchla voda: bold and sporty, still fully usable (Phase 6, DECISIONS.md).
  * V8 = V7 without the diver: the hero is only the aerial photo (AI-extended on desktop, third rule-5 exception) beside a SOLID
  * angled panel; text never sits on moving water. Below: flat logo-colour bands with hard angled edges.
@@ -24,6 +24,7 @@ import '../../../styles/v11.css';
 import '@fontsource-variable/onest/wght.css';
 import '../../../styles/v12.css';
 import '../../../lib/motion/motion.css';
+import '../../../styles/svc-strip.css';
 import { Image, getImage } from 'astro:assets';
 import Base from '../../../layouts/Base.astro';
 import Header from '../../../components/v7/Header.astro';
@@ -31,17 +32,22 @@ import Footer from '../../../components/v7/Footer.astro';
 import Photo from '../../../components/shared/Photo.astro';
 import Icon from '../../../components/shared/Icon.astro';
 import Todo from '../../../components/shared/Todo.astro';
+import ServicesStrip from '../../../components/shared/ServicesStrip.astro';
 import StickyCta from '../../../components/shared/StickyCta.astro';
 import StatusScript from '../../../components/shared/StatusScript.astro';
 import { site, hours, prices, zones, diving, fff, highlight, photos as photoData } from '../../../lib/content';
 import { getPhoto } from '../../../lib/photos';
 import { priceShort, time, dateLong, dateRange } from '../../../lib/format';
+import aerialExpanded from '../../../assets/generated/v8-aerial-extended.jpg';
 import { url } from '../../../lib/url';
 
 const book = '#rezervacie';
+// desktop: the AI-extended square (placeholder, TODO chip); phones: the real, unextended drone photo
+const aeX = await Promise.all([900, 1300, 1800].map((w) => getImage({ src: aerialExpanded, width: w, format: 'webp', quality: 76 })));
+const aeSet = aeX.map((i, k) => `${i.src} ${[900, 1300, 1800][k]}w`).join(', ');
 const aeReal = getPhoto('dron-areal');
-const aeM = await Promise.all([480, 760, 1000, 1400].map((w) => getImage({ src: aeReal.img, width: w, format: 'webp', quality: 76 })));
-const aeMSet = aeM.map((i, k) => `${i.src} ${[480, 760, 1000, 1400][k]}w`).join(', ');
+const aeM = await Promise.all([480, 760, 1000].map((w) => getImage({ src: aeReal.img, width: w, format: 'webp', quality: 76 })));
+const aeMSet = aeM.map((i, k) => `${i.src} ${[480, 760, 1000][k]}w`).join(', ');
 const main = hours.periods.find((p) => p.id === 'hlavna')!;
 const [wk, we] = main.weekly!;
 const partnerFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/partners/*.png', { eager: true });
@@ -113,17 +119,20 @@ const priceGroups = [
   bodyClass="v7 v11 v12"
   themeColor="#f0faff"
 >
-  <Header bookHref={book} />
+  <Header bookHref={book} split />
   <main id="obsah">
     <!-- Hero (V8): only the aerial photo. Real photo on phones, AI-extended square on desktop; solid angled panel on the right -->
     <section aria-labelledby="v7-title" class="v7-hero v8-hero" data-v7-hero>
       <div class="v7-stage" data-v7-stage>
         <div class="v8-photo">
           <picture>
-            <img src={aeM[1].src} srcset={aeMSet} sizes="(min-width: 1024px) 58vw, 100vw" width={aeReal.img.width} height={aeReal.img.height} alt="Letecký pohľad na jazero Aquarea, pláž, kemping a areál medzi poliami" fetchpriority="high" decoding="sync" />
+            <source media="(min-width: 1024px)" srcset={aeSet} sizes="58vw" />
+            <img src={aeM[1].src} srcset={aeMSet} sizes="100vw" width={aeReal.img.width} height={aeReal.img.height} alt="Letecký pohľad na jazero Aquarea, pláž, kemping a areál medzi poliami" fetchpriority="high" decoding="sync" />
           </picture>
         </div>
+        <ServicesStrip />
         <button type="button" class="v7-pause" data-v7-pause aria-pressed="false" aria-label="Zastaviť pomalý prelet nad areálom" hidden></button>
+        <div class="v7-chip-todo"><Todo text="Rozšírenie fotografie na šírku vytvorila AI, nahradiť skutočnou širšou leteckou fotografiou." /></div>
       </div>
       <div class="v7-panel v7-dark">
         <div class="px-4 md:px-8 lg:px-0">

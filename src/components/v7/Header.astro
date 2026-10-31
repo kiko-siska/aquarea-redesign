@@ -2,12 +2,15 @@
 /** V7 · Rýchla voda: sticky header, 5 items + Rezervovať. Phone menu is a disclosure (aria-expanded), Esc closes it. */
 import { Image } from 'astro:assets';
 import logo from '../../assets/brand/logo.png';
+import wordmark from '../../assets/brand/logo-wordmark.png';
+import diver from '../../assets/brand/logo-diver.png';
 import Icon from '../shared/Icon.astro';
 import { site } from '../../lib/content';
 import { url } from '../../lib/url';
 
-interface Props { bookHref?: string }
-const { bookHref = '#rezervacie' } = Astro.props;
+/** split: the logo cut in two (owner 2026-10-31): name + tagline on the left, the Dive Center badge on the right. */
+interface Props { bookHref?: string; split?: boolean }
+const { bookHref = '#rezervacie', split = false } = Astro.props;
 const nav = [
   { href: '#zony', label: 'Pláž' },
   { href: '#zony', label: 'Pobyt' },
@@ -20,7 +23,9 @@ const nav = [
   <div class="m-progress" aria-hidden="true"></div>
   <div class="v7-wrap flex h-16 items-center gap-2 md:h-[4.5rem] md:gap-4">
     <a href="./" class="mr-auto inline-flex min-h-11 items-center rounded-md" aria-label="Aquarea Čierna Voda, úvod">
-      <Image src={logo} alt="" width={150} height={56} class="h-9 w-auto md:h-11" loading="eager" />
+      {split
+        ? <Image src={wordmark} alt="" width={172} height={88} class="h-10 w-auto md:h-12" loading="eager" />
+        : <Image src={logo} alt="" width={150} height={56} class="h-9 w-auto md:h-11" loading="eager" />}
     </a>
     <nav aria-label="Hlavná navigácia" class="v7-nav hidden lg:block">
       <ul class="flex items-center gap-1" role="list">{nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}</ul>
@@ -31,6 +36,11 @@ const nav = [
     <button type="button" class="v7-iconbtn v7-menu-btn lg:hidden" aria-expanded="false" aria-controls="v7-menu">
       <Icon name="menu" size={24} class="v7-open" /><Icon name="x" size={24} class="v7-close hidden" /><span class="sr-only">Menu</span>
     </button>
+    {split && (
+      <a href="#v7-dive" class="inline-flex min-h-11 shrink-0 items-center rounded-md" aria-label="Aquarea Dive Center, potápanie">
+        <Image src={diver} alt="" width={131} height={118} class="h-10 w-auto md:h-12" loading="eager" />
+      </a>
+    )}
   </div>
   <div id="v7-menu" class="hidden border-t-4 border-[var(--v7-cierna)] bg-white lg:hidden">
     <nav aria-label="Hlavná navigácia (mobil)" class="v7-wrap py-3">
