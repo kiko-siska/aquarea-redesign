@@ -131,10 +131,10 @@
 
   /* drone drift: transform only, runs only while JS made the stage live; paused off-screen, covered, while the
      flight scrolls, on pause, and while a pin is hovered or focused */
-  .v10-stage[data-live] .v10-drift { animation: v10-drift 46s ease-in-out infinite alternate; }
+  .v10-stage[data-live] .v10-drift { animation: v10-drift 5s cubic-bezier(.22, 1, .36, 1) 1 both; } /* one 5 s settle, then still: no pause button, so it must stop within 5 s (WCAG 2.2.2) */
   .v10-stage:is([data-paused], [data-offscreen], [data-covered], [data-flying]) .v10-drift,
   .v10-stage:has(.v10-pin:hover, .v10-pin:focus-visible) .v10-drift { animation-play-state: paused; }
-  @keyframes v10-drift { from { transform: scale(1.015) translate3d(0, 0, 0); } to { transform: scale(1.075) translate3d(-1.1%, -.8%, 0); } }
+  @keyframes v10-drift { from { transform: scale(1.06) translate3d(-1.1%, -.8%, 0); } to { transform: scale(1) translate3d(0, 0, 0); } }
   .v10-stage[data-covered] .v10-scale { visibility: hidden; }
 
   /* pins: a dot exactly on the verified spot + a solid label plate (no text on the photo) */

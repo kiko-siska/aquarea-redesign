@@ -14,13 +14,13 @@
   .v7-stage .svc-strip { left: .75rem; top: .75rem; }
   @media (min-width: 1024px) {
     .v7-stage .svc-strip { top: auto; bottom: 1rem; left: 1rem; }
-    .v7-stage:has(.svc-strip) .v7-chip-todo { bottom: auto; top: 1rem; }
+    .v7-stage:has(.svc-strip) .v7-chip-todo { bottom: auto; top: 1rem; left: 1rem; }
   }
 
-  /* V10: bottom right, level with the pause button and clear of the dock (bottom-left on desktop) */
+  /* V10: bottom right, clear of the dock (bottom-left on desktop) */
   .v10-stage .svc-strip { right: .75rem; bottom: .75rem; }
   @media (min-width: 1024px) {
-    .v10-stage .svc-strip { right: 5.25rem; bottom: calc(1.25rem + clamp(1.25rem, 2.6vw, 2.25rem)); }
+    .v10-stage .svc-strip { right: 1.5rem; bottom: calc(1.25rem + clamp(1.25rem, 2.6vw, 2.25rem)); }
   }
   .v10-stage[data-covered] .svc-strip { visibility: hidden; }
 }

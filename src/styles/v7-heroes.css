@@ -12,10 +12,10 @@
   /* ---------- V8: only the aerial photo ---------- */
   .v8-photo { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: var(--v7-hlbka); }
   .v8-photo img { display: block; width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 55%; }
-  /* the camera drifts slowly over the area (transform only; runs only while JS made the stage live, pausable) */
-  .v7-stage[data-live] .v8-photo img { animation: v8-drift 46s ease-in-out infinite alternate; }
+  /* the camera settles over the area once, in 5 s, then stays still (no pause button; moving content must stop within 5 s, WCAG 2.2.2) */
+  .v7-stage[data-live] .v8-photo img { animation: v8-drift 5s cubic-bezier(.22, 1, .36, 1) 1 both; }
   .v7-stage[data-paused] .v8-photo img, .v7-stage[data-offscreen] .v8-photo img { animation-play-state: paused; }
-  @keyframes v8-drift { from { transform: scale(1.02) translate3d(0, 0, 0); } to { transform: scale(1.12) translate3d(-2.2%, -1.6%, 0); } }
+  @keyframes v8-drift { from { transform: scale(1.07) translate3d(-1.2%, -.9%, 0); } to { transform: scale(1) translate3d(0, 0, 0); } }
   @media (min-width: 1024px) {
     .v8-photo { width: 58%; }
     .v8-hero { grid-template-columns: 46% 54%; }

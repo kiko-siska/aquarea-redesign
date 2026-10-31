@@ -132,7 +132,6 @@ const priceGroups = [
           </picture>
         </div>
         <ServicesStrip />
-        <button type="button" class="v7-pause" data-v7-pause aria-pressed="false" aria-label="Zastaviť pomalý prelet nad areálom" hidden></button>
         <div class="v7-chip-todo"><Todo text="Rozšírenie fotografie na šírku vytvorila AI, nahradiť skutočnou širšou leteckou fotografiou." /></div>
       </div>
       <div class="v7-panel v7-dark">
@@ -317,9 +316,8 @@ const priceGroups = [
         </ul>
         <div class="mt-14 flex flex-wrap items-center justify-between gap-3">
           <h3 id="v7-partners" class="v7-display text-2xl uppercase">Certifikácie a partneri Dive Centra</h3>
-          <button type="button" class="v7-btn !min-h-11 !px-4 !text-base" aria-pressed="false" data-marquee-toggle hidden>Pozastaviť pohyb</button>
         </div>
-        <div class="m-marquee mt-6" data-marquee aria-labelledby="v7-partners" role="group">
+        <div class="m-marquee mt-6" aria-labelledby="v7-partners" role="group">
           <ul class="m-marquee-track" role="list">
             {site.partners.map((p) => {
               const img = partnerFiles[`/src/assets/partners/${p.file}`].default;
