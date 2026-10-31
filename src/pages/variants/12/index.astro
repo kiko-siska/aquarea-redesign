@@ -25,6 +25,7 @@ import '@fontsource-variable/onest/wght.css';
 import '../../../styles/v12.css';
 import '../../../lib/motion/motion.css';
 import '../../../styles/svc-strip.css';
+import '../../../styles/cta-dock.css';
 import { Image, getImage } from 'astro:assets';
 import Base from '../../../layouts/Base.astro';
 import Header from '../../../components/v7/Header.astro';
@@ -142,7 +143,7 @@ const priceGroups = [
           <ul class="v7-price-strip mt-3 sm:mt-4" role="list">
             {heroFacts.map((f) => <li class="v7-sticker"><b class="v7-num">{f.value}</b><span>{f.label}</span></li>)}
           </ul>
-          <div class="mt-4 flex flex-wrap gap-3 sm:mt-5">
+          <div data-hero-cta class="mt-4 flex flex-wrap gap-3 sm:mt-5">
             <a href={book} class="v7-cta">Rezervovať</a>
             <a href={`tel:${site.contacts.info.tel}`} class="v7-btn"><Icon name="phone" size={18} />Zavolať</a>
           </div>

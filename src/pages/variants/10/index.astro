@@ -12,6 +12,7 @@ import '@fontsource-variable/ubuntu-sans/wght.css';
 import '@fontsource-variable/onest/wght.css';
 import '../../../styles/v10.css';
 import '../../../styles/svc-strip.css';
+import '../../../styles/cta-dock.css';
 import '../../../lib/motion/motion.css';
 import { Image, getImage } from 'astro:assets';
 import Base from '../../../layouts/Base.astro';
@@ -120,7 +121,7 @@ const priceGroups = [
             <span class="status-dot" aria-hidden="true"></span>
             <p data-status-text>Otváracie hodiny</p>
           </div>
-          <div class="v10-dock-actions">
+          <div class="v10-dock-actions" data-hero-cta>
             <a href={book} class="v10-cta">Rezervovať</a>
             <a href={`tel:${site.contacts.info.tel}`} class="v10-btn"><Icon name="phone" size={18} />Zavolať</a>
           </div>

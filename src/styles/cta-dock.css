@@ -1,0 +1,19 @@
+/*
+ * Navbar call / book buttons that appear once the hero's own pair has scrolled away (src/lib/ctaDock.ts).
+ * Three nested boxes: .cta-dock animates its grid track 0fr → 1fr (the nav links glide aside, no jump),
+ * .cta-dock-clip clips while collapsed, .cta-dock-pad leaves room for the buttons' shadows and focus rings.
+ * Collapsed buttons are visibility:hidden, so they are not in the tab order or read out twice.
+ */
+@layer properties, theme, base, components, utilities;
+
+@layer components {
+  .cta-dock { display: none; grid-template-columns: 0fr; opacity: 0; visibility: hidden; transform: translateY(-.5rem);
+    transition: grid-template-columns .5s cubic-bezier(.22, 1, .36, 1), opacity .3s ease-out, transform .5s cubic-bezier(.22, 1, .36, 1), visibility 0s linear .5s; }
+  @media (min-width: 768px) { .cta-dock { display: grid; } }
+  .cta-dock-clip { min-width: 0; overflow: hidden; }
+  .cta-dock-pad { display: flex; align-items: center; gap: .5rem; padding: .4rem .5rem .55rem .4rem; white-space: nowrap; }
+  @media (min-width: 768px) { .cta-dock-pad { gap: .75rem; } }
+  [data-cta-docked] .cta-dock { grid-template-columns: 1fr; opacity: 1; visibility: visible; transform: none;
+    transition: grid-template-columns .5s cubic-bezier(.22, 1, .36, 1), opacity .4s ease-out .1s, transform .5s cubic-bezier(.22, 1, .36, 1), visibility 0s; }
+  @media (prefers-reduced-motion: reduce) { .cta-dock, [data-cta-docked] .cta-dock { transition: none; } }
+}

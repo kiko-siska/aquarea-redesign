@@ -17,6 +17,7 @@ const nav = [
 ];
 ---
 <header class="v10-header">
+  <noscript><style>.cta-dock{grid-template-columns:1fr;opacity:1;visibility:visible;transform:none}</style></noscript>
   <div class="m-progress" aria-hidden="true"></div>
   <div class="v10-wrap flex h-16 items-center gap-2 md:h-[4.5rem] md:gap-3">
     <a href="./" class="mr-auto inline-flex min-h-11 items-center rounded-md" aria-label="Aquarea Čierna Voda, úvod">
@@ -25,8 +26,10 @@ const nav = [
     <nav aria-label="Hlavná navigácia" class="v10-nav hidden lg:block">
       <ul class="flex items-center gap-0.5" role="list">{nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}</ul>
     </nav>
-    <a href={`tel:${site.contacts.info.tel}`} class="v10-btn hidden !min-h-11 md:inline-flex"><Icon name="phone" size={18} />Zavolať</a>
-    <a href={bookHref} class="v10-cta hidden !min-h-11 md:inline-flex">Rezervovať</a>
+    <div class="cta-dock"><div class="cta-dock-clip"><div class="cta-dock-pad">
+      <a href={`tel:${site.contacts.info.tel}`} class="v10-btn hidden !min-h-11 md:inline-flex"><Icon name="phone" size={18} />Zavolať</a>
+      <a href={bookHref} class="v10-cta hidden !min-h-11 md:inline-flex">Rezervovať</a>
+    </div></div></div>
     <a href={`tel:${site.contacts.info.tel}`} class="v10-iconbtn md:hidden"><Icon name="phone" size={22} /><span class="sr-only">Zavolať {site.contacts.info.phone}</span></a>
     <button type="button" class="v10-iconbtn v10-menu-btn lg:hidden" aria-expanded="false" aria-controls="v10-menu">
       <Icon name="menu" size={24} class="v10-open" /><Icon name="x" size={24} class="v10-close hidden" /><span class="sr-only">Menu</span>
@@ -49,6 +52,7 @@ const nav = [
   </div>
 </header>
 <script>
+  import { initCtaDock } from '../../lib/ctaDock';
   const btn = document.querySelector<HTMLButtonElement>('.v10-menu-btn');
   const menu = document.getElementById('v10-menu');
   const toggle = (open: boolean) => {
@@ -62,4 +66,5 @@ const nav = [
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && btn?.getAttribute('aria-expanded') === 'true') { toggle(false); btn.focus(); }
   });
+  initCtaDock(document.querySelector<HTMLElement>('header:has(.cta-dock)'));
 </script>
